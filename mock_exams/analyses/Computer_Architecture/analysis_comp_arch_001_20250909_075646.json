@@ -1,0 +1,14 @@
+{
+  "course_name": "Computer Architecture",
+  "exam_id": "comp_arch_001",
+  "student_score": 85,
+  "topics_performance": {
+    "CPU Architecture": 90,
+    "Memory Systems": 80,
+    "Cache Design": 85
+  },
+  "recommendations": [
+    "Focus on cache coherency",
+    "Review pipeline stages"
+  ]
+}

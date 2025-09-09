@@ -1,0 +1,23 @@
+{
+  "moodle": {
+    "url": "https://moodle.unive.it",
+    "token": "697e5027b43d1fc553c60564ffbb65ba",
+    "auto_login": true
+  },
+  "gmail": {
+    "credentials_file": "api_keys/credentials.json",
+    "token_file": "api_keys/gmail_token.json",
+    "auto_setup": true
+  },
+  "claude": {
+    "api_key": "",
+    "auto_load": true
+  },
+  "notifications": {
+    "enabled": true,
+    "methods": [
+      "desktop",
+      "sound"
+    ]
+  }
+}

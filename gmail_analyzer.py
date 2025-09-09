@@ -45,12 +45,20 @@ class GmailAnalyzer:
         # Token yoksa veya geçersizse yeni al
         if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
+                print("🔄 Token yenileniyor...")
                 creds.refresh(Request())
             else:
                 if not os.path.exists(self.credentials_file):
                     print(f"❌ {self.credentials_file} dosyası bulunamadı!")
                     print("Google Cloud Console'dan indirip bu dosyaya kaydedin.")
-                    return
+                    raise Exception("credentials.json bulunamadı")
+                
+                print("🌐 Browser açılıyor, Gmail erişimi için Google'da authorize edin...")
+                print("📋 Adımlar:")
+                print("   1. Google hesabınızı seçin (907842@stud.unive.it)")  
+                print("   2. 'Allow' veya 'İzin ver' butonuna tıklayın")
+                print("   3. 'The authentication flow has completed' mesajını görene kadar bekleyin")
+                print("   4. Browser'ı kapatın ve terminale dönün")
                 
                 flow = InstalledAppFlow.from_client_secrets_file(
                     self.credentials_file, self.SCOPES)
@@ -65,6 +73,7 @@ class GmailAnalyzer:
             print("✅ Gmail API bağlantısı kuruldu")
         except Exception as e:
             print(f"❌ Gmail API hatası: {e}")
+            raise e
     
     def get_university_emails(self, days_back: int = 7) -> List[Dict]:
         """Üniversite maillerini getir"""
@@ -344,23 +353,129 @@ class GmailAnalyzer:
         return summary
 
 def setup_gmail_api():
-    """Gmail API kurulumunu yap"""
+    """Gmail API kurulumunu yap - otomatik yapılandırma ile"""
+    from api_config import api_config
+    
     print("🔧 Gmail API Kurulumu")
     print("-" * 30)
-    print("1. Google Cloud Console'a gidin: https://console.cloud.google.com/")
-    print("2. Yeni proje oluşturun veya mevcut birini seçin")
-    print("3. Gmail API'yi etkinleştirin")
-    print("4. OAuth 2.0 kimlik bilgileri oluşturun (Desktop application)")
-    print("5. JSON dosyasını 'credentials.json' olarak kaydedin")
-    print()
     
-    if not os.path.exists('credentials.json'):
-        print("❌ credentials.json dosyası bulunamadı!")
-        print("Lütfen Google Cloud Console'dan indirip bu klasöre kaydedin.")
-        return None
+    # API config'den Gmail ayarlarını al
+    gmail_config = api_config.get_gmail_config()
+    credentials_file = gmail_config.get('credentials_file', 'api_keys/credentials.json')
     
-    analyzer = GmailAnalyzer()
-    return analyzer
+    if not os.path.exists(credentials_file):
+        print(f"❌ {credentials_file} dosyası bulunamadı!")
+        
+        # Eski konumda var mı?
+        if os.path.exists('credentials.json'):
+            print("🔄 credentials.json api_keys/ klasörüne taşınıyor...")
+            api_config.copy_gmail_credentials('credentials.json')
+            credentials_file = gmail_config.get('credentials_file', 'api_keys/credentials.json')
+        else:
+            print("\n📋 GMAIL API KURULUM ADIMLARİ:")
+            print("1. https://console.cloud.google.com/ → Yeni proje oluştur")
+            print("2. APIs & Services → Library → 'Gmail API' etkinleştir")
+            print("3. APIs & Services → Credentials → 'OAuth client ID' oluştur")
+            print("4. Application type: 'Desktop application'")
+            print(f"5. JSON dosyasını '{credentials_file}' olarak kaydet")
+            print("6. OAuth consent screen: External seç, app bilgilerini doldur")
+            print("\n💡 ŞİMDİLİK DEMO MODUNDA ÇALIŞACAK")
+            return DemoGmailAnalyzer()
+    else:
+        print(f"✅ Gmail credentials mevcut: {credentials_file}")
+    
+    # Gerçek Gmail API'yi dene
+    try:
+        print("🔄 Gmail API bağlantısı deneniyor...")
+        analyzer = GmailAnalyzer(credentials_file=credentials_file)
+        return analyzer
+    except Exception as e:
+        print(f"⚠️  OAuth hatası: {e}")
+        print("💡 Test user olarak kendinizi ekleyin: OAuth consent screen → Add Users")
+        print("💡 DEMO MODU'na geçiliyor...")
+        return DemoGmailAnalyzer()
+
+class DemoGmailAnalyzer:
+    """Gmail API olmadan demo verileri"""
+    
+    def get_university_emails(self, days_back: int = 7) -> List[Dict]:
+        """Demo university emails"""
+        print(f"📧 DEMO MOD: Son {days_back} günün örnek üniversite mailleri")
+        
+        demo_emails = [
+            {
+                'id': 'demo1',
+                'subject': '[IMPORTANT] Midterm Exam Schedule - Machine Learning Course',
+                'from': 'courses@unive.it',
+                'date': (datetime.now() - timedelta(days=1)).isoformat(),
+                'body_preview': 'Dear students, the midterm exam for Machine Learning course is scheduled for October 15th at 10:00 AM in Room A1...',
+                'full_body': 'Dear students, the midterm exam for Machine Learning course is scheduled for October 15th at 10:00 AM in Room A1. Please bring your student ID and calculator.',
+                'priority_score': 35,
+                'priority_level': 'CRITICAL',
+                'category': 'EXAM',
+                'action_required': True,
+                'deadlines': ['15/10/2024'],
+                'keywords': ['IMPORTANT', 'ML', '2024']
+            },
+            {
+                'id': 'demo2', 
+                'subject': 'Assignment 3 Due Date Extended',
+                'from': 'prof.rossi@unive.it',
+                'date': (datetime.now() - timedelta(days=2)).isoformat(),
+                'body_preview': 'Hello class, due to technical issues, Assignment 3 deadline has been extended to October 20th...',
+                'full_body': 'Hello class, due to technical issues, Assignment 3 deadline has been extended to October 20th. Please submit via Moodle.',
+                'priority_score': 25,
+                'priority_level': 'HIGH',
+                'category': 'ASSIGNMENT',
+                'action_required': True,
+                'deadlines': ['20/10/2024'],
+                'keywords': ['Assignment', '20']
+            },
+            {
+                'id': 'demo3',
+                'subject': 'New Course Materials Available',
+                'from': 'library@ca-foscari.it', 
+                'date': (datetime.now() - timedelta(days=3)).isoformat(),
+                'body_preview': 'New digital resources have been added to the library for Data Science students...',
+                'full_body': 'New digital resources have been added to the library for Data Science students. Access them through the online portal.',
+                'priority_score': 15,
+                'priority_level': 'MEDIUM',
+                'category': 'COURSE',
+                'action_required': False,
+                'deadlines': [],
+                'keywords': ['Data', 'Science']
+            }
+        ]
+        
+        print(f"✅ {len(demo_emails)} demo mail yüklendi")
+        return demo_emails
+    
+    def generate_email_summary(self, emails: List[Dict]) -> Dict:
+        """Email özetini oluştur"""
+        if not emails:
+            return {"message": "Mail bulunamadı"}
+        
+        summary = {
+            'total_emails': len(emails),
+            'critical_count': len([e for e in emails if e['priority_level'] == 'CRITICAL']),
+            'high_count': len([e for e in emails if e['priority_level'] == 'HIGH']),
+            'categories': {},
+            'action_required_count': len([e for e in emails if e['action_required']]),
+            'top_senders': {},
+            'recent_deadlines': []
+        }
+        
+        # Kategori dağılımı
+        for email in emails:
+            category = email['category']
+            summary['categories'][category] = summary['categories'].get(category, 0) + 1
+        
+        # En çok mail gönderen
+        for email in emails:
+            sender = email['from']
+            summary['top_senders'][sender] = summary['top_senders'].get(sender, 0) + 1
+        
+        return summary
 
 if __name__ == "__main__":
     # Test

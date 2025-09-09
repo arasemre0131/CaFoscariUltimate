@@ -165,6 +165,139 @@ class MoodleAPI:
             })
         
         return results
+
+    def get_forums_by_courses(self, course_ids: List[int] = None) -> List[Dict]:
+        """Derslerdeki forumları getir"""
+        if not course_ids:
+            courses = self.get_user_courses()
+            course_ids = [c['id'] for c in courses]
+        
+        forums = self._api_call('mod_forum_get_forums_by_courses', {'courseids': course_ids})
+        
+        processed_forums = []
+        # API response is direct list of forums
+        for forum in forums if isinstance(forums, list) else []:
+            # Intro dosyalarından da içerik topla
+            intro_files = []
+            for intro_file in forum.get('introfiles', []):
+                if intro_file.get('mimetype', ''):
+                    intro_files.append({
+                        'filename': intro_file.get('filename', ''),
+                        'fileurl': intro_file.get('fileurl', ''),
+                        'filesize': intro_file.get('filesize', 0),
+                        'mimetype': intro_file.get('mimetype', '')
+                    })
+            
+            processed_forums.append({
+                'id': forum.get('id'),
+                'course_id': forum.get('course'),
+                'name': forum.get('name', ''),
+                'intro': forum.get('intro', ''),
+                'type': forum.get('type', ''),
+                'discussions_count': forum.get('numdiscussions', 0),
+                'intro_files': intro_files,
+                'cmid': forum.get('cmid'),
+                'timemodified': datetime.fromtimestamp(forum.get('timemodified', 0)) if forum.get('timemodified') else None
+            })
+        
+        return processed_forums
+
+    def get_resources_by_courses(self, course_ids: List[int] = None) -> List[Dict]:
+        """Derslerdeki kaynakları (dosyalar) getir"""
+        if not course_ids:
+            courses = self.get_user_courses()
+            course_ids = [c['id'] for c in courses]
+        
+        response = self._api_call('mod_resource_get_resources_by_courses', {'courseids': course_ids})
+        
+        processed_resources = []
+        # API response has 'resources' key
+        for resource in response.get('resources', []):
+            # Intro dosyaları
+            intro_files = []
+            for intro_file in resource.get('introfiles', []):
+                if intro_file.get('mimetype', ''):
+                    intro_files.append({
+                        'filename': intro_file.get('filename', ''),
+                        'fileurl': intro_file.get('fileurl', ''),
+                        'filesize': intro_file.get('filesize', 0),
+                        'mimetype': intro_file.get('mimetype', '')
+                    })
+            
+            # İçerik dosyaları
+            content_files = []
+            for content_file in resource.get('contentfiles', []):
+                if content_file.get('mimetype', ''):
+                    content_files.append({
+                        'filename': content_file.get('filename', ''),
+                        'fileurl': content_file.get('fileurl', ''),
+                        'filesize': content_file.get('filesize', 0),
+                        'mimetype': content_file.get('mimetype', '')
+                    })
+            
+            processed_resources.append({
+                'id': resource.get('id'),
+                'course_id': resource.get('course'),
+                'coursemodule': resource.get('coursemodule'),
+                'name': resource.get('name', ''),
+                'intro': resource.get('intro', ''),
+                'section': resource.get('section'),
+                'visible': resource.get('visible'),
+                'intro_files': intro_files,
+                'contentfiles': content_files,
+                'timemodified': datetime.fromtimestamp(resource.get('timemodified', 0)) if resource.get('timemodified') else None
+            })
+        
+        return processed_resources
+
+    def get_pages_by_courses(self, course_ids: List[int] = None) -> List[Dict]:
+        """Derslerdeki sayfaları getir"""
+        if not course_ids:
+            courses = self.get_user_courses()
+            course_ids = [c['id'] for c in courses]
+        
+        response = self._api_call('mod_page_get_pages_by_courses', {'courseids': course_ids})
+        
+        processed_pages = []
+        # API response has 'pages' key
+        for page in response.get('pages', []):
+            # Intro dosyaları
+            intro_files = []
+            for intro_file in page.get('introfiles', []):
+                if intro_file.get('mimetype', ''):
+                    intro_files.append({
+                        'filename': intro_file.get('filename', ''),
+                        'fileurl': intro_file.get('fileurl', ''),
+                        'filesize': intro_file.get('filesize', 0),
+                        'mimetype': intro_file.get('mimetype', '')
+                    })
+            
+            # İçerik dosyaları
+            content_files = []
+            for content_file in page.get('contentfiles', []):
+                if content_file.get('mimetype', ''):
+                    content_files.append({
+                        'filename': content_file.get('filename', ''),
+                        'fileurl': content_file.get('fileurl', ''),
+                        'filesize': content_file.get('filesize', 0),
+                        'mimetype': content_file.get('mimetype', '')
+                    })
+            
+            processed_pages.append({
+                'id': page.get('id'),
+                'course_id': page.get('course'),
+                'coursemodule': page.get('coursemodule'),
+                'name': page.get('name', ''),
+                'intro': page.get('intro', ''),
+                'content': page.get('content', ''),
+                'section': page.get('section'),
+                'visible': page.get('visible'),
+                'intro_files': intro_files,
+                'content_files': content_files,
+                'timemodified': datetime.fromtimestamp(page.get('timemodified', 0)) if page.get('timemodified') else None
+            })
+        
+        return processed_pages
     
     def _calculate_priority(self, due_timestamp: int) -> str:
         """Tarihe göre öncelik hesapla"""
@@ -211,7 +344,7 @@ class MoodleAPI:
             return "LOW"
     
     def get_full_course_data(self) -> Dict:
-        """Tüm ders verilerini toplu getir"""
+        """Tüm ders verilerini toplu getir - GELİŞTİRİLMİŞ VERSİYON"""
         print("📚 Moodle verileri çekiliyor...")
         
         # Dersleri getir
@@ -223,34 +356,156 @@ class MoodleAPI:
             print(f"   📖 {course['name']} içerikleri getiriliyor...")
             course['contents'] = self.get_course_contents(course['id'])
         
+        # Ek veri kaynakları
+        print("   📋 Ek kaynaklar getiriliyor...")
+        resources = self.get_resources_by_courses(course_ids)
+        pages = self.get_pages_by_courses(course_ids)
+        forums = self.get_forums_by_courses(course_ids)
+        
         # Ödevleri getir
         assignments = self.get_assignments(course_ids)
         
         # Takvim etkinliklerini getir
         events = self.get_calendar_events()
         
-        # PDF ve video linklerini topla
+        # PDF ve video linklerini topla - GELİŞTİRİLMİŞ
         pdfs = []
         videos = []
+        documents = []
         
+        # Ders içeriklerinden topla
         for course in courses:
             for section in course.get('contents', []):
                 for module in section.get('modules', []):
                     for content in module.get('contents', []):
-                        if content.get('mimetype', '').startswith('application/pdf'):
-                            pdfs.append({
-                                'course': course['name'],
-                                'name': content['filename'],
-                                'url': content['fileurl'],
-                                'size': content['filesize']
-                            })
-                        elif any(video_type in content.get('mimetype', '') for video_type in ['video/', 'audio/']):
-                            videos.append({
-                                'course': course['name'],
-                                'name': content['filename'],
-                                'url': content['fileurl'],
-                                'type': content['mimetype']
-                            })
+                        mimetype = content.get('mimetype', '').lower()
+                        file_data = {
+                            'course': course['name'],
+                            'course_id': course['id'],
+                            'section': section.get('section_name', ''),
+                            'module': module.get('name', ''),
+                            'name': content['filename'],
+                            'url': content['fileurl'],
+                            'size': content['filesize']
+                        }
+                        
+                        if mimetype.startswith('application/pdf'):
+                            pdfs.append(file_data)
+                        elif any(video_type in mimetype for video_type in ['video/', 'audio/']):
+                            videos.append({**file_data, 'type': mimetype})
+                        elif any(doc_type in mimetype for doc_type in ['application/msword', 'application/vnd.openxmlformats', 'text/']):
+                            documents.append({**file_data, 'type': mimetype})
+        
+        # Kaynaklardan (resources) ek dosyalar topla
+        for resource in resources:
+            course_name = next((c['name'] for c in courses if c['id'] == resource['course_id']), 'Unknown Course')
+            
+            # Intro dosyalarından
+            for intro_file in resource.get('intro_files', []):
+                mimetype = intro_file.get('mimetype', '').lower()
+                file_data = {
+                    'course': course_name,
+                    'course_id': resource['course_id'],
+                    'section': 'Resource Intro',
+                    'module': resource['name'],
+                    'name': intro_file.get('filename', ''),
+                    'url': intro_file.get('fileurl', ''),
+                    'size': intro_file.get('filesize', 0)
+                }
+                
+                if mimetype.startswith('application/pdf'):
+                    pdfs.append(file_data)
+                elif any(video_type in mimetype for video_type in ['video/', 'audio/']):
+                    videos.append({**file_data, 'type': mimetype})
+                elif any(doc_type in mimetype for doc_type in ['application/msword', 'application/vnd.openxmlformats', 'text/']):
+                    documents.append({**file_data, 'type': mimetype})
+            
+            # İçerik dosyalarından
+            for contentfile in resource.get('contentfiles', []):
+                mimetype = contentfile.get('mimetype', '').lower()
+                file_data = {
+                    'course': course_name,
+                    'course_id': resource['course_id'],
+                    'section': 'Resources',
+                    'module': resource['name'],
+                    'name': contentfile.get('filename', ''),
+                    'url': contentfile.get('fileurl', ''),
+                    'size': contentfile.get('filesize', 0)
+                }
+                
+                if mimetype.startswith('application/pdf'):
+                    pdfs.append(file_data)
+                elif any(video_type in mimetype for video_type in ['video/', 'audio/']):
+                    videos.append({**file_data, 'type': mimetype})
+                elif any(doc_type in mimetype for doc_type in ['application/msword', 'application/vnd.openxmlformats', 'text/']):
+                    documents.append({**file_data, 'type': mimetype})
+        
+        # Sayfalardan (pages) ek dosyalar topla
+        for page in pages:
+            course_name = next((c['name'] for c in courses if c['id'] == page['course_id']), 'Unknown Course')
+            
+            # Intro dosyalarından
+            for intro_file in page.get('intro_files', []):
+                mimetype = intro_file.get('mimetype', '').lower()
+                file_data = {
+                    'course': course_name,
+                    'course_id': page['course_id'],
+                    'section': 'Page Intro',
+                    'module': page['name'],
+                    'name': intro_file.get('filename', ''),
+                    'url': intro_file.get('fileurl', ''),
+                    'size': intro_file.get('filesize', 0)
+                }
+                
+                if mimetype.startswith('application/pdf'):
+                    pdfs.append(file_data)
+                elif any(video_type in mimetype for video_type in ['video/', 'audio/']):
+                    videos.append({**file_data, 'type': mimetype})
+                elif any(doc_type in mimetype for doc_type in ['application/msword', 'application/vnd.openxmlformats', 'text/']):
+                    documents.append({**file_data, 'type': mimetype})
+            
+            # İçerik dosyalarından
+            for content_file in page.get('content_files', []):
+                mimetype = content_file.get('mimetype', '').lower()
+                file_data = {
+                    'course': course_name,
+                    'course_id': page['course_id'],
+                    'section': 'Page Content',
+                    'module': page['name'],
+                    'name': content_file.get('filename', ''),
+                    'url': content_file.get('fileurl', ''),
+                    'size': content_file.get('filesize', 0)
+                }
+                
+                if mimetype.startswith('application/pdf'):
+                    pdfs.append(file_data)
+                elif any(video_type in mimetype for video_type in ['video/', 'audio/']):
+                    videos.append({**file_data, 'type': mimetype})
+                elif any(doc_type in mimetype for doc_type in ['application/msword', 'application/vnd.openxmlformats', 'text/']):
+                    documents.append({**file_data, 'type': mimetype})
+        
+        # Forumlardan dosyalar topla
+        for forum in forums:
+            course_name = next((c['name'] for c in courses if c['id'] == forum['course_id']), 'Unknown Course')
+            
+            for intro_file in forum.get('intro_files', []):
+                mimetype = intro_file.get('mimetype', '').lower()
+                file_data = {
+                    'course': course_name,
+                    'course_id': forum['course_id'],
+                    'section': 'Forum',
+                    'module': forum['name'],
+                    'name': intro_file.get('filename', ''),
+                    'url': intro_file.get('fileurl', ''),
+                    'size': intro_file.get('filesize', 0)
+                }
+                
+                if mimetype.startswith('application/pdf'):
+                    pdfs.append(file_data)
+                elif any(video_type in mimetype for video_type in ['video/', 'audio/']):
+                    videos.append({**file_data, 'type': mimetype})
+                elif any(doc_type in mimetype for doc_type in ['application/msword', 'application/vnd.openxmlformats', 'text/']):
+                    documents.append({**file_data, 'type': mimetype})
         
         result = {
             'courses': courses,
@@ -258,6 +513,10 @@ class MoodleAPI:
             'events': events,
             'pdfs': pdfs,
             'videos': videos,
+            'documents': documents,
+            'pages': pages,
+            'forums': forums,
+            'resources': resources,
             'last_updated': datetime.now().isoformat()
         }
         
@@ -267,28 +526,47 @@ class MoodleAPI:
         print(f"   📅 {len(events)} etkinlik")
         print(f"   📄 {len(pdfs)} PDF")
         print(f"   🎥 {len(videos)} video/ses dosyası")
+        print(f"   📋 {len(documents)} doküman")
+        print(f"   📰 {len(pages)} sayfa")
+        print(f"   💬 {len(forums)} forum")
         
         return result
 
 def setup_moodle_connection():
-    """Moodle bağlantısını kur"""
+    """Moodle bağlantısını kur - otomatik yapılandırma ile"""
+    from api_config import api_config
+    
     print("🔧 Moodle API kurulumu")
     print("-" * 30)
     
-    moodle_url = input("Moodle URL (https://moodle.unive.it): ").strip() or "https://moodle.unive.it"
+    # API config'den ayarları al
+    moodle_config = api_config.get_moodle_config()
     
-    print("\n📱 Moodle Web Services Token almak için:")
-    print("1. Moodle'a giriş yapın")
-    print("2. User menu > Preferences > User account > Security keys")
-    print("3. 'Create token for service' seçin")
-    print("4. Service: 'Moodle mobile web service'")
-    print("5. Token'ı kopyalayın")
+    # URL otomatik dolu
+    moodle_url = moodle_config.get('url', 'https://moodle.unive.it')
+    print(f"Moodle URL: {moodle_url}")
     
-    token = input("\nMoodle Web Services Token: ").strip()
+    # Token kontrolü
+    token = moodle_config.get('token')
     
     if not token:
-        print("❌ Token gerekli!")
-        return None
+        print("\n📱 Moodle Web Services Token almak için:")
+        print("1. Moodle'a giriş yapın")
+        print("2. User menu > Preferences > User account > Security keys")
+        print("3. 'Create token for service' seçin")
+        print("4. Service: 'Moodle mobile web service'")
+        print("5. Token'ı kopyalayın")
+        
+        token = input("\nMoodle Web Services Token: ").strip()
+        
+        if not token:
+            print("❌ Token gerekli!")
+            return None
+        
+        # Token'ı kaydet
+        api_config.set_moodle_token(token)
+    else:
+        print(f"✅ Token mevcut (api_keys klasöründen yüklendi)")
     
     # Bağlantıyı test et
     api = MoodleAPI(moodle_url, token)

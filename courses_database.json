@@ -1,0 +1,82 @@
+{
+  "1": {
+    "id": "1",
+    "name": "Computer Architecture",
+    "shortname": "COMP_ARCH",
+    "summary": "",
+    "last_updated": "2025-09-09T08:09:46.421581",
+    "pdfs": [
+      {
+        "name": "CPU Architecture.pdf",
+        "url": "http://moodle/cpu.pdf",
+        "size": 1024000,
+        "section": "Week 1",
+        "module": ""
+      },
+      {
+        "name": "Memory Systems.pdf",
+        "url": "http://moodle/memory.pdf",
+        "size": 2048000,
+        "section": "Week 2",
+        "module": ""
+      }
+    ],
+    "videos": [
+      {
+        "name": "Pipeline Introduction",
+        "url": "http://moodle/pipeline.mp4",
+        "type": "mp4",
+        "section": "Week 3",
+        "module": ""
+      }
+    ],
+    "documents": [],
+    "total_content": 3
+  },
+  "2": {
+    "id": "2",
+    "name": "Database Systems",
+    "shortname": "DB_SYS",
+    "summary": "",
+    "last_updated": "2025-09-09T08:09:46.421587",
+    "pdfs": [
+      {
+        "name": "Database Design.pdf",
+        "url": "http://moodle/dbdesign.pdf",
+        "size": 1536000,
+        "section": "Module 1",
+        "module": ""
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "name": "SQL Tutorial.docx",
+        "url": "http://moodle/sql.docx",
+        "type": "document",
+        "section": "Resources",
+        "module": ""
+      }
+    ],
+    "total_content": 2
+  },
+  "3": {
+    "id": "3",
+    "name": "Operating Systems",
+    "shortname": "OS",
+    "summary": "",
+    "last_updated": "2025-09-09T08:09:46.421589",
+    "pdfs": [],
+    "videos": [
+      {
+        "name": "Process Management",
+        "url": "http://moodle/processes.avi",
+        "type": "avi",
+        "section": "Chapter 2",
+        "module": ""
+      }
+    ],
+    "documents": [],
+    "total_content": 1
+  }
+}

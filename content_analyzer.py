@@ -33,13 +33,19 @@ except ImportError:
     print("⚠️  Video analiz için kurun: pip install opencv-python moviepy")
 
 class ContentAnalyzer:
-    def __init__(self, download_folder: str = "downloads"):
+    def __init__(self, download_folder: str = None):
         """
         İçerik analiz sistemi başlatıcısı
         Args:
             download_folder: İndirilen dosyaların bulunduğu klasör
         """
-        self.download_folder = download_folder
+        if download_folder is None:
+            # Storage manager klasörünü kullan
+            from storage_manager import StorageManager
+            sm = StorageManager()
+            self.download_folder = sm.get_path('courses')
+        else:
+            self.download_folder = download_folder
         self.analysis_cache = {}
         self.cache_file = "content_analysis_cache.json"
         self._load_cache()

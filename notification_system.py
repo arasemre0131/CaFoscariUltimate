@@ -238,7 +238,16 @@ class NotificationSystem:
                             if 'T' in assignment['due_date']:
                                 due_date = datetime.fromisoformat(assignment['due_date'].replace('Z', '+00:00'))
                             else:
-                                due_date = datetime.strptime(assignment['due_date'], '%Y-%m-%d')
+                                # Saat bilgisi varsa temizle
+                                date_part = assignment['due_date'].split(' ')[0]
+                                try:
+                                    due_date = datetime.strptime(date_part, '%Y-%m-%d')
+                                except:
+                                    # Alternatif format denemeleri
+                                    try:
+                                        due_date = datetime.strptime(assignment['due_date'], '%Y-%m-%d %H:%M:%S')
+                                    except:
+                                        due_date = datetime.strptime(assignment['due_date'][:10], '%Y-%m-%d')
                         else:
                             due_date = assignment['due_date']
                         
@@ -319,6 +328,12 @@ class NotificationSystem:
             if email.get('priority_level') in ['CRITICAL', 'HIGH']:
                 try:
                     email_date = datetime.fromisoformat(email['date'])
+                    
+                    # Timezone farklılıklarını çöz
+                    if email_date.tzinfo is not None and last_check_dt.tzinfo is None:
+                        last_check_dt = last_check_dt.replace(tzinfo=email_date.tzinfo)
+                    elif email_date.tzinfo is None and last_check_dt.tzinfo is not None:
+                        email_date = email_date.replace(tzinfo=last_check_dt.tzinfo)
                     
                     # Yeni email mi?
                     if email_date > last_check_dt:

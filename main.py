@@ -23,7 +23,10 @@ try:
     from content_analyzer import ContentAnalyzer
     from study_planner import StudyPlanner, interactive_setup as study_setup
     from mock_exam_generator import MockExamGenerator, interactive_mock_exam_generator
+    from mock_exam_system import MockExamSystem
+    from exam_analysis_system import ExamAnalysisSystem
     from notification_system import NotificationSystem, interactive_notification_system
+    from storage_manager import StorageManager
 except ImportError as e:
     print(f"❌ Modül import hatası: {e}")
     print("Lütfen tüm Python dosyalarının aynı klasörde olduğundan emin olun.")
@@ -52,12 +55,17 @@ class CaFoscariUltimateSystem:
         self.config = self._load_system_config()
         self.running = False
         
+        # Storage Manager - Dosya organizasyonu
+        self.storage_manager = StorageManager()
+        
         # Sistem bileşenleri
         self.moodle_api = None
         self.gmail_analyzer = None
         self.content_analyzer = ContentAnalyzer()
         self.study_planner = None
         self.mock_generator = None
+        self.mock_exam_system = MockExamSystem()
+        self.exam_analysis_system = None
         self.notification_system = NotificationSystem()
         
         # İstatistikler
@@ -125,11 +133,20 @@ class CaFoscariUltimateSystem:
         print("\n🔧 SİSTEM BİLEŞENLERİ KURULUYOR...")
         print("-" * 50)
         
-        # Claude API Key
-        if not self.config['ai_features']['claude_api_key']:
+        # Claude API Key - otomatik yükleme
+        from api_config import api_config
+        claude_config = api_config.get_claude_config()
+        claude_key = claude_config.get('api_key')
+        
+        if not claude_key:
             claude_key = input("Claude API Key (isteğe bağlı): ").strip()
             if claude_key:
-                self.config['ai_features']['claude_api_key'] = claude_key
+                api_config.set_claude_api_key(claude_key)
+        else:
+            print("✅ Claude API key mevcut (api_keys klasöründen yüklendi)")
+            
+        if claude_key:
+            self.config['ai_features']['claude_api_key'] = claude_key
         
         # Moodle kurulumu
         moodle_setup = input("Moodle entegrasyonu kurmak istiyor musunuz? (y/n): ").lower() == 'y'
@@ -476,14 +493,15 @@ class CaFoscariUltimateSystem:
             print("2. 🤖 AI analizi ve plan güncellemesi")
             print("3. ⚙️  Sistem bileşenlerini yapılandır")
             print("4. 🔔 Bildirim sistemi")
-            print("5. 📝 Mock sınav oluşturucu")
-            print("6. 📚 Çalışma planı sistemi")
-            print("7. ⏰ Otomatik senkronizasyon başlat/durdur")
-            print("8. 📊 Sistem durumu ve istatistikler")
-            print("9. 💾 Manuel backup oluştur")
-            print("10. ❌ Çıkış")
+            print("5. 📝 Mock sınav oluşturucu (Gelişmiş)")
+            print("6. 📊 Mock sınav analizi")
+            print("7. 📚 Çalışma planı sistemi")
+            print("8. ⏰ Otomatik senkronizasyon başlat/durdur")
+            print("9. 📊 Sistem durumu ve istatistikler")
+            print("10. 💾 Manuel backup oluştur")
+            print("11. ❌ Çıkış")
             
-            choice = input(f"\nSeçiminiz (1-10): ").strip()
+            choice = input(f"\nSeçiminiz (1-11): ").strip()
             
             if choice == "1":
                 sync_results = self.run_full_data_sync()
@@ -504,25 +522,49 @@ class CaFoscariUltimateSystem:
                 interactive_notification_system()
             
             elif choice == "5":
-                interactive_mock_exam_generator()
+                # Gelişmiş Mock Sınav Sistemi
+                print("\n🎓 GELİŞMİŞ MOCK SINAV SİSTEMİ")
+                print("=" * 40)
+                
+                # First sync Moodle data to mock exam system
+                if self.moodle_api:
+                    moodle_data = self.moodle_api.get_full_course_data()
+                    self.mock_exam_system.sync_with_moodle(moodle_data)
+                    print("✅ Moodle verileri mock exam sistemine senkronize edildi")
+                
+                # Initialize analysis system
+                if not self.exam_analysis_system:
+                    self.exam_analysis_system = ExamAnalysisSystem(self.mock_exam_system)
+                
+                self.mock_exam_system.create_mock_exam_interactive()
             
             elif choice == "6":
-                study_setup()
+                # Mock Sınav Analizi
+                print("\n📊 MOCK SINAV ANALİZ SİSTEMİ")
+                print("=" * 40)
+                
+                if not self.exam_analysis_system:
+                    self.exam_analysis_system = ExamAnalysisSystem(self.mock_exam_system)
+                
+                self.exam_analysis_system.analyze_uploaded_exam_interactive()
             
             elif choice == "7":
+                study_setup()
+            
+            elif choice == "8":
                 if status['running']:
                     self.stop_auto_sync()
                 else:
                     scheduler = self.start_auto_sync()
                     print("Otomatik senkronizasyon çalışıyor. Durdurmak için tekrar seçin.")
             
-            elif choice == "8":
+            elif choice == "9":
                 self._print_system_status(status)
             
-            elif choice == "9":
+            elif choice == "10":
                 self.create_backup()
             
-            elif choice == "10":
+            elif choice == "11":
                 if status['running']:
                     self.stop_auto_sync()
                 print("\n👋 CA' FOSCARI ULTIMATE SYSTEM KAPATILIYOR...")
