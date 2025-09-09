@@ -1,0 +1,6 @@
+MOCK EXAM - [CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25
+Course Code: 18874
+Generated: 2025-09-09 21:53:07
+================================================================================
+
+❌ Claude request failed: HTTPSConnectionPool(host='api.anthropic.com', port=443): Max retries exceeded with url: /v1/messages (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x10253dd30>: Failed to resolve 'api.anthropic.com' ([Errno 8] nodename nor servname provided, or not known)"))

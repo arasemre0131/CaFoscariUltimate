@@ -105,11 +105,15 @@ class APIConfigManager:
         key_file = os.path.join(self.config_dir, "claude_api_key.txt")
         if os.path.exists(key_file) and not claude_config.get('api_key'):
             with open(key_file, 'r', encoding='utf-8') as f:
-                api_key = f.read().strip()
-                if api_key:
-                    claude_config['api_key'] = api_key
-                    self.config['claude']['api_key'] = api_key
-                    self._save_config(self.config)
+                content = f.read()
+                # Yorumları ve boş satırları temizle
+                lines = [line.strip() for line in content.split('\n') if line.strip() and not line.strip().startswith('#')]
+                if lines:
+                    api_key = lines[0]  # İlk geçerli satırı al
+                    if api_key.startswith('sk-ant-'):
+                        claude_config['api_key'] = api_key
+                        self.config['claude']['api_key'] = api_key
+                        self._save_config(self.config)
         
         return claude_config
     

@@ -1,0 +1,93 @@
+{
+  "exam_id": "EXAM_18874_20250909_121938",
+  "course_id": "18874",
+  "course_name": "[CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25",
+  "created_at": "2025-09-09T12:19:38.560621",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Based on the course materials about Course Content, what is a fundamental concept?",
+      "question_type": "multiple_choice",
+      "topic": "Course Content",
+      "difficulty": "Basic",
+      "points": 3,
+      "options": [
+        "A) Core Course Content principles from course content",
+        "B) Unrelated general knowledge",
+        "C) Basic definitions",
+        "D) Advanced applications"
+      ],
+      "correct_answer": "A",
+      "explanation": "This fallback question should not appear - PDF analysis should provide real content about Course Content."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Based on the course materials about Theory, what is a fundamental concept?",
+      "question_type": "true_false",
+      "topic": "Theory",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [
+        "A) Core Theory principles from course content",
+        "B) Unrelated general knowledge",
+        "C) Basic definitions",
+        "D) Advanced applications"
+      ],
+      "correct_answer": "A",
+      "explanation": "This fallback question should not appear - PDF analysis should provide real content about Theory."
+    },
+    {
+      "question_number": 3,
+      "question_text": "Based on the course materials about Applications, what is a fundamental concept?",
+      "question_type": "short_answer",
+      "topic": "Applications",
+      "difficulty": "Advanced",
+      "points": 3,
+      "options": [
+        "A) Core Applications principles from course content",
+        "B) Unrelated general knowledge",
+        "C) Basic definitions",
+        "D) Advanced applications"
+      ],
+      "correct_answer": "A",
+      "explanation": "This fallback question should not appear - PDF analysis should provide real content about Applications."
+    },
+    {
+      "question_number": 4,
+      "question_text": "Based on the course materials about Problem Solving, what is a fundamental concept?",
+      "question_type": "multiple_choice",
+      "topic": "Problem Solving",
+      "difficulty": "Basic",
+      "points": 3,
+      "options": [
+        "A) Core Problem Solving principles from course content",
+        "B) Unrelated general knowledge",
+        "C) Basic definitions",
+        "D) Advanced applications"
+      ],
+      "correct_answer": "A",
+      "explanation": "This fallback question should not appear - PDF analysis should provide real content about Problem Solving."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Based on the course materials about Analysis, what is a fundamental concept?",
+      "question_type": "true_false",
+      "topic": "Analysis",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [
+        "A) Core Analysis principles from course content",
+        "B) Unrelated general knowledge",
+        "C) Basic definitions",
+        "D) Advanced applications"
+      ],
+      "correct_answer": "A",
+      "explanation": "This fallback question should not appear - PDF analysis should provide real content about Analysis."
+    }
+  ],
+  "total_questions": 25,
+  "time_limit": 90,
+  "topics_covered": [],
+  "adaptive_focus": []
+}

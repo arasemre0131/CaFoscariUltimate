@@ -1,0 +1,133 @@
+{
+  "exam_id": "EXAM_18874_20250909_124023",
+  "course_id": "18874",
+  "course_name": "[CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25",
+  "created_at": "2025-09-09T12:40:23.938918",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "According to the solution in the PDF, why is the formula Vn-1 i=1 Vn j=i+1 (¬pi ∨ ¬pj) true if and only if at most one of the propositions p1, p2, ..., pn is true?",
+      "question_type": "multiple_choice",
+      "topic": "Mathematical Logic",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) The formula is true if there are no two propositions that are both true",
+        "B) The formula is true if there is exactly one proposition that is true",
+        "C) The formula is true if there are at least two propositions that are true",
+        "D) The formula is true regardless of how many propositions are true"
+      ],
+      "correct_answer": "B",
+      "explanation": "The PDF solution explains that the formula Vn-1 i=1 Vn j=i+1 (¬pi ∨ ¬pj) is true if and only if at most one of the propositions p1, p2, ..., pn is true. This is because the formula checks that for every pair of propositions pi and pj, either pi is false or pj is false, which means that at most one of them can be true."
+    },
+    {
+      "question_number": 2,
+      "question_text": "The control flow of a program refers to the order in which the individual statements, instructions, or function calls of the program are executed.",
+      "question_type": "true_false",
+      "topic": "Control Flow",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "This statement is true based on the course materials. While the PDF content does not explicitly discuss control flow, the general concept of control flow, which describes the sequence of execution of program instructions, is a fundamental topic in computer science and programming that is covered in this Discrete Structures course."
+    },
+    {
+      "question_number": 3,
+      "question_text": "According to the materials, how many positive integers less than 1000 are divisible by 7?",
+      "question_type": "multiple_choice",
+      "topic": "Number Theory",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) 142",
+        "B) 994",
+        "C) 7",
+        "D) 12"
+      ],
+      "correct_answer": "A",
+      "explanation": "The materials state that the first positive integer divisible by 7 is 7, while the last positive integer less than 1000 divisible by 7 is 994. Since 7 = 1 * 7 and 994 = 142 * 7, there are 142 numbers divisible by 7 in the considered interval."
+    },
+    {
+      "question_number": 4,
+      "question_text": "The relation R on the set of all real numbers defined by (x,y) ∈ R if and only if x + y = 0 is symmetric.",
+      "question_type": "true_false",
+      "topic": "Set Theory",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "According to the solution provided in the PDF, if the relation R on the set of all real numbers is defined by (x,y) ∈ R if and only if x + y = 0, then R is symmetric. This is because if (x,y) ∈ R, then x + y = 0, and since the sum operation is commutative, this implies y + x = 0, hence (y,x) ∈ R."
+    },
+    {
+      "question_number": 5,
+      "question_text": "Explain the reasoning and steps to determine the number of positive integers less than 1000 that are divisible by 7 but not by 11.",
+      "question_type": "short_answer",
+      "topic": "Counting",
+      "difficulty": "Advanced",
+      "points": 3,
+      "options": [],
+      "correct_answer": "",
+      "explanation": "The key steps in this solution are:1. Identify the range of numbers divisible by 7 within the interval of 1 to 1000.2. Identify the range of numbers divisible by both 7 and 11 (i.e., divisible by 77) within the same interval.3. Subtract the numbers divisible by both 7 and 11 from the total numbers divisible by 7 to find the numbers divisible by 7 but not by 11.This approach demonstrates the student's understanding of counting concepts, such as divisibility, and the ability to apply them to solve a specific problem related to the course material."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Which of the following properties is not satisfied by the relation R where (x, y) ∈ R if and only if x + y = 0?",
+      "question_type": "multiple_choice",
+      "topic": "Tenses",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) Reflexive",
+        "B) Symmetric",
+        "C) Antisymmetric",
+        "D) Transitive"
+      ],
+      "correct_answer": "C",
+      "explanation": "According to the solutions provided in sol6.pdf, the relation R where (x, y) ∈ R if and only if x + y = 0 is not antisymmetric, as the PDF states: 'We have (3, -3) ∈ R and (-3, 3) ∈ R, but 3 ≠ -3, hence R is not anti-symmetric'."
+    },
+    {
+      "question_number": 7,
+      "question_text": "What formula does the professor prove for the expression 1/2 + 1/4 + 1/8 + ... + 1/2^n?",
+      "question_type": "multiple_choice",
+      "topic": "Proof Techniques",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) 1 - 1/2^n",
+        "B) 1/2 + 1/4 + 1/8 + ... + 1/2^n",
+        "C) 1 + 1/2 + 1/4 + 1/8 + ... + 1/2^n",
+        "D) 2^n - 1"
+      ],
+      "correct_answer": "A",
+      "explanation": "The professor proves that the formula for the given expression is 1 - 1/2^n, as shown in the solution to Exercise 11 in the 'Induction and Recursion' section of the course materials."
+    },
+    {
+      "question_number": 8,
+      "question_text": "The relation R where (x, y) ∈ R if and only if x + y = 0 is symmetric.",
+      "question_type": "true_false",
+      "topic": "Relations",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "According to the solution in the PDF, for the relation R where (x, y) ∈ R if and only if x + y = 0, the relation is symmetric. The PDF states: 'Assume (x, y) ∈ R, then x + y = 0. Since the sum operation is commutative, this implies y + x = 0, hence (y, x) ∈ R. We then conclude that R is symmetric.'"
+    }
+  ],
+  "total_questions": 25,
+  "time_limit": 90,
+  "topics_covered": [
+    "Mathematical Logic",
+    "Control Flow",
+    "Relative Clauses",
+    "Number Theory",
+    "Set Theory",
+    "Counting",
+    "Tenses",
+    "Modal Verbs",
+    "Induction",
+    "Proof Techniques",
+    "Relations"
+  ],
+  "adaptive_focus": []
+}

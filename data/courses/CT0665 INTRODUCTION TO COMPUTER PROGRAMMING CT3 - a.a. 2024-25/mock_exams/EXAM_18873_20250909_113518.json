@@ -1,0 +1,43 @@
+{
+  "exam_id": "EXAM_18873_20250909_113518",
+  "course_id": "18873",
+  "course_name": "[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25",
+  "created_at": "2025-09-09T11:35:18.794315",
+  "difficulty": "Intermediate",
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "What is the primary reference for information about the course [CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3)?",
+      "question_type": "multiple_choice",
+      "topic": "Introduction",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) The teacher's webpage",
+        "B) The calendar on the university website",
+        "C) The Moodle page for the course",
+        "D) The course syllabus"
+      ],
+      "correct_answer": "C",
+      "explanation": "According to the information provided in the PDF, the Moodle page for the course is the primary reference for information about the course, materials, and other details."
+    },
+    {
+      "question_number": 2,
+      "question_text": "Benchmarks are used to measure the performance of a computer system by running a standardized set of tasks.",
+      "question_type": "true_false",
+      "topic": "Benchmark",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "Benchmarks are a common tool used to evaluate the performance of computer hardware and software by running a standardized set of tasks and measuring the results. This allows for a fair comparison between different systems or configurations."
+    }
+  ],
+  "total_questions": 25,
+  "time_limit": 90,
+  "topics_covered": [
+    "Introduction",
+    "Benchmark"
+  ],
+  "adaptive_focus": []
+}

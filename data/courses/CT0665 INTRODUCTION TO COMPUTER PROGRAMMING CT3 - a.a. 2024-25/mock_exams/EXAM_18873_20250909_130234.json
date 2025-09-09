@@ -1,0 +1,223 @@
+{
+  "exam_id": "EXAM_18873_20250909_130234",
+  "course_id": "18873",
+  "course_name": "[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25",
+  "created_at": "2025-09-09T13:02:34.678657",
+  "difficulty": "Mixed",
+  "questions": [
+    {
+      "question_number": 1,
+      "question_text": "Consider the following code snippet that uses a do-while loop to calculate the length of a string:",
+      "question_type": "multiple_choice",
+      "topic": "Structures",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) The function correctly calculates the length of the string.",
+        "B) The function is incorrect because it forgets to count the last character of the string.",
+        "C) Segmentation fault - The function accesses invalid memory.",
+        "D) The function calculates the correct length for every string except for an empty string."
+      ],
+      "correct_answer": "A",
+      "explanation": "According to the PDF content, the provided code snippet correctly calculates the length of the string by using a do-while loop to iterate through the characters until the null terminator is reached."
+    },
+    {
+      "question_number": 2,
+      "question_text": "The function string_length() correctly calculates the length of the string by counting the termination character '\\0' in the length.",
+      "question_type": "true_false",
+      "topic": "Control Flow",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "Based on the code snippet provided in the 'ITCP_2024_2025_-_Test_2_without_answers.pdf', the function string_length() correctly calculates the length of the string by iterating through the characters until it reaches the termination character '\\0', and then returning the difference between the final pointer position and the start of the string."
+    },
+    {
+      "question_number": 3,
+      "question_text": "According to the PDFs, what is the purpose of the null terminator character '\\0' in C-style strings?",
+      "question_type": "multiple_choice",
+      "topic": "Arrays",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) To indicate the end of the string",
+        "B) To reserve memory for the string in the computer's RAM",
+        "C) To separate characters within the string",
+        "D) To store additional metadata about the string"
+      ],
+      "correct_answer": "A",
+      "explanation": "The PDFs state that in C programming, strings are implemented as arrays of characters terminated with the special '\\0' character, which indicates the end of the string."
+    },
+    {
+      "question_number": 4,
+      "question_text": "The greatest common divisor of two natural numbers A and B can always be found using the Euclidean algorithm.",
+      "question_type": "true_false",
+      "topic": "Number Theory",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "According to Exercise 3 in the 03_Exercises.pdf, the program is required to print the greatest common divisor (GCD) of two given natural numbers A and B. This indicates that the Euclidean algorithm can be used to find the GCD of two numbers, as it is a well-known method for this purpose."
+    },
+    {
+      "question_number": 5,
+      "question_text": "According to the results-written-exams.pdf, which student received a final mark less than 18?",
+      "question_type": "multiple_choice",
+      "topic": "Exams",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) 906520",
+        "B) 907843",
+        "C) 906691",
+        "D) 907693"
+      ],
+      "correct_answer": "A",
+      "explanation": "The PDF shows that students 906520, 908806, 908753, 907531, 908772, 906541, and 977464 all received a final mark less than 18."
+    },
+    {
+      "question_number": 6,
+      "question_text": "Relative clauses are used to modify nouns in a sentence.",
+      "question_type": "true_false",
+      "topic": "Relative Clauses",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "The course materials do not directly cover relative clauses, as the content is focused on programming concepts. However, relative clauses are a fundamental grammatical structure in English, used to provide additional information about a noun in a sentence. This aligns with the general understanding of how relative clauses function."
+    },
+    {
+      "question_number": 7,
+      "question_text": "What is the output of the string_length function provided in the code snippet?",
+      "question_type": "multiple_choice",
+      "topic": "Data Structures",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) The function correctly calculates the length of the string.",
+        "B) The function is incorrect because it forgets to count the last character of the string.",
+        "C) Segmentation fault - The function accesses invalid memory.",
+        "D) The function calculates the correct length for every string except for an empty string."
+      ],
+      "correct_answer": "A",
+      "explanation": "The provided code snippet implements the string_length function correctly. It iterates through the string until it reaches the null terminator character '\\0', and then returns the difference between the pointer and the start of the string, which gives the length of the string."
+    },
+    {
+      "question_number": 8,
+      "question_text": "C allows the creation of user-defined data types using the 'struct' keyword.",
+      "question_type": "true_false",
+      "topic": "Data Types",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "According to the course materials, the 'struct' keyword in C allows the creation of user-defined data types, which are aggregations of variables of other types."
+    },
+    {
+      "question_number": 9,
+      "question_text": "Which of the following is NOT a characteristic of a pointer variable according to the course materials?",
+      "question_type": "multiple_choice",
+      "topic": "Relations",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) A pointer variable stores a memory address",
+        "B) A pointer variable can be used to access the value stored at a memory address",
+        "C) A pointer variable can be used to modify the value stored at a memory address",
+        "D) A pointer variable can be used to perform arithmetic operations on memory addresses"
+      ],
+      "correct_answer": "D",
+      "explanation": "The course materials state that pointers can be used to store memory addresses, access values at those addresses, and modify the values. However, the materials do not mention that pointers can perform arithmetic operations on memory addresses."
+    },
+    {
+      "question_number": 10,
+      "question_text": "Induction is a recursive technique that can be used to prove properties of integer sequences.",
+      "question_type": "true_false",
+      "topic": "Induction",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "The course materials on induction discuss how it is a recursive technique that can be used to prove properties of integer sequences. Induction involves establishing a base case and then proving that if a property holds for some integer n, then it also holds for the next integer n+1. This allows you to inductively prove properties of entire integer sequences."
+    },
+    {
+      "question_number": 11,
+      "question_text": "Which statement about the given function that calculates the length of a string is correct?",
+      "question_type": "multiple_choice",
+      "topic": "Functions",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) The function correctly calculates the length of the string.",
+        "B) The function is incorrect because it forgets to count the last character of the string.",
+        "C) Segmentation fault - The function accesses invalid memory.",
+        "D) The function calculates the correct length for every string except for an empty string."
+      ],
+      "correct_answer": "A",
+      "explanation": "According to the course material, the given function that uses a do-while loop to calculate the length of a string works correctly and returns the right length."
+    },
+    {
+      "question_number": 12,
+      "question_text": "Describe the importance of technical writing in computer programming and explain the key elements that distinguish it from other forms of writing. Provide examples from the course materials to illustrate your points.",
+      "question_type": "short_answer",
+      "topic": "Technical Writing",
+      "difficulty": "Advanced",
+      "points": 3,
+      "options": [],
+      "correct_answer": "",
+      "explanation": "The key points students should address in their response include:- The importance of technical writing in computer programming, emphasizing clear and concise communication of complex technical information- The distinguishing features of technical writing compared to other forms of writing, such as the focus on precision, logical organization, use of visual aids, and objectivity- Specific examples from the course materials (e.g., the emphasis on defining technical terms, the use of diagrams to illustrate concepts, the objective and stepwise explanations) that demonstrate the elements of effective technical writing in the context of computer programming"
+    },
+    {
+      "question_number": 13,
+      "question_text": "What is the correct way to calculate the length of a string using a do-while loop, according to the provided code snippet?",
+      "question_type": "multiple_choice",
+      "topic": "Modal Verbs",
+      "difficulty": "Basic",
+      "points": 4,
+      "options": [
+        "A) The function correctly calculates the length of the string.",
+        "B) The function is incorrect because it forgets to count the last character of the string.",
+        "C) Segmentation fault - The function accesses invalid memory.",
+        "D) The function counts the termination character \\0 in the length."
+      ],
+      "correct_answer": "D",
+      "explanation": "According to the code snippet provided in the PDF, the function 'string_length' correctly calculates the length of the string by counting the characters up to the termination character '\\0'."
+    },
+    {
+      "question_number": 14,
+      "question_text": "Algorithms are used to measure the time taken by a given code snippet.",
+      "question_type": "true_false",
+      "topic": "Algorithms",
+      "difficulty": "Intermediate",
+      "points": 3,
+      "options": [],
+      "correct_answer": "True",
+      "explanation": "According to the 'Software measurements' section in the 8-benchmarks.pdf, one way to make a measurement in software is to measure the time taken by a given code snippet, such as a function, a loop, or an entire program."
+    }
+  ],
+  "total_questions": 25,
+  "time_limit": 90,
+  "topics_covered": [
+    "Structures",
+    "Control Flow",
+    "Benchmarks",
+    "Arrays",
+    "Number Theory",
+    "Participle Clauses",
+    "Exams",
+    "Relative Clauses",
+    "Pointers",
+    "Data Structures",
+    "Data Types",
+    "Set Theory",
+    "Relations",
+    "Induction",
+    "Grammar Exercises",
+    "Functions",
+    "Mathematical Logic",
+    "Technical Writing",
+    "Modal Verbs",
+    "Algorithms"
+  ],
+  "adaptive_focus": []
+}

@@ -1,0 +1,257 @@
+{
+  "creation_date": "2025-09-09T13:12:54.178343",
+  "student_profile": {
+    "name": "Emre Aras",
+    "student_id": "907842",
+    "university": "Ca' Foscari",
+    "study_preferences": {
+      "daily_study_hours": 4,
+      "preferred_study_times": [
+        "09:00-12:00",
+        "14:00-17:00"
+      ],
+      "break_interval": 25,
+      "difficulty_preference": "challenging_first"
+    },
+    "performance_history": {
+      "strong_subjects": [
+        "Computer Architecture",
+        "Programming"
+      ],
+      "weak_subjects": [
+        "Mathematics"
+      ],
+      "average_study_time_per_page": 3,
+      "retention_rate": 0.7
+    }
+  },
+  "plan_duration_days": 3,
+  "data_summary": {
+    "assignments_count": 0,
+    "critical_assignments": 0,
+    "upcoming_exams": 0,
+    "high_priority_emails": 5,
+    "total_study_materials": 203,
+    "estimated_workload": 144,
+    "urgent_deadlines": []
+  },
+  "ai_insights": "Değerli öğrencim Emre,\n\nMevcut durumunuzu incelediğimde, durumunuzun oldukça iyi olduğunu görüyorum. Toplam ödev sayısının 0 olması, kritik ödevlerinizin bulunmaması ve yaklaşan sınavlarınızın olmaması oldukça olumlu. Bununla birlikte, 5 adet yüksek öncelikli mailiniz ve 203 dosyalık çalışma materyaliniz bulunuyor. Bu da size yönelik bazı önerilerde bulunmamı gerektiriyor.\n\n1. Mevcut durumu değerlendirme ve stres seviyesi:\nVeriler ışığında, stres seviyenizi 5/10 olarak değerlendiriyorum. Yüksek öncelikli mailler ve çalışma materyallerinin yoğunluğu sizi biraz stresli hissettirebilir, ancak genel olarak durumunuz yönetilebilir seviyede.\n\n2. En kritik konulara odaklanma stratejisi:\nÖncelikle, yüksek öncelikli maillerinizi hızlıca yanıtlayın. Daha sonra, çalışma materyallerinizi gözden geçirerek, en önemli ve kritik konulara odaklanın. Özellikle, zayıf olduğunuz matematik konularına daha fazla zaman ayırmanız faydalı olabilir.\n\n3. Haftalık çalışma dağılımı önerisi:\nGünlük 4 saat çalışma süreniz ve 09:00-12:00 ile 14:00-17:00 arasındaki çalışma saatleriniz oldukça verimli. Bu doğrultuda, haftalık çalışma dağılımınızı şu şekilde öneriyorum:\n\n- Pazartesi-Perşembe: Güçlü olduğunuz computer architecture ve programming konularına ağırlık verin. Günde 2,5 saat çalışın.\n- Cuma-Cumartesi: Zayıf olduğunuz matematik konularına odaklanın. Günde 1,5 saat çalışın.\n- Pazar: Tüm konularda tekrar ve değerlendirme yapın. Günde 1 saat çalışın.\n\n4. Performans artırma önerileri:\n- Çalışma materyallerinizi düzenli olarak gözden geçirin ve önemli noktaları özetleyin.\n- Konu anlatım videolarından ve online kaynaklardan faydalanın.\n- Arkadaşlarınızla düzenli olarak ders çalışma grupları oluşturun.\n- Düzenli aralıklarla kısa mola vermeyi ihmal etmeyin.\n\n5. Zaman yönetimi taktikleri:\n- Günlük ve haftalık çalışma planları oluşturun ve bunlara bağlı kalın.\n- Zaman yönetimi uygulamaları kullanarak, çalışma ve dinlenme sürelerinizi takip edin.\n- Odaklanmanızı engelleyen faktörleri belirleyip, bunları en aza indirmeye çalışın.\n- Düzenli aralıklarla çalışma motivasyonunuzu kontrol edin ve gerekirse destek alın.\n\nDeğerli öğrencim, durumunuzu değerlendirerek sunduğum öneriler doğrultusunda, başarılı bir dönem geçireceğinize inanıyorum. Çalışmalarınızda size başarılar diler",
+  "weekly_overview": {
+    "Week_2025-36": {
+      "week_start": "2025-09-09",
+      "focus_areas": [],
+      "major_deadlines": [],
+      "total_study_hours": 28
+    }
+  },
+  "daily_schedules": [
+    {
+      "date": "2025-09-09",
+      "day_name": "Tuesday",
+      "day_type": "REGULAR_STUDY",
+      "deadlines": [],
+      "study_blocks": [
+        {
+          "time_slot": "09:00-12:00",
+          "start_time": "09:00",
+          "end_time": "12:00",
+          "duration_minutes": 180,
+          "subject": "Computer Architecture",
+          "topic": "PDF çalışması: ICT 2024 Final CT0677-E.pdf",
+          "priority": "MEDIUM",
+          "study_method": "Active reading + Note taking",
+          "break_schedule": [
+            "25 dakika sonra 5 dk mola",
+            "50 dakika sonra 5 dk mola",
+            "75 dakika sonra 5 dk mola",
+            "100 dakika sonra 5 dk mola",
+            "125 dakika sonra 5 dk mola",
+            "150 dakika sonra 5 dk mola",
+            "175 dakika sonra 5 dk mola"
+          ]
+        },
+        {
+          "time_slot": "14:00-17:00",
+          "start_time": "14:00",
+          "end_time": "17:00",
+          "duration_minutes": 180,
+          "subject": "Computer Architecture",
+          "topic": "PDF çalışması: ICT 2024 Final CT0677-E.pdf",
+          "priority": "MEDIUM",
+          "study_method": "Active reading + Note taking",
+          "break_schedule": [
+            "25 dakika sonra 5 dk mola",
+            "50 dakika sonra 5 dk mola",
+            "75 dakika sonra 5 dk mola",
+            "100 dakika sonra 5 dk mola",
+            "125 dakika sonra 5 dk mola",
+            "150 dakika sonra 5 dk mola",
+            "175 dakika sonra 5 dk mola"
+          ]
+        }
+      ],
+      "total_study_time": 360,
+      "priority_level": "LOW",
+      "notes": "Düzenli çalışma günü"
+    },
+    {
+      "date": "2025-09-10",
+      "day_name": "Wednesday",
+      "day_type": "REGULAR_STUDY",
+      "deadlines": [],
+      "study_blocks": [
+        {
+          "time_slot": "09:00-12:00",
+          "start_time": "09:00",
+          "end_time": "12:00",
+          "duration_minutes": 180,
+          "subject": "Computer Architecture",
+          "topic": "PDF çalışması: ICT 2024 Final CT0677-E.pdf",
+          "priority": "MEDIUM",
+          "study_method": "Active reading + Note taking",
+          "break_schedule": [
+            "25 dakika sonra 5 dk mola",
+            "50 dakika sonra 5 dk mola",
+            "75 dakika sonra 5 dk mola",
+            "100 dakika sonra 5 dk mola",
+            "125 dakika sonra 5 dk mola",
+            "150 dakika sonra 5 dk mola",
+            "175 dakika sonra 5 dk mola"
+          ]
+        },
+        {
+          "time_slot": "14:00-17:00",
+          "start_time": "14:00",
+          "end_time": "17:00",
+          "duration_minutes": 180,
+          "subject": "Computer Architecture",
+          "topic": "PDF çalışması: ICT 2024 Final CT0677-E.pdf",
+          "priority": "MEDIUM",
+          "study_method": "Active reading + Note taking",
+          "break_schedule": [
+            "25 dakika sonra 5 dk mola",
+            "50 dakika sonra 5 dk mola",
+            "75 dakika sonra 5 dk mola",
+            "100 dakika sonra 5 dk mola",
+            "125 dakika sonra 5 dk mola",
+            "150 dakika sonra 5 dk mola",
+            "175 dakika sonra 5 dk mola"
+          ]
+        }
+      ],
+      "total_study_time": 360,
+      "priority_level": "LOW",
+      "notes": "Düzenli çalışma günü"
+    },
+    {
+      "date": "2025-09-11",
+      "day_name": "Thursday",
+      "day_type": "REGULAR_STUDY",
+      "deadlines": [],
+      "study_blocks": [
+        {
+          "time_slot": "09:00-12:00",
+          "start_time": "09:00",
+          "end_time": "12:00",
+          "duration_minutes": 180,
+          "subject": "Computer Architecture",
+          "topic": "PDF çalışması: ICT 2024 Final CT0677-E.pdf",
+          "priority": "MEDIUM",
+          "study_method": "Active reading + Note taking",
+          "break_schedule": [
+            "25 dakika sonra 5 dk mola",
+            "50 dakika sonra 5 dk mola",
+            "75 dakika sonra 5 dk mola",
+            "100 dakika sonra 5 dk mola",
+            "125 dakika sonra 5 dk mola",
+            "150 dakika sonra 5 dk mola",
+            "175 dakika sonra 5 dk mola"
+          ]
+        },
+        {
+          "time_slot": "14:00-17:00",
+          "start_time": "14:00",
+          "end_time": "17:00",
+          "duration_minutes": 180,
+          "subject": "Computer Architecture",
+          "topic": "PDF çalışması: ICT 2024 Final CT0677-E.pdf",
+          "priority": "MEDIUM",
+          "study_method": "Active reading + Note taking",
+          "break_schedule": [
+            "25 dakika sonra 5 dk mola",
+            "50 dakika sonra 5 dk mola",
+            "75 dakika sonra 5 dk mola",
+            "100 dakika sonra 5 dk mola",
+            "125 dakika sonra 5 dk mola",
+            "150 dakika sonra 5 dk mola",
+            "175 dakika sonra 5 dk mola"
+          ]
+        }
+      ],
+      "total_study_time": 360,
+      "priority_level": "LOW",
+      "notes": "Düzenli çalışma günü"
+    }
+  ],
+  "recommendations": {
+    "priority_actions": [],
+    "study_tips": [
+      "📖 Aktif okuma tekniği kullan (özetleme, soru sorma)",
+      "🧠 Her 25 dakikada bir 5 dakika mola ver (Pomodoro)",
+      "✍️ Anladıklarını kendi kelimelerinle yaz",
+      "🔄 Konuları düzenli aralıklarla tekrar et"
+    ],
+    "time_management": [
+      "⏰ En zor konuları enerjinin yüksek olduğu saatlerde çalış",
+      "📅 Büyük görevleri küçük parçalara böl",
+      "🎯 Her çalışma seansı için net hedef belirle",
+      "📝 Günlük to-do list hazırla ve tamamladıklarını işaretle"
+    ],
+    "performance_boosters": [
+      "💪 Güçlü olduğun Computer Architecture, Programming konularını diğer alanlara bağla",
+      "🏃‍♂️ Düzenli egzersiz yap (konsantrasyon artırır)",
+      "💧 Bol su iç ve beslenme saatlerine dikkat et",
+      "😴 Kaliteli uyku al (7-8 saat)",
+      "🧘‍♂️ Stres yönetimi için nefes egzersizleri yap"
+    ]
+  },
+  "progress_tracking": {
+    "tracking_start": "2025-09-09T13:12:54.178351",
+    "daily_progress": {
+      "2025-09-09": {
+        "planned_hours": 6.0,
+        "actual_hours": 0.0,
+        "completed_tasks": [],
+        "mood_rating": 0,
+        "energy_level": 0,
+        "notes": "",
+        "challenges": []
+      },
+      "2025-09-10": {
+        "planned_hours": 6.0,
+        "actual_hours": 0.0,
+        "completed_tasks": [],
+        "mood_rating": 0,
+        "energy_level": 0,
+        "notes": "",
+        "challenges": []
+      },
+      "2025-09-11": {
+        "planned_hours": 6.0,
+        "actual_hours": 0.0,
+        "completed_tasks": [],
+        "mood_rating": 0,
+        "energy_level": 0,
+        "notes": "",
+        "challenges": []
+      }
+    },
+    "weekly_summaries": {},
+    "completion_rates": {
+      "assignments": 0.0,
+      "study_hours": 0.0,
+      "reading_materials": 0.0
+    },
+    "notes": []
+  }
+}

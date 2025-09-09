@@ -1,82 +1,1965 @@
 {
-  "1": {
-    "id": "1",
-    "name": "Computer Architecture",
-    "shortname": "COMP_ARCH",
+  "18877": {
+    "id": "18877",
+    "name": "[CT0678] MATHEMATICS BACKGROUND (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_18877",
     "summary": "",
-    "last_updated": "2025-09-09T08:09:46.421581",
+    "last_updated": "2025-09-09T13:01:54.784995",
     "pdfs": [
       {
-        "name": "CPU Architecture.pdf",
-        "url": "http://moodle/cpu.pdf",
-        "size": 1024000,
-        "section": "Week 1",
-        "module": ""
+        "name": "26_10_24_exam_solution.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2096537/mod_resource/content/1/26_10_24_exam_solution.pdf?forcedownload=1",
+        "size": 698686,
+        "section": "Exams Test and Solutions",
+        "module": "26/10/24 Exam with solution"
       },
       {
-        "name": "Memory Systems.pdf",
-        "url": "http://moodle/memory.pdf",
-        "size": 2048000,
-        "section": "Week 2",
-        "module": ""
-      }
-    ],
-    "videos": [
+        "name": "Exam_Solution_7_1_25.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2153083/mod_resource/content/4/Exam_Solution_7_1_25.pdf?forcedownload=1",
+        "size": 578668,
+        "section": "Exams Test and Solutions",
+        "module": "07/01/2025 Exam with solution"
+      },
       {
-        "name": "Pipeline Introduction",
-        "url": "http://moodle/pipeline.mp4",
-        "type": "mp4",
-        "section": "Week 3",
-        "module": ""
+        "name": "Exam_15_5_25_solutions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2230319/mod_resource/content/1/Exam_15_5_25_solutions.pdf?forcedownload=1",
+        "size": 507643,
+        "section": "Exams Test and Solutions",
+        "module": "15/05/2025 Exam and solutions"
+      },
+      {
+        "name": "Test_1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050451/mod_resource/content/3/Test_1.pdf?forcedownload=1",
+        "size": 106949,
+        "section": "Test Examples",
+        "module": "Practice Test 1"
+      },
+      {
+        "name": "Sol_Practice Test 1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2091342/mod_resource/content/0/Sol_Practice%20Test%201.pdf?forcedownload=1",
+        "size": 715507,
+        "section": "Test Examples",
+        "module": "Solution: Practice Test 1"
+      },
+      {
+        "name": "Test_2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050452/mod_resource/content/5/Test_2.pdf?forcedownload=1",
+        "size": 108268,
+        "section": "Test Examples",
+        "module": "Practice Test 2"
+      },
+      {
+        "name": "1_Numbers and Operations.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2051395/mod_resource/content/1/1_Numbers%20and%20Operations.pdf?forcedownload=1",
+        "size": 439451,
+        "section": "Basic Elements",
+        "module": "Lesson 1: Numbers and Operations"
+      },
+      {
+        "name": "2_Polynomials.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2053716/mod_resource/content/1/2_Polynomials.pdf?forcedownload=1",
+        "size": 903876,
+        "section": "Basic Elements",
+        "module": "Lesson 2: Polynomials"
+      },
+      {
+        "name": "Ex_Factoring_Numbers.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2055526/mod_resource/content/1/Ex_Factoring_Numbers.pdf?forcedownload=1",
+        "size": 345359,
+        "section": "Basic Elements",
+        "module": "Ex: Factoring Numbers (with Solutions)"
+      },
+      {
+        "name": "polynomials.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050462/mod_resource/content/2/polynomials.pdf?forcedownload=1",
+        "size": 92982,
+        "section": "Basic Elements",
+        "module": "Ex: Polynomials"
+      },
+      {
+        "name": "3_Equations.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2056176/mod_resource/content/1/3_Equations.pdf?forcedownload=1",
+        "size": 210259,
+        "section": "Algebra",
+        "module": "Lesson 3: Equations"
+      },
+      {
+        "name": "4_Equations.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2063721/mod_resource/content/1/4_Equations.pdf?forcedownload=1",
+        "size": 466029,
+        "section": "Algebra",
+        "module": "Lesson 4: Equations II"
+      },
+      {
+        "name": "5_Inequalities.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2064554/mod_resource/content/1/5_Inequalities.pdf?forcedownload=1",
+        "size": 492719,
+        "section": "Algebra",
+        "module": "Lesson 5: Inequalities"
+      },
+      {
+        "name": "6_Abs_Val_Eq_Inequalities.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2070859/mod_resource/content/1/6_Abs_Val_Eq_Inequalities.pdf?forcedownload=1",
+        "size": 619006,
+        "section": "Algebra",
+        "module": "Lesson 6: Absolute Value Equations/Inequalities"
+      },
+      {
+        "name": "7_Irrationa_Eq_ineq.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2071104/mod_resource/content/1/7_Irrationa_Eq_ineq.pdf?forcedownload=1",
+        "size": 318380,
+        "section": "Algebra",
+        "module": "Lesson 7: Irrational Equation and Inequalities"
+      },
+      {
+        "name": "Equations.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050465/mod_resource/content/0/Equations.pdf?forcedownload=1",
+        "size": 110069,
+        "section": "Algebra",
+        "module": "Ex: Equations"
+      },
+      {
+        "name": "Inequalities.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050466/mod_resource/content/1/Inequalities.pdf?forcedownload=1",
+        "size": 106229,
+        "section": "Algebra",
+        "module": "Ex: Inequalities"
+      },
+      {
+        "name": "8_Cartesian Geometry.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2071105/mod_resource/content/1/8_Cartesian%20Geometry.pdf?forcedownload=1",
+        "size": 293788,
+        "section": "Cartesian Geometry",
+        "module": "Lesson 7b: Points and Lines"
+      },
+      {
+        "name": "9_Parabolas.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2072657/mod_resource/content/2/9_Parabolas.pdf?forcedownload=1",
+        "size": 701652,
+        "section": "Cartesian Geometry",
+        "module": "Lesson 8: Parabolas"
+      },
+      {
+        "name": "10_Circles.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2073811/mod_resource/content/0/10_Circles.pdf?forcedownload=1",
+        "size": 270627,
+        "section": "Cartesian Geometry",
+        "module": "Lesson 9: Circles"
+      },
+      {
+        "name": "Geometry.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050464/mod_resource/content/1/Geometry.pdf?forcedownload=1",
+        "size": 106534,
+        "section": "Cartesian Geometry",
+        "module": "Ex: Cartesian Geometry"
+      },
+      {
+        "name": "11_Exp_Log.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2080516/mod_resource/content/0/11_Exp_Log.pdf?forcedownload=1",
+        "size": 853840,
+        "section": "Functions",
+        "module": "Lesson 10: Exponential and Logarithm functions"
+      },
+      {
+        "name": "12_Combining_f.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2080517/mod_resource/content/0/12_Combining_f.pdf?forcedownload=1",
+        "size": 253805,
+        "section": "Functions",
+        "module": "Lesson 11: Combining functions"
+      },
+      {
+        "name": "13_Domain.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2081902/mod_resource/content/0/13_Domain.pdf?forcedownload=1",
+        "size": 356420,
+        "section": "Functions",
+        "module": "Lesson 13: Domain and Range"
+      },
+      {
+        "name": "14_Function_Transformations.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2085854/mod_resource/content/0/14_Function_Transformations.pdf?forcedownload=1",
+        "size": 457669,
+        "section": "Functions",
+        "module": "Lesson 14: Function Transformations"
+      },
+      {
+        "name": "Log_exp.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050483/mod_resource/content/2/Log_exp.pdf?forcedownload=1",
+        "size": 150364,
+        "section": "Functions",
+        "module": "Ex: Logarithmic and Exponential Equations and Inequlities"
+      },
+      {
+        "name": "15_Trigonometric_Functions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2085855/mod_resource/content/0/15_Trigonometric_Functions.pdf?forcedownload=1",
+        "size": 453342,
+        "section": "Trigonometry",
+        "module": "Lesson 15: Trigonometric Functions"
+      },
+      {
+        "name": "Trigonometric Espressions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2050463/mod_resource/content/1/Trigonometric%20Espressions.pdf?forcedownload=1",
+        "size": 108315,
+        "section": "Trigonometry",
+        "module": "Ex: Trigonometric Equations and Inequalities"
       }
     ],
+    "videos": [],
     "documents": [],
-    "total_content": 3
+    "total_content": 28
   },
-  "2": {
-    "id": "2",
-    "name": "Database Systems",
-    "shortname": "DB_SYS",
+  "18876": {
+    "id": "18876",
+    "name": "[CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_18876",
     "summary": "",
-    "last_updated": "2025-09-09T08:09:46.421587",
+    "last_updated": "2025-09-09T13:01:54.784983",
     "pdfs": [
       {
-        "name": "Database Design.pdf",
-        "url": "http://moodle/dbdesign.pdf",
-        "size": 1536000,
-        "section": "Module 1",
-        "module": ""
+        "name": "14.01.2025.LAB.ENG.A.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2162208/mod_folder/content/3/14.01.2025.LAB.ENG.A.pdf?forcedownload=1",
+        "size": 95719,
+        "section": "Introduzione",
+        "module": "Exams"
+      },
+      {
+        "name": "14.01.2025.LAB.ENG.B.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2162208/mod_folder/content/3/14.01.2025.LAB.ENG.B.pdf?forcedownload=1",
+        "size": 96175,
+        "section": "Introduzione",
+        "module": "Exams"
+      },
+      {
+        "name": "03.02.2025.LAB.ENG.A.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2162208/mod_folder/content/3/03.02.2025.LAB.ENG.A.pdf?forcedownload=1",
+        "size": 96294,
+        "section": "Introduzione",
+        "module": "Exams"
+      },
+      {
+        "name": "03.02.2025.LAB.ENG.B.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2162208/mod_folder/content/3/03.02.2025.LAB.ENG.B.pdf?forcedownload=1",
+        "size": 96228,
+        "section": "Introduzione",
+        "module": "Exams"
+      },
+      {
+        "name": "00 Intro eng.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2064271/mod_resource/content/0/00%20Intro%20eng.pdf?forcedownload=1",
+        "size": 258148,
+        "section": "Slides",
+        "module": "00 Intro eng"
+      },
+      {
+        "name": "01 Representation eng.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2086610/mod_resource/content/0/01%20Representation%20eng.pdf?forcedownload=1",
+        "size": 2112393,
+        "section": "Slides",
+        "module": "01 Representation eng"
+      },
+      {
+        "name": "02 ARM ISA eng.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2125657/mod_resource/content/0/02%20ARM%20ISA%20eng.pdf?forcedownload=1",
+        "size": 1587214,
+        "section": "Slides",
+        "module": "02 ARM ISA eng"
+      },
+      {
+        "name": "03 Assembly eng.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2140749/mod_resource/content/0/03%20Assembly%20eng.pdf?forcedownload=1",
+        "size": 473028,
+        "section": "Slides",
+        "module": "03 Assembly eng"
+      },
+      {
+        "name": "ARM_assembly_exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2134287/mod_resource/content/0/ARM_assembly_exercises.pdf?forcedownload=1",
+        "size": 111923,
+        "section": "Other materials",
+        "module": "ARM assembly exercises"
+      },
+      {
+        "name": "ARM VM howto.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2125778/mod_resource/content/0/ARM%20VM%20howto.pdf?forcedownload=1",
+        "size": 382707,
+        "section": "Other materials",
+        "module": "ARM VM howto"
+      },
+      {
+        "name": "ARM64_ISA.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2130890/mod_resource/content/0/ARM64_ISA.pdf?forcedownload=1",
+        "size": 12048,
+        "section": "Other materials",
+        "module": "ARM64 ISA"
       }
     ],
     "videos": [],
     "documents": [
       {
-        "name": "SQL Tutorial.docx",
-        "url": "http://moodle/sql.docx",
-        "type": "document",
-        "section": "Resources",
-        "module": ""
-      }
-    ],
-    "total_content": 2
-  },
-  "3": {
-    "id": "3",
-    "name": "Operating Systems",
-    "shortname": "OS",
-    "summary": "",
-    "last_updated": "2025-09-09T08:09:46.421589",
-    "pdfs": [],
-    "videos": [
+        "name": "gdb_cheatsheet.txt",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2125931/mod_resource/content/0/gdb_cheatsheet.txt?forcedownload=1",
+        "type": "text/plain",
+        "section": "Other materials",
+        "module": "gdb cheatsheet"
+      },
       {
-        "name": "Process Management",
-        "url": "http://moodle/processes.avi",
-        "type": "avi",
-        "section": "Chapter 2",
-        "module": ""
+        "name": "linux_short_guide.txt",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2125932/mod_resource/content/0/linux_short_guide.txt?forcedownload=1",
+        "type": "text/plain",
+        "section": "Other materials",
+        "module": "linux short guide"
       }
     ],
+    "total_content": 13
+  },
+  "18872": {
+    "id": "18872",
+    "name": "[CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_18872",
+    "summary": "",
+    "last_updated": "2025-09-09T13:01:54.784919",
+    "pdfs": [
+      {
+        "name": "00_Calc1_intro.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049317/mod_resource/content/3/00_Calc1_intro.pdf?forcedownload=1",
+        "size": 178692,
+        "section": "Introduction",
+        "module": "General information about the course and the exam"
+      },
+      {
+        "name": "Esame del 2020-01-09.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202020-01-09.pdf?forcedownload=1",
+        "size": 326579,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2020-01-23.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202020-01-23.pdf?forcedownload=1",
+        "size": 498415,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2020-06-16.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202020-06-16.pdf?forcedownload=1",
+        "size": 259225,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2020-08-31.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202020-08-31.pdf?forcedownload=1",
+        "size": 377917,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2021-01-12.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202021-01-12.pdf?forcedownload=1",
+        "size": 169092,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2021-01-26.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202021-01-26.pdf?forcedownload=1",
+        "size": 161590,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2021-06-18A.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202021-06-18A.pdf?forcedownload=1",
+        "size": 170576,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2021-06-18B.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202021-06-18B.pdf?forcedownload=1",
+        "size": 170507,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2022-06-09.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202022-06-09.pdf?forcedownload=1",
+        "size": 159297,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2021-08-27A (solo traccia).pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202021-08-27A%20%28solo%20traccia%29.pdf?forcedownload=1",
+        "size": 112630,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2021-08-27B(solo traccia).pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202021-08-27B%28solo%20traccia%29.pdf?forcedownload=1",
+        "size": 112896,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2022-01-11 (solo traccia).pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202022-01-11%20%28solo%20traccia%29.pdf?forcedownload=1",
+        "size": 126524,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2022-01-26.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202022-01-26.pdf?forcedownload=1",
+        "size": 163750,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2023-01-09A.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202023-01-09A.pdf?forcedownload=1",
+        "size": 251401,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2022-09-05.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202022-09-05.pdf?forcedownload=1",
+        "size": 247095,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2023-01-30A (solo traccia).pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202023-01-30A%20%28solo%20traccia%29.pdf?forcedownload=1",
+        "size": 211232,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2023-06-8.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202023-06-8.pdf?forcedownload=1",
+        "size": 183986,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "Esame del 2023-09-04 (solo traccia).pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049416/mod_folder/content/23/Esame%20del%202023-09-04%20%28solo%20traccia%29.pdf?forcedownload=1",
+        "size": 217776,
+        "section": "Useful material",
+        "module": "Old exams with solutions (Prof. Pasetto, in Italian)"
+      },
+      {
+        "name": "2024_01_09_temaB_analisi_matematica.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_01_09_temaB_analisi_matematica.pdf?forcedownload=1",
+        "size": 206249,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_01_09_temaA_analisi_matematica.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_01_09_temaA_analisi_matematica.pdf?forcedownload=1",
+        "size": 205553,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_06_03_temaA_analisi_matematica_soluzioni.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_06_03_temaA_analisi_matematica_soluzioni.pdf?forcedownload=1",
+        "size": 213229,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_06_03_temaB_analisi_matematica_soluzioni.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_06_03_temaB_analisi_matematica_soluzioni.pdf?forcedownload=1",
+        "size": 213573,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_06_17_temaA_analisi_matematica_soluzioni.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_06_17_temaA_analisi_matematica_soluzioni.pdf?forcedownload=1",
+        "size": 194541,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_06_17_temaB_analisi_matematica_soluzioni.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_06_17_temaB_analisi_matematica_soluzioni.pdf?forcedownload=1",
+        "size": 195429,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_09_05_temaB_analisi_matematica_soluzioni.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_09_05_temaB_analisi_matematica_soluzioni.pdf?forcedownload=1",
+        "size": 197164,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2024_09_05_temaA_analisi_matematica_soluzioni.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2049417/mod_folder/content/7/2024_09_05_temaA_analisi_matematica_soluzioni.pdf?forcedownload=1",
+        "size": 196753,
+        "section": "Useful material",
+        "module": "Exams with solutions  (Prof. Santin, 2023/2024, in Italian)"
+      },
+      {
+        "name": "2025_01_09_themeA_Calculus1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2207186/mod_folder/content/4/2025_01_09_themeA_Calculus1.pdf?forcedownload=1",
+        "size": 199845,
+        "section": "Useful material",
+        "module": "Exams with solutions (2024/25, in English)"
+      },
+      {
+        "name": "2025_06_05_themeA_Calculus1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2207186/mod_folder/content/4/2025_06_05_themeA_Calculus1.pdf?forcedownload=1",
+        "size": 218797,
+        "section": "Useful material",
+        "module": "Exams with solutions (2024/25, in English)"
+      },
+      {
+        "name": "2025_06_05_themeB_Calculus1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2207186/mod_folder/content/4/2025_06_05_themeB_Calculus1.pdf?forcedownload=1",
+        "size": 217193,
+        "section": "Useful material",
+        "module": "Exams with solutions (2024/25, in English)"
+      },
+      {
+        "name": "2025_06_26_themeA_Calculus1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2207186/mod_folder/content/4/2025_06_26_themeA_Calculus1.pdf?forcedownload=1",
+        "size": 208242,
+        "section": "Useful material",
+        "module": "Exams with solutions (2024/25, in English)"
+      },
+      {
+        "name": "01_Calc1_real_sets.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2058629/mod_resource/content/1/01_Calc1_real_sets.pdf?forcedownload=1",
+        "size": 313231,
+        "section": "1 - Introduction, set theory and real numbers",
+        "module": "Topic 1: set theory and real set"
+      },
+      {
+        "name": "Es01_Calculus1_sets.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2064384/mod_resource/content/1/Es01_Calculus1_sets.pdf?forcedownload=1",
+        "size": 148031,
+        "section": "1 - Introduction, set theory and real numbers",
+        "module": "Worksheet 1 - open/closed sets (with solutions)"
+      },
+      {
+        "name": "02_Calc1_functions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2067021/mod_resource/content/1/02_Calc1_functions.pdf?forcedownload=1",
+        "size": 322281,
+        "section": "2 - Functions, composit functions, and inverse function",
+        "module": "Topic 2: functions, composit function and inverse function"
+      },
+      {
+        "name": "Es02_Calculus1_functions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2067022/mod_resource/content/1/Es02_Calculus1_functions.pdf?forcedownload=1",
+        "size": 139633,
+        "section": "2 - Functions, composit functions, and inverse function",
+        "module": "Worksheet 2: functions"
+      },
+      {
+        "name": "03_Calc1_el_funz.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2075878/mod_resource/content/1/03_Calc1_el_funz.pdf?forcedownload=1",
+        "size": 784939,
+        "section": "3 - Elementary functions: exponential, logarithm, goniometric functions",
+        "module": "Topic 3: elementary functions"
+      },
+      {
+        "name": "Es03_Calculus1_trig.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2075883/mod_resource/content/1/Es03_Calculus1_trig.pdf?forcedownload=1",
+        "size": 149846,
+        "section": "3 - Elementary functions: exponential, logarithm, goniometric functions",
+        "module": "Worksheet 3: trigonometric functions"
+      },
+      {
+        "name": "04_Calc1_limits.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2083246/mod_resource/content/1/04_Calc1_limits.pdf?forcedownload=1",
+        "size": 593634,
+        "section": "4 - Limits",
+        "module": "Topic 4: limits, definition and operations"
+      },
+      {
+        "name": "Es04_Calculus1_limits.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2083262/mod_resource/content/1/Es04_Calculus1_limits.pdf?forcedownload=1",
+        "size": 111525,
+        "section": "4 - Limits",
+        "module": "Worksheet 4: definition of limit"
+      },
+      {
+        "name": "05_Calc1_limits2_ok.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088954/mod_resource/content/1/05_Calc1_limits2_ok.pdf?forcedownload=1",
+        "size": 405300,
+        "section": "4 - Limits",
+        "module": "Topic 5: continuous functions and important limits"
+      },
+      {
+        "name": "Es05_Calculus1_limits2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088955/mod_resource/content/1/Es05_Calculus1_limits2.pdf?forcedownload=1",
+        "size": 157300,
+        "section": "4 - Limits",
+        "module": "Worksheet 5: notable limits"
+      },
+      {
+        "name": "06_Calc1_derivatives1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2096093/mod_resource/content/1/06_Calc1_derivatives1.pdf?forcedownload=1",
+        "size": 330864,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Topic 6: derivatives"
+      },
+      {
+        "name": "Es06_Calculus1_derivatives.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2096095/mod_resource/content/2/Es06_Calculus1_derivatives.pdf?forcedownload=1",
+        "size": 145268,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Worksheet 6: derivatives and differentiable functions"
+      },
+      {
+        "name": "07_Calc1_deriv_theorems.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2113701/mod_resource/content/1/07_Calc1_deriv_theorems.pdf?forcedownload=1",
+        "size": 411534,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Topic 7: theorems on differentiable functions"
+      },
+      {
+        "name": "Es07_Calculus1_hopital.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2113702/mod_resource/content/1/Es07_Calculus1_hopital.pdf?forcedownload=1",
+        "size": 162205,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Worksheet 7: L'Hopital's rule and sketch of a function"
+      },
+      {
+        "name": "08_Calc1_convexity.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2127990/mod_resource/content/1/08_Calc1_convexity.pdf?forcedownload=1",
+        "size": 288770,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Topic 8: second order derivative, convexity, analysis of a function"
+      },
+      {
+        "name": "Es08_Calculus1_analysis_of_function.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128441/mod_resource/content/1/Es08_Calculus1_analysis_of_function.pdf?forcedownload=1",
+        "size": 120758,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Worksheet 8: analysis of a function"
+      },
+      {
+        "name": "Simulazione1_AM1_2024_11_14.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2127553/mod_resource/content/1/Simulazione1_AM1_2024_11_14.pdf?forcedownload=1",
+        "size": 165189,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Mock exam 1"
+      },
+      {
+        "name": "Simulazione1_Calc1_2024_11_14.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128446/mod_resource/content/1/Simulazione1_Calc1_2024_11_14.pdf?forcedownload=1",
+        "size": 169404,
+        "section": "5 - Derivatives and differentiable functions",
+        "module": "Mock exam 1 - solutions"
+      },
+      {
+        "name": "09_Calc1_taylor_infinitesimal.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2137977/mod_resource/content/1/09_Calc1_taylor_infinitesimal.pdf?forcedownload=1",
+        "size": 399091,
+        "section": "6 - Taylor polynomial; infinitesimal functions; sequences and series",
+        "module": "Topic 9: Taylor polynomial; inifinitesimal functions"
+      },
+      {
+        "name": "Es09_Calculus1_taylor_sequences.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2137979/mod_resource/content/1/Es09_Calculus1_taylor_sequences.pdf?forcedownload=1",
+        "size": 128867,
+        "section": "6 - Taylor polynomial; infinitesimal functions; sequences and series",
+        "module": "Worksheet 9: Taylor polynomial; infinitesimal functions; sequences"
+      },
+      {
+        "name": "10_Calc1_series.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2142279/mod_resource/content/1/10_Calc1_series.pdf?forcedownload=1",
+        "size": 288781,
+        "section": "6 - Taylor polynomial; infinitesimal functions; sequences and series",
+        "module": "Topic 10: sequences and series"
+      },
+      {
+        "name": "Es10_Calculus1_series.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2142280/mod_resource/content/1/Es10_Calculus1_series.pdf?forcedownload=1",
+        "size": 148279,
+        "section": "6 - Taylor polynomial; infinitesimal functions; sequences and series",
+        "module": "Worksheet 10: series"
+      },
+      {
+        "name": "11_Calculus1_indef_integ.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2144073/mod_resource/content/3/11_Calculus1_indef_integ.pdf?forcedownload=1",
+        "size": 383706,
+        "section": "7 - Integrals",
+        "module": "Topic 11: indefinite integrals"
+      },
+      {
+        "name": "12_Calc1_definite_integrals.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2147119/mod_resource/content/2/12_Calc1_definite_integrals.pdf?forcedownload=1",
+        "size": 581260,
+        "section": "7 - Integrals",
+        "module": "Topic 12: definite integrals"
+      },
+      {
+        "name": "Es11_Calculus1_integrals.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2147344/mod_resource/content/2/Es11_Calculus1_integrals.pdf?forcedownload=1",
+        "size": 151741,
+        "section": "7 - Integrals",
+        "module": "Workseeht 11: integrals"
+      },
+      {
+        "name": "Derivatives_tutoring_20241106.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2113525/mod_resource/content/1/Derivatives_tutoring_20241106.pdf?forcedownload=1",
+        "size": 2294248,
+        "section": "Tutoring Lessons",
+        "module": "01_Derivatives_Tutoring_20241106"
+      },
+      {
+        "name": "02_Limits_tutoring_20241111.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2126414/mod_resource/content/1/02_Limits_tutoring_20241111.pdf?forcedownload=1",
+        "size": 3161774,
+        "section": "Tutoring Lessons",
+        "module": "02_limits_tutoring_20241111"
+      },
+      {
+        "name": "03_hopital_tutoring_20241113.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2130220/mod_resource/content/1/03_hopital_tutoring_20241113.pdf?forcedownload=1",
+        "size": 3834772,
+        "section": "Tutoring Lessons",
+        "module": "03_Hopital_tutoring_20241113"
+      },
+      {
+        "name": "04_function_analysis_tutoring_20241120.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2134679/mod_resource/content/1/04_function_analysis_tutoring_20241120.pdf?forcedownload=1",
+        "size": 4642793,
+        "section": "Tutoring Lessons",
+        "module": "04_function_analysis_tutoring_20241120"
+      },
+      {
+        "name": "05_function_analysis_tutoring_20241129.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2140355/mod_resource/content/1/05_function_analysis_tutoring_20241129.pdf?forcedownload=1",
+        "size": 5135590,
+        "section": "Tutoring Lessons",
+        "module": "05_analysis_functions_tutoring_20241129"
+      },
+      {
+        "name": "06_Taylor_sequences_tutoring_20241204.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2141641/mod_resource/content/1/06_Taylor_sequences_tutoring_20241204.pdf?forcedownload=1",
+        "size": 4020321,
+        "section": "Tutoring Lessons",
+        "module": "06_Taylor_Sequences_Tutoring_20241204"
+      },
+      {
+        "name": "T07_series_tutoring_20241211.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2145597/mod_resource/content/1/T07_series_tutoring_20241211.pdf?forcedownload=1",
+        "size": 4778558,
+        "section": "Tutoring Lessons",
+        "module": "07_Series_Tutoring_20241211"
+      },
+      {
+        "name": "T08_integrals_tutoring_20241218.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2152214/mod_resource/content/1/T08_integrals_tutoring_20241218.pdf?forcedownload=1",
+        "size": 3622017,
+        "section": "Tutoring Lessons",
+        "module": "08_Integrals_tutoring_20241018"
+      }
+    ],
+    "videos": [],
     "documents": [],
-    "total_content": 1
+    "total_content": 64
+  },
+  "18873": {
+    "id": "18873",
+    "name": "[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_18873",
+    "summary": "",
+    "last_updated": "2025-09-09T13:01:54.784953",
+    "pdfs": [
+      {
+        "name": "1-introduction.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2046430/mod_resource/content/2/1-introduction.pdf?forcedownload=1",
+        "size": 6423959,
+        "section": "Part 1: Introduction",
+        "module": "1-introduction"
+      },
+      {
+        "name": "2-basics.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2055461/mod_resource/content/2/2-basics.pdf?forcedownload=1",
+        "size": 2109833,
+        "section": "Part 2: Basics",
+        "module": "2-basics"
+      },
+      {
+        "name": "3-control-flow.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084724/mod_resource/content/2/3-control-flow.pdf?forcedownload=1",
+        "size": 388829,
+        "section": "Part 3: Control flow",
+        "module": "3-control-flow.pdf"
+      },
+      {
+        "name": "4-functions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2091345/mod_resource/content/2/4-functions.pdf?forcedownload=1",
+        "size": 1982985,
+        "section": "Part 4: Functions",
+        "module": "4-functions"
+      },
+      {
+        "name": "ITCP_2024_2025_-_Test_1_without_answers.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2137694/mod_resource/content/1/ITCP_2024_2025_-_Test_1_without_answers.pdf?forcedownload=1",
+        "size": 170775,
+        "section": "Test 1 on HackerRank",
+        "module": "questions.pdf"
+      },
+      {
+        "name": "5.1-arrays.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2098234/mod_resource/content/3/5.1-arrays.pdf?forcedownload=1",
+        "size": 2512808,
+        "section": "Part 5: Arrays and Pointers",
+        "module": "5.1-arrays"
+      },
+      {
+        "name": "5.2-pointers.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2101727/mod_resource/content/2/5.2-pointers.pdf?forcedownload=1",
+        "size": 1366390,
+        "section": "Part 5: Arrays and Pointers",
+        "module": "5.2-pointers"
+      },
+      {
+        "name": "6-strings.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2127165/mod_resource/content/1/6-strings.pdf?forcedownload=1",
+        "size": 1429735,
+        "section": "Part 6: Strings",
+        "module": "6-strings"
+      },
+      {
+        "name": "7-structs.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2132169/mod_resource/content/6/7-structs.pdf?forcedownload=1",
+        "size": 4302448,
+        "section": "Part 7: Structs",
+        "module": "7-structs"
+      },
+      {
+        "name": "8-benchmarks.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2145266/mod_resource/content/1/8-benchmarks.pdf?forcedownload=1",
+        "size": 425731,
+        "section": "Part 7: Structs",
+        "module": "8-benchmarks"
+      },
+      {
+        "name": "ITCP_2024_2025_-_Test_2_without_answers.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2145963/mod_resource/content/1/ITCP_2024_2025_-_Test_2_without_answers.pdf?forcedownload=1",
+        "size": 120332,
+        "section": "Test 2 on HackerRank",
+        "module": "questions.pdf"
+      },
+      {
+        "name": "results-of-exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2155527/mod_resource/content/1/results-of-exercises.pdf?forcedownload=1",
+        "size": 173999,
+        "section": "Results of exercises a.y. 24/25",
+        "module": "results-of-exercises-ay-24-25"
+      },
+      {
+        "name": "first-24-25-with-solutions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2157793/mod_resource/content/1/first-24-25-with-solutions.pdf?forcedownload=1",
+        "size": 66492,
+        "section": "Written exams a.y. 24-25",
+        "module": "first-appeal-with-solutions"
+      },
+      {
+        "name": "2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2168655/mod_resource/content/2/2.pdf?forcedownload=1",
+        "size": 60173,
+        "section": "Written exams a.y. 24-25",
+        "module": "second-appeal-with-solutions"
+      },
+      {
+        "name": "3-solutions.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2233605/mod_resource/content/1/3-solutions.pdf?forcedownload=1",
+        "size": 58206,
+        "section": "Written exams a.y. 24-25",
+        "module": "third-appeal-with-solutions"
+      },
+      {
+        "name": "results-written-exams.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2158617/mod_resource/content/4/results-written-exams.pdf?forcedownload=1",
+        "size": 47349,
+        "section": "Written exams a.y. 24-25",
+        "module": "results-written-exams"
+      },
+      {
+        "name": "00_Exercises-Introduction.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084126/mod_resource/content/1/00_Exercises-Introduction.pdf?forcedownload=1",
+        "size": 210199,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "00_01_Exercises - 10/10/2024"
+      },
+      {
+        "name": "02_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088867/mod_resource/content/1/02_Exercises.pdf?forcedownload=1",
+        "size": 239113,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "02_Exercises - 17/10/2024"
+      },
+      {
+        "name": "03_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095497/mod_resource/content/1/03_Exercises.pdf?forcedownload=1",
+        "size": 232107,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "03_Exercises - 24/10/2024"
+      },
+      {
+        "name": "04_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104320/mod_resource/content/1/04_Exercises.pdf?forcedownload=1",
+        "size": 210677,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024"
+      },
+      {
+        "name": "05_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114850/mod_resource/content/1/05_Exercises.pdf?forcedownload=1",
+        "size": 154539,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024"
+      },
+      {
+        "name": "06_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128747/mod_resource/content/1/06_Exercises.pdf?forcedownload=1",
+        "size": 209875,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "06_Exercises - 07/11/2024"
+      },
+      {
+        "name": "07_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2141722/mod_resource/content/1/07_Exercises.pdf?forcedownload=1",
+        "size": 168049,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "07_Exercises - 04/12/2024"
+      },
+      {
+        "name": "08_Exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2144074/mod_resource/content/1/08_Exercises.pdf?forcedownload=1",
+        "size": 105630,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "08_Exercises - 05/12/2024"
+      },
+      {
+        "name": "09_Esercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2147212/mod_resource/content/1/09_Esercises.pdf?forcedownload=1",
+        "size": 209200,
+        "section": "Exercises (prof. Olivieri)",
+        "module": "09_Exercises - 12/12/2024"
+      },
+      {
+        "name": "Project IaP.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2082816/mod_resource/content/2/Project%20IaP.pdf?forcedownload=1",
+        "size": 133808,
+        "section": "Project and Delivery (prof. Olivieri)",
+        "module": "Project Guidelines"
+      },
+      {
+        "name": "archivio-esami.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2112129/mod_resource/content/1/archivio-esami.pdf?forcedownload=1",
+        "size": 1031585,
+        "section": "Old exams (in italian only)",
+        "module": "old_exams_archive.pdf"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "name": "hello.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2051408/mod_resource/content/1/hello.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 1: Introduction",
+        "module": "hello.c"
+      },
+      {
+        "name": "print_number_in_words.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2087647/mod_resource/content/1/print_number_in_words.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 3: Control flow",
+        "module": "print_number_in_words.c"
+      },
+      {
+        "name": "is_armstrong.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2094052/mod_resource/content/1/is_armstrong.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 4: Functions",
+        "module": "is_armstrong.c"
+      },
+      {
+        "name": "is_palindrome.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2098691/mod_resource/content/1/is_palindrome.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 4: Functions",
+        "module": "is_palindrome.c"
+      },
+      {
+        "name": "array_copy.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2112667/mod_resource/content/1/array_copy.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 5: Arrays and Pointers",
+        "module": "array_copy.c"
+      },
+      {
+        "name": "min_max_element.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2120290/mod_resource/content/1/min_max_element.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 5: Arrays and Pointers",
+        "module": "min_max_element.c"
+      },
+      {
+        "name": "selection_sort.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2120291/mod_resource/content/1/selection_sort.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 5: Arrays and Pointers",
+        "module": "selection_sort.c"
+      },
+      {
+        "name": "anagram.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2127166/mod_resource/content/2/anagram.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 6: Strings",
+        "module": "anagram.c"
+      },
+      {
+        "name": "sort_and_print_array.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2130468/mod_resource/content/1/sort_and_print_array.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 6: Strings",
+        "module": "sort_and_print_array.c"
+      },
+      {
+        "name": "vector.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2134961/mod_resource/content/2/vector.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 7: Structs",
+        "module": "vector.c"
+      },
+      {
+        "name": "linked_list.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2140987/mod_resource/content/2/linked_list.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Part 7: Structs",
+        "module": "linked_list.c"
+      },
+      {
+        "name": "es1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084142/mod_folder/content/1/es1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "01_Exercises - 10/10/2024 - Source Code"
+      },
+      {
+        "name": "es2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084142/mod_folder/content/1/es2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "01_Exercises - 10/10/2024 - Source Code"
+      },
+      {
+        "name": "es3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084142/mod_folder/content/1/es3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "01_Exercises - 10/10/2024 - Source Code"
+      },
+      {
+        "name": "es4.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084142/mod_folder/content/1/es4.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "01_Exercises - 10/10/2024 - Source Code"
+      },
+      {
+        "name": "es5.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084142/mod_folder/content/1/es5.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "01_Exercises - 10/10/2024 - Source Code"
+      },
+      {
+        "name": "es6.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2084142/mod_folder/content/1/es6.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "01_Exercises - 10/10/2024 - Source Code"
+      },
+      {
+        "name": "es2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088868/mod_folder/content/1/es2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "02_Exercises - 17/10/2024 - Source Code"
+      },
+      {
+        "name": "es5.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088868/mod_folder/content/1/es5.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "02_Exercises - 17/10/2024 - Source Code"
+      },
+      {
+        "name": "es1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088868/mod_folder/content/1/es1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "02_Exercises - 17/10/2024 - Source Code"
+      },
+      {
+        "name": "es3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088868/mod_folder/content/1/es3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "02_Exercises - 17/10/2024 - Source Code"
+      },
+      {
+        "name": "es6.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2088868/mod_folder/content/1/es6.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "02_Exercises - 17/10/2024 - Source Code"
+      },
+      {
+        "name": "ex1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095498/mod_folder/content/1/ex1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "03_Exercises - 24/10/2024 - Source Code"
+      },
+      {
+        "name": "ex2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095498/mod_folder/content/1/ex2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "03_Exercises - 24/10/2024 - Source Code"
+      },
+      {
+        "name": "ex3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095498/mod_folder/content/1/ex3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "03_Exercises - 24/10/2024 - Source Code"
+      },
+      {
+        "name": "ex4.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095498/mod_folder/content/1/ex4.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "03_Exercises - 24/10/2024 - Source Code"
+      },
+      {
+        "name": "ex6.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095498/mod_folder/content/1/ex6.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "03_Exercises - 24/10/2024 - Source Code"
+      },
+      {
+        "name": "ex1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104322/mod_folder/content/1/ex1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024 - Source Code"
+      },
+      {
+        "name": "ex2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104322/mod_folder/content/1/ex2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024 - Source Code"
+      },
+      {
+        "name": "ex3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104322/mod_folder/content/1/ex3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024 - Source Code"
+      },
+      {
+        "name": "ex4.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104322/mod_folder/content/1/ex4.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024 - Source Code"
+      },
+      {
+        "name": "ex5.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104322/mod_folder/content/1/ex5.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024 - Source Code"
+      },
+      {
+        "name": "ex7.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2104322/mod_folder/content/1/ex7.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "04_Exercises - 31/10/2024 - Source Code"
+      },
+      {
+        "name": "ex1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/ex1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "ex2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/ex2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "ex3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/ex3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "ex4.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/ex4.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "ex6.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/ex6.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "ex7.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/ex7.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "exp1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2114925/mod_folder/content/1/exp1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "05_Exercises - 07/11/2024 - Source Code"
+      },
+      {
+        "name": "ex2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128748/mod_folder/content/1/ex2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "06_Exercises - 14/11/2024 - Source Code"
+      },
+      {
+        "name": "ex4.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128748/mod_folder/content/1/ex4.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "06_Exercises - 14/11/2024 - Source Code"
+      },
+      {
+        "name": "ex6.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128748/mod_folder/content/1/ex6.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "06_Exercises - 14/11/2024 - Source Code"
+      },
+      {
+        "name": "ex7.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2128748/mod_folder/content/1/ex7.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "06_Exercises - 14/11/2024 - Source Code"
+      },
+      {
+        "name": "ex1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2141725/mod_folder/content/1/ex1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "07_Exercises - 04/12/2024 - Source Code"
+      },
+      {
+        "name": "ex4.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2141725/mod_folder/content/1/ex4.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "07_Exercises - 04/12/2024 - Source Code"
+      },
+      {
+        "name": "ex2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2141725/mod_folder/content/1/ex2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "07_Exercises - 04/12/2024 - Source Code"
+      },
+      {
+        "name": "ex5.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2141725/mod_folder/content/1/ex5.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "07_Exercises - 04/12/2024 - Source Code"
+      },
+      {
+        "name": "ex1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2144075/mod_folder/content/2/ex1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "08_Exercises - 05/12/2024 - Source Code"
+      },
+      {
+        "name": "ex2.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2144075/mod_folder/content/2/ex2.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "08_Exercises - 05/12/2024 - Source Code"
+      },
+      {
+        "name": "ex3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2144075/mod_folder/content/2/ex3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "08_Exercises - 05/12/2024 - Source Code"
+      },
+      {
+        "name": "ex3_b.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2144075/mod_folder/content/2/ex3_b.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "08_Exercises - 05/12/2024 - Source Code"
+      },
+      {
+        "name": "ex3.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2147216/mod_folder/content/1/ex3.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "09_Exercises - 12/12/2024 - Source Code"
+      },
+      {
+        "name": "ex5.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2147216/mod_folder/content/1/ex5.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "09_Exercises - 12/12/2024 - Source Code"
+      },
+      {
+        "name": "ex1.c",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2147216/mod_folder/content/1/ex1.c?forcedownload=1",
+        "type": "text/plain",
+        "section": "Exercises (prof. Olivieri)",
+        "module": "09_Exercises - 12/12/2024 - Source Code"
+      }
+    ],
+    "total_content": 82
+  },
+  "21001": {
+    "id": "21001",
+    "name": "[CT0662-2] CALCULUS-2 (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_21001",
+    "summary": "",
+    "last_updated": "2025-09-09T13:01:54.784860",
+    "pdfs": [
+      {
+        "name": "Intro-CalcMod.2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2179802/mod_resource/content/2/Intro-CalcMod.2.pdf?forcedownload=1",
+        "size": 179154,
+        "section": "Introduzione",
+        "module": "Introduction to the course"
+      },
+      {
+        "name": "Guide for registering for the exam.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2179846/mod_resource/content/1/Guide%20for%20registering%20for%20the%20exam.pdf?forcedownload=1",
+        "size": 132470,
+        "section": "Introduzione",
+        "module": "Guide for registering for the exam"
+      },
+      {
+        "name": "Lesson 1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2180210/mod_resource/content/3/Lesson%201.pdf?forcedownload=1",
+        "size": 3115796,
+        "section": "Improper integrals",
+        "module": "Lesson 1"
+      },
+      {
+        "name": "Lesson 2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2181686/mod_resource/content/1/Lesson%202.pdf?forcedownload=1",
+        "size": 3583224,
+        "section": "Improper integrals",
+        "module": "Lesson 2"
+      },
+      {
+        "name": "Lesson 3.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2184468/mod_resource/content/2/Lesson%203.pdf?forcedownload=1",
+        "size": 3656803,
+        "section": "Improper integrals",
+        "module": "Lesson 3"
+      },
+      {
+        "name": "Lesson 4.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2185571/mod_resource/content/1/Lesson%204.pdf?forcedownload=1",
+        "size": 3437612,
+        "section": "Differential Equations",
+        "module": "Lesson 4"
+      },
+      {
+        "name": "Lesson 5.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2188472/mod_resource/content/1/Lesson%205.pdf?forcedownload=1",
+        "size": 3780024,
+        "section": "Differential Equations",
+        "module": "Lesson 5"
+      },
+      {
+        "name": "Lesson 6.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2189487/mod_resource/content/1/Lesson%206.pdf?forcedownload=1",
+        "size": 4210215,
+        "section": "Differential Equations",
+        "module": "Lesson 6"
+      },
+      {
+        "name": "Lesson 8.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2193293/mod_resource/content/1/Lesson%208.pdf?forcedownload=1",
+        "size": 3776893,
+        "section": "Parametric curves",
+        "module": "Lesson 8"
+      },
+      {
+        "name": "Lesson 9.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2195595/mod_resource/content/1/Lesson%209.pdf?forcedownload=1",
+        "size": 3647023,
+        "section": "Parametric curves",
+        "module": "Lesson 9"
+      },
+      {
+        "name": "Lesson 10.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2196310/mod_resource/content/1/Lesson%2010.pdf?forcedownload=1",
+        "size": 4070132,
+        "section": "Parametric curves",
+        "module": "Lesson 10"
+      },
+      {
+        "name": "Lesson 11.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2198620/mod_resource/content/1/Lesson%2011.pdf?forcedownload=1",
+        "size": 4237596,
+        "section": "Parametric curves",
+        "module": "Lesson 11"
+      },
+      {
+        "name": "Lesson 12.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2199448/mod_resource/content/2/Lesson%2012.pdf?forcedownload=1",
+        "size": 3682296,
+        "section": "Multivariable functions",
+        "module": "Lesson 12"
+      },
+      {
+        "name": "Lesson 13.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2203363/mod_resource/content/1/Lesson%2013.pdf?forcedownload=1",
+        "size": 3991554,
+        "section": "Multivariable functions",
+        "module": "Lesson 13"
+      },
+      {
+        "name": "Lesson 14.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2205051/mod_resource/content/1/Lesson%2014.pdf?forcedownload=1",
+        "size": 3713502,
+        "section": "Multivariable functions",
+        "module": "Lesson 14"
+      },
+      {
+        "name": "Lesson 15.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2207628/mod_resource/content/1/Lesson%2015.pdf?forcedownload=1",
+        "size": 4207951,
+        "section": "Multivariable functions",
+        "module": "Lesson 15"
+      },
+      {
+        "name": "Lesson 16.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2208420/mod_resource/content/2/Lesson%2016.pdf?forcedownload=1",
+        "size": 4192557,
+        "section": "Multivariable functions",
+        "module": "Lesson 16"
+      },
+      {
+        "name": "Lesson 17.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2210582/mod_resource/content/1/Lesson%2017.pdf?forcedownload=1",
+        "size": 4078216,
+        "section": "Multivariable functions",
+        "module": "Lesson 17"
+      },
+      {
+        "name": "Lesson 18.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2211432/mod_resource/content/1/Lesson%2018.pdf?forcedownload=1",
+        "size": 3777679,
+        "section": "Multivariable functions",
+        "module": "Lesson 18"
+      },
+      {
+        "name": "Lesson 19.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2213045/mod_resource/content/1/Lesson%2019.pdf?forcedownload=1",
+        "size": 3904659,
+        "section": "Multivariable functions",
+        "module": "Lesson 19"
+      },
+      {
+        "name": "Lesson 24.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2225343/mod_resource/content/1/Lesson%2024.pdf?forcedownload=1",
+        "size": 5015942,
+        "section": "Multivariable functions",
+        "module": "Lesson 24"
+      },
+      {
+        "name": "Lesson 20.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2213984/mod_resource/content/1/Lesson%2020.pdf?forcedownload=1",
+        "size": 3320117,
+        "section": "Double integrals",
+        "module": "Lesson 20"
+      },
+      {
+        "name": "Lesson 21.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2215152/mod_resource/content/1/Lesson%2021.pdf?forcedownload=1",
+        "size": 3818243,
+        "section": "Double integrals",
+        "module": "Lesson 21"
+      },
+      {
+        "name": "Lesson 22.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2216173/mod_resource/content/1/Lesson%2022.pdf?forcedownload=1",
+        "size": 3722497,
+        "section": "Double integrals",
+        "module": "Lesson 22"
+      },
+      {
+        "name": "Lesson 23.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2219029/mod_resource/content/1/Lesson%2023.pdf?forcedownload=1",
+        "size": 3884418,
+        "section": "Double integrals",
+        "module": "Lesson 23"
+      },
+      {
+        "name": "Lesson 25.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2230009/mod_resource/content/1/Lesson%2025.pdf?forcedownload=1",
+        "size": 4057485,
+        "section": "Additional lesson",
+        "module": "Lesson 25"
+      },
+      {
+        "name": "es1_imp_integ.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2184469/mod_resource/content/2/es1_imp_integ.pdf?forcedownload=1",
+        "size": 135496,
+        "section": "Exercises",
+        "module": "Exercises 1"
+      },
+      {
+        "name": "es2_ode1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2188651/mod_resource/content/2/es2_ode1.pdf?forcedownload=1",
+        "size": 126178,
+        "section": "Exercises",
+        "module": "Exercises 2"
+      },
+      {
+        "name": "es3_edo1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2190977/mod_resource/content/1/es3_edo1.pdf?forcedownload=1",
+        "size": 134299,
+        "section": "Exercises",
+        "module": "Exercises 3"
+      },
+      {
+        "name": "es4_curveI.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2194660/mod_resource/content/3/es4_curveI.pdf?forcedownload=1",
+        "size": 123376,
+        "section": "Exercises",
+        "module": "Exercises 4"
+      },
+      {
+        "name": "es5_curveII.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2198621/mod_resource/content/3/es5_curveII.pdf?forcedownload=1",
+        "size": 124684,
+        "section": "Exercises",
+        "module": "Exercises 5"
+      },
+      {
+        "name": "es6_funz_dom_sez.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2199478/mod_resource/content/2/es6_funz_dom_sez.pdf?forcedownload=1",
+        "size": 120649,
+        "section": "Exercises",
+        "module": "Exercises 6"
+      },
+      {
+        "name": "es7_lim_contI.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2203395/mod_resource/content/1/es7_lim_contI.pdf?forcedownload=1",
+        "size": 129294,
+        "section": "Exercises",
+        "module": "Exercises 7"
+      },
+      {
+        "name": "es8_der_par.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2207811/mod_resource/content/3/es8_der_par.pdf?forcedownload=1",
+        "size": 124794,
+        "section": "Exercises",
+        "module": "Exercises 8"
+      },
+      {
+        "name": "es9_funz_2var.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2213046/mod_resource/content/1/es9_funz_2var.pdf?forcedownload=1",
+        "size": 105461,
+        "section": "Exercises",
+        "module": "Exercises 9"
+      },
+      {
+        "name": "es10_int_doppi_translated.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2216017/mod_resource/content/1/es10_int_doppi_translated.pdf?forcedownload=1",
+        "size": 163310,
+        "section": "Exercises",
+        "module": "Exercises 10"
+      },
+      {
+        "name": "Sim_exam_translated_final.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2216019/mod_resource/content/2/Sim_exam_translated_final.pdf?forcedownload=1",
+        "size": 184632,
+        "section": "Exercises",
+        "module": "Mock exam"
+      },
+      {
+        "name": "esameAM2_2024_06_03.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2233674/mod_resource/content/1/esameAM2_2024_06_03.pdf?forcedownload=1",
+        "size": 198489,
+        "section": "Last year's exams",
+        "module": "3 june 2024"
+      },
+      {
+        "name": "esameAM2_2024_06_17.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2233675/mod_resource/content/1/esameAM2_2024_06_17.pdf?forcedownload=1",
+        "size": 184854,
+        "section": "Last year's exams",
+        "module": "17 june 2024"
+      },
+      {
+        "name": "esameAM2_2024_09_05.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2233676/mod_resource/content/1/esameAM2_2024_09_05.pdf?forcedownload=1",
+        "size": 184104,
+        "section": "Last year's exams",
+        "module": "5 september 2024"
+      },
+      {
+        "name": "esameAM2_2025_09_01.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2233678/mod_resource/content/1/esameAM2_2025_09_01.pdf?forcedownload=1",
+        "size": 187756,
+        "section": "Last year's exams",
+        "module": "9 january 2025"
+      },
+      {
+        "name": "examCalc2_2025_06_05.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2235670/mod_resource/content/1/examCalc2_2025_06_05.pdf?forcedownload=1",
+        "size": 212285,
+        "section": "New exams",
+        "module": "5 june 2025"
+      },
+      {
+        "name": "Oral exam.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2235674/mod_resource/content/3/Oral%20exam.pdf?forcedownload=1",
+        "size": 182685,
+        "section": "New exams",
+        "module": "Oral exam"
+      },
+      {
+        "name": "examCalc2_2025_06_26+fig.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2239682/mod_resource/content/1/examCalc2_2025_06_26%2Bfig.pdf?forcedownload=1",
+        "size": 237649,
+        "section": "New exams",
+        "module": "26 June 2025"
+      },
+      {
+        "name": "Calculus2_tut2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2191612/mod_resource/content/1/Calculus2_tut2.pdf?forcedownload=1",
+        "size": 1653566,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 2"
+      },
+      {
+        "name": "Calculus2TutorLec3.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2193823/mod_resource/content/1/Calculus2TutorLec3.pdf?forcedownload=1",
+        "size": 1142402,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 3"
+      },
+      {
+        "name": "03-14-25 10-39-45.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2196631/mod_resource/content/1/03-14-25%2010-39-45.pdf?forcedownload=1",
+        "size": 322274,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 4"
+      },
+      {
+        "name": "Calculus2_tut6.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2205619/mod_resource/content/1/Calculus2_tut6.pdf?forcedownload=1",
+        "size": 3004787,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 6"
+      },
+      {
+        "name": "Calc2_tut7.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2208832/mod_resource/content/1/Calc2_tut7.pdf?forcedownload=1",
+        "size": 2083344,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 7"
+      },
+      {
+        "name": "Calc2_tut8.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2211501/mod_resource/content/1/Calc2_tut8.pdf?forcedownload=1",
+        "size": 3031438,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 8"
+      },
+      {
+        "name": "Calc2_tut9.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2214463/mod_resource/content/1/Calc2_tut9.pdf?forcedownload=1",
+        "size": 2870095,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 9"
+      },
+      {
+        "name": "Calculus2_tut10.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2228169/mod_resource/content/1/Calculus2_tut10.pdf?forcedownload=1",
+        "size": 2016428,
+        "section": "Tutor Lectures",
+        "module": "Tutor Lecture 10"
+      }
+    ],
+    "videos": [],
+    "documents": [],
+    "total_content": 52
+  },
+  "18874": {
+    "id": "18874",
+    "name": "[CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_18874",
+    "summary": "",
+    "last_updated": "2025-09-09T13:01:54.784978",
+    "pdfs": [
+      {
+        "name": "sol1.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2087564/mod_resource/content/1/sol1.pdf?forcedownload=1",
+        "size": 140056,
+        "section": "Solutions to Homeworks",
+        "module": "Solution to homework 1"
+      },
+      {
+        "name": "sol2.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2095175/mod_resource/content/1/sol2.pdf?forcedownload=1",
+        "size": 152643,
+        "section": "Solutions to Homeworks",
+        "module": "Solution to homework 2"
+      },
+      {
+        "name": "sol3.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2127242/mod_resource/content/1/sol3.pdf?forcedownload=1",
+        "size": 150237,
+        "section": "Solutions to Homeworks",
+        "module": "Solution to homework 3"
+      },
+      {
+        "name": "sol4.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2137872/mod_resource/content/1/sol4.pdf?forcedownload=1",
+        "size": 146174,
+        "section": "Solutions to Homeworks",
+        "module": "Solution to homework 4"
+      },
+      {
+        "name": "sol5.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2148990/mod_resource/content/1/sol5.pdf?forcedownload=1",
+        "size": 142791,
+        "section": "Solutions to Homeworks",
+        "module": "Solution to homework 5"
+      },
+      {
+        "name": "sol6.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2148991/mod_resource/content/1/sol6.pdf?forcedownload=1",
+        "size": 143373,
+        "section": "Solutions to Homeworks",
+        "module": "Solution to homework 6"
+      }
+    ],
+    "videos": [],
+    "documents": [],
+    "total_content": 6
+  },
+  "21005": {
+    "id": "21005",
+    "name": "[CT0677-E] TECHNICAL ENGLISH FOR COMPUTER SCIENCE - PRACTICE (CT3) - a.a. 2024-25",
+    "shortname": "COURSE_21005",
+    "summary": "",
+    "last_updated": "2025-09-09T13:01:54.784899",
+    "pdfs": [
+      {
+        "name": "ICT 2024 Final CT0677-E.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2162176/mod_resource/content/1/ICT%202024%20Final%20CT0677-E.pdf?forcedownload=1",
+        "size": 4825161,
+        "section": "English for ICT Handout",
+        "module": "English for ICT Handout"
+      },
+      {
+        "name": "Lesson-4-Reporting-Verbs-PDF.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2186052/mod_resource/content/1/Lesson-4-Reporting-Verbs-PDF.pdf?forcedownload=1",
+        "size": 155614,
+        "section": "English for ICT Handout",
+        "module": "Reporting verbs"
+      },
+      {
+        "name": "Reported Speech Tense Chart - ICT.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2188997/mod_resource/content/1/Reported%20Speech%20Tense%20Chart%20-%20ICT.pdf?forcedownload=1",
+        "size": 18647,
+        "section": "English for ICT Handout",
+        "module": "Reporting verb - table"
+      },
+      {
+        "name": "ICT Reporting verbs - exercises.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2189043/mod_resource/content/2/ICT%20Reporting%20verbs%20-%20exercises.pdf?forcedownload=1",
+        "size": 542159,
+        "section": "English for ICT Handout",
+        "module": "Reporting verbs - exercises"
+      },
+      {
+        "name": "Modal Verbs ICT.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2186263/mod_resource/content/1/Modal%20Verbs%20ICT.pdf?forcedownload=1",
+        "size": 2261415,
+        "section": "English for ICT Handout",
+        "module": "Modal verbs"
+      },
+      {
+        "name": "ICT Modal Verbs.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2188999/mod_resource/content/2/ICT%20Modal%20Verbs.pdf?forcedownload=1",
+        "size": 765651,
+        "section": "English for ICT Handout",
+        "module": "Modal verb - exercises"
+      },
+      {
+        "name": "ICT - conditionals.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2190430/mod_resource/content/1/ICT%20-%20conditionals.pdf?forcedownload=1",
+        "size": 3903270,
+        "section": "English for ICT Handout",
+        "module": "Conditionals"
+      },
+      {
+        "name": "ICT Participle clauses.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2190866/mod_resource/content/1/ICT%20Participle%20clauses.pdf?forcedownload=1",
+        "size": 427850,
+        "section": "English for ICT Handout",
+        "module": "Participle clauses"
+      },
+      {
+        "name": "ICT Relative clauses.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2192705/mod_resource/content/1/ICT%20Relative%20clauses.pdf?forcedownload=1",
+        "size": 1058643,
+        "section": "English for ICT Handout",
+        "module": "Relative clauses"
+      },
+      {
+        "name": "ICT Phrasal Verbs.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2196374/mod_resource/content/1/ICT%20Phrasal%20Verbs.pdf?forcedownload=1",
+        "size": 617807,
+        "section": "English for ICT Handout",
+        "module": "Phrasal verbs"
+      },
+      {
+        "name": "ICT Inversion.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2196376/mod_resource/content/1/ICT%20Inversion.pdf?forcedownload=1",
+        "size": 400970,
+        "section": "English for ICT Handout",
+        "module": "Inversion"
+      },
+      {
+        "name": "MakingPresentations ICT.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2197033/mod_resource/content/1/MakingPresentations%20ICT.pdf?forcedownload=1",
+        "size": 470124,
+        "section": "English for ICT Handout",
+        "module": "Making presentations"
+      },
+      {
+        "name": "Ellipsis.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2200289/mod_resource/content/1/Ellipsis.pdf?forcedownload=1",
+        "size": 170059,
+        "section": "English for ICT Handout",
+        "module": "Ellipsis"
+      },
+      {
+        "name": "Tips for ICT Presentation.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2213103/mod_resource/content/1/Tips%20for%20ICT%20Presentation.pdf?forcedownload=1",
+        "size": 585324,
+        "section": "English for ICT Handout",
+        "module": "Tips for ICT presentation"
+      },
+      {
+        "name": "ICT Presentation - topic ideas.pdf",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2216738/mod_resource/content/1/ICT%20Presentation%20-%20topic%20ideas.pdf?forcedownload=1",
+        "size": 589021,
+        "section": "English for ICT Handout",
+        "module": "ICT Presentations - topic ideas"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "name": "ENGLISH LANGUAGE ICT LANGUAGE ASSISTANT COURSE DESCRIPTION 2025 CT0677.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2160303/mod_resource/content/1/ENGLISH%20LANGUAGE%20ICT%20LANGUAGE%20ASSISTANT%20COURSE%20DESCRIPTION%202025%20CT0677.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "Course Description",
+        "module": "Course Description"
+      },
+      {
+        "name": "Steve Jobs Biography.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2181962/mod_resource/content/1/Steve%20Jobs%20Biography.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "Steve Jobs Biography"
+      },
+      {
+        "name": "Steve Jobs glossary.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2181963/mod_resource/content/1/Steve%20Jobs%20glossary.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "Steve Jobs Biography Glossary"
+      },
+      {
+        "name": "Steve Jobs questions.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2181964/mod_resource/content/1/Steve%20Jobs%20questions.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "Steve Jobs Biography questions"
+      },
+      {
+        "name": "Creating a common language.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2183849/mod_resource/content/1/Creating%20a%20common%20language.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "MIT Article - Creating a Common Language"
+      },
+      {
+        "name": "Creating a common language - questions.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2185812/mod_resource/content/2/Creating%20a%20common%20language%20-%20questions.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "Creating a Common Language - questions"
+      },
+      {
+        "name": "Phrasal Verbs Used in Computer Science and IT[2].docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2196381/mod_resource/content/1/Phrasal%20Verbs%20Used%20in%20Computer%20Science%20and%20IT%5B2%5D.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "ICT Phrasal verbs"
+      },
+      {
+        "name": "Pronunciation of English Articles - videos.docx",
+        "url": "https://moodle.unive.it/webservice/pluginfile.php/2205846/mod_resource/content/1/Pronunciation%20of%20English%20Articles%20-%20videos.docx?forcedownload=1",
+        "type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "section": "English for ICT Handout",
+        "module": "Pronunciation of Articles - videos"
+      }
+    ],
+    "total_content": 23
   }
 }

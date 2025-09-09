@@ -1,0 +1,8 @@
+Mock Exam: [CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25
+Date: 2025-09-09T11:35:18.794315
+Questions: 2
+
+1. [Introduction] What is the primary reference for information about the course [CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3)?
+
+2. [Benchmark] Benchmarks are used to measure the performance of a computer system by running a standardized set of tasks.
+

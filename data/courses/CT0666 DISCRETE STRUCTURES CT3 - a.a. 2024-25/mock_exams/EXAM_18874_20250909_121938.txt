@@ -1,0 +1,14 @@
+Mock Exam: [CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25
+Date: 2025-09-09T12:19:38.560621
+Questions: 5
+
+1. [Course Content] Based on the course materials about Course Content, what is a fundamental concept?
+
+2. [Theory] Based on the course materials about Theory, what is a fundamental concept?
+
+3. [Applications] Based on the course materials about Applications, what is a fundamental concept?
+
+4. [Problem Solving] Based on the course materials about Problem Solving, what is a fundamental concept?
+
+5. [Analysis] Based on the course materials about Analysis, what is a fundamental concept?
+

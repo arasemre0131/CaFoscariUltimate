@@ -1,0 +1,110 @@
+{
+  "course_name": "[CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25",
+  "topics": [
+    "Mathematical Logic",
+    "Control Flow",
+    "Relative Clauses",
+    "Number Theory",
+    "Set Theory",
+    "Counting",
+    "Tenses",
+    "Modal Verbs",
+    "Induction",
+    "Proof Techniques",
+    "Relations"
+  ],
+  "difficulty_levels": [
+    "Basic",
+    "Intermediate",
+    "Advanced"
+  ],
+  "question_types": [
+    "Multiple Choice",
+    "True/False",
+    "Short Answer",
+    "Problem Solving"
+  ],
+  "content_summary": {
+    "pdf_count": 6,
+    "video_count": 0,
+    "document_count": 0,
+    "real_pdf_analyzed": 6,
+    "topics_found": 11
+  },
+  "pdf_contents": [
+    {
+      "filename": "sol5.pdf",
+      "content": "Discrete Structures - Solutions to Homework 5\nProf. Stefano Calzavara\nDecember 20, 2024\n1 Counting\n1. (6.1, Exercise 22) How many positive integers less than 1000:\n1. are divisible by 7?\n2. are divisible by both 7 and 11?\n3. are divisible by 7 but not by 11?\n4. are divisible by either 7 or 11?\n5. are divisible by exactly one of 7 and 11?\n6. are divisible by neither 7 nor 11?\n7. have distinct digits?\n8. have distinct digits and are even?\nSolution: We solve all the points separately:\n1. The first positive integer divisible by 7 is 7, while the last positive integer less than 1000\ndivisible by 7 is 994. Since 7 = 1 ·7 and 994 = 142 ·7, there are 142 numbers that are divisible\nby 7 in the considered interval.\n2. The numbers divisible by 7 and 11 are those divisible by 77. The first positive integer divisible\nby 77 is 77, while the last positive integer less than 1000 divisible by 77 is 924 (77 ·12). We\nthen have 12 numbers that are divisible by both 7 and 11 in the considered interval.\n3. Using the first two points, we have 142 −12 = 130 numbers that are divisible by 7 but not by\n11 in the considered interval.\n4. We already know that there are 142 numbers that are divisible by 7 in the considered interval.\nWe can similarly compute that there are 90 numbers that are divisible by 11 in the considered\ninterval. Since 12 numbers are divisible by both 7 and 11 as we showed in the second point,\nthe final answer is 142 + 90 −12 = 220.\n5. We must find all the numbers that are divisible by 7 but not by 11 and the numbers that are\ndivisible by 11 but not by 7. We already showed in the third point that there are 130 numbers\nthat are divisible by 7 but not by 11. Using a similar argument and the previous points, we\ncan prove that there are 90 −12 = 78 numbers that are divisible by 7 but not by 11. Since\nthe two classes do not overlap, the final answer is 130 + 78 = 208.\n6. We have 999 numbers and we must remove those that are divisible by either 7 or 11, hence\nthe final answer is 999 −220 = 779.\n17. We reason by cases. All single-digit numbers have distinct digits and they are 9. For two-digit\nnumbers, the first digit can be any number between 1 and 9, while the second digit can be\nany digit different from the first, hence we have 9 ·9 = 81 numbers. For three-digit numbers,\nthe first digit can be any number between 1 and 9, the second digit can be any digit different\nfrom the first, and the last digit can be any digit different from the first two, hence we have\n9·9·8 = 64",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Number Theory",
+        "Counting",
+        "Modal Verbs"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "sol4.pdf",
+      "content": "Discrete Structures - Solutions to Homework 4\nProf. Stefano Calzavara\nNovember 28, 2024\n1 Induction and Recursion\n1.1 Solved Exercises\n1. (5.1, Exercise 11) Find a formula for1\n2+1\n4+1\n8+. . .+1\n2nand prove it correct by induction.\nSolution: We compute the value of the formula for a few small values of n:\n•Ifn= 1, then the formula takes value1\n2.\n•Ifn= 2, then the formula takes value1\n2+1\n4=3\n4.\n•Ifn= 3, then the formula takes value1\n2+1\n4+1\n8=7\n8.\nBased on this, we conjecture that the formula takes value 1 −1\n2nfor each n≥1. We prove its\ncorrectness by induction:\n•Forn= 1, the original formula evaluates to1\n2. The conjectured formula gives 1 −1\n2=1\n2,\nwhich proves the basis step.\n•Letn=k+ 1 for some k≥1, we have:\n1\n2+1\n4+1\n8+. . .+1\n2k+1=\u0012\n1−1\n2k\u0013\n+1\n2k+1by inductive hypothesis\n=2k+1−2 + 1\n2k+1by computation\n=2k+1−1\n2k+1by computation\n= 1−1\n2k+1by computation\n2. (5.1, Exercise 21) Prove that 2n> n2ifnis an integer greater than 4.\n1Solution: Forn= 5, we have 25= 32 >25 = 52, which proves the basis step. Let now n=k+ 1\nfor some k≥5, we have:\n2k+1= 2·2kby definition\n= 2k+ 2kby definition\n> k2+k2by inductive hypothesis\n> k2+ 4k because k >4\n> k2+ 2k+ 1 because k≥1\n= (k+ 1)2by computation\n3. (5.1, Exercise 41) Prove that if A1, A2, . . . , A nandBare sets, then ( A1∪A2∪. . .∪An)∩B= (A1∩\nB)∪(A2∩B)∪. . .∪(An∩B).\nSolution: We prove the property by induction on n. Ifn= 1, we have A1∩B=A1∩B, which is\ntrivial and proves the basis step. Let now n=k+ 1 for some k≥1, we have:\n(A1∪A2∪. . .∪Ak+1)∩B= ((A1∪A2∪. . .∪Ak)∪Ak+1)∩B by associativity\n= ((A1∪A2∪. . .∪Ak)∩B)∪(Ak+1∩B) by the distributive law\n= ((A1∩B)∪(A2∩B)∪. . .∪(Ak∩B))∪(Ak+1∩B) by inductive hypothesis\n= (A1∩B)∪(A2∩B)∪. . .∪(Ak∩B)∪(Ak+1∩B) by associativity\n4. (5.1, Exercise 64) Prove that, if pis a prime number and p|a1a2. . . a n, then p|aifor some i.\nSolution: By induction on n. Ifn= 1, then p|a1is trivially true. Otherwise, let p|a1a2. . . a n\nfor some n >1. We distinguish two cases. If p|an, the conclusion is immediate. If instead p̸ |an,\nwe know that gcd(p, an) = 1. Using Lemma 2 of Section 4.3, we then observe that p|a1a2. . . a n−1.\nUsing the inductive hypothesis, we conclude that p|aifor some i≤n−1.\n5. (5.2, Exercise 5) Determine which amounts of postage can be formed using just 4-cent and 11-cent\nstamps. Prove your answer using the principle of mathematical induction and the principle of strong\ninduction to understand how the two proofs differ.\nSolution: LetP(n) stand for the statement “postage of cost nc",
+      "topics": [
+        "Control Flow",
+        "Relative Clauses",
+        "Set Theory",
+        "Number Theory",
+        "Induction",
+        "Modal Verbs",
+        "Proof Techniques"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "sol6.pdf",
+      "content": "Discrete Structures - Solutions to Homework 6\nProf. Stefano Calzavara\nDecember 20, 2024\n1 Relations\n1. (9.1, Exercise 6) Determine whether the relation Ron the set of all real numbers is reflexive, symmetric,\nantisymmetric, and/or transitive, where ( x, y)∈Rif and only if:\n1.x+y= 0\n2.x=±y\n3.x−yis a rational number\n4.x= 2y\n5.xy > 0\n6.xy= 0\n7.x= 1\n8.x= 1 or y= 1\nSolution: We present solutions to the first two points as representative:\n1. Let ( x, y)∈Rif and only if x+y= 0, we have:\n•(3,3)̸∈Rbecause 3 + 3 ̸= 0, hence Ris not reflexive.\n•Assume ( x, y)∈R, then x+y= 0. Since the sum operation is commutative, this implies\ny+x= 0, hence ( y, x)∈R. We then conclude that Ris symmetric.\n•We have (3 ,−3)∈Rand (−3,3)∈R, but 3 ̸=−3, hence Ris not anti-symmetric.\n•We have (3 ,−3)∈Rand (−3,3)∈R, but (3 ,3)̸∈R, hence Ris not transitive.\n2. Let ( x, y)∈Rif and only if x=±y, we have:\n•For all real numbers xwe have ( x, x)∈Rbecause x=x, hence Ris reflexive.\n•Assume ( x, y)∈R, then either x=yorx=−y. In the former case we have y=x, hence\n(y, x)∈R. In the latter case we have y=−x, hence ( y, x)∈R. We then conclude that\nRis symmetric.\n•We have (1 ,−1)∈Rand (−1,1)∈R, but 1 ̸=−1, hence Ris not anti-symmetric.\n•Assume ( x, y)∈Rand ( y, z)∈R, we distinguish four cases:\n–Ifx=yandy=z, then x=z, hence ( x, z)∈R.\n–Ifx=yandy=−z, then x=−z, hence ( x, z)∈R.\n–Ifx=−yandy=z, then x=−z, hence ( x, z)∈R.\n–Ifx=−yandy=−z, then x=z, hence ( x, z)∈R.\nWe then conclude that Ris transitive.\n12. (9.1, Exercise 10) Give an example of a relation on a set that is:\n1. both symmetric and antisymmetric;\n2. neither symmetric nor antisymmetric.\nSolution: Of course, multiple answers are possible and we present just one possible solution:\n1. We can pick the set A={a, b}and define the relation R=∅. This relation is trivially both\nsymmetric and anti-symmetric, because there exists no ( x, y)∈R.\n2. We can pick the set A={a, b, c}and define the relation R={(a, b),(b, a),(a, c)}. This\nrelation is not symmetric, because ( a, c)∈Rbut ( c, a)̸∈R, and it is not anti-symmetric,\nbecause ( a, b)∈Rand ( b, a)∈Rbuta̸=b.\n3. (9.5, Exercise 15) Let Rbe the relation on the set of ordered pairs of positive integers such that\n((a, b),(c, d))∈Rif and only if a+d=b+c. Show that Ris an equivalence relation.\nSolution: We prove the three properties separately:\n•Reflexivity: let ( a, b) be a pair of positive integers. We have (( a, b),(a, b))∈Rbecause\na+b=b+aby the commutative property of the sum operation.\n•Symmetry: let (( a, b),(c, d",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Set Theory",
+        "Tenses",
+        "Modal Verbs",
+        "Relations"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "sol3.pdf",
+      "content": "Discrete Structures - Solutions to Homework 3\nProf. Stefano Calzavara\nNovember 13, 2024\n1 Number Theory\n1. (4.1, Exercise 5) Prove that if a|bandb|afor some integers aandb, then either a=bora=−b.\nSolution: Assume that a|b, then there exists an integer ssuch that b=as. Assume then b|a,\nthen there exists an integer tsuch that a=bt. By combining this information, we have a=bt=ast.\nThis equation only holds if st= 1. Since both sandtare integers, their product gives 1 only if\ns=t= 1 or s=t=−1. In the former case we have a=b, while in the latter case we have a=−b.\n2. (4.1, Exercise 12) Prove that if ais a positive integer, then 4 does not divide a2+ 2.\nSolution: We distinguish two cases:\n•Ifais even, then a= 2kfor some integer k >0. We then have a2+ 2 = 4 k2+ 2≡2 (mod 4).\n•Ifais odd, then a= 2k+ 1 for some integer k≥0. We then have a2+ 2 = (2 k+ 1)2+ 2 =\n4k2+ 4k+ 3 = 4( k2+k) + 3≡3 (mod 4).\n3. (4.1, Exercise 41) Let a, bbe integers and let m, n be integers greater than 1. Prove that if n|mand\na≡b(mod m), then a≡b(mod n).\nSolution: Assume that n|m, then m=ncfor some integer c. Since a≡b(mod m), we know\nthatm|(a−b), hence a−b=mdfor some integer d. By combining this information, we have\na−b=md=mnc. Since mcis an integer, we conclude that n|(a−b), hence a≡b(mod n).\n4. (4.1, Exercise 46) Prove that if nis an odd positive integer, then n2≡1 (mod 8).\nSolution: Since nis an odd positive integer, we have n= 2k+ 1 for some integer k≥0. We then\nhave n2= (2k+ 1)2= 4k2+ 4k+ 1 = 4 k(k+ 1) + 1. We now observe that k(k+ 1) is even, because\nkandk+ 1 have different parity. We then have k(k+ 1) = 2 sfor some integer s, which implies that\nn2= 4k(k+ 1) + 1 = 4 ·2s+ 1 = 8 s+ 1≡1 (mod 8).\n5. (4.3, Exercise 5) Find the prime factorization of 10!.\n1Solution: We have 10! = 10 ·9·8·7·6·5·4·3·2·1. These include the prime numbers 2, 3, 5, 7.\nWe can factor the other terms greater than 1 as follows: 10 = 2 ·5, 9 = 32, 8 = 23, 6 = 2 ·3, 4 = 22.\nBy multiplying everything together we have 10! = 28·34·52·7.\n6. (4.3, Exercise 18) An integer z >0 is perfect if it equals the sum of its positive divisors other than itself.\n(a) Prove that 6 and 28 are perfect numbers.\n(b) Prove that 2p−1(2p−1) is a perfect number when 2p−1 is prime.\nSolution: The divisors of 6 are 1, 2, 3, 6 and we have 6 = 1 + 2 + 3. Moreover, the divisors of 28\nare 1, 2, 4, 7, 14, 28 and we have 28 = 1 + 2 + 4 + 7 + 14.\nTo prove the second point, we observe that the divisors of 2p−1are all the powers of the form 2i\nfor 0≤1≤p−1, whil",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Number Theory",
+        "Tenses",
+        "Modal Verbs"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "sol2.pdf",
+      "content": "Discrete Structures - Solutions to Homework 2\nProf. Stefano Calzavara\nOctober 24, 2024\n1 Basic Structures\n1. (2.1, Exercise 27) Prove that P(A)⊆ P(B) if and only if A⊆B.\nSolution: We prove the two implications separately:\n•LetP(A)⊆ P(B) and assume by contradiction that A̸⊆B. This means that there exists\nx∈Asuch that x̸∈B. Consider the set {x}, we have {x} ∈ P (A) by definition of powerset.\nHowever, we have {x} ̸∈ P (B), because we know that x̸∈B. We thus observe that {x} ∈ P (A)\nbut{x} ̸∈ P (B), which contradicts the hypothesis P(A)⊆ P(B).\n•LetA⊆Band assume by contradiction that P(A)̸⊆ P(B). This means that there exists\nC∈ P(A) such that C̸∈ P(B). Since C̸∈ P(B), we know that C̸⊆Bby definition of\npowerset, hence there exists x∈Csuch that x̸∈B. However, we have x∈A, because we\nknow that C∈ P(A), i.e., C⊆A. We thus observe that x∈Abutx̸∈B, which contradicts\nthe hypothesis A⊆B.\n2. (2.1, Exercise 40) Show that A×B̸=B×A, when AandBare not empty, unless A=B.\nSolution: LetA, B be two non-empty sets. We show that, if A̸=B, then A×B̸=B×A. Since\nA̸=B, there exists a∈Asuch that a̸∈Bor there exists b∈Bsuch that b̸∈A:\n•Assume that there exists a∈Asuch that a̸∈B. Since Bis not empty, we can pick some\nelement c∈B. We have that ( a, c)∈A×Bby definition of Cartesian product, but ( a, c)̸∈\nB×A, because we know that a̸∈B. This implies that A×B̸=B×A.\n•Assume that there exists b∈Bsuch that b̸∈A. Since Ais not empty, we can pick some element\nc∈A. We have that ( c, b)∈A×Bby definition of Cartesian product, but ( c, b)̸∈B×A,\nbecause we know that b̸∈A. This implies that A×B̸=B×A.\n3. (2.2, Exercise 36) Prove or disprove that for all sets A,BandC, we have:\n1.A×(B∪C) = (A×B)∪(A×C).\n2.A×(B∩C) = (A×B)∩(A×C).\n1Solution: Both statements are true. We start by proving the first:\n•Assume ( x, y)∈A×(B∪C), then x∈Aandy∈B∪C. This means that y∈Bory∈C.\nIfy∈B, then ( x, y)∈A×B, hence ( x, y)∈(A×B)∪(A×C). If instead y∈C, then\n(x, y)∈A×C, hence ( x, y)∈(A×B)∪(A×C).\n•Assume ( x, y)∈(A×B)∪(A×C), then ( x, y)∈A×Bor (x, y)∈A×C. If (x, y)∈A×B,\nthen x∈Aandy∈B, which implies y∈B∪C. Putting things together, we have ( x, y)∈\nA×(B∪C). If instead ( x, y)∈A×C, then x∈Aandy∈C, which implies y∈B∪C.\nPutting things together, we have ( x, y)∈A×(B∪C).\nWe now prove the second:\n•Assume ( x, y)∈A×(B∩C), then x∈Aandy∈B∩C. This implies that y∈Band\ny∈C. By using this information, we have ( x, y)∈A×Band ( x, y)∈A×C. This implies\n(x, y)∈(A×B)∩(A×C).\n•Assume ( x, y)∈(A×B)∩(A×C), then ( x, y)∈A×Band ( x, y)∈A×C. The former im",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Set Theory",
+        "Modal Verbs",
+        "Proof Techniques"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "sol1.pdf",
+      "content": "Discrete Structures - Solutions to Homework 1\nProf. Stefano Calzavara\nOctober 16, 2024\n1 Mathematical Logic\n1. (1.1, Exercise 44) If p1, p2, . . . , p nare propositions, explain whyVn−1\ni=1Vn\nj=i+1(¬pi∨ ¬pj) is true if and\nonly if at most one of p1, p2, . . . , p nis true.\nSolution: To better understand the exercise, we consider three formulas p1, p2, p3and we observe\nthat:\nn−1^\ni=1n^\nj=i+1(¬pi∨ ¬pj) = (¬p1∨ ¬p2)∧(¬p1∨ ¬p3)∧(¬p2∨ ¬p3).\nThis helps us visualize the shape of the formula and get useful intuition to prove the formal result.\nWe prove the two directions of the biconditional separately:\n•Assume thatVn−1\ni=1Vn\nj=i+1(¬pi∨ ¬pj) is true. Assume by contradiction that there exist two\npropositions ph, pkwith h < k such that ph, pkare both true. This means that the for-\nmula ( ¬ph∨ ¬pk) is false. Since ( ¬ph∨ ¬pk) is one of the conjuncts ofVn−1\ni=1Vn\nj=i+1(¬pi∨\n¬pj), we conclude that the latter formula is false. But this contradicts the hypothesis thatVn−1\ni=1Vn\nj=i+1(¬pi∨ ¬pj) is true.\n•Assume that at most one of p1, p2, . . . , p nis true. If none of the propositions is true, each\nconjunct of the form ( ¬ph∨¬pk) for some h, kis true, hence the formulaVn−1\ni=1Vn\nj=i+1(¬pi∨¬pj)\nis true. Otherwise, let pkbe the only true proposition. We observe thatVn−1\ni=1Vn\nj=i+1(¬pi∨¬pj)\nonly includes conjuncts of the following forms: ( ¬ph∨ ¬pk) for some h < k , (¬pk∨ ¬pl) for\nsome l > k , or (¬pi∨¬pj) for some i, j̸=k. All these conjuncts are true under the assumption\nthatpkis the only true proposition.\n2. (1.4, Exercise 45) Determine whether ∀x(P(x)→Q(x)) and ∀xP(x)→ ∀xQ(x) are logically equivalent.\nJustify your answer.\nSolution: The two formulas are not logically equivalent. To show this, consider the domain D=\n{a, b}and assume that the following holds: P(a),¬Q(a),¬P(b), Q(b). We have that:\n•Since P(a) and¬Q(a), we have that P(a)→Q(a) is false. This implies that ∀x(P(x)→Q(x))\nis false.\n•Since¬P(b), we have that ∀xP(x) is false. This implies that ∀xP(x)→ ∀xQ(x) is true,\nbecause its premise is false.\n13. (1.4, Exercise 47) Show that ∃x(P(x)∨Q(x)) and ∃xP(x)∨ ∃xQ(x) are logically equivalent.\nSolution: We show that the first formula is true if and only if the second formula is true:\n•Let∃x(P(x)∨Q(x)) be true, then there exists an element asuch that P(a)∨Q(x). We have\ntwo cases. If P(a) holds true, then ∃xP(x) holds true as well, hence ∃xP(x)∨ ∃xQ(x) holds\ntrue. If instead Q(a) holds true, then ∃xQ(x) holds true as well, hence ∃xP(x)∨∃xQ(x) holds\ntrue.\n•Let∃xP(x)∨ ∃xQ(x)",
+      "topics": [
+        "Relative Clauses",
+        "Proof Techniques",
+        "Mathematical Logic",
+        "Control Flow"
+      ],
+      "size": 2500
+    }
+  ]
+}

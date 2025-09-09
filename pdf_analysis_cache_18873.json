@@ -1,0 +1,218 @@
+{
+  "course_name": "[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25",
+  "topics": [
+    "Structures",
+    "Control Flow",
+    "Benchmarks",
+    "Arrays",
+    "Number Theory",
+    "Participle Clauses",
+    "Exams",
+    "Relative Clauses",
+    "Pointers",
+    "Data Structures",
+    "Data Types",
+    "Set Theory",
+    "Relations",
+    "Induction",
+    "Grammar Exercises",
+    "Functions",
+    "Mathematical Logic",
+    "Technical Writing",
+    "Modal Verbs",
+    "Algorithms"
+  ],
+  "difficulty_levels": [
+    "Basic",
+    "Intermediate",
+    "Advanced"
+  ],
+  "question_types": [
+    "Multiple Choice",
+    "True/False",
+    "Short Answer",
+    "Problem Solving"
+  ],
+  "content_summary": {
+    "pdf_count": 27,
+    "video_count": 0,
+    "document_count": 55,
+    "real_pdf_analyzed": 15,
+    "topics_found": 20
+  },
+  "pdf_contents": [
+    {
+      "filename": "archivio-esami.pdf",
+      "content": "ArchivioAppelli\nArchiviodegliAppelliperilcorso“Introduzionealla\nProgrammazione’’\nClaudioLucchese,AlviseSpanò,FrancescoBusolin,\nFedericoMarcuzzi,AlbertoVeneri\nSeptember8,2023ArchivioAppelli\nContents\nProvaIntermediadel04/11/2020 1\nIstruzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1\nDomandearispostamultipla . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1\nSoluzioniDomande . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 5\nEserciziParteA(voto18‑25) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 6\nSoluzioniEserciziParteA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7\nEserciziParteB(voto18‑30L) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10\nSoluzioniEserciziParteB . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12\nAppellodel13/01/2021 15\nIstruzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 15\nDomandeaRispostaMultipla‑Perchinonhaunvotosufficientenelleesercitazioni . . . . . . . . 15\nDomandeaRispostaMultipla‑Obbligatoriepertutti . . . . . . . . . . . . . . . . . . . . . . . . . 16\nSoluzioniDomande . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 19\nEserciziAppello . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 21\nSoluzioniEsercizi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23\nAppellodel28/01/2021 28\nIstruzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 28\nDomandeaRispostaMultipla‑Perchinonhaunvotosufficientenelleesercitazioni . . . . . . . . 28\nDomandeaRispostaMultipla‑Obbligatoriepertutti . . . . . . . . . . . . . . . . . . . . . . . . . 30\nSoluzioniDomande . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32\nEserciziAppello . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 33\nSoluzioniEsercizi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 36\nAppellodel15/06/2021 39\nIstruzioni . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 39\nDomandeaRispostaMultipla‑Perchinonhaunvotosufficientenelleesercitazioni . . . . . . . . 39\nDomandeaRisp",
+      "topics": [],
+      "size": 2500
+    },
+    {
+      "filename": "ITCP_2024_2025_-_Test_2_without_answers.pdf",
+      "content": "1 / 6\n  The function correctly calculates the length of the string.\n  The function is incorrect because it forgets to count the last character of the string.\n  Segmentation fault - The function accesses invalid memory.\n  The function calculates the correct length for every string except for an empty string.\n  The function counts the termination character \\0 in the length.Consider the following code snippet that uses a do-while  loop to calculate the length of a string:\nsize_t string_length(char *str) {\n    const char *ptr = str;\n    do {\n        ptr++;\n    } while (*ptr != '\\0');\n    return ptr - str;\n}\nSelect the correct answer.Question - 1\nString length\n  It works correctly: it returns \"ciao\".The following code takes a string as input and returns a new string where all characters after the ﬁrst occurrence of the character 'x'  are removed. If the\ncharacter 'x'  is not present, the string is returned unchanged.\nchar* cut_after_x(char *s) {\n  size_t len = 0;\n  for (const char * p = s; *p != '\\0' && *p != 'x'; ++p) {\n      len++;\n  }\n  char *result = malloc(len); \n  if (!result) return NULL; \n  for (size_t i = 0; i < len; i++) {\n      result[i] = s[i];\n  }\n  return result;\n}\nConsidering the above code, what issue occurs when it is executed with the string \"ciaoxmondo\" ?\n Question - 2\nString ManipulationITCP 2024/2025 - Test 2 10080 minutes2 / 6\n  The new string is not formed correctly because it lacks the termination character '\\0'.\n  It returns only \"cia\": there is an error in calculating the length of the string.\n  Segmentation fault: memory access is unsafe.\n  It depends on the standard library: the behavior may vary depending on the compiler.\n  The function is correct\n  The code does not compile since it could never terminate\n  The result could be wrong because of the return -1\n  The base case if (n == 0) return 0; is missing\n  The base case if (n == 1) return 0; is missingCollatz conjecture asks wether, starting from any positive integer , it is always possible to reach  with the following operations:\n \n \n \nGiven the following recursive function that computes the number of steps to reach 1, select the correct options (do not consider overﬂows).\n \nint collatz(int n){\n    if (n < 0) return -1;\n    if (n % 2 == 0) return 1 + collatz(n/2);\n    if (n % 2 == 1) return 1 + collatz(3*n +1);\n}\n Question - 3\nCollatz Conjecture\nGiven the following recursive function, that takes in input a pointer to an array and its length, select the correct options.\n \nint accum",
+      "topics": [
+        "Induction",
+        "Relative Clauses",
+        "Control Flow",
+        "Data Structures",
+        "Modal Verbs",
+        "Tenses",
+        "Functions"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "results-written-exams.pdf",
+      "content": "Matriculation number project 17/01/25 31/01/25 28/05/25 18/09/25 final mark\n906520 19 < 18\n907843 26 < 18\n882999\n908806 < 18\n908753 24 < 18 < 18\n906691 27 20 22\n906219\n1001513\n907842\n893341\n907531 < 18\n908772 < 18\n906541 23 < 18\n908275\n903328\n906841 30 21.5 24\n903710\n977211\n908856\n908497\n907693 25 27 26\n908047 24 < 18 < 18 18 20\n905808 23 < 18 < 18 20 21\n907833\n897162\n908661 18 < 18 21 20\n908106 23 < 18 18 20\n892472\n908755\n908828 29 < 18 25 26\n907284 25 < 18 < 18\n908130\n908515 26 < 18\n907306\n901837\n906829\n906502\n907241 27 25.5 26\n887744\n907482 29 26 27\n907516\n908667\n908697\n977464 24 < 18 < 18\ndelia75\n903476\n887358\n908518 30 25.5 27\n907873905248 29 23 25\n907785\n898150\n906675\n977419 27 20.5 23\n908658\n893211\n908363 19 < 18\n908756\n907529 27 22.5 24\n905104 30 30 30L\n906057 29 25 26\n966880 30 25 27\n906586\n903598\n906578 30 30 30L\n906700\n907625 23 < 18\n906515 18 < 18\n906514 29 30 30\n908571\n903143\n908100 30 24.5 26\n906402 23 < 18 < 18 22 22\n906811\n1001273\n908615 23 < 18\n908553\n1001540 < 18 < 18\n908685 24 18 20",
+      "topics": [],
+      "size": 1016
+    },
+    {
+      "filename": "8-benchmarks.pdf",
+      "content": "Giulio Ermanno Pibiri — giulioermanno.pibiri@unive.it\nDepartment of Environmental Sciences, Informatics and Statistics\n 8. BenchmarksIntroduction to ProgrammingOverview•Software measurements\n•Benchmarks for the operations of vector, blocked_vector, and linked_list\n•ComparisonsSoftware measurements•To make a measurement in software means  1. measuring the time taken by a given code snippet (like a function, a loop,     an entire program etc.), or  2. measuring the memory allocated by the program at a given instant.\n•We focus on the ﬁrst type of measurement in this lecture.\n•Q. Why measuring?Software measurements•To make a measurement in software means  1. measuring the time taken by a given code snippet (like a function, a loop,     an entire program etc.), or  2. measuring the memory allocated by the program at a given instant.\n•We focus on the ﬁrst type of measurement in this lecture.\n•Q. Why measuring?•Because we want to make sure that are code is eﬃcient, that is, it will not cause any performance problem to our users.\n•The theoretical analysis is not enough, you have to implement your algorithms and measure their performance on real-world datasets.Software measurements•If you want to measure the time taken by a whole program to run, we can just use the time utility under Unix, like this:  $ gcc -std=c99 vector.c -o vector  $ time ./vector   ./vector  0.39s user 0.05s system 96% cpu 0.461 total •But usually, we want to measure the time that a speciﬁc portion of a whole program takes, like a speciﬁc function.",
+      "topics": [
+        "Set Theory",
+        "Relative Clauses",
+        "Control Flow",
+        "Data Structures",
+        "Modal Verbs",
+        "Algorithms",
+        "Functions"
+      ],
+      "size": 1536
+    },
+    {
+      "filename": "5.2-pointers.pdf",
+      "content": "Giulio Ermanno Pibiri — giulioermanno.pibiri@unive.it\nDepartment of Environmental Sciences, Informatics and Statistics\n 5.2 PointersIntroduction to Computer ProgrammingOverview•Memory addresses and pointers\n•Pointers: declaration, initialisation, arithmetic, examples\n•Parameter passing styles\n•const pointers and pointers to const element\n•Relation between pointers and arrays\n•Dynamic memory allocation: motivations, malloc and freeVariables and memory addresses•Variables are names given to memory addresses that hold our data in memory.\nhttps://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.htmlcomputer RAMVariables and memory addresses•Variables are names given to memory addresses that hold our data in memory.\nhttps://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp4_PointerReference.htmlvariable sum (of type int) is stored at memory address 90000000 and spans 4 bytes\ncomputer RAMPointers and memory addresses•A pointer is a variable that stores a memory address, for example, of another variable.\n•For example, we can have a pointer to a variable of type int, as well as a pointer to a float, or a pointer to an array.\n•We say that the pointer “points to the variable”. Technically, what happens is that the pointer stores the address in memory of that variable.\n•As for all variables, also a pointer has a type — the type of the pointed variable.",
+      "topics": [
+        "Relations",
+        "Relative Clauses",
+        "Control Flow",
+        "Data Structures",
+        "Technical Writing",
+        "Modal Verbs",
+        "Functions"
+      ],
+      "size": 1376
+    },
+    {
+      "filename": "Project IaP.pdf",
+      "content": "Introduction to Programming a.y. 2024/2025\nProject\nMay 8, 2025\nThe document contains the guidelines for the project implementation.\n1 Project Description\nStudents are required to develop a C program that implements the logic of the following card game:\n1.1 Components\n•A deck of 40 cards divided into 4 suits\n–10 cards - Clubs (from 1 to 7, with J,Q K)\n–10 cards - Spades (from 1 to 7, with J,Q K)\n–10 cards - Diamonds (from 1 to 7, with J,Q K)\n–10 cards - Hearts (from 1 to 7, with J,Q K)\n1.2 Players\n•From 2 to 20 players\n1.3 Goal of the game\n•Be the last player in the game\n1.4 Game Play\nAt the beginning of the game each player has 2life points .\nThe game is played in phases. At each stage:\n1. Shuffle the deck.\n2. Deal each player 2 cards: one face down and one face up.\n3. Randomly choose the first player of the phase.\n1.4.1 Progress of the Phase\nThe phase takes place by giving each player a turn. Starting from the first player, in ascending ring\norder, the player in the turn:\n1. must resolve the effect of the face-up card (see card effect).\n2. can view the face-down card and optionally reveal/flip it (from face-down to face-up) to apply\nits effect. If it has already been discovered due to the effect of other cards, it will not be possible\nto apply its effect again.\n13. ends the turn and the play moves on to the next player. At the end of all players’ turns ,\nthe phase ends and whoever has no more lives is eliminated from the game .\nWhat does ascending ring order mean?\n•Suppose to have 3 player in game (P1, P2, P3)\n–If the first player is P1, the phase will follow the turns P1 →P2→P3\n–If the first player is P2, the phase will follow the turns P2 →P3→P1\n–If the first player is P3, the phase will follow the turns P3 →P1→P2\n1.5 Card Effect\n•Cards from 2 to 6 : no effects.\n•Card 7 : the player who holds this card (face-up) forces the next player to reveal the face-down\ncard and apply its effect.\n•Card J : the player who holds this card (face-up) must give 1 life point to the previous player.\n•Card Q : the player who holds this card (face-up) must give 1 life point to the second following\nplayer. (i.e., skipping a player).\n•Card 1 : the player who holds this card (face-up) drops 1 life point to the playing field (the\nlife points on the playing field are not reset at each phase, so they remain even for the following\nones if they have not been claimed).\n•Card K : the player who holds this card (face-up) must claim all the life points dropped until\nthat time on the pl",
+      "topics": [
+        "Set Theory",
+        "Relative Clauses",
+        "Mathematical Logic",
+        "Control Flow",
+        "Modal Verbs"
+      ],
+      "size": 2500
+    },
+    {
+      "filename": "6-strings.pdf",
+      "content": "Giulio Ermanno Pibiri — giulioermanno.pibiri@unive.it\nDepartment of Environmental Sciences, Informatics and Statistics\n 6. StringsIntroduction to Computer ProgrammingOverview•Strings as arrays of chars\n•String functions in string.h: strlen, strcmp, strcpy, strcat •Arrays of strings\n•Sorting strings\n•Command-line arguments\n•ExercisesStrings•In Computer Science, strings are sequences of characters.\n•Examples: “Hello!”, “h e llo!”, “HeLlO”, “Hello world!”, etc.\n•In the C programming language, strings are implemented as arrays of chars terminated with a special character that is ‘\\0’.Strings•In Computer Science, strings are sequences of characters.\n•Examples: “Hello!”, “h e llo!”, “HeLlO”, “Hello world!”, etc.\n•In the C programming language, strings are implemented as arrays of chars terminated with a special character that is ‘\\0’.Hello world!\\00123456789101112this string takes 13 bytes of memory and its length is 12 characters•Example:Strings•Q. Why do we need the ﬁnal terminator '\\0'?",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Data Structures",
+        "Algorithms",
+        "Functions"
+      ],
+      "size": 998
+    },
+    {
+      "filename": "7-structs.pdf",
+      "content": "Giulio Ermanno Pibiri — giulioermanno.pibiri@unive.it\nDepartment of Environmental Sciences, Informatics and Statistics\n 7. StructsIntroduction to ProgrammingOverview•Deﬁnition, syntax, accessing data members, motivation, examples\n•Using struct with typedef •Memory layout and alignment\n•Array of Structures (AoS) and Structure of Arrays (SoA)\n•Resizable arrays, amortised analysis\n•Singly-linked listsStructures in C•So far, we have been using primitive data types (like, int, char, double, etc.) and derived data types (like, array of int, array of chars, int*, char*, etc.).\n•C gives us the possibility to create our own types.\n•With the keyword struct we can deﬁne our own types as aggregation of variables of other types.Structures in C•So far, we have been using primitive data types (like, int, char, double, etc.) and derived data types (like, array of int, array of chars, int*, char*, etc.).\n•C gives us the possibility to create our own types.\n•With the keyword struct we can deﬁne our own types as aggregation of variables of other types.•Syntax:  struct structure_name {     var_1_declaration;     var_2_declaration:     ...     var_n_declaration; };Structures in C•So far, we have been using primitive data types (like, int, char, double, etc.) and derived data types (like, array of int, array of chars, int*, char*, etc.).\n•C gives us the possibility to create our own types.\n•With the keyword struct we can deﬁne our own types as aggregation of variables of other types.these are called data members or attributes of the structure•Syntax:  struct structure_name {     var_1_declaration;     var_2_declaration:     ...     var_n_declaration; };",
+      "topics": [
+        "Modal Verbs",
+        "Control Flow",
+        "Data Structures"
+      ],
+      "size": 1659
+    },
+    {
+      "filename": "1-introduction.pdf",
+      "content": "Giulio Ermanno Pibiri — giulioermanno.pibiri@unive.it\nDepartment of Environmental Sciences, Informatics and Statistics\n 1. IntroductionIntroduction to Computer ProgrammingOverview•Course introduction and general information:\n-course structure\n-program\n-material\n-exam\n•Programming and languages, C •Setting-up a development environment:\n-terminal\n-compilation•Welcome to CT0665 — “Introduction to Computer Programming”.  This is an introductory course about the C programming language: language + coding (debugging and exercises).\n•C language:\n-types, variables, operators\n-control ﬂow: if-and-else, for/while loops\n-functions\n-arrays, pointers, dynamic memory management\n-strings\n-structuresWhat is this course?Teacher•Giulio Ermanno Pibiri https://jermp.github.io giulioermanno.pibiri@unive.it\n•Assistant professor of Computer Science at Ca’ Foscari University of Venice\n•Before: - National Council of Research (CNR), Pisa - University of Pisa\n•Research interests: - algorithms and data structures - data compression - bioinformatics Teacher•Giulio Ermanno Pibiri https://jermp.github.io giulioermanno.pibiri@unive.it\n•Current teaching: - Programming and Laboratory — Module 2 (Ca’ Foscari) - Computer Science — Module 1 (Ca’ Foscari) - Introduction to Programming (Ca’ Foscari)\n•Past teaching: - Compressed Data Structures (Ca’ Foscari, PhD course) - Theory and Practice of Data Compression (University of Pisa, PhD course) - Laboratory of Algorithms (University di Pisa)",
+      "topics": [
+        "Set Theory",
+        "Control Flow",
+        "Data Structures",
+        "Algorithms",
+        "Tenses",
+        "Functions"
+      ],
+      "size": 1474
+    },
+    {
+      "filename": "5.1-arrays.pdf",
+      "content": "Giulio Ermanno Pibiri — giulioermanno.pibiri@unive.it\nDepartment of Environmental Sciences, Informatics and Statistics\n 5.1 ArraysIntroduction to Computer ProgrammingOverview•Arrays: declaration, memory layout, random access, motivation, examples\n•Linear search and binary search: iterative and recursive algorithms\n•Two-dimensional arrays: matrixes\n•ExercisesArrays•The array is the simplest data structure in Computer Science: it is a collection of elements all of the same type.\n•For example: a collection of 100 ints, or 1000 floats.\n•Syntax to declare an array:      element-type array-name[array-size]; •To calculate the length of an array, in C we usually do:     n = sizeof(array-name) / sizeof(element-type);Arrays•The array is the simplest data structure in Computer Science: it is a collection of elements all of the same type.\n•For example: a collection of 100 ints, or 1000 floats.\n•Syntax to declare an array:      element-type array-name[array-size]; •To calculate the length of an array, in C we usually do:     n = sizeof(array-name) / sizeof(element-type);•Examples:      int a[100]; float b[1000];Arrays•Examples:      int a[100];      float b[1000]; •Important: array elements are allocated in a contiguous memory segment (from lower to higher memory addresses).37FD0037FD0437FD0837FD0C380C9C382C48382DD4382C4C382C50……………memory addresses (in hexadecimal)memory",
+      "topics": [
+        "Induction",
+        "Control Flow",
+        "Data Structures",
+        "Algorithms",
+        "Tenses",
+        "Functions"
+      ],
+      "size": 1380
+    },
+    {
+      "filename": "00_Exercises-Introduction.pdf",
+      "content": "Introduction to \nComputer Programming\nExercises –IntroductionAbout the course (Exercises)\nTeacher: Luca Olivieri\nWebpage: https://www.unive.it/data/insegnamento/520917\n●18h Frontal lessons\n●Thursday 10:30 -12:00\nCalendar: https://www.unive.it/data/course/521402/orario\nN.B. the lesson scheduled for 28/11/2024 will movedMoodle page\nhttps://moodle.unive.it/course/view.php?id=18873\nImportant: \n●There is a page of the course on Moodle. It is your \nprimary reference for information about the course, \nmaterials, etc. \n●There is also a forum where you can ask questions \nabout the course contents, receive support from \nteachers and the assistants.The Teacher\n●Luca Olivieri (https://www.unive.it/data/persone/25543514 )\n●e-mail : luca.olivieri@unive.it\n●Role : Ricercatore RTD-A (Assistant Professor) in Computer Science\n●Department : DAIS at Ca' Foscari University of Venice\n●Teaching a.a.2024/2024:○Introduzione allaprogrammazione –Esercitazioni (ITA), Bachelor Degree Course○Introduction to programming –Exercises (ENG) , Bachelor Degree Course○Software and System Verification  –Module 1 (ENG), PhD Course\n●Previous Teaching○Lab of Web Technologies (ENG),  a.a.2023/2024, Bachelor Degree Course in Digital \nManagmentThe Teacher\n●Luca Olivieri (https://www.unive.it/data/persone/25543514 )\n●Previous Work Experience:○+5 years as software engineer and researcher in Industry\n(JuliaSoft srl., Corvallis srl., GrammaTech Inc.)○PhD in Computer Science at University of Verona\n●Research Interests:○Software Verification, Static Analysis, Software Security, Privacy, Blockchain, \nSmart Contracts, …",
+      "topics": [
+        "Relative Clauses",
+        "Modal Verbs",
+        "Control Flow"
+      ],
+      "size": 1594
+    },
+    {
+      "filename": "03_Exercises.pdf",
+      "content": "Introduction to Computer \nProgramming\na.y. 2024/2025\nExercises –24\n/10/2024Calendar changes\nThe lesson of 28/11/2024 is moved on Wen 04/12/2024 12:15 -13:45\nYou can find the change also in the TimeTable on the course page: linkExercises \n1.Given a natural number N, write a program that prints the result of the \nfollowing expression:\n2.Write a program that reads from the keyboard integer numbers. It prints the \nprogressive sum of each positive numbe r and prints the progressive product of \neach negative number . The program ends with zero.෍\n𝑖=0𝑁\n−1𝑖+15\n2𝑖+1Exercises \n3. Given a two natural number A and B, print their greatest common divisor .\nex. A = 8, B = 6;  the GCD is 2\nex. A = 5, B = 2; the GCD is 1\nex. A = 12, B = 18; the GCD is 6\nex. A = 3, B = 6; the GCD is 3\n4. Given a natural number N, print if it is a highly composite number . A highly \ncomposite number means that any natural number smaller than it has less dividers.\nex. 1, 2, 4, 6, 12, 24, 36, 48, 60 are highly composite numbers\nex. 5, 7, 8 are not highly composite numbersExercises \n5.Given a natural number N, print the corresponding Floyd triangle .\nThe Floyd triangle is a rectangle triangle that contains natural numbers, defined \nby filling the lines of the triangle with consecutive numbers and starting from 1 \nin the upper left corner.\nex. N = 4\n1\n2 3\n4 5 6\n7 8 9 10",
+      "topics": [
+        "Relative Clauses",
+        "Modal Verbs",
+        "Number Theory",
+        "Control Flow"
+      ],
+      "size": 1351
+    },
+    {
+      "filename": "07_Exercises.pdf",
+      "content": "Introduction to Computer \nProgramming \na.y. 2024/2025 \nExercises – 07 \n04/12/2024Exercises \n1.Ex2 - Exam 03/02/23.  A matrix of integer is called “perfect”, if the sum of elements in \nthe ﬁrst row is equals to 2^1, the sum of elements in the second row is  2^2 and,  … , \nthe sum of elements in the row 𝑖 ‑th is equals to 2^ 𝑖.  Write a function that given a \nmatrix returns  true if it is perfect,  false otherwise.\nExample\nint A[4][3] = {  {0,1,1}, // 0+1+1 = 2 \n  {2,0,2}, // 2+0+2 = 4 \n  {5,1,2}, // 5+1+2 = 8 \n  {6,7,3}}; // 6+7+3 = 16 \nprintf (“%d\\n” , is_perfect (&(A[0][0]), 4,3)); // output 1 bool  is_perfect (int* M, size_t  n_rows, size_t  n_cols); Exercises \n2.Ex2 - Exam 25/01/24.  The main diagonal of a square matrix is   called “dominant” if the \nsum of its elements is greater than the sum of all the other elements of the matrix. \nWrite a function that given a squared matrix of integers returns true if the main \ndiagonal is dominant, false otherwise.\nExample\nint A[3][3] = {  {10,2,1}, \n  {4,11,6}, \n  {7,8,12}}; \nprintf (“%d\\n” , dominant (3,A)); // output 1 \n // 10+11+12 > 2+1+4+6+7+8 bool dominant (int N, int M[N][N]); Exercises \n3.Q3 - Exam 23/08/21.   Is it correct to say that the following function adds a \ngiven value x to each element of the input square matrix m? \nvoid f3(int *m, int n_rows, int x) { \nint i, j; \nfor(i=0; i < n_rows; i++) \nfor(j=0; j < n_rows; j++) \n m[i][j] += x;  \n}\n}❏ Yes, the code is correct because m has the same number \nof rows and columns n_rows \n❏ Yes, even if the same result could be obtained with just \none for \n❏ No, we should apply the fixes  i<=n_rows  and \nj<=n_rows \n❏ No, the code does not compile. Exercises \n4.Ex2 - Exam 17/06/22.  A matrix is   called “crossed” if its two diagonals have the same \nvalues   in the same order. Write a function that, given a square matrix of integers A, \nreturns a 1 if it is crossed and 0 otherwise. \nExample\nint M[3][3] = {  {1,5,1}, \n  {0,2,0}, \n  {3,7,3}}; \nprintf (“%d\\n” , crossed (&(M[0][0]), 3,3)); // output 1, \n // diagonals are 1, 2, 3. int crossed (int* M, int n_rows, int n_cols); ",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Modal Verbs",
+        "Tenses",
+        "Functions"
+      ],
+      "size": 2099
+    },
+    {
+      "filename": "04_Exercises.pdf",
+      "content": "Introduction to Computer \nProgramming\na.y. 2024/2025\nExercises –04\n31/10/2024Exercises \n1.Es1 -Exam A 23/08/2021 . Write a function n_matches that, given two arrays \nof integer A and B with the same length n (n > 0), it returns how many times the \ntwo arrays have the same value in the same position.\nExample\nint A[] = {1, 2, 3, 4, 5};\nint B[] = {1, 5, 3, 4, 2};\nint C[] = {1, 0, 3, 4, 2};\nprintf(“%d \\n”, n_matches (A,B,5));\nprintf(“%d \\n”, n_matches (B,C, 5));\nOutput:\n3 \n4Exercises \n2.Es1 -Exam B 03/02/2023 . Write a function that, given an array ( length  > 0), it \nreturns true if the array does not contains prime numbers, false otherwise.\nExample\nint A[] = {10, 4, 8, 11};\nprintf(“%d \\n”, no_prime (A,4));\nint B[] = {1, 4, 8, 12}; // remember 1 is not prime\nprintf(“%d \\n”, no_prime (B, 4)); \nOutput:\n0\n1Exercises \n3.Es1 -Exam 11/09/2023 . Write a function delta that, given an array ( length  > 1), \nit returns the difference between the two lowest numbers. The signature must be \nint delta( int *A, int A_size)\nExample\nint A[] = {1, 5, 8, 3};\nprintf(“%d \\n”, delta(A,4)); // 3 -1 = 2\nOutput:\n2Exercises \n4.Es1 -Exam A 28/01/2022 . Write a function smallest that, given an array with \nnumbers greater than 0, it returns the smallest even number, or -1if the array \ncontains only odd numbers. \nExample\nint a[] = {10, 2, 3, 8, 1};\nprintf(“%d \\n”, smallest (a,5));\nint b[] = {1, 3, 5, 7, 9};\nprintf(“%d \\n”, smallest (b,5));\nOutput:\n2\n-1",
+      "topics": [
+        "Relative Clauses",
+        "Control Flow",
+        "Number Theory",
+        "Data Structures",
+        "Modal Verbs",
+        "Functions"
+      ],
+      "size": 1443
+    },
+    {
+      "filename": "05_Exercises.pdf",
+      "content": "Introduction to Computer \nProgramming\na.y. 2024/2025\nExercises –05\n07/11/2024Random Numbers Generation\nIn programming, the generation of \"random\" numbers is not \nreally random, but it is defined as pseudo -random generation.\nComputers follow precise instructions and then simulate the \ncasualty by exploiting mathematical algorithms . \nTypically, these algorithms require setting an initial value called \na seed . This seed is used as a starting point to generate pseudo -\nrandom numbers.Generation in C\nThe language C already provides some functions for the \ngeneration of pseudo -random values in the library  \nstdlib.h\nIn particular, rand() can be applied to generate integer \nnumbers into the range [0, RAND_MAX)\nWhere RAND_MAX is a constant that depends to the \nsystem settingsSet the seed value in C \nIf a seed is not set, the function rand() will compute \nthe same random sequences at each program \nexecution.\nIt is required set the seed of rand() calling the \nmethod srand(int seed)Set the seed value in C (2) \nsrand(int seed) require a integer value as \nparameter. \nHowever, if the seed is a constant/hard -coded value, \nalso in that case the program will compute the same \nsequence of values!",
+      "topics": [
+        "Set Theory",
+        "Relative Clauses",
+        "Control Flow",
+        "Modal Verbs",
+        "Algorithms",
+        "Functions"
+      ],
+      "size": 1202
+    }
+  ]
+}

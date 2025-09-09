@@ -1,0 +1,155 @@
+MOCK EXAM - [CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25
+Course Code: 18873
+Generated: 2025-09-09 14:07:03
+================================================================================
+
+Here is a comprehensive mock exam based on the provided course analysis:
+
+PART A: MULTIPLE CHOICE (10 questions)
+
+1. Which of the following is not a valid data type in the C programming language?
+   A. int
+   B. float
+   C. boolean
+   D. char
+
+2. What is the output of the following code?
+   ```c
+   int x = 10, y = 5;
+   printf("%d", x++ + ++y);
+   ```
+   A. 15
+   B. 16
+   C. 17
+   D. 18
+
+3. Which of the following is used to declare a function in C?
+   A. class
+   B. struct
+   C. return
+   D. void
+
+4. What is the purpose of dynamic memory allocation in C?
+   A. To allocate memory at compile-time
+   B. To allocate memory at run-time
+   C. To free memory allocated to variables
+   D. To manage memory usage automatically
+
+5. Which of the following is a valid way to initialize a 2D array in C?
+   A. int arr[2][3] = {1, 2, 3, 4, 5, 6};
+   B. int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
+   C. int arr[2][3] = {1, 2, 3, 4, 5};
+   D. Both A and B
+
+6. What is the time complexity of the binary search algorithm?
+   A. O(n)
+   B. O(log n)
+   C. O(n^2)
+   D. O(1)
+
+7. Which of the following is a common use case for pointer arithmetic in C?
+   A. Accessing array elements
+   B. Manipulating strings
+   C. Implementing dynamic memory allocation
+   D. All of the above
+
+8. What is the purpose of the `typedef` keyword in C?
+   A. To define a new data type
+   B. To create a function alias
+   C. To declare a global variable
+   D. To specify memory alignment
+
+9. Which of the following is a common technique used for benchmarking and performance analysis in C?
+   A. Profiling
+   B. Hashing
+   C. Recursion
+   D. Encapsulation
+
+10. What is the main purpose of using structures in C?
+    A. To implement inheritance
+    B. To create user-defined data types
+    C. To define global variables
+    D. To implement function overloading
+
+PART B: SHORT ANSWERS (6 questions)
+
+1. Define the concept of "scope" in C programming and explain how it affects the visibility and lifetime of variables.
+
+2. Explain the difference between call-by-value and call-by-reference in function parameters. Provide an example for each.
+
+3. What is the purpose of using pointers in C, and how can they be used to achieve dynamic memory management?
+
+4. Describe the difference between a 1D array and a 2D array in C. Provide an example of how to access and manipulate elements in each.
+
+5. Calculate the memory address of an element in a 2D array using the formula: address = base_address + (row * num_cols + col) * sizeof(data_type).
+
+6. Explain the purpose and usage of common string manipulation functions in the C standard library, such as `strcpy()`, `strcat()`, and `strlen()`.
+
+PART C: ESSAY QUESTIONS (3 questions)
+
+1. Discuss the importance of time complexity analysis when designing and implementing algorithms in C. Provide examples of common algorithms and their time complexities, and explain how this knowledge can be applied to optimize program performance.
+
+2. Imagine you are tasked with developing a real-time embedded system for a medical device. Describe the key considerations and challenges you would face in terms of memory management, performance optimization, and safety/reliability requirements. Suggest strategies to address these concerns.
+
+3. Compare and contrast the use of structures and arrays in C programming. Explain the advantages and disadvantages of each, and provide examples of when you would choose to use one over the other in the context of a data processing application.
+
+ANSWER KEY:
+
+PART A: MULTIPLE CHOICE
+
+1. C. boolean is not a valid data type in the C programming language.
+2. D. 18. The post-increment of `x` is performed after the addition, and the pre-increment of `y` is performed before the addition.
+3. D. void is used to declare a function in C.
+4. B. Dynamic memory allocation allows memory to be allocated at run-time, which is useful for applications with varying memory requirements.
+5. D. Both A and B are valid ways to initialize a 2D array in C.
+6. B. The binary search algorithm has a time complexity of O(log n).
+7. D. All of the above are common use cases for pointer arithmetic in C.
+8. A. The `typedef` keyword is used to define a new data type in C.
+9. A. Profiling is a common technique used for benchmarking and performance analysis in C.
+10. B. Structures in C are used to create user-defined data types.
+
+PART B: SHORT ANSWERS
+
+1. Scope in C programming refers to the visibility and lifetime of variables. Variables can have local, global, or function-level scope, which determines where they can be accessed and used within the program.
+
+2. Call-by-value passes a copy of the argument to the function, while call-by-reference passes a reference (pointer) to the argument. In call-by-value, changes made to the parameter within the function do not affect the original value, while in call-by-reference, changes are reflected in the original value.
+
+3. Pointers in C are used to store memory addresses, which allows for dynamic memory management. They enable the use of dynamic memory allocation functions like `malloc()` and `free()` to allocate and deallocate memory at runtime.
+
+4. A 1D array is a collection of elements of the same data type, accessed using a single index. A 2D array is a collection of 1D arrays, accessed using two indices (row and column). For example, `int arr1D[5];` and `int arr2D[3][4];`.
+
+5. The formula to calculate the memory address of an element in a 2D array is:
+   address = base_address + (row * num_cols + col) * sizeof(data_type)
+   Assuming a 2D array `int arr[3][4]`, the address of `arr[1][2]` would be:
+   base_address + (1 * 4 + 2) * sizeof(int)
+
+6. Common string manipulation functions in the C standard library:
+   - `strcpy()`: Copies the contents of one string to another.
+   - `strcat()`: Concatenates two strings.
+   - `strlen()`: Calculates the length of a string.
+   These functions are useful for tasks like copying, appending, and measuring string data.
+
+PART C: ESSAY QUESTIONS
+
+1. Time complexity analysis is crucial when designing and implementing algorithms in C. It helps understand how the algorithm's runtime scales with the size of the input, which is essential for optimizing performance. Common algorithms and their time complexities include:
+   - Sorting algorithms: Bubble sort (O(n^2)), Merge sort (O(n log n))
+   - Searching algorithms: Linear search (O(n)), Binary search (O(log n))
+   - Graph algorithms: Dijkstra's algorithm (O((V+E) log V))
+   Knowing the time complexity of an algorithm allows developers to choose the most appropriate solution for a given problem, considering factors like input size, memory constraints, and real-time requirements.
+
+2. Developing a real-time embedded system for a medical device requires careful consideration of memory management, performance optimization, and safety/reliability requirements.
+   Memory management: Efficient use of limited memory resources, static vs. dynamic allocation, memory fragmentation, and memory leaks.
+   Performance optimization: Profiling to identify bottlenecks, code optimization techniques, and leveraging hardware features like interrupts and DMA.
+   Safety/reliability: Strict error handling, fault tolerance, and rigorous testing to ensure the system's stability and responsiveness, as failures could have dire consequences for patient health.
+   Strategies: Adopting coding best practices, utilizing real-time operating systems, implementing hardware-software co-design, and conducting comprehensive testing and validation.
+
+3. Structures and arrays are both important data structures in C programming, but they serve different purposes.
+   Structures:
+   - User-defined data types that can hold variables of different data types
+   - Useful for organizing related data and improving code readability
+   - Can be passed to functions, stored in arrays, and dynamically allocated
+   Arrays:
+   - Collections of elements of the same data type
+   - Provide efficient storage and access to sequential data
+   - Can be used to implement various data structures like lists, stacks, and queues
+   The choice between structures and arrays depends on the specific requirements of the application. Structures are better suited for representing complex entities, while arrays are more appropriate for working with homogeneous data. Combining the two can lead to powerful data representations, such as arrays of structures, which are commonly used in data processing and analysis applications.
