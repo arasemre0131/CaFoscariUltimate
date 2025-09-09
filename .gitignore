@@ -11,10 +11,14 @@ ENV/
 dist/
 build/
 
-# API Keys and Sensitive Data
+# API Keys and Sensitive Data - CRITICAL!
+api_keys/
 system_config.json
 credentials.json
 gmail_token.pickle
+*_key.txt
+*token*.json
+*token*.txt
 *.key
 *.secret
 
