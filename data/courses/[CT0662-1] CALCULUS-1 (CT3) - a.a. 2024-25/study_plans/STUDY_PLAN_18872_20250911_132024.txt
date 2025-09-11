@@ -1,0 +1,122 @@
+STUDY PLAN - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Course Code: 18872
+Generated: 2025-09-11 13:20:24
+================================================================================
+
+WEEK 1: Foundation Building
+
+Day 1 (1.5-2 hours):
+- Objectives: Understand the basic definitions of functions, domain, range, and properties of functions.
+- Resources: Textbook chapters 1.1-1.3, lecture slides, online videos.
+- Exercises: Practice identifying function types, finding domain and range, and sketching basic function graphs.
+- Self-check: Can you determine if a given relation is a function? Can you find the domain and range of simple polynomial, rational, and trigonometric functions?
+
+Day 2 (1.5-2 hours): 
+- Objectives: Learn the concept of limits and how to evaluate limits of functions.
+- Resources: Textbook chapters 2.1-2.3, lecture notes, online interactive simulations.
+- Exercises: Compute limits of functions using various techniques (direct substitution, factoring, rationalization).
+- Self-check: Can you find the limits of functions as x approaches a specific value? Can you determine when a limit does not exist?
+
+Day 3 (1.5-2 hours):
+- Objectives: Understand the definition of continuity and classify functions as continuous or discontinuous.
+- Resources: Textbook chapter 2.4, lecture slides, online quizzes.
+- Exercises: Analyze the continuity of functions at specific points and over intervals.
+- Self-check: Can you identify the types of discontinuities (removable, jump, infinite) in a given function? Can you apply the Intermediate Value Theorem?
+
+Day 4 (1.5-2 hours):
+- Objectives: Introduction to differentiation and learn basic derivative rules.
+- Resources: Textbook chapters 3.1-3.3, lecture videos, interactive derivative calculators.
+- Exercises: Compute derivatives of polynomial, exponential, logarithmic, and trigonometric functions.
+- Self-check: Can you find the derivative of a function using the power rule, constant rule, sum/difference rule, and product/quotient rule?
+
+Day 5 (1.5-2 hours):
+- Objectives: Continue exploring more advanced derivative rules and applications.
+- Resources: Textbook chapters 3.4-3.6, lecture notes, online problem sets.
+- Exercises: Practice applying the chain rule, implicit differentiation, and related rates problems.
+- Self-check: Can you differentiate composite functions using the chain rule? Can you find the derivatives of inverse functions?
+
+WEEK 2: Intermediate Development
+
+Day 6 (2-2.5 hours):
+- Objectives: Understand the concept of differentials and their applications.
+- Resources: Textbook chapter 3.7, lecture slides, interactive demos.
+- Exercises: Solve optimization problems using differentials and the MVT.
+- Self-check: Can you use differentials to approximate function changes? Can you apply the Mean Value Theorem to analyze function behavior?
+
+Day 7 (2-2.5 hours):
+- Objectives: Introduction to integration and the Fundamental Theorem of Calculus.
+- Resources: Textbook chapters 4.1-4.3, lecture videos, online integrators.
+- Exercises: Practice indefinite and definite integral computations.
+- Self-check: Can you use the Fundamental Theorem to evaluate definite integrals? Can you find the antiderivative of basic functions?
+
+Day 8 (2-2.5 hours):
+- Objectives: Explore various integration techniques, including substitution and integration by parts.
+- Resources: Textbook chapters 4.4-4.6, lecture notes, online problem sets.
+- Exercises: Apply substitution and integration by parts to compute integrals of more complex functions.
+- Self-check: Can you choose the appropriate integration technique for a given integral? Can you set up and execute substitutions and integration by parts correctly?
+
+Day 9 (2-2.5 hours):
+- Objectives: Learn about improper integrals and their convergence/divergence.
+- Resources: Textbook chapter 4.7, lecture slides, online interactive visualizations.
+- Exercises: Evaluate improper integrals and determine their convergence or divergence.
+- Self-check: Can you identify the conditions for the convergence of improper integrals? Can you use the comparison test to analyze convergence?
+
+Day 10 (2-2.5 hours):
+- Objectives: Introduction to sequences and series, including the concept of convergence.
+- Resources: Textbook chapters 11.1-11.3, lecture videos, online quizzes.
+- Exercises: Determine the convergence or divergence of basic sequences and series.
+- Self-check: Can you distinguish between convergent and divergent sequences and series? Can you apply the basic convergence tests (comparison, ratio, root)?
+
+WEEK 3: Advanced Topics & Integration
+
+Day 11 (2.5-3 hours):
+- Objectives: Explore more advanced series concepts, including Taylor and Maclaurin series.
+- Resources: Textbook chapters 11.4-11.6, lecture notes, online interactive simulations.
+- Exercises: Find the Taylor/Maclaurin series expansion of functions and use them for approximations.
+- Self-check: Can you construct the Taylor/Maclaurin series for a given function? Can you use the series to approximate function values?
+
+Day 12 (2.5-3 hours):
+- Objectives: Understand the applications of calculus in optimization problems.
+- Resources: Textbook chapter 3.8, lecture slides, case studies, online problem sets.
+- Exercises: Solve optimization problems involving maximum/minimum values of functions.
+- Self-check: Can you use the critical point test and the Second Derivative Test to analyze function extrema? Can you apply optimization techniques to real-world problems?
+
+Day 13 (2.5-3 hours):
+- Objectives: Explore the applications of calculus in modeling physical phenomena.
+- Resources: Textbook chapters 5.1-5.3, lecture videos, scientific journal articles.
+- Exercises: Set up and solve differential equations describing natural processes.
+- Self-check: Can you model real-world problems using differential equations? Can you interpret the solutions in the context of the problem?
+
+Day 14 (2.5-3 hours):
+- Objectives: Investigate the connections between calculus and other fields, such as AI/ML and numerical methods.
+- Resources: Supplementary readings, guest lecture videos, online resources.
+- Exercises: Explore case studies and applications of calculus in emerging technologies.
+- Self-check: Can you identify how calculus principles are used in data analysis, machine learning, and numerical simulations? Can you discuss the importance of calculus in modern STEM fields?
+
+WEEK 4: Review & Exam Preparation
+
+Day 15 (3-4 hours):
+- Objectives: Conduct a comprehensive review of all the topics covered in the course.
+- Resources: Textbook, lecture notes, practice problem sets, old exams.
+- Activities: Review key definitions, theorems, and problem-solving techniques.
+- Self-check: Can you confidently explain the main concepts and apply them to solve a variety of calculus problems?
+
+Day 16 (3-4 hours):
+- Objectives: Practice solving a mock exam to simulate the actual test conditions.
+- Resources: Practice exam, calculator, scratch paper.
+- Activities: Complete the mock exam within the allotted time and review your solutions.
+- Self-check: Can you finish the mock exam on time and identify any areas that need more practice?
+
+Day 17 (2-3 hours):
+- Objectives: Identify and address any remaining gaps or weaknesses in your understanding.
+- Resources: Textbook, lecture notes, online resources, tutors/professors.
+- Activities: Focus on your problem areas, work through additional practice problems, and seek clarification as needed.
+- Self-check: Can you confidently solve problems from the areas you previously struggled with?
+
+Day 18 (2-3 hours):
+- Objectives: Final preparations and mental readiness for the upcoming exam.
+- Resources: Exam logistics, stress management techniques, motivational resources.
+- Activities: Review exam policies, practice time management, and engage in mental/physical relaxation exercises.
+- Self-check: Are you feeling prepared, confident, and mentally/physically ready to perform well on the exam?
+
+Remember to adjust this plan based on your personal learning style, schedule, and any specific needs or preferences. The key is to create a balanced, progressive, and comprehensive study approach that covers all the essential topics and prepares you for the exam effectively.

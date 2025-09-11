@@ -1,0 +1,131 @@
+STUDY PLAN - [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25
+Course Code: 18876
+Generated: 2025-09-11 08:32:24
+================================================================================
+
+Here is a detailed 4-week study plan for the course [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25:
+
+WEEK 1: Foundation Building (1.5-2 hours/day)
+
+Day 1: Introduction to Computer Architecture Fundamentals
+- Objectives: Understand the basic components and organization of a computer system, distinguish between Von Neumann and Harvard architectures, and learn about RISC vs. CISC processor design.
+- Study: Read textbook chapters on computer architecture fundamentals, review lecture slides.
+- Exercises: Draw diagrams of the Von Neumann and Harvard architectures, compare and contrast RISC and CISC processors.
+- Resources: Computer Architecture: A Quantitative Approach (Hennessy & Patterson), lecture slides.
+
+Day 2: ARM Instruction Set Architecture (ISA)
+- Objectives: Familiarize with the ARM ISA, understand the basic instruction formats and addressing modes.
+- Study: Read ARM ISA documentation, review example ARM assembly code.
+- Exercises: Translate simple C code to ARM assembly, practice writing basic ARM assembly programs.
+- Resources: ARM Architecture Reference Manual, ARM assembly programming tutorials.
+
+Day 3: Assembly Programming: Basics
+- Objectives: Learn the fundamentals of assembly programming, including register usage, memory access, and basic arithmetic/logic operations.
+- Study: Read introductory assembly programming tutorials, review sample assembly code.
+- Exercises: Write ARM assembly programs to perform simple tasks (e.g., variable assignment, arithmetic operations).
+- Resources: ARM assembly programming guides, online assembly code editors.
+
+Day 4: Memory Management
+- Objectives: Understand the computer memory hierarchy, learn about memory addressing and access, and explore concepts like endianness.
+- Study: Read textbook chapters on memory systems, review lecture notes on memory management.
+- Exercises: Solve problems related to memory address calculations, practice accessing memory in assembly code.
+- Resources: Computer Architecture textbook, lecture slides, online memory management tutorials.
+
+Day 5: Function Calls and the Stack
+- Objectives: Learn how functions are implemented in assembly, understand the role of the stack in function call management.
+- Study: Review lecture materials on function calls and stack operation, read relevant textbook sections.
+- Exercises: Implement simple functions in ARM assembly, trace the execution of function call sequences.
+- Resources: Computer Architecture textbook, lecture slides, ARM function call conventions documentation.
+
+WEEK 2: Intermediate Development (1.5-2 hours/day)
+
+Day 6: String Manipulation Algorithms
+- Objectives: Develop skills in writing assembly code for string manipulation tasks, such as string copying, concatenation, and searching.
+- Study: Review string processing algorithms, study example ARM assembly code for string operations.
+- Exercises: Implement common string manipulation algorithms in ARM assembly.
+- Resources: Textbook sections on string processing, online assembly programming tutorials.
+
+Day 7: Floating-Point Representation and Operations
+- Objectives: Understand the IEEE 754 floating-point standard, learn how to represent and perform arithmetic with floating-point numbers in assembly.
+- Study: Read about the IEEE 754 standard, review lecture materials on floating-point number representation.
+- Exercises: Write ARM assembly code to perform floating-point operations, solve problems involving floating-point conversions.
+- Resources: Computer Architecture textbook, IEEE 754 documentation, online floating-point programming tutorials.
+
+Day 8: Bitwise Operations and Logical Shifts
+- Objectives: Explore the use of bitwise operations and logical shifts in assembly programming, understand their applications.
+- Study: Review lecture notes on bitwise operations and logical shifts, read relevant textbook sections.
+- Exercises: Implement algorithms using bitwise operations and logical shifts in ARM assembly.
+- Resources: Computer Architecture textbook, online assembly programming tutorials.
+
+Day 9: Modular Arithmetic and its Applications
+- Objectives: Learn about modular arithmetic and its relevance in computer architecture, explore its use in assembly programming.
+- Study: Read about modular arithmetic and its applications, review example assembly code using modular operations.
+- Exercises: Solve problems involving modular arithmetic in the context of assembly programming.
+- Resources: Computer Architecture textbook, online math and programming tutorials on modular arithmetic.
+
+Day 10: Compilation and Linking Process
+- Objectives: Understand the steps involved in compiling and linking assembly code, learn about the role of the linker and loader.
+- Study: Review lecture materials on the compilation and linking process, read relevant textbook sections.
+- Exercises: Trace the execution of a simple program through the compilation and linking stages.
+- Resources: Computer Architecture textbook, lecture slides, online tutorials on the compilation process.
+
+WEEK 3: Advanced Topics & Integration (1.5-2 hours/day)
+
+Day 11: ARM Architecture in Embedded Systems
+- Objectives: Explore the use of ARM-based processors in embedded systems, such as IoT devices and microcontrollers.
+- Study: Read case studies and industry examples of ARM-based embedded systems, review relevant lecture materials.
+- Exercises: Analyze the performance and design trade-offs of ARM-based embedded systems.
+- Resources: Textbook sections on embedded systems, industry whitepapers and case studies.
+
+Day 12: ARM Architecture in Mobile Devices
+- Objectives: Understand the widespread adoption of ARM architecture in mobile devices like smartphones and tablets.
+- Study: Review the history and evolution of ARM processors in the mobile industry, read industry analysis and trends.
+- Exercises: Discuss the factors that have contributed to the success of ARM in the mobile market.
+- Resources: Industry reports and articles on ARM in mobile devices, ARM product specifications.
+
+Day 13: ARM Architecture in High-Performance Computing
+- Objectives: Explore the use of ARM-based processors in high-performance computing (HPC) systems, such as servers and supercomputers.
+- Study: Read about the emerging trends of ARM in the HPC domain, review relevant lecture materials.
+- Exercises: Analyze the performance and energy-efficiency advantages of ARM in HPC applications.
+- Resources: Textbook sections on HPC, industry whitepapers and research papers on ARM in HPC.
+
+Day 14: Hardware Acceleration for AI/ML
+- Objectives: Understand the role of ARM architecture in the context of hardware acceleration for artificial intelligence (AI) and machine learning (ML) applications.
+- Study: Review lecture materials on ARM-based AI/ML hardware accelerators, read industry case studies.
+- Exercises: Discuss the benefits and challenges of ARM-based hardware acceleration for AI/ML workloads.
+- Resources: Lecture slides, industry whitepapers and articles on ARM in AI/ML hardware acceleration.
+
+Day 15: Edge Computing and Heterogeneous Computing
+- Objectives: Explore the intersection of ARM architecture, edge computing, and heterogeneous computing systems.
+- Study: Read about the trends and applications of ARM-based edge computing and heterogeneous computing.
+- Exercises: Analyze the design considerations and performance tradeoffs of ARM-based edge and heterogeneous computing systems.
+- Resources: Textbook sections on edge computing and heterogeneous systems, industry reports and research papers.
+
+WEEK 4: Review & Exam Preparation (1.5-2 hours/day)
+
+Day 16: Comprehensive Review Session
+- Objectives: Review all the core concepts, theories, and practical applications covered in the course.
+- Activities: Participate in a structured review session, ask questions, and clarify any remaining doubts.
+- Resources: Textbook, lecture slides, previous assignments and exercises.
+
+Day 17: Practice Exam Questions
+- Objectives: Solve a set of practice exam questions to assess your understanding and identify any weak areas.
+- Activities: Work through practice exam questions, analyze your performance, and identify areas for improvement.
+- Resources: Sample exam questions, online practice platforms, teaching assistant support.
+
+Day 18: Mock Exam
+- Objectives: Take a full-length mock exam to simulate the real exam experience and evaluate your preparedness.
+- Activities: Complete the mock exam within the allotted time, review your answers, and identify any remaining knowledge gaps.
+- Resources: Mock exam materials, teaching assistant support, study group collaboration.
+
+Day 19: Final Preparations
+- Objectives: Finalize your exam preparation, address any remaining doubts or concerns, and develop effective exam-taking strategies.
+- Activities: Review key concepts, practice time management, and simulate exam conditions through additional mock exams.
+- Resources: Textbook, lecture slides, past exams, teaching assistant support, study group discussions.
+
+Day 20: Exam Day
+- Objectives: Apply the knowledge and skills you have acquired throughout the course to excel in the final exam.
+- Activities: Manage your time effectively, demonstrate your understanding of the course material, and showcase your problem-solving abilities.
+- Resources: Exam paper, writing materials, and any approved reference materials or calculators.
+
+Remember to regularly assess your progress, seek clarification from the teaching assistant or study group, and adjust your study plan as needed. Good luck with your exam!

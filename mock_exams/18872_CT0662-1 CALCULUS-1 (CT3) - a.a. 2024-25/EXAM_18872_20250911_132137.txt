@@ -1,0 +1,171 @@
+MOCK EXAM - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Course Code: 18872
+Generated: 2025-09-11 13:21:37
+================================================================================
+
+MOCK EXAM #2 - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+
+PART A: MULTIPLE CHOICE (10 questions)
+
+1. Which of the following is NOT a common application of differential calculus in 2025?
+   A. Algorithmic trading in financial markets
+   B. Optimizing production schedules in smart factories
+   C. Simulating the trajectory of autonomous vehicles
+   D. Analyzing patient data for personalized medicine
+
+2. A company is designing a new smartphone battery that can be charged more quickly. The charging rate (in milliamps) is given by the function f(t) = 20 - 0.2t^2, where t is the charging time in minutes. What is the maximum possible charging rate?
+   A. 20 mA
+   B. 18 mA 
+   C. 16 mA
+   D. 14 mA
+
+3. An investor is studying the growth of their stock portfolio over time. The portfolio value V(t) follows the logistic differential equation dV/dt = 0.08V(1 - V/10000), where t is time in years. What is the long-term behavior of this portfolio?
+   A. Exponential growth without bound
+   B. Linear growth towards 10,000
+   C. Logistic growth leveling off at 10,000
+   D. Oscillating growth pattern
+
+4. The demand for a new smart-home sensor is modeled by the function D(p) = 1000 - 5p, where p is the price in dollars. The company wants to set the price to maximize revenue. What is the optimal price?
+   A. $100
+   B. $125 
+   C. $150
+   D. $200
+
+5. A researcher is studying the population dynamics of an endangered species. The population P(t) over time t (in years) is given by the differential equation dP/dt = 0.2P - 0.01P^2. If the initial population is 1000, what will the population be after 10 years?
+   A. 1200
+   B. 1500
+   C. 2000
+   D. 2500
+
+6. An engineer is designing a heat sink to cool down a new microprocessor chip. The temperature T(t) of the chip over time t (in seconds) follows the differential equation dT/dt = -0.1(T-20), where 20°C is the ambient temperature. What is the steady-state temperature of the chip?
+   A. 20°C
+   B. 30°C
+   C. 40°C
+   D. 50°C
+
+7. A company is studying the adoption rate of their new smart home assistant. The number of users U(t) over time t (in months) is modeled by the logistic differential equation dU/dt = 0.02U(1 - U/1000000). What is the maximum adoption rate?
+   A. 0.02 users/month
+   B. 10,000 users/month
+   C. 20,000 users/month
+   D. 50,000 users/month
+
+8. A biomedical engineer is designing a drug delivery system. The concentration C(t) of the drug in the patient's body over time t (in hours) follows the differential equation dC/dt = -0.1C. What is the half-life of the drug?
+   A. 3 hours
+   B. 6 hours
+   C. 7 hours
+   D. 10 hours
+
+9. A civil engineer is studying the deflection of a bridge under load. The deflection d(x) at position x (in meters) along the bridge span is given by the function d(x) = (100x^2 - 2x^4)/EI, where E is Young's modulus and I is the moment of inertia. What is the maximum deflection?
+   A. 10 cm
+   B. 20 cm
+   C. 30 cm
+   D. 40 cm
+
+10. A supply chain manager is optimizing the production schedule for a new product. The profit P(x) in dollars as a function of the production quantity x (in units) is given by P(x) = 20x - 0.02x^2. What is the optimal production quantity to maximize profit?
+    A. 500 units
+    B. 750 units
+    C. 1000 units
+    D. 1250 units
+
+PART B: SHORT ANSWERS (6 questions)
+
+1. Define the term "convergence" as it relates to infinite series. Provide an example of a series that converges and one that diverges.
+
+2. Explain the concept of the Mean Value Theorem and how it can be used to analyze the behavior of a function.
+
+3. Compute the definite integral ∫(0 to 1) (x^3 - 2x + 1) dx.
+
+4. Describe two key applications of differential calculus in the field of machine learning and data analysis.
+
+5. A function f(x) has a local maximum at x = 3 and a local minimum at x = 5. Sketch the general shape of the function and explain how you would use the first and second derivatives to determine the critical points.
+
+6. The height h(t) of a newly launched rocket over time t (in seconds) is given by the function h(t) = 100t - 5t^2. Find the maximum height reached by the rocket.
+
+PART C: ESSAY QUESTIONS (3 questions)
+
+1. The use of differential equations has become increasingly important in modeling complex systems and phenomena in 2025. Discuss three real-world examples where differential equations are used to study dynamic systems, such as in biology, engineering, or finance. Explain how the differential equation formulation captures the underlying behavior and how it can be used to make predictions or optimize the system.
+
+2. Compare and contrast the applications of Taylor series expansions in numerical analysis versus machine learning. Provide specific examples of how Taylor series are utilized in each field, the benefits and limitations of the approach, and how recent advancements in computing power have influenced their usage.
+
+3. A major trend in 2025 is the increasing role of optimization techniques in business and industry. Choose a practical optimization problem (e.g., supply chain logistics, portfolio management, energy distribution) and explain how concepts from calculus, such as extrema, Lagrange multipliers, and constrained optimization, can be applied to solve the problem. Discuss the challenges and considerations involved in formulating and solving the optimization model.
+
+ANSWER KEY
+
+PART A: MULTIPLE CHOICE
+
+1. Answer: D. Analyzing patient data for personalized medicine
+   Explanation: Differential calculus is commonly used in applications like algorithmic trading, smart factory optimization, and autonomous vehicle simulation, but not as directly in personalized medicine.
+
+2. Answer: C. 16 mA
+   Explanation: To find the maximum charging rate, we need to find the maximum of the function f(t) = 20 - 0.2t^2. Taking the derivative and setting it equal to 0 gives the maximum at t = 5 minutes, with a maximum value of 16 mA.
+
+3. Answer: C. Logistic growth leveling off at 10,000
+   Explanation: The given logistic differential equation models logistic growth, where the portfolio value V(t) will approach an asymptotic limit of 10,000 in the long term.
+
+4. Answer: B. $125
+   Explanation: To maximize revenue R(p) = pD(p), we need to find the price p that maximizes R(p) = p(1000 - 5p), which is p = $125.
+
+5. Answer: C. 2000
+   Explanation: Solving the differential equation dP/dt = 0.2P - 0.01P^2 with the initial condition P(0) = 1000 gives the population after 10 years as P(10) = 2000.
+
+6. Answer: A. 20°C
+   Explanation: The differential equation dT/dt = -0.1(T-20) has a steady-state solution where dT/dt = 0, which gives the steady-state temperature as 20°C.
+
+7. Answer: D. 50,000 users/month
+   Explanation: The maximum adoption rate occurs at the point of inflection of the logistic growth curve, which is when U = 500,000 users, giving a maximum rate of 50,000 users/month.
+
+8. Answer: B. 6 hours
+   Explanation: The half-life of a drug following exponential decay is given by t1/2 = ln(2)/k, where k is the decay rate. In this case, k = 0.1, so t1/2 = 6.93 hours, rounded to 6 hours.
+
+9. Answer: C. 30 cm
+   Explanation: The maximum deflection occurs at the midpoint of the bridge span, where x = L/2. Plugging this into the given function gives the maximum deflection as 30 cm.
+
+10. Answer: C. 1000 units
+    Explanation: To maximize the profit function P(x) = 20x - 0.02x^2, we take the derivative and set it equal to 0, which gives the optimal production quantity as x = 1000 units.
+
+PART B: SHORT ANSWERS
+
+1. Convergence of an infinite series refers to the series having a finite sum as more and more terms are added. A converging series is ∑(1/n^2), which approaches π^2/6. A diverging series is ∑(1/n), which grows without bound.
+
+2. The Mean Value Theorem states that if a function f(x) is continuous on a closed interval [a, b], then there exists at least one point c in (a, b) such that f'(c) = (f(b) - f(a))/(b - a). This allows us to analyze the average rate of change of a function over an interval and connect it to the derivative at some point.
+
+3. ∫(0 to 1) (x^3 - 2x + 1) dx = [x^4/4 - 2x^2/2 + x]_0^1 = 1/4 - 2/2 + 1 = -1/2
+
+4. Two key applications of differential calculus in machine learning and data analysis are:
+   - Gradient-based optimization algorithms, such as gradient descent, which use derivatives to find the minimum of a loss function
+   - Sensitivity analysis and Jacobian/Hessian computations, which leverage derivatives to understand how model outputs change with respect to inputs
+
+5. The general shape of the function f(x) would be a concave-up curve with a local maximum at x = 3 and a local minimum at x = 5. The first derivative f'(x) would be positive for x < 3, negative for 3 < x < 5, and positive again for x > 5. The second derivative f''(x) would be positive for all x, indicating the local maximum and minimum.
+
+6. To find the maximum height, we take the derivative of the height function h(t) = 100t - 5t^2 and set it equal to 0:
+   h'(t) = 100 - 10t = 0
+   Solving for t, we get t = 10 seconds.
+   Plugging t = 10 back into the original function gives the maximum height as h(10) = 500 meters.
+
+PART C: ESSAY QUESTIONS
+
+1. Differential equations are essential for modeling dynamic systems in 2025. In biology, the Lotka-Volterra model uses a system of differential equations to study the predator-prey relationships in ecosystems. In engineering, the heat equation described by the partial differential equation ∂T/∂t = k∇^2T is used to analyze the thermal management of electronic devices. In finance, the Black-Scholes equation, a partial differential equation, is used to model the dynamics of financial derivatives like options.
+
+   These differential equation models capture the underlying mechanisms and interactions that govern the evolution of the system over time. By analyzing the solutions to the equations, researchers and practitioners can make predictions about the future state of the system, optimize its performance, and gain deeper insights into the complex behaviors. For example, the Lotka-Volterra model can be used to forecast population cycles and inform conservation strategies, the heat equation can guide the design of efficient cooling systems, and the Black-Scholes equation can be used to price derivatives and manage financial risk.
+
+   The increasing computational power and data availability in 2025 have further enhanced the applicability of differential equations in modeling real-world systems. Numerical simulations, machine learning techniques, and high-performance computing enable the analysis of more sophisticated, nonlinear, and multi-dimensional differential equation models, allowing for more accurate representations of complex phenomena.
+
+2. Taylor series expansions have found applications in both numerical analysis and machine learning in 2025. In numerical analysis, Taylor series are used to approximate functions and solve differential equations numerically. For example, the Runge-Kutta methods for solving initial value problems rely on Taylor series expansions to derive the update equations. The benefits of this approach include its ability to achieve high-order accuracy, its flexibility in handling various function forms, and its suitability for parallelization. However, the limitations include the need for function derivatives, which can be computationally expensive, and the potential for instability in certain cases.
+
+   In machine learning, Taylor series expansions are used to approximate complex functions, such as activation functions in neural networks, for efficient computations and analysis. By linearizing the functions around specific points, Taylor series can enable faster and more interpretable model training, as well as facilitate sensitivity analysis and uncertainty quantification. Recent advancements in hardware, such as specialized AI accelerators, have significantly improved the practicality of these techniques, allowing for their deployment in real-time applications like autonomous systems and edge devices.
+
+   The key difference between the numerical analysis and machine learning applications of Taylor series is the emphasis on accuracy versus efficiency. In numerical analysis, the focus is on achieving high-precision solutions, while in machine learning, the goal is to balance model complexity, computational cost, and predictive performance. The availability of powerful computing resources in 2025 has enabled the exploration of novel hybrid approaches that combine the strengths of Taylor series expansions with other numerical and machine learning methods, further expanding their impact across various domains.
+
+3. A practical optimization problem in 2025 is the optimization of energy distribution in a smart grid system. The goal is to determine the optimal allocation of energy resources, such as renewable sources, storage, and distribution, to meet the dynamic demands of residential, commercial, and industrial consumers while minimizing costs and environmental impact.
+
+   To formulate this as an optimization problem, we can define the objective function as the total cost of energy generation, transmission, and distribution, subject to various constraints:
+   Minimize: C(x) = ∑(Ci(xi)) + ∑(Ctrans(xi, xj)) + ∑(Cdist(xi, xj))
+   Subject to:
+   - Energy balance: ∑xi = ∑dj, where xi is the supply and dj is the demand at each node
+   - Capacity constraints: xi ≤ Xi_max, where Xi_max is the maximum capacity of each supply source
+   - Transmission and distribution limits: xij ≤ Xij_max, where xij is the flow between nodes i and j, and Xij_max is the maximum capacity
+   - Renewable energy targets: ∑xrenewable ≥ Rtarget, where xrenewable is the renewable energy supply and Rtarget is the minimum required renewable energy fraction
+
+   By formulating the problem in this way, we can leverage techniques from calculus, such as the method of Lagrange multipliers, to solve for the optimal energy allocation. This involves finding the critical points of the Lagrangian function, which combines the original objective function and the constraint equations.
+
+   The challenges in solving this optimization problem include the nonlinear and time-varying nature of the cost and demand functions, the need to incorporate uncertainty in renewable energy generation and demand forecasts, and the computational complexity of large-scale grid systems. Recent advancements in optimization algorithms, such as those based on machine learning and digital twin technologies, have improved the practicality of these techniques in real-world energy distribution systems.

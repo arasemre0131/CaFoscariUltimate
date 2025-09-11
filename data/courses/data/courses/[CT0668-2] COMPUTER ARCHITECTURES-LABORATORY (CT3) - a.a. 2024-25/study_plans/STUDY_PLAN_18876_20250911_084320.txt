@@ -1,0 +1,131 @@
+STUDY PLAN - [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25
+Course Code: 18876
+Generated: 2025-09-11 08:43:20
+================================================================================
+
+Sure, here's a detailed 4-week study plan for the [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25 course:
+
+WEEK 1: Foundation Building (1.5-2 hours/day)
+
+Day 1:
+- Objective: Understand the fundamentals of computer architecture and the Von Neumann model.
+- Study: Read chapters 1-2 from the course textbook on computer architecture basics and the Von Neumann architecture.
+- Exercise: Draw a diagram of the Von Neumann architecture and explain the function of each component.
+- Self-check: Can you describe the fetch-execute cycle and how data and instructions flow through the computer system?
+
+Day 2:
+- Objective: Explore the ARM instruction set architecture (ISA) and its key features.
+- Study: Review the ARM ISA documentation, focusing on the general-purpose registers, addressing modes, and common instructions.
+- Exercise: Translate simple ARM assembly code to understand the basic syntax and structure.
+- Self-check: Can you identify the different types of ARM instructions and their purpose?
+
+Day 3:
+- Objective: Learn the fundamentals of assembly programming and the compilation process.
+- Study: Read about the compilation process, including the role of the assembler, linker, and loader.
+- Exercise: Write a simple ARM assembly program and understand how it is translated into machine code.
+- Self-check: Can you explain the steps involved in compiling and executing an assembly program?
+
+Day 4:
+- Objective: Understand memory management and the memory hierarchy.
+- Study: Explore the concepts of memory addressing, memory alignment, and the various levels of the memory hierarchy (registers, cache, RAM, storage).
+- Exercise: Analyze the memory layout of a simple program and calculate the addresses of variables and instructions.
+- Self-check: Can you describe the trade-offs between different memory technologies and their impact on system performance?
+
+Day 5:
+- Objective: Introduce the concept of function calls and the runtime stack.
+- Study: Read about the calling convention, function prologue/epilogue, and how the stack is used to manage function calls.
+- Exercise: Trace the execution of a program with nested function calls and observe the stack behavior.
+- Self-check: Can you explain how the stack is used to store function parameters, return addresses, and local variables?
+
+WEEK 2: Intermediate Development (1.5-2 hours/day)
+
+Day 6:
+- Objective: Explore more advanced ARM assembly programming techniques.
+- Study: Learn about conditional execution, loops, and subroutines in ARM assembly.
+- Exercise: Write ARM assembly programs that implement conditional branching and simple algorithms.
+- Self-check: Can you identify the different types of branch instructions and how they are used to control program flow?
+
+Day 7:
+- Objective: Understand the concepts of endianness and data representation.
+- Study: Investigate the differences between little-endian and big-endian systems, and how data is represented in memory (integers, floating-point numbers).
+- Exercise: Perform conversions between different data representations and observe the impact of endianness.
+- Self-check: Can you explain the importance of endianness and how it affects data storage and retrieval?
+
+Day 8:
+- Objective: Explore the role of the memory management unit (MMU) and virtual memory.
+- Study: Learn about the MMU, address translation, and the concept of virtual memory.
+- Exercise: Analyze the address translation process and the impact of virtual memory on program execution.
+- Self-check: Can you describe the advantages and challenges of using virtual memory?
+
+Day 9:
+- Objective: Delve into the details of the ARM floating-point architecture and instructions.
+- Study: Understand the IEEE 754 floating-point standard and how it is implemented in the ARM architecture.
+- Exercise: Write ARM assembly programs that perform floating-point operations and observe the results.
+- Self-check: Can you explain the representation of floating-point numbers and the different rounding modes?
+
+Day 10:
+- Objective: Introduce the concept of hardware acceleration and its impact on system performance.
+- Study: Explore the use of hardware accelerators, such as GPUs and specialized co-processors, and how they can be integrated into ARM-based systems.
+- Exercise: Analyze a simple program that utilizes hardware acceleration and compare its performance to a software-only implementation.
+- Self-check: Can you identify potential applications and use cases for hardware acceleration in ARM-based systems?
+
+WEEK 3: Advanced Topics & Integration (1.5-2 hours/day)
+
+Day 11:
+- Objective: Understand the principles of RISC vs. CISC processor design and their trade-offs.
+- Study: Analyze the differences between RISC and CISC architectures, including their impact on instruction set, pipeline design, and power efficiency.
+- Exercise: Compare the execution of simple programs on RISC and CISC processors and observe the differences.
+- Self-check: Can you explain the advantages and disadvantages of RISC and CISC design approaches?
+
+Day 12:
+- Objective: Explore the concept of pipelining and its impact on system performance.
+- Study: Learn about the pipeline structure, hazards, and techniques for improving pipeline efficiency.
+- Exercise: Analyze the execution of a program on a pipelined processor and identify potential hazards.
+- Self-check: Can you describe the trade-offs between pipeline depth and performance, and the techniques used to mitigate pipeline hazards?
+
+Day 13:
+- Objective: Investigate the role of caching in modern computer systems.
+- Study: Understand the principles of cache organization, replacement policies, and the impact of caching on system performance.
+- Exercise: Analyze the behavior of a program running on a system with a multi-level cache hierarchy.
+- Self-check: Can you explain the advantages of caching and the factors that influence cache performance?
+
+Day 14:
+- Objective: Explore the concept of parallel and heterogeneous computing in ARM-based systems.
+- Study: Learn about the different types of parallelism (instruction-level, data-level, task-level) and the use of heterogeneous processors (CPU, GPU, DSP) in ARM architectures.
+- Exercise: Analyze the performance of a program on a heterogeneous ARM-based system and identify opportunities for parallelization.
+- Self-check: Can you describe the challenges and benefits of parallel and heterogeneous computing in ARM-based systems?
+
+Day 15:
+- Objective: Integrate the knowledge gained throughout the course and explore real-world applications.
+- Study: Review case studies of ARM-based systems in various domains, such as embedded systems, mobile devices, and servers.
+- Exercise: Analyze the design decisions and trade-offs involved in the development of an ARM-based system for a specific application.
+- Self-check: Can you identify the key factors that influence the design and implementation of ARM-based systems in different application scenarios?
+
+WEEK 4: Review & Exam Preparation (1.5-2 hours/day)
+
+Day 16:
+- Objective: Review the fundamental concepts of computer architecture and the ARM ISA.
+- Activity: Create a comprehensive summary of the key topics covered in the course, including diagrams, formulas, and examples.
+- Self-check: Can you explain the core principles of computer architecture and the ARM instruction set architecture?
+
+Day 17:
+- Objective: Practice assembly programming and problem-solving techniques.
+- Activity: Solve a variety of ARM assembly programming exercises, focusing on data manipulation, control flow, and memory management.
+- Self-check: Can you confidently translate high-level algorithms into efficient ARM assembly code?
+
+Day 18:
+- Objective: Review advanced concepts and their real-world applications.
+- Activity: Discuss case studies and analyze the design trade-offs involved in the development of ARM-based systems for different application domains.
+- Self-check: Can you identify the key factors that influence the design and implementation of ARM-based systems in various scenarios?
+
+Day 19:
+- Objective: Prepare for the exam format and question types.
+- Activity: Practice mock exams and review the expected focus areas and question formats.
+- Self-check: Can you comfortably answer questions related to ARM assembly programming, computer architecture theory, and real-world applications?
+
+Day 20:
+- Objective: Consolidate learning and finalize exam preparation.
+- Activity: Review any remaining gaps or areas of uncertainty, and create a personalized study guide or cheat sheet.
+- Self-check: Are you confident in your understanding of the course material and prepared to excel in the upcoming exam?
+
+Remember, this study plan is a guideline, and you should adjust the pacing and focus based on your individual learning needs and progress. Regularly assess your understanding, seek help when needed, and maintain a consistent study routine for the best results.

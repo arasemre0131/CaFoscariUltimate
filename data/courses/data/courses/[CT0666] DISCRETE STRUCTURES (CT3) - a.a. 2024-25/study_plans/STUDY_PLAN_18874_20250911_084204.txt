@@ -1,0 +1,130 @@
+STUDY PLAN - [CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25
+Course Code: 18874
+Generated: 2025-09-11 08:42:04
+================================================================================
+
+Here is a detailed 4-week study plan for the [CT0666] Discrete Structures (CT3) course:
+
+**WEEK 1: Foundation Building (1.5-2 hours/day)**
+
+*Daily Objectives:*
+- Develop a solid understanding of basic counting and combinatorics concepts
+- Learn the fundamental principles of propositional and predicate logic
+- Gain familiarity with set theory and its operations
+
+*Topics to Cover:*
+- Permutations and combinations
+- Binomial coefficients
+- Generating functions
+- Recurrence relations
+- Propositional and predicate logic
+- Logical connectives and quantifiers
+- Direct, indirect, and inductive proofs
+- Set operations and properties
+- Cardinality and countability
+
+*Resources:*
+- Course textbook: Chapters 1-3
+- Supplementary online lectures and tutorials
+- Practice problem sets from the textbook
+
+*Self-Check Questions:*
+- What is the difference between permutations and combinations?
+- How do you prove a statement using direct, indirect, and inductive proofs?
+- Explain the properties of set operations like union, intersection, and complement.
+
+*Practice Exercises:*
+- Solve problems on counting and combinatorics
+- Construct truth tables and prove logical statements
+- Perform set operations and determine cardinality
+
+**WEEK 2: Intermediate Development (1.5-2 hours/day)**  
+
+*Daily Objectives:*
+- Develop a deeper understanding of number theory concepts
+- Learn about relations, functions, and their properties
+- Explore the fundamentals of graphs and trees
+
+*Topics to Cover:*
+- Divisibility and modular arithmetic
+- Prime numbers and factorization
+- Greatest common divisor and Euclidean algorithm
+- Definitions and properties of relations
+- Equivalence and order relations
+- Domain, codomain, and properties of functions
+- Graph terminology and representations
+- Traversal algorithms (e.g., DFS, BFS)
+- Minimum spanning trees and shortest paths
+
+*Resources:*
+- Course textbook: Chapters 4-6
+- Supplementary online lectures and tutorials
+- Practice problem sets from the textbook
+
+*Self-Check Questions:*
+- What is the relationship between divisibility and modular arithmetic?
+- How do you determine the properties of a relation (reflexivity, symmetry, transitivity)?
+- Explain the differences between depth-first search (DFS) and breadth-first search (BFS) on graphs.
+
+*Practice Exercises:*
+- Solve number theory problems involving divisibility, prime factorization, and the Euclidean algorithm
+- Classify relations and determine their properties
+- Implement graph traversal algorithms and find minimum spanning trees
+
+**WEEK 3: Advanced Topics & Integration (1.5-2 hours/day)**
+
+*Daily Objectives:*
+- Explore advanced concepts in discrete structures
+- Understand the connections between the different topics
+- Apply discrete structures to real-world problems
+
+*Topics to Cover:*
+- Advanced counting and combinatorics techniques
+- Formal logic and its applications
+- Advanced number theory and cryptography
+- Modeling real-world problems using relations and functions
+- Graph algorithms and their applications
+
+*Resources:*
+- Course textbook: Chapters 7-9
+- Research papers and case studies
+- Online resources on advanced discrete structures topics
+
+*Self-Check Questions:*
+- How can generating functions be used to solve recurrence relations?
+- What is the role of formal logic in computer science and programming?
+- How can graph algorithms be used to solve optimization problems?
+
+*Practice Exercises:*
+- Solve advanced counting and combinatorics problems
+- Analyze the correctness and complexity of logical proofs
+- Apply discrete structures concepts to model and solve real-world problems
+
+**WEEK 4: Review & Exam Preparation (1.5-2 hours/day)**
+
+*Daily Objectives:*
+- Consolidate and review the key concepts from the course
+- Practice solving a variety of discrete structures problems
+- Prepare for the final exam
+
+*Topics to Cover:*
+- Comprehensive review of all course topics
+- Practice with sample exam questions and mock exams
+- Strategies for effective exam preparation
+
+*Resources:*
+- Course textbook and supplementary materials
+- Past exam papers and sample questions
+- Tutoring sessions or study groups (if available)
+
+*Self-Check Questions:*
+- Can you explain the core concepts of each topic area in your own words?
+- Are you able to solve problems across the different discrete structures domains?
+- Do you feel confident in your ability to apply the course material to new situations?
+
+*Practice Exercises:*
+- Work through practice exam questions and mock tests
+- Participate in study groups or tutoring sessions to review challenging topics
+- Create your own practice questions and test yourself
+
+Remember to pace yourself, take breaks, and stay organized throughout the study plan. Good luck with your [CT0666] Discrete Structures (CT3) course!

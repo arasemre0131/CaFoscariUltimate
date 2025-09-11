@@ -1,0 +1,136 @@
+STUDY PLAN - [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25
+Course Code: 18876
+Generated: 2025-09-11 08:29:52
+================================================================================
+
+Here is a detailed 4-week study plan for the course [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3):
+
+WEEK 1: Foundation Building (1.5-2 hours/day)
+
+Day 1: 
+- Objective: Understand the fundamentals of computer architecture and the Von Neumann model.
+- Study: Read chapters 1-2 from the course textbook on computer organization and architecture.
+- Practice: Complete exercises 1-5 from the end of chapter 2.
+- Resources: Course textbook, lecture slides.
+
+Day 2:
+- Objective: Learn about the ARM instruction set architecture (ISA) and its key features.
+- Study: Read chapter 4 on ARM architecture and instruction set.
+- Practice: Familiarize yourself with the ARM instruction set by completing exercises 1-3 from chapter 4.
+- Resources: Course textbook, ARM Architecture Reference Manual.
+
+Day 3: 
+- Objective: Understand the fundamentals of assembly programming for the ARM architecture.
+- Study: Read chapter 5 on assembly language programming for ARM.
+- Practice: Write simple ARM assembly programs to perform arithmetic operations and control flow.
+- Resources: Course textbook, ARM assembly programming tutorials.
+
+Day 4:
+- Objective: Learn about memory organization and management in computer systems.
+- Study: Read chapter 6 on memory systems and organization.
+- Practice: Complete exercises 1-4 from chapter 6 to understand memory hierarchy and addressing.
+- Resources: Course textbook, additional reading on memory management.
+
+Day 5:
+- Objective: Explore the concepts of function calls and stack-based execution.
+- Study: Read chapter 7 on processor input/output and interrupts.
+- Practice: Implement simple ARM assembly functions and understand the function call process.
+- Resources: Course textbook, ARM assembly programming guides.
+
+WEEK 2: Intermediate Development (2-2.5 hours/day)
+
+Day 6:
+- Objective: Solidify your understanding of ARM assembly programming.
+- Practice: Work through the ARM assembly programming exercises from the course lab manual.
+- Self-check: Can you translate high-level C code into efficient ARM assembly?
+- Resources: Course lab manual, ARM assembly programming references.
+
+Day 7:
+- Objective: Learn about the compilation and linking process for assembly programs.
+- Study: Read chapter 8 on computer system software.
+- Practice: Compile and link simple ARM assembly programs using the provided toolchain.
+- Resources: Course textbook, ARM toolchain documentation.
+
+Day 8:
+- Objective: Explore algorithms and data structures implemented in ARM assembly.
+- Practice: Implement common algorithms (e.g., string manipulation, sorting) in ARM assembly.
+- Self-check: Can you analyze the performance and efficiency of your assembly implementations?
+- Resources: Algorithm reference books, ARM assembly programming guides.
+
+Day 9:
+- Objective: Understand the IEEE 754 standard for floating-point representation and operations.
+- Study: Read chapter 3 on computer arithmetic.
+- Practice: Perform floating-point calculations in ARM assembly using the IEEE 754 format.
+- Resources: Course textbook, IEEE 754 standard documentation.
+
+Day 10:
+- Objective: Apply your knowledge to analyze real-world ARM-based systems and their use cases.
+- Study: Research the use of ARM architecture in embedded systems, mobile devices, and servers.
+- Practice: Discuss the trade-offs and design considerations for ARM-based systems.
+- Resources: Industry reports, technical articles, and case studies.
+
+WEEK 3: Advanced Topics & Integration (2.5-3 hours/day)
+
+Day 11:
+- Objective: Explore advanced ARM architecture features and their impact on program execution.
+- Study: Read about ARM's SIMD extensions, virtualization support, and hardware security features.
+- Practice: Implement ARM assembly code that utilizes these advanced capabilities.
+- Resources: ARM Architecture Reference Manual, technical whitepapers.
+
+Day 12:
+- Objective: Understand the role of the operating system in managing computer resources.
+- Study: Read chapter 9 on operating system support for computer architecture.
+- Practice: Analyze the interaction between ARM assembly programs and the operating system.
+- Resources: Course textbook, operating system documentation.
+
+Day 13:
+- Objective: Explore the implications of computer architecture on software performance and optimization.
+- Study: Read about code optimization techniques for ARM, such as branch prediction and memory access patterns.
+- Practice: Analyze and optimize ARM assembly code for performance.
+- Resources: ARM assembly programming guides, online performance optimization resources.
+
+Day 14:
+- Objective: Investigate the current trends and future developments in computer architecture.
+- Study: Research topics like heterogeneous computing, hardware acceleration for AI/ML, and edge computing.
+- Practice: Discuss the impact of these trends on ARM-based systems and their applications.
+- Resources: Industry reports, technical publications, and expert interviews.
+
+Day 15:
+- Objective: Integrate your knowledge and apply it to a comprehensive case study or project.
+- Practice: Develop a complete ARM assembly program that demonstrates your understanding of the course material.
+- Self-check: Can you explain the design decisions and trade-offs in your program?
+- Resources: Course project guidelines, ARM assembly programming references.
+
+WEEK 4: Review & Exam Preparation (3-4 hours/day)
+
+Day 16:
+- Objective: Review and consolidate your understanding of the core concepts covered in the course.
+- Practice: Work through practice questions and exercises from the course textbook and lab manual.
+- Self-check: Can you explain the key theoretical frameworks and their practical applications?
+- Resources: Course textbook, lecture slides, practice question banks.
+
+Day 17:
+- Objective: Deepen your understanding of ARM assembly programming and problem-solving techniques.
+- Practice: Solve complex ARM assembly programming problems, focusing on performance and efficiency.
+- Self-check: Can you translate high-level algorithms into optimized ARM assembly code?
+- Resources: ARM assembly programming references, online coding platforms.
+
+Day 18:
+- Objective: Explore connections between the various topics covered in the course.
+- Practice: Analyze case studies and real-world examples that demonstrate the interplay of different course concepts.
+- Self-check: Can you identify how the course topics relate to and build upon each other?
+- Resources: Industry case studies, technical articles, and course materials.
+
+Day 19:
+- Objective: Prepare for the exam format and question types.
+- Practice: Take practice exams or mock tests to simulate the actual exam experience.
+- Self-check: Can you effectively apply your knowledge to solve the exam-style questions?
+- Resources: Past exam papers, sample test questions, and course instructor feedback.
+
+Day 20:
+- Objective: Finalize your exam preparation and address any remaining gaps or uncertainties.
+- Practice: Review your notes, practice questions, and course materials one last time.
+- Self-check: Are you confident in your understanding of the course content and your ability to perform well on the exam?
+- Resources: Course textbook, lecture slides, and any additional reference materials.
+
+Remember to take breaks, stay organized, and continuously assess your progress throughout the study plan. Good luck with your exam!

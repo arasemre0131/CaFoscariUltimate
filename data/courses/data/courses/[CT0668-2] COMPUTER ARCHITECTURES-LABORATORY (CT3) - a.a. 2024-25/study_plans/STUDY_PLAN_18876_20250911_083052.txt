@@ -1,0 +1,147 @@
+STUDY PLAN - [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25
+Course Code: 18876
+Generated: 2025-09-11 08:30:52
+================================================================================
+
+Here is a detailed 4-week study plan for the course [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25:
+
+WEEK 1: Foundation Building (1.5-2 hours/day)
+
+Day 1:
+- Objectives: Understand the fundamentals of computer architecture, including the Von Neumann and Harvard architectures.
+- Core Concepts: Von Neumann architecture, Harvard architecture, RISC vs CISC processor design.
+- Resources: Textbook chapters 1-2, lecture slides, online resources.
+- Exercises: Diagram the components of Von Neumann and Harvard architectures, compare RISC and CISC designs.
+- Self-check: Explain the key differences between Von Neumann and Harvard architectures. Describe the advantages and disadvantages of RISC and CISC designs.
+
+Day 2: 
+- Objectives: Learn the basics of the ARM instruction set architecture (ISA) and assembly programming.
+- Core Concepts: ARM ISA, basic ARM assembly instructions (data transfer, arithmetic, logical), addressing modes.
+- Resources: ARM ISA reference manual, ARM assembly programming tutorials.
+- Exercises: Translate simple C code to ARM assembly, write basic ARM assembly programs.
+- Self-check: Identify the key components of the ARM ISA. Demonstrate the ability to write and execute simple ARM assembly programs.
+
+Day 3:
+- Objectives: Understand the fundamental concepts of memory management in computer architecture.
+- Core Concepts: Memory hierarchy (registers, caches, RAM, secondary storage), memory addressing, endianness.
+- Resources: Textbook chapter 3, lecture slides, online resources.
+- Exercises: Calculate memory addresses using different addressing modes, analyze the impact of endianness.
+- Self-check: Explain the memory hierarchy and its importance in computer architecture. Describe the concept of endianness and its implications.
+
+Day 4: 
+- Objectives: Learn the basics of function calls and the call stack in computer architecture.
+- Core Concepts: Function calls, stack-based memory management, parameter passing, return values.
+- Resources: ARM assembly programming tutorials, sample code examples.
+- Exercises: Implement simple functions in ARM assembly, trace the flow of function calls.
+- Self-check: Demonstrate understanding of function calls, parameter passing, and the call stack in ARM assembly.
+
+Day 5:
+- Objectives: Review and consolidate the concepts learned during the week.
+- Activities: Practice exercises, discuss key takeaways, clarify any doubts.
+- Resources: Textbook, lecture slides, online resources.
+- Self-check: Assess your understanding of the fundamental concepts covered in Week 1.
+
+WEEK 2: Intermediate Development (1.5-2 hours/day)
+
+Day 6:
+- Objectives: Explore the representation and manipulation of floating-point numbers in computer architecture.
+- Core Concepts: IEEE 754 floating-point standard, floating-point arithmetic operations.
+- Resources: Textbook chapter 4, online resources on IEEE 754 standard.
+- Exercises: Perform floating-point number conversions, implement simple floating-point arithmetic in ARM assembly.
+- Self-check: Explain the IEEE 754 floating-point standard and its importance. Demonstrate the ability to work with floating-point numbers in ARM assembly.
+
+Day 7:
+- Objectives: Understand the process of compilation, linking, and program execution in computer architecture.
+- Core Concepts: Compilation, linking, program execution, symbol resolution, dynamic and static linking.
+- Resources: Textbook chapter 5, lecture slides, online resources on compilation and linking.
+- Exercises: Trace the compilation and linking process, analyze the execution of a simple program.
+- Self-check: Explain the steps involved in compiling, linking, and executing a program. Differentiate between dynamic and static linking.
+
+Day 8:
+- Objectives: Explore advanced ARM assembly programming techniques, including string manipulation algorithms.
+- Core Concepts: ARM assembly string manipulation instructions, common string algorithms (e.g., strlen, strcpy, strcmp).
+- Resources: ARM assembly programming tutorials, sample code examples.
+- Exercises: Implement common string manipulation algorithms in ARM assembly, optimize their performance.
+- Self-check: Demonstrate proficiency in writing and optimizing ARM assembly code for string manipulation tasks.
+
+Day 9:
+- Objectives: Investigate the role of computer architecture in real-world applications and emerging trends.
+- Core Concepts: Embedded systems, mobile devices, servers, supercomputers, hardware acceleration for AI/ML, edge computing, heterogeneous computing.
+- Resources: Industry publications, case studies, research papers.
+- Exercises: Analyze the use of ARM architecture in various real-world applications, discuss current and future trends.
+- Self-check: Explain how computer architecture concepts are applied in different real-world domains. Identify and discuss emerging trends in computer architecture.
+
+Day 10:
+- Objectives: Review and consolidate the concepts learned during the week.
+- Activities: Practice exercises, discuss key takeaways, clarify any doubts.
+- Resources: Textbook, lecture slides, online resources.
+- Self-check: Assess your understanding of the intermediate-level concepts covered in Week 2.
+
+WEEK 3: Advanced Topics & Integration (1.5-2 hours/day)
+
+Day 11:
+- Objectives: Explore advanced memory management techniques, including virtual memory and caching.
+- Core Concepts: Virtual memory, paging, translation lookaside buffer (TLB), cache organization and replacement policies.
+- Resources: Textbook chapter 6, lecture slides, online resources on memory management.
+- Exercises: Analyze the impact of virtual memory and caching on program performance, design cache replacement algorithms.
+- Self-check: Explain the concepts of virtual memory and caching, and their importance in computer architecture. Demonstrate the ability to reason about memory management strategies.
+
+Day 12:
+- Objectives: Investigate the role of processor pipelines and branch prediction in computer architecture.
+- Core Concepts: Processor pipelines, hazards, branch prediction, speculative execution.
+- Resources: Textbook chapter 7, lecture slides, online resources on processor design.
+- Exercises: Analyze the impact of pipelines and branch prediction on program execution, design simple branch prediction algorithms.
+- Self-check: Describe the concepts of processor pipelines and branch prediction, and their implications for computer architecture performance.
+
+Day 13:
+- Objectives: Explore the principles of parallel and distributed computing in computer architecture.
+- Core Concepts: Flynn's taxonomy, shared-memory and message-passing architectures, multicore processors, GPU computing.
+- Resources: Textbook chapter 8, research papers, industry publications.
+- Exercises: Analyze the performance of parallel algorithms, design simple parallel computing solutions.
+- Self-check: Explain the key principles of parallel and distributed computing, and their applications in modern computer architectures.
+
+Day 14:
+- Objectives: Integrate the concepts learned throughout the course and apply them to solve complex problems.
+- Activities: Comprehensive case studies, design challenges, cross-cutting exercises.
+- Resources: Textbook, lecture slides, online resources, sample code repositories.
+- Self-check: Demonstrate the ability to apply computer architecture concepts to solve complex, real-world problems.
+
+Day 15:
+- Objectives: Review and consolidate the advanced concepts learned during the week.
+- Activities: Practice exercises, discuss key takeaways, clarify any doubts.
+- Resources: Textbook, lecture slides, online resources.
+- Self-check: Assess your understanding of the advanced topics covered in Week 3.
+
+WEEK 4: Review & Exam Preparation (1.5-2 hours/day)
+
+Day 16:
+- Objectives: Review the core concepts and theoretical foundations of the course.
+- Activities: Comprehensive review of key topics, discussion of important principles.
+- Resources: Textbook, lecture slides, online resources.
+- Self-check: Ensure a solid understanding of the fundamental concepts in computer architecture.
+
+Day 17:
+- Objectives: Practice applying the course concepts to solve representative problems.
+- Activities: Work through practice problems and exercises, analyze sample exam questions.
+- Resources: Past exam papers, online problem sets, textbook end-of-chapter problems.
+- Self-check: Evaluate your ability to apply the course knowledge to solve a variety of problems.
+
+Day 18:
+- Objectives: Develop strategies for effective exam performance.
+- Activities: Discuss exam-taking techniques, time management, common pitfalls, and best practices.
+- Resources: Exam preparation guides, tips from instructors or tutors.
+- Self-check: Identify areas for improvement and refine your exam preparation approach.
+
+Day 19:
+- Objectives: Conduct a final comprehensive review and address any remaining doubts or questions.
+- Activities: Revisit challenging topics, solve practice exams, discuss with peers or instructors.
+- Resources: All course materials, online forums, study groups.
+- Self-check: Assess your overall readiness for the upcoming exam.
+
+Day 20:
+- Objectives: Finalize your exam preparation and engage in self-care.
+- Activities: Light review, mental and physical relaxation, confidence-building exercises.
+- Resources: Exam schedule, relaxation techniques, motivational resources.
+- Self-check: Ensure you are well-rested and mentally prepared for the exam.
+
+Remember to adjust this plan based on your individual needs, learning pace, and any feedback from your instructor. Good luck with your studies!

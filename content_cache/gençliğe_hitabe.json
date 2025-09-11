@@ -1,0 +1,5 @@
+{
+  "request": "gençliğe hitabe",
+  "content": "❌ Claude API Error: 401 - {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CSyYruDTxhHf9HeELYeYu\"}",
+  "timestamp": "2025-09-09T23:38:30.841861"
+}

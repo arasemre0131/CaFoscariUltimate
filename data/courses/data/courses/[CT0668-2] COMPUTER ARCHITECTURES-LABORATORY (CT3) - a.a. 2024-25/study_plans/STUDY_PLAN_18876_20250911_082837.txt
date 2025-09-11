@@ -1,0 +1,116 @@
+STUDY PLAN - [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25
+Course Code: 18876
+Generated: 2025-09-11 08:28:37
+================================================================================
+
+Here is a detailed 4-week study plan for the [CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) course:
+
+WEEK 1: Foundation Building (1.5-2 hours/day)
+
+Day 1: Computer Architecture Fundamentals
+- Objectives: Understand the Von Neumann and Harvard architectures, learn about the key components of a computer system (CPU, memory, I/O)
+- Resources: Course textbook chapters 1-2, online tutorials
+- Exercises: Draw diagrams of the Von Neumann and Harvard architectures, identify the components in a given computer system
+
+Day 2: ARM Instruction Set Architecture (ISA)
+- Objectives: Familiarize with the ARM ISA, learn about the different instruction types (data processing, memory access, control transfer)
+- Resources: ARM Architecture Reference Manual, online ARM ISA tutorials
+- Exercises: Translate simple ARM assembly instructions, understand the purpose and format of different instruction types
+
+Day 3: Assembly Programming Basics
+- Objectives: Understand the assembly programming process, learn how to write and execute simple ARM assembly programs
+- Resources: ARM assembly programming tutorials, sample ARM assembly code
+- Exercises: Write ARM assembly programs to perform basic operations (arithmetic, logic, data transfer)
+
+Day 4: Memory Management
+- Objectives: Learn about the memory hierarchy (registers, caches, RAM, storage), understand memory addressing and alignment
+- Resources: Course textbook chapter 3, online memory management resources
+- Exercises: Analyze memory access patterns, calculate effective memory addresses
+
+Day 5: Function Calls
+- Objectives: Understand the stack-based function call mechanism, learn about parameter passing and return values
+- Resources: ARM function call conventions, sample code with function calls
+- Exercises: Trace the execution of programs with function calls, implement simple functions in ARM assembly
+
+WEEK 2: Intermediate Development (2-3 hours/day)
+
+Day 1: Floating-Point Arithmetic
+- Objectives: Learn the IEEE 754 floating-point standard, understand floating-point number representation and operations
+- Resources: Course textbook chapter 4, online floating-point tutorials
+- Exercises: Perform floating-point arithmetic in ARM assembly, handle edge cases like underflow and overflow
+
+Day 2: Bitwise Operations
+- Objectives: Understand bitwise logical operations (AND, OR, XOR, NOT), learn about logical and arithmetic shifts
+- Resources: ARM bitwise instruction reference, sample code using bitwise operations
+- Exercises: Implement algorithms using bitwise operations, optimize code using bitwise tricks
+
+Day 3: String Manipulation
+- Objectives: Learn common string manipulation algorithms (length, copy, concatenate, reverse)
+- Resources: ARM string handling instructions, sample code for string algorithms
+- Exercises: Write ARM assembly programs to perform string operations, optimize string processing code
+
+Day 4: Memory Allocation and Management
+- Objectives: Understand dynamic memory allocation using the stack and heap, learn about memory leaks and other common issues
+- Resources: ARM memory management instructions, sample code with memory management
+- Exercises: Implement programs that dynamically allocate and deallocate memory, analyze memory usage patterns
+
+Day 5: Compilation and Linking
+- Objectives: Learn the compilation and linking process, understand the role of the assembler, linker, and loader
+- Resources: ARM toolchain documentation, sample programs with compilation and linking
+- Exercises: Compile and link ARM assembly programs, analyze the generated object files and executables
+
+WEEK 3: Advanced Topics & Integration (3-4 hours/day)
+
+Day 1: Hardware Acceleration for AI/ML
+- Objectives: Understand the role of ARM-based systems in edge computing and AI/ML applications
+- Resources: ARM processor architecture for AI, case studies on ARM-powered AI/ML devices
+- Exercises: Research and analyze the use of ARM processors in AI/ML hardware accelerators
+
+Day 2: Embedded Systems and IoT
+- Objectives: Learn about the use of ARM-based microcontrollers and SoCs in embedded systems and IoT devices
+- Resources: ARM processor architectures for embedded systems, case studies on ARM-powered IoT devices
+- Exercises: Design and implement a simple ARM-based embedded system or IoT device prototype
+
+Day 3: Optimization Techniques
+- Objectives: Explore techniques to optimize ARM assembly code for performance, such as loop unrolling, branch prediction, and SIMD instructions
+- Resources: ARM processor architecture optimization guides, sample optimized ARM assembly code
+- Exercises: Profile and optimize ARM assembly programs for different performance metrics
+
+Day 4: Heterogeneous Computing
+- Objectives: Understand the concept of heterogeneous computing and the role of ARM processors in heterogeneous systems
+- Resources: ARM big.LITTLE technology, case studies on ARM-powered heterogeneous computing platforms
+- Exercises: Research and analyze the use of ARM processors in heterogeneous computing systems
+
+Day 5: Integration and Review
+- Objectives: Consolidate the knowledge gained, identify connections between different topics, and prepare for the final exam
+- Resources: Course materials, practice exams, online forums
+- Exercises: Solve complex problems that integrate multiple concepts, participate in group discussions to share insights
+
+WEEK 4: Review & Exam Preparation (4-5 hours/day)
+
+Day 1: Comprehensive Review
+- Objectives: Review all the key concepts, formulas, and problem-solving techniques covered in the course
+- Resources: Course textbook, lecture notes, online resources
+- Exercises: Complete practice questions and problems that cover a wide range of topics
+
+Day 2: Mock Exam Practice
+- Objectives: Simulate the actual exam environment, practice time management and problem-solving under pressure
+- Resources: Sample exam papers, online mock exams
+- Exercises: Take a full-length mock exam, review and analyze the results
+
+Day 3: Exam Strategies and Techniques
+- Objectives: Learn effective exam-taking strategies, such as time management, question prioritization, and anxiety management
+- Resources: Exam preparation guides, videos on exam techniques
+- Exercises: Practice applying exam strategies through additional mock exam questions
+
+Day 4: Final Review and Preparation
+- Objectives: Identify and address any remaining gaps in knowledge, finalize exam preparations
+- Resources: Course materials, practice questions, online forums
+- Exercises: Solve targeted problems, participate in group study sessions, create personalized study aids
+
+Day 5: Exam Day
+- Objectives: Demonstrate the knowledge and skills acquired throughout the course
+- Resources: None (exam day)
+- Exercises: Take the final exam with confidence and focus
+
+Remember, this study plan is a guide, and you should adjust it based on your personal learning style, time constraints, and performance on the practice exercises. Good luck with your studies!

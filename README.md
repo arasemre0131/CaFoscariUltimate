@@ -1,104 +1,106 @@
-# 🎓 CA' FOSCARI ULTIMATE STUDY SYSTEM
+# 🚀 Ca' Foscari Ultimate Study System
 
-**Emre Aras (907842) - Computer Architecture**  
-**Ca' Foscari Üniversitesi**
+Complete AI-powered study system for Ca' Foscari University students.  
+**Emre Aras (907842) - Ca' Foscari University**
 
----
+## 📋 Ana Menü İşlevleri
 
-## 🚀 SİSTEM ÖZELLİKLERİ
+### 1. 🧠 Deep PDF Analysis
+- **Ne yapar:** Ders materyallerini (PDF'ler) Claude AI ile analiz eder
+- **Nasıl:** Course kodu gir → PDF'leri okur → Analiz sonuçlarını cache'ler
+- **Çıktı:** `analysis_cache_[KOD].json` dosyasına kaydeder
+- **Örnek:** CT0668-2 dersinin tüm PDF'lerini analiz edip key points çıkarır
 
-### 📚 Ana Özellikler
-- **Moodle API Entegrasyonu** - Resmi Web Services ile güvenli veri çekme
-- **Gmail Analiz Sistemi** - Üniversite maillerini otomatik sınıflandırma
-- **PDF/Video İçerik Analizi** - Ders materyallerini OCR ile analiz etme
-- **AI Powered Çalışma Planı** - Claude API ile kişiselleştirilmiş planlar
-- **Mock Sınav Oluşturucu** - Otomatik soru üretimi ve değerlendirme
-- **Akıllı Bildirim Sistemi** - Kritik deadline ve görev hatırlatmaları
-- **Otomatik Senkronizasyon** - Zamanlanmış veri güncellemeleri
+### 2. 📝 Generate Mock Exam
+- **Ne yapar:** Analiz edilen ders materyallerine dayanarak mock sınav oluşturur
+- **Nasıl:** Course kodu gir → Cache'den analiz verilerini alır → Sınav soruları üretir
+- **Çıktı:** `mock_exams/` klasörüne sınav dosyası kaydeder
+- **Özellik:** Multiple choice, short answer, essay questions
 
-### 🤖 AI Özellikleri
-- **Claude 3 Sonnet** entegrasyonu
-- Zayıf konulara odaklanmış mock sınavlar
-- Performans bazlı çalışma önerileri
-- Otomatik içerik analizi ve özetleme
-- Akıllı deadline yönetimi
+### 3. 📚 Create Study Plan
+- **Ne yapar:** 4 haftalık kişiselleştirilmiş çalışma planı oluşturur
+- **Nasıl:** Course kodu gir → Cache verilerini kullanır → Günlük goals + exercises
+- **Çıktı:** `data/courses/[DERS]/study_plans/` klasörüne kaydeder
+- **İçerik:** Daily objectives, self-check questions, resource links
 
----
+### 4. 💬 Chat with Claude AI
+- **Ne yapar:** Interactive AI tutor + email gönderme
+- **Özellikler:**
+  - "study plan for 18876" → Otomatik study plan oluşturur
+  - Email gönderme: "erdeme selam yaz" → Smart email gönderir
+  - Conversation memory tutar
+- **Akıllı:** Basit sorulara basit yanıtlar, complex sorular için Claude AI
 
-## 📦 KURULUM
+### 5. 🤖 Autonomous Assistant
+- **Ne yapar:** Seninle birlikte öğrenen kişisel asistan
+- **Özellikler:**
+  - Her etkileşimden öğrenir ve seni hatırlar
+  - Proactive email monitoring & urgent alerts
+  - Study schedule reminders
+  - Deadline tracking
+  - Context-aware responses
+- **Akıllı:** Çalışma saatlerin, stres seviyeni, başarı paternlerini analiz eder
 
-### Gereksinimler
-```bash
-pip install requests anthropic google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client schedule PyPDF2 pdfplumber pytesseract pillow opencv-python moviepy
+### 6. 🌅 Daily Briefing
+- **Ne yapar:** Günlük intelligent rapor oluşturur
+- **İçerik:**
+  - System status
+  - Pending tasks
+  - Upcoming deadlines
+  - Yesterday's achievements
+  - AI suggestions
+- **Kullanım:** Tek seferlik rapor görüntüler
+
+### 7. 🧭 Unified Intelligence
+- **Ne yapar:** Advanced multi-dimensional AI analysis
+- **Özellikler:**
+  - NLP + Emotional + Contextual + Historical + Predictive analysis
+  - Cross-system data integration
+  - Confidence scoring
+  - Smart confirmation (< %75 güvende onay ister)
+- **Örnek:** "🤔 AI Suggestion: [action] (confidence: 85%) Proceed? (y/n/explain)"
+
+### 8. 🔍 System Status
+- **Ne yapar:** Sistem durumu ve configuration check
+- **Kontrol eder:**
+  - API key durumları (Claude, Gmail, Moodle)
+  - Cache files status
+  - Error diagnostics
+  - Available courses
+
+### 9. ❌ Exit
+- **Ne yapar:** Sistemi güvenli şekilde kapatır
+
+## 🔧 Kurulum
+
+1. Repository'yi clone edin
+2. `api_keys/` klasörü oluşturun (git'te olmaz)
+3. API key'lerinizi ekleyin:
+   - `api_keys/claude_api_key.txt`
+   - `api_keys/config.json` (Gmail credentials)
+4. `python3 main.py` ile başlatın
+
+## 📁 Klasör Yapısı
+
+```
+CaFoscariUltimate/
+├── main.py                    # Ana program
+├── data/courses/              # Course klasörleri
+│   └── [CT0668-2] COMPUTER... # Her ders için klasör
+│       └── study_plans/       # Study plan'lar burada
+├── mock_exams/               # Mock sınavlar
+├── *_cache_*.json           # Analiz cache dosyaları
+└── api_keys/                # API anahtarları (git'te yok)
 ```
 
-### İsteğe Bağlı (OCR ve Video için)
-```bash
-# macOS
-brew install tesseract
+## 🎯 En Çok Kullanılan
 
-# Ubuntu/Debian  
-sudo apt-get install tesseract-ocr
-
-# Windows
-# Tesseract'ı manuel olarak indirin
-```
-
-### Kurulum Adımları
-1. **Repoyu klonlayın**
-   ```bash
-   git clone <repo-url>
-   cd CaFoscariUltimate
-   ```
-
-2. **Gerekli Python paketlerini kurun**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **API anahtarlarını hazırlayın**
-   - Claude API key: [console.anthropic.com](https://console.anthropic.com)
-   - Gmail API credentials: [console.cloud.google.com](https://console.cloud.google.com)
-   - Moodle Web Services token: Moodle > User preferences > Security keys
-
-4. **Sistemi başlatın**
-   ```bash
-   python main.py
-   ```
+1. **Study Plan:** Chat'te "study plan for 18876" yaz
+2. **Email:** Chat'te "erdeme selam nasılsın yaz" 
+3. **Analysis:** Menü 1 → Course kodu gir
+4. **Mock Exam:** Menü 2 → Course kodu gir
 
 ---
-
-## 🔧 YAPILANDIRMA
-
-### İlk Kurulum
-Sistem ilk çalıştırıldığında otomatik kurulum başlar:
-- Claude API key girişi
-- Moodle entegrasyonu kurulumu
-- Gmail API yapılandırması
-- Bildirim ayarları
-
-### Manuel Yapılandırma Dosyaları
-- `system_config.json` - Ana sistem ayarları
-- `notification_config.json` - Bildirim kuralları
-- `student_profile.json` - Öğrenci profili ve tercihler
-
----
-
-## 📖 KULLANIM KILAVUZU
-
-### 1. 🏠 Ana Menü
-```
-1. 🔄 Şimdi tam senkronizasyon yap
-2. 🤖 AI analizi ve plan güncellemesi  
-3. ⚙️ Sistem bileşenlerini yapılandır
-4. 🔔 Bildirim sistemi
-5. 📝 Mock sınav oluşturucu
-6. 📚 Çalışma planı sistemi
-7. ⏰ Otomatik senkronizasyon başlat/durdur
-8. 📊 Sistem durumu ve istatistikler
-9. 💾 Manuel backup oluştur
-10. ❌ Çıkış
-```
 
 ### 2. 📚 Moodle Entegrasyonu
 **Özellikler:**

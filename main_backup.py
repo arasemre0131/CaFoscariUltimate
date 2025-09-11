@@ -151,7 +151,7 @@ class CaFoscariUltimate:
                     "anthropic-version": "2023-06-01"
                 },
                 json={
-                    "model": "claude-3-haiku-20240307",
+                    "model": "claude-3-5-sonnet-20241022",
                     "max_tokens": 4000,
                     "system": system_prompt,
                     "messages": messages
@@ -655,30 +655,15 @@ IMPORTANT: Make this exam COMPLETELY DIFFERENT from any previous exams. Use diff
         input("\n✨ Press Enter to continue...")
     
     def create_study_plan(self, course_code):
-        """Create AI-optimized study plan from analysis cache"""
-        # Try multiple cache file patterns
-        cache_files = [
-            f"analysis_cache_{course_code}.json",
-            f"pdf_analysis_cache_{course_code}.json"
-        ]
-        
-        analysis = None
-        for cache_file in cache_files:
-            try:
-                with open(cache_file, "r", encoding="utf-8") as f:
-                    cache_data = json.load(f)
-                    analysis = cache_data.get("analysis") or cache_data.get("content_analysis", "")
-                    if analysis:
-                        print(f"📊 Found analysis cache: {cache_file}")
-                        break
-            except FileNotFoundError:
-                continue
-        
-        if not analysis:
-            print("❌ No course analysis cache found!")
-            print(f"💡 Please run 'Deep PDF Analysis' for course {course_code} first")
-            print("   or use menu option 1 to analyze course materials")
-            return False
+        """Create AI-optimized study plan"""
+        cache_file = f"analysis_cache_{course_code}.json"
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                cache_data = json.load(f)
+                analysis = cache_data["analysis"]
+        except FileNotFoundError:
+            print("❌ No course analysis found. Please run 'Deep PDF Analysis' first.")
+            return
         
         course = self.courses.get(course_code, {})
         
@@ -724,16 +709,13 @@ Make it practical, achievable, and personalized for university-level study."""
         print("📚 Creating personalized study plan...")
         plan = self.claude_request(messages)
         
-        # Save plan in course data folder
-        course_name = course.get('name', course_code)
-        course_data_dir = f"data/courses/{course_name}"
-        
-        # Create study_plans subfolder in course directory
-        study_plan_dir = f"{course_data_dir}/study_plans"
-        os.makedirs(study_plan_dir, exist_ok=True)
+        # Save plan organized by course
+        course_name_safe = course.get('name', course_code).replace('/', '_').replace('[', '').replace(']', '')
+        plan_dir = f"study_plans/{course_code}_{course_name_safe}"
+        os.makedirs(plan_dir, exist_ok=True)
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        plan_file = f"{study_plan_dir}/STUDY_PLAN_{course_code}_{timestamp}.txt"
+        plan_file = f"{plan_dir}/PLAN_{course_code}_{timestamp}.txt"
         
         with open(plan_file, "w", encoding="utf-8") as f:
             f.write(f"STUDY PLAN - {course.get('name', course_code)}\n")
@@ -749,30 +731,16 @@ Make it practical, achievable, and personalized for university-level study."""
         print(plan[:1200] + "..." if len(plan) > 1200 else plan)
         print("="*60)
         
-        return True
-    
-    def handle_file_location_question(self):
-        """Study plan dosya lokasyonu hakkında basit yanıt"""
-        return """📁 Study plan şurada kaydedildi:
-data/courses/[DERS_ADI]/study_plans/STUDY_PLAN_[KOD]_[TARİH].txt
-
-Örnek: data/courses/[CT0668-2] COMPUTER ARCHITECTURES-LABORATORY (CT3) - a.a. 2024-25/study_plans/
-
-Bu klasörü bilgisayarında aç ve TXT dosyasını görebilirsin."""
+        input("\n✨ Press Enter to continue...")
     
     def chat_with_claude(self):
-        """AKILLI chat mode - Study plan oluşturma ve smart web search"""
-        print("\n💬 INTELLIGENT CHAT MODE - Integrated AI Assistant")
+        """HER MESAJDA web search yapan akıllı chat"""
+        print("\n💬 INTELLIGENT CHAT MODE - Real-time Web Enhanced")
         print("="*60)
-        print("✅ Study plan creation integrated!")
-        print("✅ Smart web search (only when needed)")
-        print("✅ All conversations cached")
+        print("Every response is enriched with current web information!")
         print("📧 Smart email commands also available")
         print("Type 'exit' to return to menu.")
         print("-"*60)
-        
-        # Conversation cache for this session
-        conversation_cache = []
         
         while True:
             try:
@@ -784,151 +752,63 @@ Bu klasörü bilgisayarında aç ve TXT dosyasını görebilirsin."""
                 if not user_input:
                     continue
                 
-                # Cache user input
-                conversation_cache.append({"role": "user", "content": user_input})
-                
                 # Handle email commands first
                 if self.handle_email_commands(user_input):
                     continue
                 
-                # Check for study plan requests
-                if self.detect_study_plan_request(user_input):
-                    print("📚 Study plan request detected!")
-                    course_code = self.extract_course_from_request(user_input)
-                    if course_code:
-                        print(f"🎯 Creating study plan for {course_code}")
-                        success = self.create_study_plan(course_code)
-                        if success:
-                            response_msg = f"✅ Study plan successfully created for {course_code}! Check the course data folder."
-                        else:
-                            response_msg = f"❌ Could not create study plan for {course_code}. Run PDF analysis first."
-                        # Cache the response
-                        conversation_cache.append({
-                            "role": "assistant", 
-                            "content": response_msg
-                        })
-                        print(f"\n🧠 Claude: {response_msg}")
-                        continue
-                    else:
-                        # Show available courses
-                        print("📋 Available courses:")
-                        for code, course in self.courses.items():
-                            print(f"  • {code}: {course.get('name', 'Unknown')}")
-                        response_msg = "Please specify a course code from the list above for study plan creation."
-                        conversation_cache.append({
-                            "role": "assistant", 
-                            "content": response_msg
-                        })
-                        print(f"\n🧠 Claude: {response_msg}")
-                        continue
+                # HER MESAJ İÇİN web-enhanced response
+                print("🌐 Analyzing with real-time web data...")
                 
-                # Basit sorular için basit yanıtlar
-                if any(keyword in user_input.lower() for keyword in ['nerede', 'nasıl açarım', 'kaydettin', 'dosya']):
-                    response = self.handle_file_location_question()
-                elif any(keyword in user_input.lower() for keyword in ['teşekkür', 'görüşürüz', 'iyi çalışmalar']):
-                    response = "✅ Rica ederim! İhtiyacın olursa buradayım."
-                else:
-                    # Normal Claude API için basit prompt
-                    enhanced_prompt = f"""Sen bir AI asistansın. Kısa ve net yanıtla.
-Soru: {user_input}
+                # 1. Web search
+                web_results = self.perform_comprehensive_web_search(user_input)
+                
+                # 2. İlgili PDF'leri bul (cache'den)
+                relevant_content = self.find_relevant_cached_content(user_input)
+                
+                # 3. Öğrenci performansını kontrol et
+                student_context = self.get_student_context()
+                
+                # 4. Zengin prompt oluştur
+                enhanced_prompt = f"""You are an AI tutor with real-time web access.
+                
+Question: {user_input}
 
-Yanıtını Türkçe ver ve kısa tut."""
-                    
-                    # Claude API - Garantili çalışması için
-                    if not self.claude_api:
-                        print("❌ Claude API key bulunamadı!")
-                        print("🔑 Lütfen api_keys/claude_api_key.txt dosyasına geçerli key ekleyin")
-                        print("📍 Key alın: https://console.anthropic.com/settings/keys")
-                        continue
-                    
-                    messages = [{"role": "user", "content": enhanced_prompt}]
-                    response = self.claude_request(messages)
+CURRENT WEB INFORMATION:
+{web_results}
+
+RELEVANT COURSE MATERIALS:
+{relevant_content}
+
+STUDENT CONTEXT:
+{student_context}
+
+Provide an accurate, current, and educational response.
+Use the web information to ensure accuracy.
+Reference course materials when relevant.
+Answer in the same language as the question."""
+                
+                # Claude API - Garantili çalışması için
+                if not self.claude_api:
+                    print("❌ Claude API key bulunamadı!")
+                    print("🔑 Lütfen api_keys/claude_api_key.txt dosyasına geçerli key ekleyin")
+                    print("📍 Key alın: https://console.anthropic.com/settings/keys")
+                    continue
+                
+                messages = [{"role": "user", "content": enhanced_prompt}]
+                response = self.claude_request(messages)
                 
                 if response.startswith("❌"):
                     print("🔑 API Key geçersiz! Yeni key alın:")
                     print("📍 https://console.anthropic.com/settings/keys")
                     print("💾 Sonra: echo 'YENİ_KEY' > api_keys/claude_api_key.txt")
                     continue
-                
-                # Cache AI response
-                conversation_cache.append({"role": "assistant", "content": response})
-                
-                print(f"\n🧠 Claude: {response}")
+                    
+                print(f"\n🧠 Claude (Web-Enhanced): {response}")
                 
             except KeyboardInterrupt:
                 break
         
-        # Save conversation cache
-        self.save_conversation_cache(conversation_cache)
         print("\n👋 Returning to main menu...")
-    
-    def detect_study_plan_request(self, user_input):
-        """Study plan isteği tespit et"""
-        user_input_lower = user_input.lower()
-        
-        study_plan_keywords = [
-            'study plan', 'çalışma planı', 'plan oluştur', 'study schedule',
-            'ders programı', 'çalışma takvimi', 'plan yap', 'create plan',
-            'make plan', 'study guide', 'çalışma rehberi', 'plan çıkar'
-        ]
-        
-        return any(keyword in user_input_lower for keyword in study_plan_keywords)
-    
-    def extract_course_from_request(self, user_input):
-        """İstekten course code çıkar"""
-        user_input_lower = user_input.lower()
-        
-        # Direct course code match
-        for course_code in self.courses.keys():
-            if course_code.lower() in user_input_lower:
-                return course_code
-        
-        # Course name match
-        for course_code, course_info in self.courses.items():
-            course_name = course_info.get('name', '').lower()
-            # Check for significant words from course name
-            course_words = [word for word in course_name.split() if len(word) > 3]
-            if any(word in user_input_lower for word in course_words):
-                return course_code
-        
-        return None
-    
-    def cache_new_email(self, contact_name, email_address):
-        """Yeni email adresini cache'e kaydet"""
-        try:
-            # Contacts.json'a ekle
-            self.contacts[contact_name] = email_address
-            
-            # Dosyaya kaydet
-            with open("contacts.json", "w", encoding="utf-8") as f:
-                json.dump(self.contacts, f, indent=2, ensure_ascii=False)
-            
-            print(f"📝 Contact saved to cache: {contact_name} -> {email_address}")
-            
-        except Exception as e:
-            print(f"⚠️ Warning: Could not save contact to cache: {e}")
-    
-    def save_conversation_cache(self, conversation_cache):
-        """Konuşmayı cache'e kaydet"""
-        if not conversation_cache:
-            return
-        
-        try:
-            os.makedirs("conversation_cache", exist_ok=True)
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            cache_file = f"conversation_cache/chat_{timestamp}.json"
-            
-            with open(cache_file, 'w', encoding='utf-8') as f:
-                json.dump({
-                    'timestamp': timestamp,
-                    'messages': conversation_cache,
-                    'total_messages': len(conversation_cache)
-                }, f, indent=2, ensure_ascii=False)
-            
-            print(f"💾 Conversation cached: {len(conversation_cache)} messages saved")
-            
-        except Exception as e:
-            print(f"⚠️ Cache save failed: {e}")
     
     def handle_email_commands(self, user_input, dry_run=False):
         """AKILLI email handler - her şeyi web'den alır"""
@@ -941,44 +821,26 @@ Yanıtını Türkçe ver ve kısa tut."""
             print(result)
             return True
         
-        # Smart email detection - önce email pattern kontrol et
-        import re
-        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-        direct_emails = re.findall(email_pattern, user_input)
-        
-        # Email varsa VEYA email keyword'ları varsa email gönderme moduna geç
-        has_email = len(direct_emails) > 0
-        has_email_keywords = any(word in user_input_lower for word in ['gönder', 'send', 'mail', 'email', 'at', 'yolla', 'yaz'])
-        
-        if has_email or has_email_keywords:
+        # Smart email sending with web-powered content
+        if any(word in user_input_lower for word in ['gönder', 'send', 'mail', 'email', 'at', 'yolla', 'yaz']):
             # Contact bul
             found_contact = None
             found_email = None
             
-            if direct_emails:
-                # Direct email bulundu - hemen kullan
-                found_email = direct_emails[0]
-                found_contact = found_email.split('@')[0]
-                
-                # Cache'e ekle
-                self.cache_new_email(found_contact, found_email)
-                print(f"✅ New email cached: {found_contact} -> {found_email}")
-            else:
-                # Direct email yok, cache'den ara
-                for contact_name, email in self.contacts.items():
-                    if contact_name in user_input_lower or any(pattern in user_input_lower for pattern in [
-                        contact_name + 'e', contact_name + 'ye', contact_name + 'den', contact_name + 'a',
-                        contact_name + 'i', contact_name + 'in', contact_name + 'le'
-                    ]):
-                        found_contact = contact_name
-                        found_email = email
-                        break
-                
-                if not found_email:
-                    print("❌ Contact not found and no email address detected!")
-                    print("📋 Available contacts:", ", ".join(self.contacts.keys()))
-                    print("💡 Try: 'erdeme selam yaz' or include email: 'test@example.com mesaj'")
-                    return True
+            # Turkish language pattern matching
+            for contact_name, email in self.contacts.items():
+                if contact_name in user_input_lower or any(pattern in user_input_lower for pattern in [
+                    contact_name + 'e', contact_name + 'ye', contact_name + 'den', contact_name + 'a',
+                    contact_name + 'i', contact_name + 'in', contact_name + 'le'
+                ]):
+                    found_contact = contact_name
+                    found_email = email
+                    break
+            
+            if not found_email:
+                print("❌ Contact not found!")
+                print("📋 Available contacts:", ", ".join(self.contacts.keys()))
+                return True
             
             # Mesaj içeriğini çıkar
             raw_message = self.extract_email_message(user_input, found_contact)
@@ -1029,6 +891,14 @@ Yanıtını Türkçe ver ve kısa tut."""
                 return True
         return False
         
+    def create_professional_alternative(self, raw_message, contact_name):
+        """Uygunsuz mesaj için profesyonel alternatif öner"""
+        alternatives = {
+            'angry': f"Merhaba {contact_name.capitalize()},\n\nBu konu hakkında konuşmamız gerekiyor.\n\nSaygılarımla",
+            'complaint': f"Sayın {contact_name.capitalize()},\n\nBir durumla ilgili görüşlerinizi almak istiyorum.\n\nSaygılar",
+            'general': f"Merhaba {contact_name.capitalize()},\n\nBir konuda senin düşüncelerini merak ediyorum.\n\nSaygılarımla"
+        }
+        return alternatives['general']
     
     def extract_email_message(self, user_input, contact_name):
         """
@@ -1147,6 +1017,198 @@ Yanıtını Türkçe ver ve kısa tut."""
             print(f"⚠️ Cache save error: {e}")
         
         return actual_content
+    
+    def create_fallback_content(self, message_request, search_results):
+        """Güçlü fallback sistem - her durumda çalışır"""
+        
+        # Bilinen content'ler için hazır cevaplar
+        fallback_contents = {
+            'gençliğe hitabe': """Ey Türk gençliği! Birinci vazifen, Türk istiklâlini, Türk Cumhuriyetini, ilelebet, muhafaza ve müdafaa etmektir.
+
+Mevcudiyetinin ve istikbalinin yegâne temeli budur. Bu temel, senin, en kıymetli hazinendir. İstikbalde dahi, seni bu hazineden mahrum bırakmaya çalışacak, dahilî ve haricî bedhahların olacaktır. Bir gün, İstiklal ve Cumhuriyeti müdafaa mecburiyetine düştüğün vakit, vazifeye atılmak için, içinde bulunacağın vaziyetin imkân ve şeraitini düşünmeyeceksin!
+
+Bu imkân ve şerait, çok namüsait bir mahiyette tezahür edebilir. İstiklal ve Cumhuriyetine kastedecek düşmanlar, bütün dünyada emsali görülmemiş bir galibiyetin mümessili olabilirler.
+
+Ey Türk istikbalinin evlâdı! İşte, bu ahval ve şerait içinde dahi, vazifen, Türk İstiklal ve Cumhuriyetini kurtarmaktır! Muhtaç olduğun kudret, damarlarındaki asil kanda mevcuttur!
+
+Mustafa Kemal ATATÜRK""",
+            
+            'istiklal marşı': """Korkma, sönmez bu şafaklarda yüzen al sancak;
+Sönmeden yurdumun üstünde tüten en son ocak.
+O benim milletimin yıldızıdır, parlayacak;
+O benimdir, o benim milletimindir ancak.
+
+Çatma, kurban olayım, çehreni ey nazlı hilal!
+Kahraman ırkıma bir gül! Ne bu şiddet, bu celal?
+Sana olmaz dökülen kanlarımız sonra helal.
+Hakkıdır, Hakk'a tapan milletimin istiklal!
+
+Ben ezelden beridir hür yaşadım, hür yaşarım.
+Hangi çılgın bana zincir vuracakmış? Şaşarım!
+Kükremiş sel gibiyim, bendimi çiğner, aşarım.
+Yırtarım dağları, enginlere sığmam, taşarım.
+
+Mehmet Akif ERSOY""",
+            
+            'andımız': """Türküm, doğruyum, çalışkanım. İlkem, küçüklerimi korumak, büyüklerimi saymak, yurdumu, milletimi özümden çok sevmektir. Ülküm, yükselmek, ileri gitmektir. Ey büyük Atatürk! Açtığın yolda, gösterdiğin amaçta hiç durmadan yürüyeceğime ant içerim. Varlığım Türk varlığına armağan olsun. Ne mutlu Türküm diyene!""",
+            
+            # Greeting'ler için pattern'ler
+            'merhaba': "Merhaba! Nasılsın? Umarım her şey yolunda gidiyor.",
+            'selam': "Selam! Bu güzel günde seni selamlar, sağlıklı ve mutlu olmayı dilerim.",
+            'iyi günler': "İyi günler! Gününün güzel ve verimli geçmesini diliyorum.",
+            'nasılsın': "Merhaba! Ben iyiyim, teşekkürler. Sen nasılsın? Umarım her şey yolundadır.",
+            'naber': "Selam! Her şey yolunda, teşekkürler. Senden naber?",
+            
+            # Özel durumlar
+            'doğum günü': "🎉 Doğum gününüz kutlu olsun! Sağlık, mutluluk ve başarı dolu nice yıllar dilerim. 🎂🎈",
+            'kutlama': "🎊 Tebrikler! Bu özel gününüzü kutlar, başarılarınızın devamını dilerim.",
+            'geçmiş olsun': "Geçmiş olsun. Allah şifa versin, en kısa zamanda sağlığınıza kavuşmanızı dilerim.",
+            'teşekkür': "Rica ederim! Her zaman yardımcı olmaya çalışırım. 😊",
+            
+            # Akademik
+            'ders': "Merhaba! Ders konusunda yardımcı olmaya hazırım. Hangi konuda destek istiyorsun?",
+            'sınav': "Sınav hazırlığın nasıl gidiyor? Başarılar dilerim! 📚💪",
+            'proje': "Proje konusunda yardıma ihtiyacın varsa çekinme, birlikte çözebiliriz.",
+            
+            # Sosyal
+            'kahve': "☕ Kahve içelim mi? Güzel bir sohbet de yaparız.",
+            'buluşalım': "Tabii, buluşalım! Ne zaman uygun?",
+            'görüşürüz': "Görüşürüz! İyi günler dilerim. 👋"
+        }
+        
+        message_lower = message_request.lower() if message_request else ""
+        
+        # Önce tam eşleşme ara
+        if message_lower in fallback_contents:
+            return fallback_contents[message_lower]
+        
+        # Sonra partial match ara
+        for key, content in fallback_contents.items():
+            if key in message_lower:
+                return content
+                
+        # Keyword-based matching
+        greeting_keywords = ['merhaba', 'selam', 'hello', 'hi', 'hey']
+        question_keywords = ['nasılsın', 'naber', 'how are you', 'ne yapıyorsun']
+        academic_keywords = ['ders', 'sınav', 'exam', 'study', 'ödev', 'homework']
+        
+        if any(keyword in message_lower for keyword in greeting_keywords):
+            return "Merhaba! Nasılsın? Umarım her şey yolunda gidiyor. 😊"
+        elif any(keyword in message_lower for keyword in question_keywords):
+            return "İyiyim, teşekkürler! Sen nasılsın? Umarım güzel bir gün geçiriyorsundur."
+        elif any(keyword in message_lower for keyword in academic_keywords):
+            return "Merhaba! Akademik konularda yardımcı olmaya hazırım. Hangi konuda destek istiyorsun? 📚"
+        
+        # Web search sonucu varsa kullan
+        if search_results and len(search_results) > 50:
+            return f"Merhaba!\n\n{search_results}\n\nUmarım faydalı olur.\n\nSaygılarımla"
+            
+        # Son çare: universal message
+        return f"""Merhaba!
+
+Mesajın: "{message_request}"
+
+Bu konuda daha detaylı konuşabiliriz. Başka bir şey sormanız gerekirse çekinmeyin.
+
+İyi günler dilerim!
+
+Saygılarımla"""
+    
+    def create_intelligent_fallback_response(self, user_input, web_results, course_content):
+        """Akıllı fallback response sistemi"""
+        
+        # Sorunun türünü belirle
+        question_lower = user_input.lower()
+        
+        # Medical/Biology terms
+        medical_terms = {
+            'ilik suyu': """🦴 İLİK SUYU (Bone Marrow) Bilgileri:
+
+İlik suyu (kemik iliği), kemiklerin içindeki yumuşak dokudur ve çok önemli fonksiyonları vardır:
+
+📍 Fonksiyonları:
+• Kan hücresi üretimi (kırmızı kan hücresi, beyaz kan hücresi, trombosit)
+• Bağışıklık sistemi desteği
+• Kan yenilenmesi ve onarımı
+
+🔬 İki türü vardır:
+• Kırmızı İlik: Aktif kan üretimi yapar
+• Sarı İlik: Yağ depolama alanı
+
+🏥 Tıbbi Kullanımlar:
+• İlik nakli tedavileri
+• Lösemi ve kan hastalıkları tedavisi
+• Kök hücre tedavileri
+
+💊 Sağlık İçin Önemli:
+• Demir eksikliği anemisinde rol oynar
+• B12 ve folik asit eksikliklerinde etkilenir
+• Yaşlanmayla birlikte aktivitesi azalır""",
+            
+            'kan': """🩸 KAN Bilgileri:
+Kan, vücudumuzun hayati sıvısıdır ve birçok önemli fonksiyona sahiptir...""",
+            
+            'hücre': """🔬 HÜCRE Bilgileri:
+Hücreler, tüm canlıların temel yapı taşlarıdır..."""
+        }
+        
+        # Academic terms
+        academic_terms = {
+            'matematik': 'Matematik ile ilgili sorunuz için daha spesifik olabilir misiniz? Calculus, algebra, geometri gibi hangi alanla ilgili?',
+            'programming': 'Programlama ile ilgili hangi dil veya konu hakkında bilgi istiyorsunuz? Python, Java, C++ gibi...',
+            'computer': 'Bilgisayar bilimleri çok geniş bir alan. Hangi konuyla ilgili detay istiyorsunuz?'
+        }
+        
+        # Greetings
+        greetings = {
+            'merhaba': 'Merhaba! Size nasıl yardımcı olabilirim?',
+            'selam': 'Selam! Hangi konuda bilgi almak istiyorsunuz?',
+            'hello': 'Hello! How can I help you today?'
+        }
+        
+        # Check for specific terms
+        for term, info in medical_terms.items():
+            if term in question_lower:
+                return info
+                
+        for term, info in academic_terms.items():
+            if term in question_lower:
+                return info
+                
+        for term, info in greetings.items():
+            if term in question_lower:
+                return info
+        
+        # Web results varsa kullan
+        if web_results and len(web_results) > 50:
+            return f"""📚 Web'den bulunan bilgiler:
+
+{web_results}
+
+🤖 Bu bilgiler web araması sonucu elde edilmiştir. Daha detaylı bilgi için spesifik sorular sorabilirsiniz.
+
+Başka sorunuz var mı?"""
+        
+        # Course content varsa kullan
+        if course_content:
+            return f"""📖 Ders materyallerinizden ilgili bilgiler:
+
+{course_content[:500]}...
+
+Bu konuda daha derinlemesine çalışmak isterseniz, mock sınav oluşturabilirim veya study plan hazırlayabilirim.
+
+Hangi konuda daha çok bilgi istiyorsunuz?"""
+        
+        # General fallback
+        return f"""🤖 Sorunuz: "{user_input}"
+
+Bu konuda size yardımcı olmaya çalışayım:
+
+• Eğer tıbbi/bilimsel bir terim hakkındaysa, daha spesifik sorular sorabilirsiniz
+• Ders konularıyla ilgiliyse, hangi dersinizle bağlantılı olduğunu belirtebilirsiniz
+• Mock sınav, study plan gibi akademik destek istiyorsanız ana menüden seçebilirsiniz
+
+Daha spesifik olarak ne öğrenmek istiyorsunuz? 🎓"""
     
     def perform_comprehensive_web_search(self, query):
         """GERÇEK web search - API kullanarak"""
@@ -1488,6 +1550,45 @@ System Usage: Advanced user with AI integration"""
             print(f"❌ Error processing smart email command: {e}")
             return True
     
+    def parse_send_email_command(self, user_input):
+        """Parse natural language email sending commands"""
+        try:
+            # Simple parsing for commands like "send email to X subject Y message Z"
+            parts = user_input.lower().split()
+            
+            email_address = None
+            subject = "Message from Ca' Foscari Ultimate"
+            message = user_input
+            
+            # Look for email addresses in the input
+            import re
+            email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+            emails = re.findall(email_pattern, user_input)
+            
+            if emails:
+                email_address = emails[0]
+                
+                # Extract message (everything after the email address)
+                email_idx = user_input.lower().find(email_address.lower())
+                message = user_input[email_idx + len(email_address):].strip()
+                
+                if not message:
+                    message = "Hello! This message was sent via Ca' Foscari Ultimate System."
+                
+                print(f"\n📧 Sending email to: {email_address}")
+                print(f"📋 Subject: {subject}")
+                print(f"💬 Message: {message}")
+                
+                success = self.send_email(email_address, subject, message)
+                if success:
+                    print("✅ Email sent successfully!")
+                else:
+                    print("❌ Failed to send email.")
+                return True
+            else:
+                print("❌ No valid email address found in your message.")
+                print("💡 Try: 'send email to someone@example.com your message here'")
+                return True
                 
         except Exception as e:
             print(f"❌ Error processing email command: {e}")
@@ -1539,14 +1640,15 @@ System Usage: Advanced user with AI integration"""
                 print("1. 🧠 Deep PDF Analysis (analyze course materials)")
                 print("2. 📝 Generate Mock Exam (create practice tests)")
                 print("3. 📚 Create Study Plan (personalized learning path)")
-                print("4. 💬 Chat with Claude AI (interactive tutoring + email)")
+                print("4. 💬 Chat with Claude AI (interactive tutoring)")
                 print("5. 🤖 Autonomous Assistant (AI that learns from you)")
-                print("6. 🌅 Daily Briefing (intelligent daily report)")
-                print("7. 🧭 Unified Intelligence (advanced AI mode)")
-                print("8. 🔍 System Status (check configuration)")
-                print("9. ❌ Exit")
+                print("6. 📧 Send Email (Gmail integration)")
+                print("7. 🌅 Daily Briefing (intelligent daily report)")
+                print("8. 🧭 Unified Intelligence (advanced AI mode)")
+                print("9. 🔍 System Status (check configuration)")
+                print("10. ❌ Exit")
                 
-                choice = input("\nEnter your choice (1-9): ").strip()
+                choice = input("\nEnter your choice (1-10): ").strip()
                 
                 if choice == "1":
                     course_code = input("Enter course code for analysis: ").strip()
@@ -1567,10 +1669,16 @@ System Usage: Advanced user with AI integration"""
                     self.autonomous_assistant()
                     
                 elif choice == "6":
+                    to_email = input("Enter recipient email: ").strip()
+                    subject = input("Enter email subject: ").strip()
+                    message = input("Enter your message: ").strip()
+                    self.send_email(to_email, subject, message)
+                    
+                elif choice == "7":
                     print(self.create_daily_briefing())
                     input("\n✨ Press Enter to continue...")
                     
-                elif choice == "7":
+                elif choice == "8":
                     print("\n🧭 UNIFIED INTELLIGENCE MODE")
                     print("="*50)
                     print("This mode analyzes your input with multi-dimensional AI")
@@ -1584,16 +1692,16 @@ System Usage: Advanced user with AI integration"""
                         if result:
                             print(f"✅ {result}")
                     
-                elif choice == "8":
+                elif choice == "9":
                     self.system_status()
                     
-                elif choice == "9":
+                elif choice == "10":
                     print("\n👋 Thank you for using Ca' Foscari Ultimate!")
                     print("🎓 Good luck with your studies!")
                     break
                     
                 else:
-                    print("❌ Invalid choice. Please select 1-9.")
+                    print("❌ Invalid choice. Please select 1-10.")
                     
             except KeyboardInterrupt:
                 print("\n\n👋 Goodbye!")
