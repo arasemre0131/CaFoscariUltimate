@@ -1,0 +1,6 @@
+CHEAT SHEET - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Course Code: 18872
+Generated: 2025-09-22 14:54:46
+================================================================================
+
+❌ Claude request failed: HTTPSConnectionPool(host='api.anthropic.com', port=443): Max retries exceeded with url: /v1/messages (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x1071ec9a0>: Failed to resolve 'api.anthropic.com' ([Errno 8] nodename nor servname provided, or not known)"))

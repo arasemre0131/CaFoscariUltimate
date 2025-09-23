@@ -1,0 +1,59 @@
+CHEAT SHEET - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Course Code: 18872
+Generated: 2025-09-23 21:33:45
+================================================================================
+
+Here is a 5-page Exam Cheat Sheet for the "[CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25" course:
+
+**1. FORMULA QUICK REFERENCE**
+
+Derivatives:
+- 𝑓'(𝑥) = lim(ℎ→0) [𝑓(𝑥+ℎ) - 𝑓(𝑥)] / ℎ
+- 𝑑/𝑑𝑥 [𝑢(𝑥) ± 𝑣(𝑥)] = 𝑢'(𝑥) ± 𝑣'(𝑥)
+- 𝑑/𝑑𝑥 [𝑢(𝑥)𝑣(𝑥)] = 𝑢'(𝑥)𝑣(𝑥) + 𝑢(𝑥)𝑣'(𝑥)
+- 𝑑/𝑑𝑥 [𝑢(𝑥)/𝑣(𝑥)] = [𝑢'(𝑥)𝑣(𝑥) - 𝑢(𝑥)𝑣'(𝑥)] / [𝑣(𝑥)]²
+
+Integrals:
+- ∫ 𝑓(𝑥) 𝑑𝑥 = 𝐹(𝑥) + 𝐶
+- ∫ 𝑢(𝑥) 𝑑𝑣 = 𝑢𝑣 - ∫ 𝑣 𝑑𝑢 (Integration by Parts)
+- ∫ 𝑓(𝑔(𝑥))𝑔'(𝑥) 𝑑𝑥 = 𝐹(𝑔(𝑥)) + 𝐶 (Substitution)
+
+**2. CALCULATION SHORTCUTS & TRICKS**
+
+- Recognize power rule, chain rule, and product/quotient rule patterns
+- Use trigonometric identities to simplify expressions
+- Apply integration by parts for products of functions
+- Utilize the substitution method for integrals with composite functions
+- Factor denominators for integration using partial fractions
+
+**3. EXAM TACTICS**
+
+- Manage time wisely, prioritize questions
+- Identify which methods/formulas to use for each problem
+- Show all work, even if the final answer seems obvious
+- Double-check units, signs, and arithmetic at each step
+- Attempt all questions, even if unsure - partial credit is available
+
+**4. COMMON MISTAKES TO AVOID**
+
+- Forgetting the constant of integration when indefinite integrals
+- Mixing up derivative and integral rules, e.g. product/quotient rule
+- Arithmetic errors during lengthy calculations
+- Incorrect application of trigonometric identities
+- Careless errors in algebraic manipulations or unit conversions
+
+**5. QUICK REFERENCE TABLES**
+
+Trigonometric Identities:
+- sin²(x) + cos²(x) = 1
+- tan(x) = sin(x) / cos(x)
+- d/dx [sin(x)] = cos(x)
+- d/dx [cos(x)] = -sin(x)
+- ∫sin(x) dx = -cos(x) + C
+- ∫cos(x) dx = sin(x) + C
+
+Limits and L'Hôpital's Rule:
+- lim(x→a) f(x)/g(x) = lim(x→a) f'(x)/g'(x) if lim(x→a) f(x) = 0 and lim(x→a) g(x) = 0
+
+Taylor/Maclaurin Series:
+- f(x) = f(a) + f'(a)(x-a) + f''(a)(x-a)²/2! + ... + f^(n)(a)(x-a)^n/n!

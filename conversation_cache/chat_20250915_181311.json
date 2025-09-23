@@ -1,0 +1,62 @@
+{
+  "timestamp": "20250915_181311",
+  "messages": [
+    {
+      "role": "user",
+      "content": "yarına çekti hoca technical english sınavını hemen pdfleri analiz et  nasıl bir proje istiyor onuda yaz bana"
+    },
+    {
+      "role": "user",
+      "content": "naber"
+    },
+    {
+      "role": "assistant",
+      "content": "İyiyim, teşekkür ederim."
+    },
+    {
+      "role": "user",
+      "content": "🎓 You: yarına çekti hoca technical english sınavını hemen pdfleri analiz et nasıl bir proje istiyor onuda yaz bana"
+    },
+    {
+      "role": "user",
+      "content": "technical enish sınavı var yarın bide sonrasında proje var"
+    },
+    {
+      "role": "assistant",
+      "content": "• Yarınki Technical English sınavına iyi hazırlan.\n• Proje çalışmalarına da vakit ayır.\n• İyi çalışmalar!"
+    },
+    {
+      "role": "user",
+      "content": "lan yardım etsene"
+    },
+    {
+      "role": "assistant",
+      "content": "Tamam, ne yardım edebilirim?"
+    },
+    {
+      "role": "user",
+      "content": "bak moodle daki pdflerine"
+    },
+    {
+      "role": "assistant",
+      "content": "Tamam."
+    },
+    {
+      "role": "user",
+      "content": "?"
+    },
+    {
+      "role": "assistant",
+      "content": "Evet, ben bir AI asistanım."
+    },
+    {
+      "role": "user",
+      "content": "q"
+    },
+    {
+      "role": "assistant",
+      "content": "q"
+    }
+  ],
+  "total_messages": 14
+}

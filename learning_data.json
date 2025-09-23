@@ -41,6 +41,18 @@
       "input": "detaylı bilgi ver",
       "response": "Merhaba, sana detaylı bir bilgi vermek isterim.\n\nÖncelikle, neutral bir ruh haline sahip olduğunuzu anlıyorum. Sınav döneminizin son haftası olduğu için, sizin için zor bir dönem olduğunu tahmin edebi...",
       "topic": "general"
+    },
+    {
+      "timestamp": "2025-09-15T18:13:47.031412",
+      "input": "technical english sınavı erkene alındı ve yarın bide projesi var o projeyi nasıl yapmam gerekiyor moodle da pdfleri var bak hemen",
+      "response": "Anladığım kadarıyla oldukça sıkışık ve stresli bir dönemdesiniz. Yarınki teknik İngilizce sınavı ve moodle üzerindeki proje işleriniz sizi oldukça meşgul ediyor. Sizin için en iyi çözüm yolunu bulmaya...",
+      "topic": "exam"
+    },
+    {
+      "timestamp": "2025-09-15T18:14:16.663137",
+      "input": "sen bana çıkart direkt ordan",
+      "response": "Merhaba arkadaşım, nasılsın? Anladığım kadarıyla birazcık stresli ve sıkıntılı olabilirsin. Bugün pazartesi ve sınavlara hazırlanma zamanı olduğunu görüyorum. \n\nSenin o an ki durumunu ve ihtiyaçlarını...",
+      "topic": "general"
     }
   ],
   "user_preferences": {},

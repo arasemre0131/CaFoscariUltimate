@@ -1,0 +1,23 @@
+OPTIMIZED STUDY PLAN - Computer Architecture
+============================================================
+Generated: 2025-09-22 12:02:19
+Course: COMP_ARCH
+Total Materials: 2 PDFs, 1 videos
+
+WEEK 1: Week 1
+  📄 PDFs to review: 1
+  🎥 Videos to watch: 0
+  ⏱️ Estimated time: 2.0 hours
+
+WEEK 2: Week 2
+  📄 PDFs to review: 1
+  🎥 Videos to watch: 0
+  ⏱️ Estimated time: 2.0 hours
+
+WEEK 3: Week 3
+  📄 PDFs to review: 0
+  🎥 Videos to watch: 1
+  ⏱️ Estimated time: 1.5 hours
+
+TOTAL ESTIMATED TIME: 5.5 hours
+RECOMMENDED DAILY STUDY: 0.2 hours/day (1 month)

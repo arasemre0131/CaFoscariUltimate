@@ -1,0 +1,250 @@
+CHEAT SHEET - [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Course Code: 21002
+Generated: 2025-09-22 12:44:40
+================================================================================
+
+Here is a comprehensive and detailed cheat sheet for the course "[CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25":
+
+** 1. FUNDAMENTAL CONCEPTS & DEFINITIONS **
+
+**Complex Numbers**
+- Complex number: z = a + bi, where a and b are real numbers, and i² = -1
+- Real part: Re(z) = a
+- Imaginary part: Im(z) = b
+- Modulus: |z| = √(a² + b²) 
+- Argument (angle): arg(z) = tan⁻¹(b/a)
+- Polar form: z = |z|(cos(arg(z)) + i sin(arg(z)))
+
+**Vectors**
+- Vector: an ordered list of numbers (scalars) that represents a quantity with both magnitude and direction
+- Vector operations: addition, scalar multiplication, dot product, cross product
+- Linear combination: α₁v₁ + α₂v₂ + ... + αₙvₙ
+- Linear independence: vectors v₁, v₂, ..., vₙ are linearly independent if the only solution to α₁v₁ + α₂v₂ + ... + αₙvₙ = 0 is α₁ = α₂ = ... = αₙ = 0
+- Basis: a set of linearly independent vectors that span a vector space
+- Dimension: the number of vectors in a basis for a vector space
+
+**Matrices**
+- Matrix: a rectangular array of numbers (scalars)
+- Matrix operations: addition, scalar multiplication, multiplication, transpose, inverse
+- Rank: the dimension of the column space (or row space) of a matrix
+- Null space: the set of all vectors x such that Ax = 0
+- Column space: the set of all vectors that can be written as linear combinations of the columns of A
+- Row space: the set of all vectors that can be written as linear combinations of the rows of A
+
+**Linear Transformations**
+- Linear transformation: a function T: V → W between vector spaces V and W that satisfies T(u + v) = T(u) + T(v) and T(αv) = αT(v) for all vectors u, v in V and scalars α
+- Kernel (null space): the set of all vectors v in V such that T(v) = 0
+- Image (range): the set of all vectors w in W such that w = T(v) for some v in V
+- Invertible transformation: a linear transformation T: V → W is invertible if and only if it is one-to-one (injective) and onto (surjective)
+
+**Vector Spaces**
+- Vector space: a set of vectors that is closed under vector addition and scalar multiplication
+- Subspace: a subset of a vector space that is also a vector space
+- Span: the set of all linear combinations of a set of vectors
+- Linear independence: a set of vectors is linearly independent if no vector in the set can be expressed as a linear combination of the others
+- Basis: a linearly independent set of vectors that spans the vector space
+- Dimension: the number of vectors in a basis for the vector space
+
+** 2. COMPLETE FORMULA REFERENCE **
+
+**Complex Number Operations**
+- Addition: (a₁ + b₁i) + (a₂ + b₂i) = (a₁ + a₂) + (b₁ + b₂)i
+- Subtraction: (a₁ + b₁i) - (a₂ + b₂i) = (a₁ - a₂) + (b₁ - b₂)i
+- Multiplication: (a₁ + b₁i)(a₂ + b₂i) = (a₁a₂ - b₁b₂) + (a₁b₂ + a₂b₁)i
+- Division: (a + bi) / (c + di) = ((ac + bd) / (c² + d²)) + ((bc - ad) / (c² + d²))i
+- Modulus: |a + bi| = √(a² + b²)
+- Argument: arg(a + bi) = tan⁻¹(b/a)
+- Polar form: a + bi = |a + bi|(cos(arg(a + bi)) + i sin(arg(a + bi)))
+
+**Vector Operations**
+- Addition: u + v = (u₁ + v₁, u₂ + v₂, ..., uₙ + vₙ)
+- Scalar multiplication: αu = (αu₁, αu₂, ..., αuₙ)
+- Dot product: u · v = u₁v₁ + u₂v₂ + ... + uₙvₙ
+- Cross product: u × v = (u₂v₃ - u₃v₂, u₃v₁ - u₁v₃, u₁v₂ - u₂v₁)
+
+**Matrix Operations**
+- Addition: C = A + B, where Cᵢⱼ = Aᵢⱼ + Bᵢⱼ
+- Scalar multiplication: kA, where (kA)ᵢⱼ = kAᵢⱼ
+- Multiplication: C = AB, where Cᵢⱼ = Σₖ Aᵢₖ Bₖⱼ
+- Transpose: A⊤, where (A⊤)ᵢⱼ = Aⱼᵢ
+- Inverse: A⁻¹, such that AA⁻¹ = I (the identity matrix)
+
+**Eigenvalues and Eigenvectors**
+- Eigenvalue equation: Av = λv, where λ is the eigenvalue and v is the eigenvector
+- Characteristic polynomial: det(A - λI) = 0
+- Eigenvalues: the roots of the characteristic polynomial
+- Eigenvectors: the vectors v that satisfy the eigenvalue equation Av = λv
+
+**Linear Transformations**
+- T(u + v) = T(u) + T(v)
+- T(αv) = αT(v)
+- Kernel (null space): ker(T) = {v | T(v) = 0}
+- Image (range): im(T) = {w | w = T(v) for some v}
+- Rank-nullity theorem: dim(ker(T)) + dim(im(T)) = dim(V)
+
+**Vector Spaces**
+- Subspace: W ⊆ V is a subspace if 0 ∈ W and W is closed under vector addition and scalar multiplication
+- Basis: a linearly independent set of vectors that spans the vector space
+- Dimension: the number of vectors in a basis for the vector space
+- Linear combination: α₁v₁ + α₂v₂ + ... + αₙvₙ
+- Linear independence: vectors v₁, v₂, ..., vₙ are linearly independent if the only solution to α₁v₁ + α₂v₂ + ... + αₙvₙ = 0 is α₁ = α₂ = ... = αₙ = 0
+
+** 3. DETAILED PROCEDURES & ALGORITHMS **
+
+**Solving Systems of Linear Equations**
+1. Write the system of equations in matrix form: Ax = b
+2. Use Gaussian elimination to transform the augmented matrix [A|b] into row echelon form
+3. Analyze the resulting matrix:
+   - If the matrix has full rank (rank(A) = n), then the system has a unique solution
+   - If the matrix has rank(A) < n, then the system has infinitely many solutions
+   - If the matrix has rank(A) < n and the last row of the augmented matrix is not all zeros, then the system has no solutions
+
+**Finding the Inverse of a Matrix**
+1. Write the matrix A in augmented form [A|I], where I is the identity matrix
+2. Use Gaussian elimination to transform the left side of the augmented matrix into the identity matrix
+3. The resulting right side of the augmented matrix is the inverse of A, A⁻¹
+
+**Diagonalizing a Matrix**
+1. Find the eigenvalues of the matrix A by solving the characteristic equation det(A - λI) = 0
+2. For each eigenvalue λ, find the corresponding eigenvectors v by solving the equation (A - λI)v = 0
+3. Construct the matrix S whose columns are the eigenvectors
+4. The diagonal matrix D has the eigenvalues on the diagonal, and A = SDS⁻¹
+
+**Solving Linear Transformations**
+1. Represent the linear transformation T: V → W as a matrix A with respect to the bases of V and W
+2. To find T(v), multiply the column vector representation of v by the matrix A
+3. To find the kernel (null space) of T, solve the homogeneous system Ax = 0
+4. To find the image (range) of T, find the column space of A
+5. To determine if T is one-to-one (injective) or onto (surjective), use the rank-nullity theorem:
+   - T is one-to-one if and only if dim(ker(T)) = 0
+   - T is onto if and only if dim(im(T)) = dim(W)
+
+** 4. COMPREHENSIVE EXAMPLES & APPLICATIONS **
+
+**Example 1: Solving a System of Linear Equations**
+Solve the system of equations:
+2x + y + (k - 2)z = 1
+(k + 2)x + 2y + 6z = 2
+2x + (k - 1)y + 2z = -6
+
+1. Write the system in matrix form: Ax = b, where:
+   A = [ 2  1  k-2 ]
+       [ k+2 2  6  ]
+       [ 2  k-1 2  ]
+   b = [ 1 ]
+       [ 2 ]
+       [-6]
+
+2. Use Gaussian elimination to transform the augmented matrix [A|b] into row echelon form:
+   A' = [ 2  1  k-2 | 1 ]
+        [ 0  3-k  2(4-k) | 2 ]
+        [ 0  0  (k+5)(4-k)-5-k | 0 ]
+
+3. Analyze the resulting matrix:
+   - If k ≠ 2, 4, -5, then A' has 3 pivot columns, so the system has a unique solution.
+   - If k = 2, then the system has no solutions.
+   - If k = 4, then the system has no solutions.
+   - If k = -5, then the system has infinitely many solutions.
+
+**Example 2: Finding the Inverse of a Matrix**
+Find the inverse of the matrix:
+A = [ 7  1 -2 -1 ]
+    [ 0  0  0  6 ]
+    [ 2 -1  2  1 ]
+    [ 0  0  0  6 ]
+
+1. Write the augmented matrix [A|I]:
+   [ 7  1 -2 -1 | 1  0  0  0 ]
+   [ 0  0  0  6 | 0  1  0  0 ]
+   [ 2 -1  2  1 | 0  0  1  0 ]
+   [ 0  0  0  6 | 0  0  0  1 ]
+
+2. Use Gaussian elimination to transform the left side into the identity matrix:
+   [ 1  0  0  0 | 1  2  2  2 ]
+   [ 0  1  0  0 | 0  1  1  1 ]
+   [ 0  0  1  0 | -1 -2 -1 -1 ]
+   [ 0  0  0  1 | 0  0  0  1 ]
+
+3. The inverse of A is the right side of the final augmented matrix:
+   A⁻¹ = [ 1  2  2  2 ]
+         [ 0  1  1  1 ]
+         [-1 -2 -1 -1 ]
+         [ 0  0  0  1 ]
+
+** 5. ADVANCED TIPS & TRICKS **
+
+**Eigenvalue Computation Shortcuts**
+- For 2x2 matrices, the eigenvalues can be found using the formula:
+  λ = (a + d) ± √((a - d)² + 4bc) / 2
+  where A = [ a  b ]
+         [ c  d ]
+- For diagonal matrices, the eigenvalues are simply the diagonal elements
+
+**Matrix Inverse Tricks**
+- If A is an invertible 2x2 matrix, the inverse can be computed as:
+  A⁻¹ = (1/det(A)) * [ d -b ]
+                    [ -c  a ]
+- For block matrices, the inverse can be computed using the Schur complement:
+  [ A  B ]⁻¹ = [ A⁻¹ + A⁻¹B(D - CA⁻¹B)⁻¹CA⁻¹  -A⁻¹B(D - CA⁻¹B)⁻¹ ]
+  [ C  D ]     [ -(D - CA⁻¹B)⁻¹CA⁻¹           (D - CA⁻¹B)⁻¹ ]
+
+**Linear Transformation Optimization**
+- To minimize the cost of computing T(v), try to find a basis of eigenvectors for the transformation
+- Express v in the eigenvector basis, then apply T(v) by scaling each eigenvector component
+
+**Mnemonic Devices**
+- Remember the rank-nullity theorem using the phrase "What you see is what you get"
+- Associate the eigenvalue equation Av = λv with the idea of "stretching" the vector v by a factor of λ
+
+** 6. COMMON PITFALLS & ERROR PREVENTION **
+
+**Mistaking Linear Dependence for Independence**
+- Carefully check the relationships between the given vectors
+- Use the Gaussian elimination method to identify linearly dependent vectors
+
+**Forgetting to Check the Rank of a Matrix**
+- Always analyze the rank of the coefficient matrix when solving systems of linear equations
+- Use the rank-nullity theorem to determine if a linear transformation is injective or surjective
+
+**Incorrectly Applying Gaussian Elimination**
+- Be meticulous in performing row operations
+- Double-check that the resulting matrix is in the correct row echelon form
+
+**Mixing Up Eigenvalues and Eigenvectors**
+- Clearly distinguish between the eigenvalues (scalars) and eigenvectors (vectors)
+- Practice computing both eigenvalues and eigenvectors for a given matrix
+
+**Forgetting Basis Transformations**
+- Remember that a change of basis involves expressing vectors and matrices in the new basis
+- Carefully keep track of the basis when working with linear transformations
+
+** 7. EXAM STRATEGY & TACTICS **
+
+**Question Type Identification**
+- Recognize common problem types: solving systems of linear equations, finding matrix inverses, computing eigenvalues and eigenvectors, determining vector space properties
+- Identify the key concepts and techniques required to solve each type of problem
+
+**Time Management**
+- Allocate time proportionally to the point values of each question
+- Use quick computation methods (e.g., 2x2 matrix inverse formula) to save time on simpler problems
+
+**Partial Credit Techniques**
+- Show intermediate steps and work in case you cannot complete the full solution
+- Identify and communicate the parts of the problem you were able to solve correctly
+
+**What to Memorize vs. Derive**
+- Memorize key formulas, identities, and algorithms (e.g., Gaussian elimination, matrix inverse computation)
+- Be prepared to derive secondary results from first principles (e.g., eigenvalue equation, rank-nullity theorem)
+
+**Last-Minute Review Checklist**
+- Ensure you have memorized all relevant formulas and definitions
+- Practice applying the formulas to different problem types
+- Review common pitfalls and error-prone areas
+
+** 8. PRACTICE PROBLEMS & SOLUTIONS **
+
+(See attached document for a comprehensive set of practice problems and detailed solutions)
+
+** 9. QUICK REFERENCE TABLES **
+
+**Complex

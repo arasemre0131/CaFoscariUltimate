@@ -1,0 +1,69 @@
+CHEAT SHEET - [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Course Code: 21002
+Generated: 2025-09-22 12:24:51
+================================================================================
+
+Here is a comprehensive cheat sheet for the course "[CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25":
+
+# [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25 Cheat Sheet
+
+## Key Concepts
+- Vectors and vector operations
+- Matrices and matrix operations
+- Linear (in)dependence
+- Span and subspaces
+- Basis and dimension
+- Linear transformations
+- Eigenvalues and eigenvectors
+- Systems of linear equations
+
+## Formulas & Equations
+- Vector addition: $\vec{u} + \vec{v} = (u_1 + v_1, u_2 + v_2, \dots, u_n + v_n)$
+- Scalar multiplication: $k\vec{v} = (kv_1, kv_2, \dots, kv_n)$
+- Matrix addition: $(A + B)_{ij} = A_{ij} + B_{ij}$
+- Matrix multiplication: $(AB)_{ij} = \sum_{k=1}^n A_{ik}B_{kj}$
+- System of linear equations: $a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n = b_1 \\ a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n = b_2 \\ \vdots \\ a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n = b_m$
+
+## Important Facts
+- Linearly independent vectors are not scalar multiples of each other.
+- The zero vector is linearly dependent with any set of vectors.
+- The span of a set of vectors is the set of all linear combinations of those vectors.
+- A subspace must contain the zero vector and be closed under vector addition and scalar multiplication.
+- The dimension of a vector space is the number of vectors in any basis of that space.
+- The rank of a matrix is the dimension of the column space or row space of the matrix.
+- The null space of a matrix is the set of all vectors $\vec{x}$ such that $A\vec{x} = \vec{0}$.
+
+## Quick Reference
+### Vector Operations
+- Addition: $\vec{u} + \vec{v}$
+- Scalar multiplication: $k\vec{v}$
+- Dot product: $\vec{u} \cdot \vec{v} = \sum_{i=1}^n u_iv_i$
+- Cross product: $\vec{u} \times \vec{v} = (u_2v_3 - u_3v_2, u_3v_1 - u_1v_3, u_1v_2 - u_2v_1)$
+
+### Matrix Operations
+- Addition: $A + B$
+- Scalar multiplication: $kA$
+- Multiplication: $AB$
+- Transpose: $A^T$
+- Inverse: $A^{-1}$ (if it exists)
+
+## Common Mistakes
+- Confusing linear dependence and independence
+- Incorrectly applying the properties of vector and matrix operations
+- Forgetting to check the dimensions when performing matrix operations
+- Overlooking the null space and the column/row space of a matrix
+- Failing to properly identify eigenvalues and eigenvectors
+
+## Exam Tips
+- Thoroughly understand the key concepts and their definitions
+- Practice solving a variety of vector and matrix problems
+- Review sample exams and practice questions
+- Manage your time effectively during the exam
+- Double-check your work for careless mistakes
+
+## Practice Problems
+1. Find the vector $\vec{v}$ that is the linear combination of $\vec{u} = (2, -1, 3)$ and $\vec{w} = (1, 2, -1)$ such that $\vec{v} = 3\vec{u} - 2\vec{w}$.
+2. Determine whether the set of vectors $\{\vec{v}_1 = (1, 2, 3), \vec{v}_2 = (2, 4, 6), \vec{v}_3 = (3, 6, 9)\}$ is linearly independent or linearly dependent.
+3. Find the dimension of the subspace $V = \{(x, y, z) \in \mathbb{R}^3 : x + y + z = 0\}$.
+4. Let $A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{bmatrix}$. Find the rank, null space, and column space of $A$.
+5. Determine the eigenvalues and eigenvectors of the matrix $B = \begin{bmatrix} 2 & 1 \\ 1 & 2 \end{bmatrix}$.

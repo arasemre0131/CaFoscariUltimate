@@ -1,0 +1,66 @@
+CHEAT SHEET - [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Course Code: 21002
+Generated: 2025-09-22 12:31:47
+================================================================================
+
+Here is a comprehensive cheat sheet for the course "[CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25":
+
+# [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+## Cheat Sheet
+
+### KEY CONCEPTS
+- Vectors and vector operations
+- Matrices and matrix operations
+- Systems of linear equations
+- Linear dependence and independence
+- Subspaces and basis
+- Eigenvalues and eigenvectors
+- Linear transformations
+
+### FORMULAS & EQUATIONS
+- Vector addition and scalar multiplication
+- Matrix addition, scalar multiplication, and multiplication
+- Determinant of a matrix
+- Inverse of a matrix
+- Equation of a subspace
+- Characteristic equation and eigenvalue equation
+
+### IMPORTANT FACTS
+- Commutativity of vector addition
+- Associativity of vector addition and matrix multiplication
+- Distributive property of scalar multiplication
+- Existence of zero vector and additive inverses
+- Transpose of a matrix
+- Rank-nullity theorem
+- Fundamental theorem of linear algebra
+
+### QUICK REFERENCE
+- Properties of vector operations
+- Matrix operations and their properties
+- Basis and dimension of a subspace
+- Rank and nullity of a matrix
+- Eigenvalues and eigenvectors
+
+### COMMON MISTAKES
+- Confusing vector and matrix operations
+- Assuming commutativity of matrix multiplication
+- Forgetting to check for linear independence
+- Incorrectly calculating the dimension of a subspace
+- Misinterpreting the meaning of eigenvalues and eigenvectors
+
+### EXAM TIPS
+- Understand the core concepts and their interconnections
+- Practice solving a variety of problems, including proofs
+- Pay attention to subtle details and assumptions
+- Review past exams and practice questions
+- Manage your time effectively during the exam
+
+### PRACTICE PROBLEMS
+- Perform vector and matrix operations
+- Determine linear dependence and independence
+- Find the basis and dimension of a subspace
+- Solve systems of linear equations
+- Compute eigenvalues and eigenvectors
+- Analyze properties of linear transformations
+
+Remember, this cheat sheet is a guide, and it's essential to thoroughly understand the course material and work through various exercises to solidify your knowledge.

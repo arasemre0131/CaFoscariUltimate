@@ -1,0 +1,134 @@
+STUDY PLAN - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Course Code: 18872
+Generated: 2025-09-14 22:07:53
+================================================================================
+
+WEEK 1: Foundation Building
+
+Day 1 (1.5-2 hours):
+- Objectives: Understand the basic properties of functions, including domain, range, graphs, and transformations.
+- Study: Read textbook chapters on functions and their properties. Watch relevant video lectures.
+- Practice: Complete problem sets on basic function analysis.
+- Self-check: Can you identify the domain, range, and key features of various function types?
+
+Day 2 (1.5-2 hours):
+- Objectives: Learn the concept of limits and how to evaluate limits of functions.
+- Study: Review textbook sections on limits, continuity, and one-sided limits. 
+- Practice: Solve limit problems using various techniques (direct substitution, algebraic manipulation, etc.).
+- Self-check: Can you determine the limit of a function at a particular point or as the input approaches infinity?
+
+Day 3 (1.5-2 hours):
+- Objectives: Understand the definition of continuity and how to determine the continuity of a function.
+- Study: Read about the formal definition of continuity and properties of continuous functions.
+- Practice: Identify continuous and discontinuous functions, and justify your answers.
+- Self-check: Can you classify the types of discontinuities a function may have?
+
+Day 4 (1.5-2 hours):
+- Objectives: Introduce the concept of derivatives and learn the basic differentiation rules.
+- Study: Cover textbook chapters on the definition of the derivative and basic differentiation techniques.
+- Practice: Compute derivatives of various functions using the power rule, constant rule, sum rule, etc.
+- Self-check: Can you find the derivative of a function using the appropriate differentiation rule?
+
+Day 5 (1.5-2 hours):
+- Objectives: Explore more advanced differentiation techniques, including the product, quotient, and chain rules.
+- Study: Review the product, quotient, and chain rules for differentiation in the textbook.
+- Practice: Apply these rules to compute derivatives of more complex functions.
+- Self-check: Can you differentiate functions involving multiplication, division, and composition of functions?
+
+WEEK 2: Intermediate Development
+
+Day 1 (1.5-2 hours):
+- Objectives: Learn how to analyze the behavior of functions using derivatives, including finding local extrema.
+- Study: Understand the concepts of critical points, local maxima/minima, and the Mean Value Theorem.
+- Practice: Solve optimization problems and identify the critical points of a function.
+- Self-check: Can you determine the local extrema of a function and justify your answers?
+
+Day 2 (1.5-2 hours):
+- Objectives: Introduce the concept of integrals and learn the basic integration techniques.
+- Study: Cover the definition of the integral and the fundamental theorem of calculus in the textbook.
+- Practice: Compute integrals using basic integration methods, such as substitution and integration by parts.
+- Self-check: Can you find the antiderivative of a function using the appropriate integration technique?
+
+Day 3 (1.5-2 hours):
+- Objectives: Explore more advanced integration techniques, including integration of rational functions and improper integrals.
+- Study: Review the textbook sections on rational function integration and improper integrals.
+- Practice: Apply these advanced integration methods to solve a variety of integral problems.
+- Self-check: Can you determine the convergence or divergence of an improper integral?
+
+Day 4 (1.5-2 hours):
+- Objectives: Understand the concept of infinite series and how to determine their convergence or divergence.
+- Study: Read about the properties of infinite series, including the integral, ratio, and root tests.
+- Practice: Analyze the convergence or divergence of various infinite series using the appropriate test.
+- Self-check: Can you classify a given infinite series as convergent or divergent?
+
+Day 5 (1.5-2 hours):
+- Objectives: Learn about Taylor series and their applications in approximating functions.
+- Study: Cover the textbook sections on Taylor series, including the formula and its properties.
+- Practice: Compute the Taylor series expansion of a function and use it to approximate the function.
+- Self-check: Can you determine the Taylor series expansion of a function and use it to estimate the function's value?
+
+WEEK 3: Advanced Topics & Integration
+
+Day 1 (1.5-2 hours):
+- Objectives: Explore the applications of derivatives in optimization problems.
+- Study: Review the textbook's examples and case studies on optimization problems in engineering and economics.
+- Practice: Solve optimization problems using derivative-based techniques.
+- Self-check: Can you formulate and solve an optimization problem using calculus concepts?
+
+Day 2 (1.5-2 hours):
+- Objectives: Understand the applications of integrals in modeling physical phenomena and numerical approximations.
+- Study: Examine textbook chapters on using integrals to model real-world problems, such as area, volume, and work.
+- Practice: Set up and solve integral-based problems related to physical applications.
+- Self-check: Can you interpret the meaning of an integral in a given physical context?
+
+Day 3 (1.5-2 hours):
+- Objectives: Investigate the connections between calculus and other fields, such as machine learning and dynamical systems.
+- Study: Read about the use of calculus in data analysis, algorithmic differentiation, and modeling complex systems.
+- Practice: Explore case studies or examples that illustrate the applications of calculus in these emerging areas.
+- Self-check: Can you explain how calculus concepts are utilized in modern applications like AI and dynamical systems?
+
+Day 4 (1.5-2 hours):
+- Objectives: Review the overall course material and identify any remaining gaps or areas of weakness.
+- Study: Revisit textbook chapters, lecture notes, and problem sets to consolidate your understanding.
+- Practice: Solve a variety of practice problems that cover the key concepts from the course.
+- Self-check: Can you confidently apply the calculus techniques and principles to solve a wide range of problems?
+
+Day 5 (1.5-2 hours):
+- Objectives: Prepare for the upcoming exam by taking a practice test and reviewing the solutions.
+- Study: Simulate the exam conditions by completing a mock exam.
+- Practice: Analyze your performance on the practice test and identify areas that need further review.
+- Self-check: Are you ready to apply your calculus knowledge and skills in the upcoming exam?
+
+WEEK 4: Review & Exam Preparation
+
+Day 1 (2-3 hours):
+- Objectives: Conduct a comprehensive review of the course material, focusing on the key concepts and formulas.
+- Study: Create a summary of the main topics, definitions, and theorems covered in the course.
+- Practice: Work through a selection of practice problems that cover the breadth of the curriculum.
+- Self-check: Can you explain the core principles of calculus and apply them to solve a variety of problems?
+
+Day 2 (2-3 hours):
+- Objectives: Identify and address any remaining gaps or weaknesses in your understanding of the course content.
+- Study: Revisit the areas you feel less confident about, using the textbook, lecture notes, and online resources.
+- Practice: Solve additional problems targeting the topics you need to improve on.
+- Self-check: Are there any specific concepts or techniques that you still struggle with, and how can you improve your mastery of them?
+
+Day 3 (2-3 hours):
+- Objectives: Practice applying your calculus knowledge to solve exam-style problems under timed conditions.
+- Study: Review the format and structure of the upcoming exam, including the types of questions and time constraints.
+- Practice: Complete a full practice exam, simulating the actual test environment as closely as possible.
+- Self-check: Can you effectively manage your time and demonstrate your problem-solving skills within the exam timeframe?
+
+Day 4 (2-3 hours):
+- Objectives: Review your performance on the practice exam and identify any remaining areas for improvement.
+- Study: Analyze your mistakes and the feedback from the practice exam to target your final review.
+- Practice: Work on refining your weaknesses and solidifying your understanding of the key calculus concepts.
+- Self-check: Are you confident in your ability to apply the course material and perform well on the upcoming exam?
+
+Day 5 (2-3 hours):
+- Objectives: Finalize your exam preparation and ensure you are mentally and physically ready for the test.
+- Study: Review your study materials, notes, and any last-minute reminders or tips.
+- Practice: Complete any remaining practice problems or exercises to boost your confidence.
+- Self-check: Are you feeling prepared, focused, and calm as you approach the exam? Do you have a plan for managing your time and energy during the test?
+
+Remember, this study plan is a guide, and you may need to adjust the pacing and focus based on your personal learning style and needs. The key is to actively engage with the material, practice regularly, and continuously assess your progress to ensure you are well-prepared for the upcoming Calculus 1 exam.

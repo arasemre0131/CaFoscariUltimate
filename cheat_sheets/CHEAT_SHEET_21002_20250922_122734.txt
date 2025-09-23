@@ -1,0 +1,56 @@
+CHEAT SHEET - [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Course Code: 21002
+Generated: 2025-09-22 12:27:34
+================================================================================
+
+# [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25 Cheat Sheet
+
+## Key Concepts
+- Vector spaces
+- Linear independence and dependence
+- Bases and dimension
+- Linear transformations
+- Matrices and operations
+- Eigenvalues and eigenvectors
+- Systems of linear equations
+
+## Formulas & Equations
+- Vector addition and scalar multiplication
+- Matrix addition, scalar multiplication, and multiplication
+- Determinant of a matrix
+- Rank and nullity of a matrix
+- Eigenvalue equation: `Av = λv`
+- System of linear equations: `Ax = b`
+
+## Important Facts
+- A set of vectors is linearly independent if none of the vectors can be expressed as a linear combination of the others.
+- The dimension of a vector space is the number of vectors in any basis.
+- The rank of a matrix is the dimension of the column space (or row space).
+- The nullity of a matrix is the dimension of the null space.
+- A matrix is diagonalizable if it has a complete set of linearly independent eigenvectors.
+
+## Quick Reference
+- Properties of vector operations
+- Rank-nullity theorem
+- Characteristic polynomial and eigenvalues
+- Invertible matrix criteria
+
+## Common Mistakes
+- Confusing linear independence and dependence
+- Incorrectly calculating the dimension of a vector space
+- Forgetting to check the conditions for diagonalizability
+- Errors in solving systems of linear equations
+
+## Exam Tips
+- Understand the key concepts and their relationships
+- Practice solving a variety of vector and matrix problems
+- Review formulas and theorems thoroughly
+- Manage your time effectively during the exam
+
+## Practice Problems
+1. Determine the linear independence or dependence of a set of vectors.
+2. Find the basis and dimension of a vector subspace.
+3. Compute the rank and nullity of a given matrix.
+4. Solve a system of linear equations using various methods.
+5. Find the eigenvalues and eigenvectors of a matrix.
+6. Determine whether a matrix is diagonalizable.

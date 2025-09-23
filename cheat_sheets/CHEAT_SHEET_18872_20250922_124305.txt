@@ -1,0 +1,255 @@
+CHEAT SHEET - [CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Course Code: 18872
+Generated: 2025-09-22 12:43:05
+================================================================================
+
+Here is a comprehensive cheat sheet for the course "[CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25":
+
+** 1. FUNDAMENTAL CONCEPTS & DEFINITIONS **
+
+*Core Terminology*
+- Function: A relation between a set of inputs (the domain) and a set of permissible outputs (the codomain)
+- Domain: The set of allowable input values for a function
+- Codomain: The set of all possible output values for a function
+- Range: The set of actual output values taken on by a function
+
+*Conceptual Explanations*
+- Functions model relationships between quantities
+- Graphical representation shows how input and output are related
+- Rates of change describe how a function's output varies with its input
+- Limits describe the behavior of a function as its input approaches a particular value
+- Derivatives measure the instantaneous rate of change of a function
+- Integrals accumulate the net change of a function over an interval
+
+*Key Principles & Theorems*
+- Extreme Value Theorem: A continuous function on a closed interval attains its maximum and minimum values
+- Intermediate Value Theorem: If a continuous function changes sign on an interval, it must take on the value 0 somewhere in that interval
+- Mean Value Theorem: If a function is continuous on a closed interval [a,b] and differentiable on the open interval (a,b), then there exists at least one point c in the open interval (a,b) such that the derivative at c is equal to the average rate of change over the entire interval [a,b]
+
+*Important Properties*
+- One-to-one functions have unique inverses
+- Even functions satisfy f(x) = f(-x)
+- Odd functions satisfy f(x) = -f(-x)
+- Periodic functions repeat their values at regular intervals
+
+** 2. COMPLETE FORMULA REFERENCE **
+
+*Functions & Their Properties*
+- Linear: f(x) = mx + b, where m is the slope and b is the y-intercept
+  - Domain: ℝ
+  - Range: ℝ
+- Quadratic: f(x) = ax² + bx + c, where a, b, and c are real numbers
+  - Domain: ℝ
+  - Range: ℝ
+- Absolute Value: f(x) = |x|
+  - Domain: ℝ
+  - Range: [0, ∞)
+- Exponential: f(x) = a^x, where a > 0 and a ≠ 1
+  - Domain: ℝ
+  - Range: (0, ∞)
+- Logarithmic: f(x) = log_a(x), where a > 0 and a ≠ 1
+  - Domain: (0, ∞)
+  - Range: ℝ
+
+*Trigonometric Functions*
+- Sine: sin(x) = y/r, where r is the radius of the circle and y is the y-coordinate of the point on the unit circle
+  - Domain: ℝ
+  - Range: [-1, 1]
+- Cosine: cos(x) = x/r, where r is the radius of the circle and x is the x-coordinate of the point on the unit circle
+  - Domain: ℝ
+  - Range: [-1, 1]
+- Tangent: tan(x) = sin(x)/cos(x)
+  - Domain: ℝ \ {(2n+1)π/2 | n ∈ ℤ}
+  - Range: ℝ
+
+*Trigonometric Identities*
+- sin²(x) + cos²(x) = 1
+- tan(x) = sin(x)/cos(x)
+- cot(x) = cos(x)/sin(x)
+- sec(x) = 1/cos(x)
+- csc(x) = 1/sin(x)
+- sin(x + y) = sin(x)cos(y) + cos(x)sin(y)
+- cos(x + y) = cos(x)cos(y) - sin(x)sin(y)
+- tan(x + y) = (tan(x) + tan(y)) / (1 - tan(x)tan(y))
+
+*Limits*
+- lim_{x→a} f(x) = L if and only if for every ε > 0, there exists a δ > 0 such that if 0 < |x - a| < δ, then |f(x) - L| < ε.
+- Properties of Limits:
+  - lim_{x→a} [f(x) ± g(x)] = lim_{x→a} f(x) ± lim_{x→a} g(x)
+  - lim_{x→a} [f(x)g(x)] = lim_{x→a} f(x) · lim_{x→a} g(x)
+  - lim_{x→a} [f(x)/g(x)] = lim_{x→a} f(x) / lim_{x→a} g(x), provided lim_{x→a} g(x) ≠ 0
+
+*Derivatives*
+- Derivative of a constant: d/dx [c] = 0
+- Derivative of a variable: d/dx [x] = 1
+- Power Rule: d/dx [x^n] = nx^(n-1)
+- Constant Multiple Rule: d/dx [cf(x)] = c·d/dx [f(x)]
+- Sum Rule: d/dx [f(x) + g(x)] = d/dx [f(x)] + d/dx [g(x)]
+- Difference Rule: d/dx [f(x) - g(x)] = d/dx [f(x)] - d/dx [g(x)]
+- Product Rule: d/dx [f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+- Quotient Rule: d/dx [f(x)/g(x)] = [g(x)f'(x) - f(x)g'(x)] / [g(x)]²
+- Chain Rule: d/dx [f(g(x))] = f'(g(x))·g'(x)
+
+*Integrals*
+- ∫ c dx = cx + C, where C is an arbitrary constant
+- ∫ x^n dx = (x^(n+1))/(n+1) + C, for n ≠ -1
+- ∫ 1/x dx = ln|x| + C
+- ∫ f(x) + g(x) dx = ∫ f(x) dx + ∫ g(x) dx
+- ∫ cf(x) dx = c ∫ f(x) dx
+- ∫ d/dx [f(x)] dx = f(x) + C
+- ∫ sin(x) dx = -cos(x) + C
+- ∫ cos(x) dx = sin(x) + C
+- ∫ tan(x) dx = -ln(cos(x)) + C
+- ∫ sec²(x) dx = tan(x) + C
+- ∫ csc²(x) dx = -cot(x) + C
+
+*Series Expansions*
+- e^x = 1 + x + x²/2! + x³/3! + ...
+- ln(1 + x) = x - x²/2 + x³/3 - ...
+- sin(x) = x - x³/3! + x⁵/5! - ...
+- cos(x) = 1 - x²/2! + x⁴/4! - ...
+- tan(x) = x + x³/3 + 2x⁵/15 + ...
+
+** 3. DETAILED PROCEDURES & ALGORITHMS **
+
+*Finding Limits*
+1. Evaluate the limit directly if the function is continuous at the point.
+2. Use algebraic manipulation to simplify the expression, then evaluate.
+3. Apply L'Hôpital's rule if the limit is of the form 0/0 or ∞/∞.
+4. Use a graph to visualize the behavior of the function near the point.
+
+*Differentiation*
+1. Identify the type of function (polynomial, trigonometric, exponential, etc.).
+2. Apply the appropriate derivative rule (power, product, quotient, chain, etc.).
+3. Simplify the result and express it in standard mathematical notation.
+4. Check the result by evaluating the derivative at a few points.
+
+*Integration*
+1. Identify the type of integral (polynomial, trigonometric, logarithmic, etc.).
+2. Apply the appropriate integration rule (substitution, integration by parts, etc.).
+3. Evaluate the indefinite integral and include the arbitrary constant of integration.
+4. Check the result by differentiating the antiderivative.
+
+*Series Expansions*
+1. Identify the function to be expanded (e^x, ln(1+x), sin(x), cos(x), tan(x), etc.).
+2. Write out the first few terms of the series using the appropriate formula.
+3. Determine the pattern and write the general term of the series.
+4. Verify the series converges to the original function within the appropriate domain.
+
+** 4. COMPREHENSIVE EXAMPLES & APPLICATIONS **
+
+*Limits*
+- Find lim_{x→2} (x² - 4) / (x - 2)
+  - Step 1: Simplify the expression: (x² - 4) / (x - 2) = (x + 2)
+  - Step 2: Evaluate the limit: lim_{x→2} (x + 2) = 2 + 2 = 4
+
+*Derivatives*
+- Find the derivative of f(x) = 3x⁴ - 2x² + 5
+  - Step 1: Apply the power rule: f'(x) = 12x³ - 4x
+  - Step 2: Apply the constant multiple rule: f'(x) = 12x³ - 4x
+
+*Integrals*
+- Evaluate the integral ∫ (2x³ - 5x + 1) dx
+  - Step 1: Apply the power rule: ∫ 2x³ dx = 2/4 * x⁴ + C = (1/2)x⁴ + C
+  - Step 2: Apply the power rule: ∫ -5x dx = -5/2 * x² + C = -(5/2)x² + C
+  - Step 3: Apply the constant rule: ∫ 1 dx = x + C
+  - Step 4: Combine the results: ∫ (2x³ - 5x + 1) dx = (1/2)x⁴ - (5/2)x² + x + C
+
+*Series Expansions*
+- Find the first 4 terms of the Maclaurin series expansion for f(x) = sin(x)
+  - Step 1: Write the first 4 terms of the series: sin(x) = x - x³/6 + x⁵/120 - ...
+  - Step 2: Simplify the expression: sin(x) = x - x³/6 + x⁵/120 + ...
+
+** 5. ADVANCED TIPS & TRICKS **
+
+*Optimization Techniques*
+- Use the first derivative to find critical points (local maxima/minima)
+- Use the second derivative to determine the nature of critical points
+- Apply the Extreme Value Theorem to find absolute max/min on closed intervals
+
+*Shortcuts for Limits*
+- Use algebraic simplification to rewrite the limit expression in a more favorable form
+- Recognize common limit forms like lim_{x→a} (f(x) - f(a)) / (x - a)
+- Apply L'Hôpital's rule when the limit is of the form 0/0 or ∞/∞
+
+*Quick Differentiation Methods*
+- Use the power rule, constant multiple rule, and sum/difference rules for polynomials
+- Recognize common derivative patterns like d/dx [f(x)g(x)] = f'(x)g(x) + f(x)g'(x)
+- Apply the chain rule efficiently by identifying the inner and outer functions
+
+*Integration by Parts Trick*
+- For integrals of the form ∫ u dv, let u = f(x) and dv = g(x) dx
+- Then ∫ u dv = uv - ∫ v du
+
+** 6. COMMON PITFALLS & ERROR PREVENTION **
+
+*Limit Evaluation Mistakes*
+- Forgetting to substitute the limit value into the function
+- Algebraic errors when simplifying the limit expression
+- Incorrectly applying L'Hôpital's rule
+
+*Derivative Calculation Errors*
+- Forgetting the power rule exponent or constant coefficient
+- Mixing up the product rule and quotient rule
+- Incorrectly applying the chain rule
+
+*Integration Blunders*
+- Choosing the wrong integration rule (e.g. u-substitution vs. integration by parts)
+- Algebraic mistakes when evaluating the antiderivative
+- Forgetting the arbitrary constant of integration
+
+*Series Expansion Issues*
+- Truncating the series too early, missing higher-order terms
+- Incorrectly identifying the pattern of the series terms
+- Applying the series expansion outside its valid domain
+
+** 7. EXAM STRATEGY & TACTICS **
+
+*Question Type Identification*
+- Recognize limit, derivative, integral, and series expansion problems
+- Identify optimization, application, and proof-based questions
+
+*Time Management Strategies*
+- Allocate more time for conceptual and multi-step problems
+- Budget time carefully to ensure all questions are attempted
+- Leave time at the end for review and error-checking
+
+*Partial Credit Techniques*
+- Show all work and reasoning, even if the final answer is incorrect
+- Clearly indicate which steps are correct vs. where mistakes were made
+- Identify and correct errors to maximize partial credit
+
+*What to Memorize vs. Derive*
+- Memorize core formulas, identities, and differentiation/integration rules
+- Be prepared to derive results for novel problem types or special cases
+- Focus on understanding underlying concepts rather than rote memorization
+
+*Last-Minute Review Checklist*
+- Verify that all required information (formulas, properties, etc.) is available
+- Review common mistake patterns and how to avoid them
+- Practice applying techniques to sample problems under timed conditions
+
+** 8. PRACTICE PROBLEMS & SOLUTIONS **
+
+[A comprehensive set of practice problems, graded by difficulty, with complete solution approaches and alternative methods would be included here.]
+
+** 9. QUICK REFERENCE TABLES **
+
+*Trigonometric Identities*
+
+| Identity | Formula |
+| --- | --- |
+| Pythagorean | sin²(x) + cos²(x) = 1 |
+| Reciprocal | csc(x) = 1 / sin(x), sec(x) = 1 / cos(x), cot(x) = 1 / tan(x) |
+| Cofunctions | sin(x) = cos(π/2 - x), cos(x) = sin(π/2 - x), tan(x) = cot(π/2 - x) |
+| Sum/Difference | sin(x ± y) = sin(x)cos(y) ± cos(x)sin(y) |
+|             | cos(x ± y) = cos(x)cos(y) ∓ sin(x)sin(y) |
+|             | tan(x ± y) = (tan(x) ± tan(y)) / (1 ∓ tan(x)tan(y)) |
+
+*Limits, Derivatives, and Integrals*
+
+| Type | Limit | Derivative | Integral |
+| --- | --- | --- | --- |
+| Constant | lim_{x→a} c = c | d/dx [c] = 0 | ∫ c dx = cx + C |
+| Variable | lim_{x→a} x = a | d/dx [x] = 1 | ∫ x dx = x²/2 + C |
+| Power | lim_{x→a} x^n = a^n | d/dx [x^n] = nx^(n-1) | ∫ x^n dx = x^(n+1)
