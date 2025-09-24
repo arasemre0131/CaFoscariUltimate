@@ -172,13 +172,13 @@ class CaFoscariUltimate:
                         return subdir
         return None
 
-    def extract_pdf_text(self, pdf_path):
+    def extract_pdf_text(self, pdf_path, max_pages=15):
         if not PDF_AVAILABLE: return f"📄 {pdf_path.name} (PyPDF2 not available)"
         try:
             with open(pdf_path, 'rb') as file:
                 reader = PyPDF2.PdfReader(file)
                 text = ""
-                for page_num in range(min(15, len(reader.pages))):
+                for page_num in range(min(max_pages, len(reader.pages))):
                     text += reader.pages[page_num].extract_text() + "\n"
                 return text[:15000]
         except Exception as e:
@@ -239,14 +239,60 @@ Provide comprehensive analysis:
         print("="*60)
         input("\n✨ Press Enter to continue...")
 
+    def extract_exam_patterns(self, exam_files):
+        """Auto-detect exam format from previous exams"""
+        patterns = {
+            'exercises': [], 'points': [], 'structure': [],
+            'keywords': [], 'time': [], 'instructions': []
+        }
+
+        for exam_file in exam_files[:3]:
+            try:
+                text = self.extract_pdf_text(exam_file, max_pages=3)
+
+                # Find exercise patterns
+                exercises = re.findall(r'(Exercise|Problem|Question|Esercizio)\s+(\d+)', text, re.I)
+                patterns['exercises'].append(len(set(exercises)))
+
+                # Find points
+                points = re.findall(r'\(?\s*(\d+)\s*(points?|punti|pts)\s*\)?', text, re.I)
+                if points:
+                    patterns['points'].extend([int(p[0]) for p in points])
+
+                # Find time limits
+                time = re.search(r'(\d+)\s*(hours?|ore|minutes?|minuti)', text, re.I)
+                if time:
+                    patterns['time'].append(f"{time.group(1)} {time.group(2)}")
+
+                # Extract structure keywords
+                for keyword in ['prove', 'compute', 'calculate', 'solve', 'find', 'determine']:
+                    if keyword in text.lower():
+                        patterns['keywords'].append(keyword)
+
+                # Find instructions
+                inst = re.search(r'(Instructions?|Istruzioni):?(.{0,300})', text, re.I)
+                if inst:
+                    patterns['instructions'].append(inst.group(2).strip())
+
+            except: continue
+
+        # Determine format
+        return {
+            'exercise_count': max(patterns['exercises']) if patterns['exercises'] else 5,
+            'total_points': sum(patterns['points'][:5]) if patterns['points'] else 30,
+            'time_limit': patterns['time'][0] if patterns['time'] else '2 hours',
+            'question_types': list(set(patterns['keywords']))[:5] or ['solve', 'compute', 'prove'],
+            'instructions': patterns['instructions'][0][:200] if patterns['instructions'] else None
+        }
+
     def download_previous_exams(self, course_code):
-        """Download previous exams from Moodle for format analysis"""
-        print(f"📥 Searching for previous exams in course {course_code}...")
+        """Download previous exams from Moodle (2024+ only)"""
+        print(f"📥 Downloading recent exams from Moodle (2024+ only)...")
 
         if not self.moodle_token:
             return []
 
-        exam_dir = Path(f"data/previous_exams/{course_code}")
+        exam_dir = Path(f"previous_exams/{course_code}")
         exam_dir.mkdir(parents=True, exist_ok=True)
 
         try:
@@ -261,7 +307,9 @@ Provide comprehensive analysis:
             sections = response.json()
 
             exam_files = []
-            exam_keywords = ['exam', 'esame', 'prova', 'test', 'midterm', 'final', 'quiz', 'solution', 'soluzione', 'mock']
+            exam_keywords = ['exam', 'esame', 'prova', 'test', 'midterm', 'final', 'quiz', 'solution']
+            # Filter out pre-2024 exams
+            exclude_years = ['2020', '2021', '2022', '2023']
 
             for section in sections:
                 if 'modules' not in section:
@@ -272,12 +320,17 @@ Provide comprehensive analysis:
                         for content in module['contents']:
                             filename = content.get('filename', '').lower()
 
+                            # Skip files from 2023 and earlier
+                            if any(year in filename for year in exclude_years):
+                                print(f"   ⏭️ Skipping old exam: {content['filename']}")
+                                continue
+
                             if any(keyword in filename for keyword in exam_keywords) and filename.endswith('.pdf'):
                                 fileurl = content['fileurl'] + f"&token={self.moodle_token}"
                                 filepath = exam_dir / content['filename']
 
                                 if not filepath.exists():
-                                    print(f"   📄 Found: {content['filename']}")
+                                    print(f"   📄 Downloading: {content['filename']}")
                                     pdf_response = requests.get(fileurl)
                                     with open(filepath, 'wb') as f:
                                         f.write(pdf_response.content)
@@ -285,558 +338,273 @@ Provide comprehensive analysis:
                                 else:
                                     exam_files.append(filepath)
 
-            print(f"✅ Found {len(exam_files)} previous exam files")
+            print(f"✅ Found {len(exam_files)} recent exam files")
             return exam_files
 
         except Exception as e:
-            print(f"⚠️ Error downloading exams: {e}")
+            print(f"⚠️ Error downloading: {e}")
             return []
 
-    def analyze_exam_format(self, exam_files):
-        """Analyze Ca' Foscari exam format from previous exams"""
-        if not exam_files:
-            return self.get_default_cafoscari_format()
-
-        print("🔍 Analyzing Ca' Foscari exam format...")
-
-        format_data = {
-            'exercise_counts': [],
-            'point_totals': [],
-            'time_limits': [],
-            'question_patterns': [],
-            'typical_structure': []
-        }
-
-        for exam_file in exam_files[:3]:  # Analyze first 3 exams
-            try:
-                with open(exam_file, 'rb') as f:
-                    reader = PyPDF2.PdfReader(f)
-                    text = ""
-                    for page in reader.pages[:2]:  # First 2 pages
-                        text += page.extract_text()
-
-                    # Extract exercise count
-                    exercises = re.findall(r'Exercise\s+(\d+)', text, re.IGNORECASE)
-                    if exercises:
-                        format_data['exercise_counts'].append(len(set(exercises)))
-
-                    # Extract point values
-                    points = re.findall(r'\((\d+)\s*points?\)', text, re.IGNORECASE)
-                    if points:
-                        format_data['point_totals'].append(sum(int(p) for p in points))
-
-                    # Extract time limit
-                    time_match = re.search(r'Time available:\s*(\d+)\s*hours?', text, re.IGNORECASE)
-                    if time_match:
-                        format_data['time_limits'].append(f"{time_match.group(1)} hours")
-
-                    # Detect question patterns
-                    if 'prove' in text.lower() or 'dimostrare' in text.lower():
-                        format_data['question_patterns'].append('proof')
-                    if 'compute' in text.lower() or 'calcolare' in text.lower():
-                        format_data['question_patterns'].append('calculation')
-
-            except Exception as e:
-                print(f"   ⚠️ Error analyzing {exam_file.name}: {e}")
-
-        # Determine typical format
-        avg_exercises = max(format_data['exercise_counts']) if format_data['exercise_counts'] else 5
-        avg_points = max(format_data['point_totals']) if format_data['point_totals'] else 30
-        time_limit = format_data['time_limits'][0] if format_data['time_limits'] else "2 hours"
-
-        return {
-            'exercise_count': avg_exercises,
-            'total_points': avg_points,
-            'time_limit': time_limit,
-            'question_types': list(set(format_data['question_patterns'])) or ['calculation', 'proof', 'explanation']
-        }
-
-    def get_course_specific_format(self, course_code, course_name):
-        """Get course-specific Ca' Foscari format based on known patterns"""
-        course_name_lower = course_name.lower()
-
-        # Linear Algebra specific format
-        if 'linear algebra' in course_name_lower or 'ct0663' in course_code.lower():
-            return {
-                'exercise_count': 5,
-                'total_points': 30,
-                'time_limit': '2 hours',
-                'point_distribution': [6, 8, 9, 7, 3],  # Typical LA distribution
-                'exercise_templates': [
-                    'Complex number equation solving',
-                    'Linear transformation, kernel/image, subspace operations',
-                    'Eigenvalues, diagonalization, matrix powers',
-                    'Parametric linear system analysis',
-                    'Conceptual question on matrix properties'
-                ],
-                'instructions': '• Formula sheet (A4, double-sided) allowed\n• No calculator permitted\n• Show all work clearly',
-                'matrix_formats': {
-                    'exercise_2': '4x3 or 3x4 matrices',
-                    'exercise_3': '3x3 matrices with parameter'
-                }
-            }
-
-        # Computer Architecture specific format
-        elif 'architecture' in course_name_lower or 'ct0668' in course_code.lower():
-            return {
-                'exercise_count': 4,
-                'total_points': 30,
-                'time_limit': '2 hours',
-                'point_distribution': [8, 8, 7, 7],
-                'exercise_templates': [
-                    'Number systems and conversions',
-                    'Logic circuits and Boolean algebra',
-                    'CPU design and instruction execution',
-                    'Memory hierarchy and cache analysis'
-                ],
-                'instructions': '• Calculator allowed\n• Reference sheets provided\n• Answer all questions',
-                'special_requirements': ['binary_calculations', 'circuit_diagrams']
-            }
-
-        # Calculus-1 specific format (CT0662-1)
-        elif 'calculus-1' in course_name_lower or 'ct0662-1' in course_code.lower():
-            return {
-                'exercise_count': 5,
-                'total_points': 30,
-                'time_limit': '2 hours',
-                'point_distribution': [6, 6, 6, 6, 6],
-                'exercise_templates': [
-                    'Limits and continuity',
-                    'Derivative calculations',
-                    'Integral evaluation',
-                    'Series and convergence',
-                    'Applied optimization problem'
-                ],
-                'instructions': '• Scientific calculator allowed\n• Show all steps\n• Justify your answers',
-                'special_requirements': ['single_variable_calculus']
-            }
-
-        # Calculus-2 specific format (CT0662-2) - CORRECTED
-        elif 'calculus-2' in course_name_lower or 'ct0662-2' in course_code.lower():
-            return {
-                'exercise_count': 4,  # 4 problems, not 5
-                'total_points': 32,   # ~30-32 points
-                'time_limit': '2 hours',
-                'point_distribution': [8, 9, 9, 6],  # Typical Calc-2 distribution
-                'exercise_templates': [
-                    'Ordinary Differential Equations (ODE) with initial conditions',
-                    'Parametric curves: analysis, tangent lines, arc length',
-                    'Multivariable functions: critical points, extrema, gradient, tangent plane',
-                    'Double integrals over specified regions'
-                ],
-                'instructions': '• Scientific calculator allowed; graphing/integral calculators NOT allowed\n• Personal A4 formula sheet (front/back) allowed\n• Show full work',
-                'special_requirements': ['multivariable_calculus', 'parametric_equations', 'differential_equations']
-            }
-
-        # Default Ca' Foscari format
-        else:
-            return {
-                'exercise_count': 5,
-                'total_points': 30,
-                'time_limit': '2 hours',
-                'point_distribution': [6, 6, 6, 6, 6],
-                'exercise_templates': ['Standard university exercises'],
-                'instructions': '• Answer all questions\n• Show your work\n• Good luck!',
-                'special_requirements': []
-            }
-
-    def get_default_cafoscari_format(self):
-        """Fallback to generic format"""
-        return self.get_course_specific_format('', '')
-
-    def detect_authentic_exam_format(self, course_code):
-        """Automatically detect exam format from existing exam files"""
-        course = self.courses.get(course_code, {})
-        course_name_safe = course.get('name', course_code).replace('/', '_').replace('[', '').replace(']', '')
-        exam_dir = Path(f"mock_exams/{course_code}_{course_name_safe}")
-
-        if exam_dir.exists():
-            for exam_file in exam_dir.glob("*.txt"):
-                try:
-                    with open(exam_file, 'r', encoding='utf-8') as f:
-                        content = f.read()[:2000]  # First 2000 chars enough
-                        if any(keyword in content for keyword in ['Problem', 'Exercise', 'Question']):
-                            return f"AUTHENTIC FORMAT DETECTED:\n{content}"
-                except:
-                    continue
-
-        return "Standard university exam format"
-
     def generate_mock_exam(self, course_code):
-        """UPGRADED: Generate Ca' Foscari format mock exam"""
-        print("🎯 Generating Ca' Foscari style mock exam...")
-
+        """Generate mock exam with PDF output"""
         if course_code not in self.courses:
             print(f"❌ Course {course_code} not found")
             return
 
         course = self.courses[course_code]
-        course_name = course.get('name', course_code)
+        print(f"🎯 Generating mock exam for: {course.get('name', course_code)}")
 
-        # Step 1: Download previous exams
-        previous_exams = self.download_previous_exams(course_code)
+        # First download from Moodle
+        exam_files = self.download_previous_exams(course_code)
 
-        # Step 2: Get course-specific format (prioritize this over analysis)
-        format_info = self.get_course_specific_format(course_code, course_name)
+        # If no downloads, check local folders (filter 2024+ only)
+        if not exam_files:
+            exam_dir = Path(f"previous_exams/{course_code}")
+            if exam_dir.exists():
+                all_files = list(exam_dir.glob("*.pdf"))
+                # Filter out pre-2024 files
+                exclude_years = ['2020', '2021', '2022', '2023']
+                exam_files = [f for f in all_files if not any(year in f.name for year in exclude_years)]
+                print(f"📁 Found {len(exam_files)} recent local exams (filtered {len(all_files) - len(exam_files)} old exams)")
 
-        # If previous exams exist, merge with analysis (but keep course-specific as base)
-        if previous_exams:
-            analyzed_format = self.analyze_exam_format(previous_exams)
-            # Keep course-specific structure but update time limit if found
-            if analyzed_format.get('time_limit') and analyzed_format['time_limit'] != '2 hours':
-                format_info['time_limit'] = analyzed_format['time_limit']
-
-        # Step 3: Extract content from previous exams
-        exam_examples = ""
-        if previous_exams:
-            print("📖 Extracting exam patterns...")
-            for exam_file in previous_exams[:2]:
-                try:
-                    with open(exam_file, 'rb') as f:
-                        reader = PyPDF2.PdfReader(f)
-                        exam_text = ""
-                        for page in reader.pages[:2]:
-                            exam_text += page.extract_text()
-                        exam_examples += f"\n=== FORMAT EXAMPLE: {exam_file.name} ===\n{exam_text[:3000]}\n"
-                except:
-                    continue
-
-        # Step 4: Get course analysis
-        cache_data = self._load_json(f"analysis_cache_{course_code}.json", None)
-        course_content = cache_data['analysis'] if cache_data else "Course content not analyzed yet."
-
-        # Step 5: Generate Ca' Foscari style exam with course-specific prompt
-        if 'linear algebra' in course_name.lower() or 'ct0663' in course_code.lower():
-            # Linear Algebra specific prompt - ASCII SAFE
-            messages = [{
-                "role": "user",
-                "content": f"""Create a Ca' Foscari University LINEAR ALGEBRA mock exam. USE ONLY BASIC ASCII CHARACTERS.
-
-CRITICAL: Use only standard ASCII characters - no Unicode symbols, no special math symbols.
-
-EXACT STRUCTURE REQUIRED:
-Exercise 1 ({format_info['point_distribution'][0]} points): Complex number equation solving
-
-Exercise 2 ({format_info['point_distribution'][1]} points): Linear transformation with this EXACT matrix:
-
-A = | 2   0   2 |
-    | 0   1  -1 |
-    |-1   2  -3 |
-    | 1   1   0 |
-
-Define linear transformation T: R^4 -> R^3 by T(x) = Ax.
-Let U = Im(T) and W = {{(2*x_3, x_2, x_3, x_4) : x_2, x_3, x_4 in R}}
-
-Find: ker(T), Im(T), U intersect W, U + W
-
-Exercise 3 ({format_info['point_distribution'][2]} points): Matrix with parameter k:
-
-A_k = | 1   0  -3 |
-      | 2   1   2 |
-      | 1   1   k |
-
-3.1) Find the value of k such that ker(T_k) ≠ {{0}}
-3.2) For k = 0, find eigenvalues of A_0
-3.3) Diagonalize A_0: find P such that A_0 * P = P * D
-
-Exercise 4 ({format_info['point_distribution'][3]} points): Parametric linear system
-Create a system with parameter h, analyze solutions for different h values.
-
-Exercise 5 ({format_info['point_distribution'][4]} points):
-"Give an example of a 2x2 real matrix that has no real eigenvalues. Explain why this is possible for 2x2 matrices but impossible for 3x3 real matrices."
-
-FORMATTING RULES:
-- Use | | for matrix brackets
-- Use x_1, x_2, x_3 for subscripts (not Unicode)
-- Use R for real numbers (not special R symbol)
-- Use * for multiplication
-- Use standard ASCII only - no Unicode characters
-- Keep matrix formatting clear and aligned
-
-CONTENT REFERENCE: {course_content[:1000]}
-
-Generate complete exercises with proper matrix formatting using only ASCII characters."""
-            }]
-
-        elif 'calculus-2' in course_name.lower() or 'ct0662-2' in course_code.lower():
-            # Calculus-2 specific prompt
-            messages = [{
-                "role": "user",
-                "content": f"""Create a Ca' Foscari University CALCULUS-2 mock exam. USE ONLY ASCII CHARACTERS.
-
-EXACT STRUCTURE REQUIRED (4 PROBLEMS):
-Problem 1 ({format_info['point_distribution'][0]} points): Ordinary Differential Equations
-Create a separable ODE or second-order ODE with initial conditions.
-Example: dy/dx = y^2 * cos(x), y(0) = 1
-
-Problem 2 ({format_info['point_distribution'][1]} points): Parametric Curves
-Given parametric curve x(t), y(t):
-2.1) Determine if curve is regular/simple/closed
-2.2) Find tangent line at specific point
-2.3) Calculate arc length (if applicable)
-
-Problem 3 ({format_info['point_distribution'][2]} points): Multivariable Functions
-Function f: R^2 -> R
-3.1) Find critical points
-3.2) Classify critical points (local min/max/saddle)
-3.3) Find tangent plane equation at given point
-3.4) Calculate gradient direction
-
-Problem 4 ({format_info['point_distribution'][3]} points): Double Integrals
-Evaluate double integral over specified region:
-∫∫_D f(x,y) dA
-Where D is defined by given boundaries (often with diagram)
-
-FORMATTING RULES:
-- Use dy/dx for derivatives
-- Use ∫∫ for double integrals (or INT INT if needed)
-- Use R^2, R^3 for spaces
-- Use x_1, x_2 for subscripts
-- Include geometric interpretation where appropriate
-
-CONTENT REFERENCE: {course_content[:1000]}
-
-Generate realistic Ca' Foscari CALCULUS-2 problems matching university difficulty."""
-            }]
-
+        # Auto-detect format from previous exams
+        if exam_files:
+            print(f"📄 Analyzing {len(exam_files)} previous exams...")
+            format_info = self.extract_exam_patterns(exam_files)
+            exam_examples = "\n".join([
+                f"Example from {f.name}:\n{self.extract_pdf_text(f, 2)[:1500]}\n"
+                for f in exam_files[:2]
+            ])
         else:
-            # Generic Ca' Foscari format for other courses
-            messages = [{
-                "role": "user",
-                "content": f"""Create a Ca' Foscari University mock exam for: {course_name}
+            print("⚠️ No previous exams found, using default format")
+            format_info = {
+                'exercise_count': 5, 'total_points': 30,
+                'time_limit': '2 hours', 'question_types': ['solve', 'compute', 'prove']
+            }
+            exam_examples = ""
 
-REQUIRED STRUCTURE:
-{format_info['exercise_count']} exercises with points: {format_info['point_distribution']}
-Total: {format_info['total_points']} points, Time: {format_info['time_limit']}
+        # Get course content from cache OR from PDFs
+        cache = self._load_json(f"analysis_cache_{course_code}.json", {})
+        if cache:
+            course_content = cache.get('analysis', '')[:3000]
+        else:
+            # Try to get content from course PDFs
+            course_dir = self.find_course_directory(course_code)
+            if course_dir:
+                pdfs = list(course_dir.rglob("*.pdf"))[:3]
+                course_content = "\n".join([self.extract_pdf_text(pdf, 5)[:2000] for pdf in pdfs])
+            else:
+                course_content = ""
 
-EXERCISE TEMPLATES:
-{chr(10).join(f"{i+1}. {template}" for i, template in enumerate(format_info['exercise_templates']))}
+        # Generate exam with AI - EXACT FORMAT MATCHING
+        prompt = f"""Create a Ca' Foscari University mock exam in ENGLISH using EXACT same format as previous exams.
 
-FORMAT EXAMPLES: {exam_examples[:1500]}
-COURSE CONTENT: {course_content[:2000]}
+COURSE: {course.get('name', course_code)}
+FORMAT REQUIREMENTS: {format_info['exercise_count']} exercises, {format_info['total_points']} points, {format_info['time_limit']}
 
-Create realistic university-level questions following Ca' Foscari standards."""
-            }]
+PREVIOUS EXAM EXAMPLES (COPY THIS FORMAT EXACTLY):
+{exam_examples[:3000]}
 
-        exam_content = self.claude_request(messages, "You are a Ca' Foscari University professor creating an authentic exam in the exact university format.")
+COURSE CONTENT:
+{course_content}
 
-        if not exam_content:
+CRITICAL INSTRUCTIONS:
+1. Copy the EXACT structure, layout, and formatting from the examples above
+2. Keep the same headers, footers, instructions, and point distributions
+3. Keep the same exercise numbering and spacing
+4. Only change the actual question content - everything else stays identical
+5. Maintain the same difficulty level and question style
+6. Use the same mathematical notation and symbols as in examples
+7. Write entirely in ENGLISH
+8. Make sure each exercise has the same point value as in the original format"""
+
+        messages = [{"role": "user", "content": prompt}]
+        exam = self.claude_request(messages, "You are a Ca' Foscari professor creating an authentic exam.")
+
+        if not exam:
             print("❌ Failed to generate exam")
             return
 
-        # Step 6: Generate Professional PDF
-        pdf_path = self.create_professional_exam_pdf(course_code, course_name, exam_content, format_info)
+        # Save ONLY as PDF
+        exam_dir = Path(f"mock_exams/{course_code}")
+        exam_dir.mkdir(parents=True, exist_ok=True)
 
-        if pdf_path:
-            print(f"✅ Professional Ca' Foscari exam PDF created!")
-            print(f"📄 Location: {pdf_path}")
-            print(f"\n📋 EXAM DETAILS:")
-            print(f"   🎯 Exercises: {format_info['exercise_count']}")
-            print(f"   📊 Total points: {format_info['total_points']}")
-            print(f"   ⏰ Time limit: {format_info['time_limit']}")
-            print(f"   📚 Question types: {', '.join(format_info['question_types'])}")
-            print(f"   📄 Format: Professional PDF (Ca' Foscari style)")
+        # Create PDF exam
+        pdf_file = self.create_exam_pdf(course_code, course.get('name', course_code), exam, format_info)
+        if pdf_file:
+            print(f"✅ PDF saved: {pdf_file}")
         else:
-            print("❌ Failed to create PDF")
+            print("❌ PDF creation failed")
+            return
 
+        print(f"📊 Format: {format_info['exercise_count']} exercises, {format_info['total_points']} points")
+        print("\n📄 PREVIEW:")
+        print("="*60)
+        print(exam[:800])
         input("\n✨ Press Enter to continue...")
 
-    def create_professional_exam_pdf(self, course_code, course_name, content, format_info):
-        """Create a professional Ca' Foscari styled PDF exam"""
+    def create_exam_pdf(self, course_code, course_name, content, format_info):
+        """Create authentic Ca' Foscari PDF exam matching real format exactly"""
         try:
             from reportlab.lib.pagesizes import A4
             from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
             from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-            from reportlab.lib.units import inch, mm
+            from reportlab.lib.units import mm, cm
             from reportlab.lib import colors
-            from reportlab.pdfgen import canvas
+            from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+
+            exam_dir = Path(f"mock_exams/{course_code}")
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            pdf_path = exam_dir / f"EXAM_{timestamp}.pdf"
+
+            # Authentic Ca' Foscari margins
+            doc = SimpleDocTemplate(str(pdf_path), pagesize=A4,
+                                   topMargin=25*mm, bottomMargin=20*mm,
+                                   leftMargin=25*mm, rightMargin=25*mm)
+
+            styles = getSampleStyleSheet()
+            story = []
+
+            # AUTHENTIC CA' FOSCARI HEADER
+            uni_style = ParagraphStyle('UniStyle',
+                                     parent=styles['Normal'],
+                                     fontSize=12,
+                                     alignment=TA_CENTER,
+                                     fontName='Times-Bold',
+                                     spaceAfter=3)
+            story.append(Paragraph("Ca' Foscari University of Venice", uni_style))
+
+            dept_style = ParagraphStyle('DeptStyle',
+                                      parent=styles['Normal'],
+                                      fontSize=11,
+                                      alignment=TA_CENTER,
+                                      fontName='Times-Roman',
+                                      spaceAfter=3)
+            story.append(Paragraph("Department of Environmental Sciences, Informatics and Statistics", dept_style))
+            story.append(Paragraph("Bachelor's Degree in Computer Science", dept_style))
+
+            # Course info
+            course_style = ParagraphStyle('CourseStyle',
+                                        parent=styles['Normal'],
+                                        fontSize=11,
+                                        alignment=TA_CENTER,
+                                        fontName='Times-Bold',
+                                        spaceAfter=3)
+            story.append(Paragraph(course_name, course_style))
+            story.append(Paragraph("Mock Exam", course_style))
+            story.append(Spacer(1, 10))
+
+            # Date and time info
+            info_style = ParagraphStyle('InfoStyle',
+                                      parent=styles['Normal'],
+                                      fontSize=10,
+                                      alignment=TA_CENTER,
+                                      fontName='Times-Roman',
+                                      spaceAfter=15)
+            story.append(Paragraph(f"Date: {datetime.now().strftime('%B %d, %Y')}", info_style))
+            story.append(Paragraph(f"Time available: {format_info['time_limit']}", info_style))
+            story.append(Paragraph(f"Total points: {format_info['total_points']} points", info_style))
+
+            # STUDENT INFO TABLE - EXACT CA' FOSCARI FORMAT
+            student_data = [
+                ["Surname:", "_" * 35, "Name:", "_" * 35],
+                ["", "", "", ""],
+                ["ID Number:", "_" * 25, "Room-Seat:", "_" * 20]
+            ]
+
+            student_table = Table(student_data, colWidths=[2.5*cm, 5*cm, 2*cm, 5*cm])
+            student_table.setStyle(TableStyle([
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
+                ('FONTNAME', (0, 0), (-1, -1), 'Times-Roman'),
+                ('FONTNAME', (0, 0), (0, 0), 'Times-Bold'),
+                ('FONTNAME', (2, 0), (2, 0), 'Times-Bold'),
+                ('FONTNAME', (0, 2), (0, 2), 'Times-Bold'),
+                ('FONTNAME', (2, 2), (2, 2), 'Times-Bold'),
+                ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+                ('LEFTPADDING', (0, 0), (-1, -1), 0),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+                ('TOPPADDING', (0, 0), (-1, -1), 3),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+            ]))
+
+            story.append(student_table)
+            story.append(Spacer(1, 20))
+
+            # INSTRUCTIONS - EXACT CA' FOSCARI FORMAT
+            instr_style = ParagraphStyle('InstrStyle',
+                                       parent=styles['Normal'],
+                                       fontSize=10,
+                                       fontName='Times-Bold',
+                                       spaceAfter=8)
+            story.append(Paragraph("Instructions:", instr_style))
+
+            instr_text_style = ParagraphStyle('InstrTextStyle',
+                                            parent=styles['Normal'],
+                                            fontSize=9,
+                                            fontName='Times-Roman',
+                                            spaceAfter=15,
+                                            leftIndent=5)
+            instructions = """• Answer all questions clearly and show your work<br/>• Write your name and ID number on each page<br/>• Calculator use policy: Check with instructor<br/>• Good luck!"""
+            story.append(Paragraph(instructions, instr_text_style))
+
+            # NEW PAGE HEADER FOR EXAM CONTENT
+            story.append(Spacer(1, 15))
+
+            # Second page header (like real Ca' Foscari exams)
+            story.append(Paragraph("Ca' Foscari University of Venice", uni_style))
+            story.append(Paragraph("Bachelor's Degree in Computer Science", dept_style))
+            story.append(Paragraph(course_name, course_style))
+            story.append(Paragraph(f"Time available: {format_info['time_limit']}", info_style))
+            story.append(Spacer(1, 10))
+
+            # Student info line (like real format)
+            student_line = "Surname: ................... Name: ................... ID Number: ........ Room-Seat: ....."
+            student_line_style = ParagraphStyle('StudentLineStyle',
+                                              parent=styles['Normal'],
+                                              fontSize=9,
+                                              fontName='Times-Roman',
+                                              spaceAfter=20)
+            story.append(Paragraph(student_line, student_line_style))
+
+            # EXAM CONTENT - NO FANCY FORMATTING, JUST LIKE REAL EXAMS
+            content_style = ParagraphStyle('ContentStyle',
+                                         parent=styles['Normal'],
+                                         fontSize=11,
+                                         fontName='Times-Roman',
+                                         spaceAfter=8,
+                                         spaceBefore=0)
+
+            exercise_style = ParagraphStyle('ExerciseStyle',
+                                          parent=styles['Normal'],
+                                          fontSize=11,
+                                          fontName='Times-Bold',
+                                          spaceAfter=8,
+                                          spaceBefore=12)
+
+            # Process content exactly as provided by AI
+            lines = content.split('\n')
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    story.append(Spacer(1, 6))
+                    continue
+
+                # Exercise headers - simple bold format like real exams
+                if any(line.lower().startswith(prefix) for prefix in ['exercise', 'problem', 'question']):
+                    story.append(Paragraph(line, exercise_style))
+                else:
+                    # Regular content - simple formatting
+                    story.append(Paragraph(line, content_style))
+
+            doc.build(story)
+            return pdf_path
 
         except ImportError:
-            print("❌ PDF generation requires reportlab: pip install reportlab")
+            print("⚠️ PDF generation requires: pip install reportlab")
             return None
-
-        # Create PDF file
-        exam_dir = Path(f"mock_exams/{course_code}")
-        exam_dir.mkdir(parents=True, exist_ok=True)
-        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        pdf_path = exam_dir / f"CAFOSCARI_EXAM_{course_code}_{timestamp}.pdf"
-
-        # Create document with Ca' Foscari styling
-        doc = SimpleDocTemplate(
-            str(pdf_path),
-            pagesize=A4,
-            topMargin=20*mm,
-            bottomMargin=20*mm,
-            leftMargin=25*mm,
-            rightMargin=25*mm
-        )
-
-        # Define styles
-        styles = getSampleStyleSheet()
-
-        # Ca' Foscari header style
-        header_style = ParagraphStyle(
-            'CaFoscariHeader',
-            parent=styles['Normal'],
-            fontSize=14,
-            alignment=1,  # Center
-            spaceAfter=15,
-            fontName='Helvetica-Bold'
-        )
-
-        # University info style
-        uni_style = ParagraphStyle(
-            'UniversityInfo',
-            parent=styles['Normal'],
-            fontSize=10,
-            alignment=1,  # Center
-            spaceAfter=10
-        )
-
-        # Course title style
-        course_style = ParagraphStyle(
-            'CourseTitle',
-            parent=styles['Normal'],
-            fontSize=12,
-            alignment=1,  # Center
-            spaceAfter=20,
-            fontName='Helvetica-Bold'
-        )
-
-        # Exercise style
-        exercise_style = ParagraphStyle(
-            'Exercise',
-            parent=styles['Normal'],
-            fontSize=11,
-            spaceAfter=8,
-            fontName='Helvetica-Bold'
-        )
-
-        # Question style
-        question_style = ParagraphStyle(
-            'Question',
-            parent=styles['Normal'],
-            fontSize=10,
-            spaceAfter=12,
-            leftIndent=10
-        )
-
-        # Build document
-        story = []
-
-        # University Header
-        story.append(Paragraph("<b>Ca' Foscari University of Venice</b>", header_style))
-        story.append(Paragraph("Department of Environmental Sciences, Informatics and Statistics", uni_style))
-        story.append(Paragraph("Bachelor's Degree in Computer Science", uni_style))
-        story.append(Spacer(1, 10))
-
-        # Course and Exam Info
-        story.append(Paragraph(f"<b>{course_name}</b>", course_style))
-        story.append(Paragraph(f"<b>Mock Exam</b>", course_style))
-
-        # Time and date info
-        current_date = datetime.now().strftime("%B %d, %Y")
-        story.append(Paragraph(f"Date: {current_date}", uni_style))
-        story.append(Paragraph(f"Time available: <b>{format_info['time_limit']}</b>", uni_style))
-        story.append(Paragraph(f"Total points: <b>{format_info['total_points']} points</b>", uni_style))
-        story.append(Spacer(1, 15))
-
-        # Student information table
-        student_data = [
-            ['Surname:', '_'*30, 'Name:', '_'*30],
-            ['ID Number:', '_'*20, 'Room-Seat:', '_'*15]
-        ]
-
-        student_table = Table(student_data, colWidths=[25*mm, 50*mm, 25*mm, 50*mm])
-        student_table.setStyle(TableStyle([
-            ('FONTSIZE', (0, 0), (-1, -1), 10),
-            ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
-            ('TOPPADDING', (0, 0), (-1, -1), 8),
-        ]))
-
-        story.append(student_table)
-        story.append(Spacer(1, 20))
-
-        # Course-specific instructions
-        instructions_text = format_info.get('instructions', '• Answer all questions\n• Show your work\n• Good luck!')
-        instructions_lines = instructions_text.split('\n')
-
-        story.append(Paragraph("<b>Instructions:</b>", exercise_style))
-        for instruction in instructions_lines:
-            if instruction.strip():
-                story.append(Paragraph(instruction.strip(), question_style))
-
-        story.append(Spacer(1, 20))
-
-        # Process exam content - Clean and format properly
-        lines = content.split('\n')
-        skip_until_exercise = True  # Skip any duplicate header content
-
-        for line in lines:
-            line = line.strip()
-            if not line:
-                continue
-
-            # Skip duplicate headers/university info at start
-            if skip_until_exercise and not line.startswith('Exercise'):
-                if any(word in line.lower() for word in ['university', 'bachelor', 'degree', 'time available', 'instructions']):
-                    continue
-                elif line.startswith(('Ca\'', 'Department', 'Mock Exam', 'Date:', 'Surname:')):
-                    continue
-
-            # Found first exercise, stop skipping
-            if line.startswith('Exercise'):
-                skip_until_exercise = False
-
-            # Exercise headers
-            if line.startswith('Exercise') and ('point' in line or 'Point' in line):
-                story.append(Spacer(1, 12))  # Extra space before new exercise
-                story.append(Paragraph(f"<b>{line}</b>", exercise_style))
-                story.append(Spacer(1, 8))
-
-            # Sub-questions (numbered)
-            elif line.startswith(('1.', '2.', '3.', '4.', '5.', '1)', '2)', '3)', '4)', '5)')):
-                story.append(Paragraph(f"<b>{line}</b>", question_style))
-                story.append(Spacer(1, 6))
-
-            # Sub-sub-questions
-            elif line.startswith(('a)', 'b)', 'c)', 'd)', 'i)', 'ii)', 'iii)')):
-                indented_style = ParagraphStyle(
-                    'IndentedQuestion',
-                    parent=question_style,
-                    leftIndent=20
-                )
-                story.append(Paragraph(line, indented_style))
-                story.append(Spacer(1, 4))
-
-            # Matrix or equation lines (keep formatting)
-            elif any(char in line for char in ['|', '=', '+', '-']) and len(line) > 5:
-                # Preserve matrix/equation formatting
-                mono_style = ParagraphStyle(
-                    'MonoSpace',
-                    parent=question_style,
-                    fontName='Courier',
-                    leftIndent=15
-                )
-                clean_line = line.replace('**', '').replace('*', '')
-                story.append(Paragraph(f"<font face='Courier'>{clean_line}</font>", mono_style))
-                story.append(Spacer(1, 4))
-
-            # Regular content lines
-            elif len(line) > 8:
-                clean_line = line.replace('**', '').replace('*', '').replace('■', '?')  # Remove Unicode artifacts
-                clean_line = clean_line.replace('₃', '_3').replace('₂', '_2').replace('₄', '_4')  # Fix subscripts
-                clean_line = clean_line.replace('ℝ', 'R').replace('×', 'x')  # ASCII-safe symbols
-                story.append(Paragraph(clean_line, question_style))
-                story.append(Spacer(1, 6))
-
-        # Build PDF
-        try:
-            doc.build(story)
-            print(f"📄 Professional PDF created: {pdf_path}")
-            return pdf_path
         except Exception as e:
-            print(f"❌ PDF creation failed: {e}")
+            print(f"⚠️ PDF creation failed: {e}")
             return None
 
     def create_study_plan(self, course_code):
@@ -1003,11 +771,6 @@ Make it print-ready and exam-optimized."""
 
             user_info = response.json()
             print(f"👤 User: {user_info.get('fullname', 'N/A')}")
-
-            # Get courses - simplified version
-            print("📚 Fetching courses...")
-            # ... (implementation details omitted for brevity)
-
             print("✅ Moodle data refreshed")
 
         except Exception as e:
