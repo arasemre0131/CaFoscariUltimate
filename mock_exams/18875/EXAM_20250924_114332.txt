@@ -1,0 +1,49 @@
+Ca' Foscari University of Venice
+[CT0668-1] COMPUTER ARCHITECTURES-FOUNDATIONS (CT3) - a.a. 2024-25
+Mock Exam - September 24, 2025
+Time: 2 hours | Total: 32 points
+
+Name: _________________ ID: _________________ 
+============================================================
+
+EXERCISE 1 (16 points)
+
+Consider a computer system with a 2-way set-associative cache and the following parameters:
+- Cache size: 32 KB
+- Block size: 64 bytes
+- Main memory access time: 100 ns
+- Cache access time: 10 ns
+
+1. (4 points) Calculate the following cache parameters:
+   a. Number of cache blocks
+   b. Number of cache sets
+   c. Number of index bits
+   d. Number of tag bits
+
+2. (6 points) Assume the following memory access pattern:
+   - Address 0x12345678 (hit)
+   - Address 0x87654321 (miss)
+   - Address 0x12345688 (hit)
+   - Address 0x87654330 (miss)
+   - Address 0x12345670 (hit)
+
+   Calculate the total access time for this memory access pattern, considering both hit and miss cases.
+
+3. (6 points) Explain the differences between synchronous and asynchronous buses in terms of their characteristics, advantages, and disadvantages.
+
+EXERCISE 2 (16 points)
+
+Consider the following ARM 64-bit assembly code:
+
+    MOV X1, #5
+    MOV X2, #10
+    ADD X3, X1, X2
+    SUB X4, X3, X1
+    MUL X5, X3, X4
+
+1. (8 points) Translate the given ARM 64-bit assembly code to its equivalent machine instructions, showing the hexadecimal representation of each instruction.
+
+2. (8 points) Construct an execution timing diagram for the given assembly code, assuming a 5-stage pipeline (Fetch, Decode, Execute, Memory, Write Back) with the following characteristics:
+   - All instructions have a latency of 1 cycle, except for MUL, which has a latency of 3 cycles.
+   - The pipeline has no data hazards, and no stalls are required.
+   - Assume that the instructions are fetched from memory without any delays.

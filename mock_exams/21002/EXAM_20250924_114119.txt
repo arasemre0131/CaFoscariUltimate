@@ -1,0 +1,38 @@
+Ca' Foscari University of Venice
+[CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Mock Exam - September 24, 2025
+Time: 2 hours | Total: 30 points
+
+Name: _________________ ID: _________________ 
+============================================================
+
+Ca' Foscari University
+[CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Mock Exam
+
+Time: 2 hours
+Format: 5 exercises, 30 points total
+
+Exercise 1 (6 points)
+Compute the eigenvalues and eigenvectors of the following matrix:
+A = [ 2 1 0 ]
+    [ 1 2 1 ]
+    [ 0 1 2 ]
+
+Exercise 2 (6 points)
+Prove that the set of 2x2 matrices with determinant 1 forms a group under matrix multiplication.
+
+Exercise 3 (6 points)
+Find the general solution to the system of linear equations:
+2x + 3y - z = 5
+x - y + 2z = 3
+-x + 4y - z = 1
+
+Exercise 4 (6 points)
+Let V be the vector space of 3x3 matrices over the real numbers. Find a basis for the subspace W = { A in V | trace(A) = 0 }.
+
+Exercise 5 (6 points)
+Compute the rank and nullity of the following matrix:
+B = [ 1 2 3 ]
+    [ 4 5 6 ]
+    [ 7 8 9 ]

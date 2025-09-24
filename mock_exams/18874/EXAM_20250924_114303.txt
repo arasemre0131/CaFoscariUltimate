@@ -1,0 +1,27 @@
+Ca' Foscari University of Venice
+[CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25
+Mock Exam - September 24, 2025
+Time: 2 hours | Total: 30 points
+
+Name: _________________ ID: _________________ 
+============================================================
+
+MOCK EXAM: [CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25
+FORMAT: 5 exercises, 30 points, 2 hours
+QUESTION TYPES: solve, compute, prove
+
+Exercise 1 (6 points)
+Prove that for any integers a and b, if a | b and b | c, then a | c.
+
+Exercise 2 (6 points)
+Compute the number of binary strings of length 7 that contain exactly 3 ones.
+
+Exercise 3 (6 points)
+Let R be a relation on the set A = {1, 2, 3, 4} defined by R = {(1,2), (2,3), (3,4), (4,1)}. 
+Determine whether R is an equivalence relation. Justify your answer.
+
+Exercise 4 (6 points)
+Solve the recurrence relation a(n) = 2a(n-1) + 3, where a(0) = 1.
+
+Exercise 5 (6 points)
+Prove by induction that the sum of the first n odd integers is equal to n^2.

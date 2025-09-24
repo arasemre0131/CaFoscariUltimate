@@ -1,0 +1,47 @@
+CA' FOSCARI UNIVERSITY MOCK EXAM
+Course: [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+Generated: 2025-09-24 09:29:49
+Format: 5 exercises, 32 points, 2 hours
+================================================================================
+
+Ca' Foscari University of Venice / Bachelor's Degree in Computer Science
+[CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25 - Mock Exam
+Time available: 2 hours
+Surname: ................... Name: ................... ID Number: ........ Room-Seat: .....
+
+Exercise 1 (5 points)
+Solve the equation z³ - z = 0 and represent the solutions in both algebraic and polar forms.
+
+Exercise 2 (8 points)
+Consider the linear transformation T: ℝ³ → ℝ⁴ whose matrix A with respect to the canonical bases is:
+
+A = [2 0 2]
+    [0 1 1]
+    [-1 2 3]
+    [1 1 0]
+
+2.1 Determine the dimension and a basis for ker T and Im T.
+2.2 Let W = {(2x₃, x₂, x₃, x₄) | x₂, x₃, x₄ ∈ ℝ}. Prove that W is a one-dimensional subspace of ℝ⁴ and find a basis.
+2.3 Define U = Im T. Determine a basis for U ∩ W and U + W.
+
+Exercise 3 (9 points)
+Let Tk be the endomorphism of ℝ³, depending on the parameter k ∈ ℝ, represented with respect to the canonical basis by:
+
+Ak = [1 0 3]
+     [2 1 2]
+     [1 1 k]
+
+3.1 Determine the unique value of k for which the kernel of Tk is not the zero vector.
+3.2 For the obtained value of k, determine the eigenvalues of Ak.
+3.3 For the obtained value of k, find an invertible matrix P such that P⁻¹AkP is diagonal.
+3.4 For the obtained value of k, using the matrix P from the previous step, compute the product AkP.
+
+Exercise 4 (7 points)
+Consider the following linear system with unknowns x, y, z and parameter a ∈ ℝ:
+
+x + (a - 1)y + (2 - a)z = a + 5
+x + ay + 2z = 4
+x + (a - 2)y + (2 - 2a²)z = 6
+
+4.1 Discuss the solvability of the system based on the value of a.
+4.2 Determine for which values of a a vector of the form (x, y, 0) is a solution to the system.

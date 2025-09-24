@@ -1,0 +1,17 @@
+{
+  "course_code": "18873",
+  "course_name": "[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25",
+  "timestamp": "20250924_123444",
+  "format_info": {
+    "exercise_count": 0,
+    "total_points": 30,
+    "time_limit": "10080 minutes",
+    "question_types": [
+      "calculate",
+      "solve",
+      "find",
+      "compute"
+    ],
+    "instructions": "is never executed"
+  }
+}

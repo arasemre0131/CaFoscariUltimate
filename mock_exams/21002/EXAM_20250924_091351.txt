@@ -1,0 +1,112 @@
+MOCK EXAM: [CT0663] LINEAR ALGEBRA (CT3) - a.a. 2024-25
+
+Multiple Choice Questions (10 questions):
+
+1. Which of the following is NOT a property of complex numbers?
+   a) Closure under addition and multiplication
+   b) Existence of multiplicative inverses
+   c) Commutativity of addition and multiplication
+   d) Distributivity of multiplication over addition
+
+2. The dimension of a vector space V is the number of:
+   a) Vectors in V
+   b) Linearly independent vectors in V
+   c) Linearly dependent vectors in V
+   d) Subspaces of V
+
+3. If T: V → W is a linear transformation, then the nullity of T is equal to:
+   a) The dimension of the domain V
+   b) The dimension of the codomain W
+   c) The dimension of the kernel of T
+   d) The dimension of the image of T
+
+4. Which of the following is a necessary and sufficient condition for a matrix A to be diagonalizable?
+   a) A has distinct eigenvalues
+   b) A has a complete set of linearly independent eigenvectors
+   c) The characteristic polynomial of A has all real roots
+   d) Both (a) and (b)
+
+5. Cramer's rule is used to solve:
+   a) Overdetermined systems of linear equations
+   b) Underdetermined systems of linear equations
+   c) Homogeneous systems of linear equations
+   d) Nonhomogeneous systems of linear equations
+
+6. Which of the following is NOT a valid operation on vectors in a vector space?
+   a) Vector addition
+   b) Scalar multiplication
+   c) Vector subtraction
+   d) Vector division
+
+7. The rank of a matrix A is equal to:
+   a) The number of linearly independent columns of A
+   b) The number of linearly independent rows of A
+   c) The dimension of the column space of A
+   d) Both (a) and (c)
+
+8. If A is an n×n matrix, then the characteristic polynomial of A is a polynomial of degree:
+   a) n
+   b) n-1
+   c) 2n
+   d) n²
+
+9. The change of basis formula T_B = P^-1 * T_C * P relates the matrix representations of a linear transformation T in two different bases:
+   a) B and C
+   b) B and the standard basis
+   c) C and the standard basis
+   d) Any two arbitrary bases
+
+10. A system of linear equations Ax = b has a unique solution if and only if:
+    a) The rank of A is less than the number of variables
+    b) The rank of the augmented matrix [A|b] is equal to the number of variables
+    c) The rank of the augmented matrix [A|b] is less than the number of variables
+    d) The rank of A is equal to the number of variables
+
+Short Answer Questions (6 questions):
+
+1. Define the modulus and argument of a complex number, and explain how they can be used to represent complex numbers in polar form.
+
+2. Prove that the set of all n×n matrices forms a vector space under the operations of matrix addition and scalar multiplication.
+
+3. Explain the rank-nullity theorem and its significance in the study of linear transformations.
+
+4. Find the eigenvalues and eigenvectors of the matrix A = [1 2; 3 4].
+
+5. Use Cramer's rule to solve the system of linear equations: 2x + 3y = 11, x - y = 5.
+
+6. Describe the process of changing the basis of a linear transformation, and explain the significance of the change of basis formula.
+
+Essay Questions (3 questions):
+
+1. Discuss the importance of linear algebra in modeling and analyzing real-world systems. Provide at least two examples of how linear algebra concepts are applied in various fields, such as engineering, economics, or computer science.
+
+2. Prove that a square matrix A is diagonalizable if and only if it has a complete set of linearly independent eigenvectors. Explain the significance of diagonalizable matrices and the process of finding a diagonalizing matrix.
+
+3. Suppose you are given a set of vectors in a vector space V. Describe a step-by-step process to determine whether the set is linearly independent or linearly dependent. Discuss the implications of linear dependence and independence in the context of bases and dimensions of vector spaces.
+
+Answer Key:
+
+Multiple Choice:
+1. d
+2. b
+3. c
+4. d
+5. d
+6. d
+7. d
+8. a
+9. a
+10. b
+
+Short Answers:
+1. The modulus of a complex number z = a + bi is defined as |z| = √(a² + b²). The argument of z is the angle θ between the positive real axis and the line segment connecting the origin to the point (a, b) on the complex plane, such that tan(θ) = b/a. Complex numbers can be represented in polar form as z = |z|(cos(θ) + i sin(θ)).
+2. The set of all n×n matrices forms a vector space under the operations of matrix addition and scalar multiplication because the set satisfies the 10 vector space axioms.
+3. The rank-nullity theorem states that for any linear transformation T: V → W, the dimension of the domain V is equal to the sum of the dimension of the image (or range) of T and the dimension of the kernel (or null space) of T. This theorem is significant because it relates the dimensions of the key subspaces associated with a linear transformation.
+4. The eigenvalues of A = [1 2; 3 4] are λ₁ = 5 and λ₂ = 0. The corresponding eigenvectors are v₁ = [2, 3]ᵀ and v₂ = [-2, 1]ᵀ.
+5. Using Cramer's rule, the solution to the system 2x + 3y = 11, x - y = 5 is x = 3 and y = 2.
+6. To change the basis of a linear transformation T: V → W from basis B to basis C, we need to find the change of basis matrix P such that T_C = P^-1 * T_B * P. The change of basis formula is significant because it allows us to represent the same linear transformation in different coordinate systems, which is important for computational and theoretical purposes.
+
+Essay Questions:
+1. [Student response should include examples of how linear algebra is used in modeling and analyzing real-world systems, such as in engineering (e.g., circuit analysis, structural analysis), economics (e.g., input-output analysis, Markov chains), or computer science (e.g., image processing, data compression, PageRank algorithm). The response should discuss the importance of concepts like vector spaces, linear transformations, and matrix representations in these applications.]
+2. [Student response should include a proof that a square matrix A is diagonalizable if and only if it has a complete set of linearly independent eigenvectors. The response should also explain the significance of diagonalizable matrices, which are easier to work with computationally, and the process of finding a diagonalizing matrix P such that P^-1 * A * P is a diagonal matrix.]
+3. [Student response should describe a step-by-step process to determine linear independence or dependence of a set of vectors in a vector space V, including: (1) writing the vectors as the columns of a matrix, (2) performing row reduction to obtain the reduced row echelon form, (3) checking the number of non-zero rows in the reduced matrix, which corresponds to the number of linearly independent vectors. The response should also discuss the implications of linear dependence and independence in the context of bases and dimensions of vector spaces.]

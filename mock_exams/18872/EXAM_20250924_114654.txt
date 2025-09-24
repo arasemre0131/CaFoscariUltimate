@@ -1,0 +1,32 @@
+Ca' Foscari University of Venice
+[CT0662-1] CALCULUS-1 (CT3) - a.a. 2024-25
+Mock Exam - September 24, 2025
+Time: 2 hours | Total: 30 points
+
+Name: _________________ ID: _________________ 
+============================================================
+
+Here is a mock exam for the [CT0662-1] CALCULUS-1 (CT3) course at Ca' Foscari University:
+
+CALCULUS-1 MOCK EXAM
+Duration: 2 hours
+
+Instructions:
+- This exam consists of 5 exercises worth a total of 30 points.
+- Show your work and provide detailed solutions.
+- Use only ASCII characters in your responses.
+
+Exercise 1 (6 points)
+Compute the limit: lim(x->0) (sin(x) - x) / x^2
+
+Exercise 2 (6 points)
+Let f(x) = 3x^4 - 2x^3 + 5x - 1. Find the critical points of f(x) and determine their nature (local max/min).
+
+Exercise 3 (6 points)
+Evaluate the integral: int(1/(x^2 + 4), x=0 to x=2)
+
+Exercise 4 (6 points)
+Prove that the sequence defined by a_n = (n^2 + 1) / (n^3 + 2) is convergent. Find its limit.
+
+Exercise 5 (6 points)
+Find the Taylor series expansion of f(x) = ln(1 + x) about x = 0, up to the 4th degree term. Determine the radius of convergence.

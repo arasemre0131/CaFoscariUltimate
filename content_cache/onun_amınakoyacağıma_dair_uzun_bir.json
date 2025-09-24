@@ -1,5 +1,0 @@
-{
-  "request": "onun amınakoyacağıma dair uzun bir",
-  "content": "❌ Claude API Error: 401 - {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"invalid x-api-key\"},\"request_id\":\"req_011CSyaFvPR1s2KgnSoYpX9k\"}",
-  "timestamp": "2025-09-09T23:56:50.053279"
-}

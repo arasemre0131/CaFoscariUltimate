@@ -425,7 +425,7 @@ CRITICAL INSTRUCTIONS:
             print("❌ Failed to generate exam")
             return
 
-        # Save ONLY as PDF
+        # Save exam
         exam_dir = Path(f"mock_exams/{course_code}")
         exam_dir.mkdir(parents=True, exist_ok=True)
 
@@ -444,145 +444,42 @@ CRITICAL INSTRUCTIONS:
         input("\n✨ Press Enter to continue...")
 
     def create_exam_pdf(self, course_code, course_name, content, format_info):
-        """Create authentic Ca' Foscari PDF exam matching real format exactly"""
+        """Create PDF exam - simplified version"""
         try:
             from reportlab.lib.pagesizes import A4
-            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+            from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
             from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-            from reportlab.lib.units import mm, cm
-            from reportlab.lib import colors
-            from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+            from reportlab.lib.units import mm
+            from reportlab.lib.enums import TA_CENTER
 
             exam_dir = Path(f"mock_exams/{course_code}")
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            pdf_path = exam_dir / f"EXAM_{timestamp}.pdf"
+            pdf_path = exam_dir / f"EXAM_{course_code}_{timestamp}.pdf"
 
-            # Authentic Ca' Foscari margins
-            doc = SimpleDocTemplate(str(pdf_path), pagesize=A4,
-                                   topMargin=25*mm, bottomMargin=20*mm,
-                                   leftMargin=25*mm, rightMargin=25*mm)
-
+            doc = SimpleDocTemplate(str(pdf_path), pagesize=A4, topMargin=20*mm, bottomMargin=20*mm)
             styles = getSampleStyleSheet()
             story = []
 
-            # AUTHENTIC CA' FOSCARI HEADER
-            uni_style = ParagraphStyle('UniStyle',
-                                     parent=styles['Normal'],
-                                     fontSize=12,
-                                     alignment=TA_CENTER,
-                                     fontName='Times-Bold',
-                                     spaceAfter=3)
-            story.append(Paragraph("Ca' Foscari University of Venice", uni_style))
+            # Header
+            header_style = ParagraphStyle('Header', parent=styles['Normal'], fontSize=12, alignment=TA_CENTER, fontName='Times-Bold', spaceAfter=3)
+            story.append(Paragraph("Ca' Foscari University of Venice", header_style))
+            story.append(Paragraph(course_name, header_style))
+            story.append(Paragraph("Mock Exam", header_style))
+            story.append(Spacer(1, 10*mm))
 
-            dept_style = ParagraphStyle('DeptStyle',
-                                      parent=styles['Normal'],
-                                      fontSize=11,
-                                      alignment=TA_CENTER,
-                                      fontName='Times-Roman',
-                                      spaceAfter=3)
-            story.append(Paragraph("Department of Environmental Sciences, Informatics and Statistics", dept_style))
-            story.append(Paragraph("Bachelor's Degree in Computer Science", dept_style))
-
-            # Course info
-            course_style = ParagraphStyle('CourseStyle',
-                                        parent=styles['Normal'],
-                                        fontSize=11,
-                                        alignment=TA_CENTER,
-                                        fontName='Times-Bold',
-                                        spaceAfter=3)
-            story.append(Paragraph(course_name, course_style))
-            story.append(Paragraph("Mock Exam", course_style))
-            story.append(Spacer(1, 10))
-
-            # Date and time info
-            info_style = ParagraphStyle('InfoStyle',
-                                      parent=styles['Normal'],
-                                      fontSize=10,
-                                      alignment=TA_CENTER,
-                                      fontName='Times-Roman',
-                                      spaceAfter=15)
+            # Info
+            info_style = ParagraphStyle('Info', parent=styles['Normal'], fontSize=10, alignment=TA_CENTER, spaceAfter=15)
             story.append(Paragraph(f"Date: {datetime.now().strftime('%B %d, %Y')}", info_style))
-            story.append(Paragraph(f"Time available: {format_info['time_limit']}", info_style))
-            story.append(Paragraph(f"Total points: {format_info['total_points']} points", info_style))
+            story.append(Paragraph(f"Time: {format_info['time_limit']} | Points: {format_info['total_points']}", info_style))
 
-            # STUDENT INFO TABLE - EXACT CA' FOSCARI FORMAT
-            student_data = [
-                ["Surname:", "_" * 35, "Name:", "_" * 35],
-                ["", "", "", ""],
-                ["ID Number:", "_" * 25, "Room-Seat:", "_" * 20]
-            ]
+            # Student info
+            story.append(Paragraph("Name: ________________________  ID: ____________", info_style))
+            story.append(Spacer(1, 15*mm))
 
-            student_table = Table(student_data, colWidths=[2.5*cm, 5*cm, 2*cm, 5*cm])
-            student_table.setStyle(TableStyle([
-                ('FONTSIZE', (0, 0), (-1, -1), 10),
-                ('FONTNAME', (0, 0), (-1, -1), 'Times-Roman'),
-                ('FONTNAME', (0, 0), (0, 0), 'Times-Bold'),
-                ('FONTNAME', (2, 0), (2, 0), 'Times-Bold'),
-                ('FONTNAME', (0, 2), (0, 2), 'Times-Bold'),
-                ('FONTNAME', (2, 2), (2, 2), 'Times-Bold'),
-                ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-                ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
-                ('LEFTPADDING', (0, 0), (-1, -1), 0),
-                ('RIGHTPADDING', (0, 0), (-1, -1), 0),
-                ('TOPPADDING', (0, 0), (-1, -1), 3),
-                ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
-            ]))
+            # Content
+            content_style = ParagraphStyle('Content', parent=styles['Normal'], fontSize=11, spaceAfter=8)
+            exercise_style = ParagraphStyle('Exercise', parent=styles['Normal'], fontSize=11, fontName='Times-Bold', spaceAfter=8, spaceBefore=12)
 
-            story.append(student_table)
-            story.append(Spacer(1, 20))
-
-            # INSTRUCTIONS - EXACT CA' FOSCARI FORMAT
-            instr_style = ParagraphStyle('InstrStyle',
-                                       parent=styles['Normal'],
-                                       fontSize=10,
-                                       fontName='Times-Bold',
-                                       spaceAfter=8)
-            story.append(Paragraph("Instructions:", instr_style))
-
-            instr_text_style = ParagraphStyle('InstrTextStyle',
-                                            parent=styles['Normal'],
-                                            fontSize=9,
-                                            fontName='Times-Roman',
-                                            spaceAfter=15,
-                                            leftIndent=5)
-            instructions = """• Answer all questions clearly and show your work<br/>• Write your name and ID number on each page<br/>• Calculator use policy: Check with instructor<br/>• Good luck!"""
-            story.append(Paragraph(instructions, instr_text_style))
-
-            # NEW PAGE HEADER FOR EXAM CONTENT
-            story.append(Spacer(1, 15))
-
-            # Second page header (like real Ca' Foscari exams)
-            story.append(Paragraph("Ca' Foscari University of Venice", uni_style))
-            story.append(Paragraph("Bachelor's Degree in Computer Science", dept_style))
-            story.append(Paragraph(course_name, course_style))
-            story.append(Paragraph(f"Time available: {format_info['time_limit']}", info_style))
-            story.append(Spacer(1, 10))
-
-            # Student info line (like real format)
-            student_line = "Surname: ................... Name: ................... ID Number: ........ Room-Seat: ....."
-            student_line_style = ParagraphStyle('StudentLineStyle',
-                                              parent=styles['Normal'],
-                                              fontSize=9,
-                                              fontName='Times-Roman',
-                                              spaceAfter=20)
-            story.append(Paragraph(student_line, student_line_style))
-
-            # EXAM CONTENT - NO FANCY FORMATTING, JUST LIKE REAL EXAMS
-            content_style = ParagraphStyle('ContentStyle',
-                                         parent=styles['Normal'],
-                                         fontSize=11,
-                                         fontName='Times-Roman',
-                                         spaceAfter=8,
-                                         spaceBefore=0)
-
-            exercise_style = ParagraphStyle('ExerciseStyle',
-                                          parent=styles['Normal'],
-                                          fontSize=11,
-                                          fontName='Times-Bold',
-                                          spaceAfter=8,
-                                          spaceBefore=12)
-
-            # Process content exactly as provided by AI
             lines = content.split('\n')
             for line in lines:
                 line = line.strip()
@@ -590,21 +487,30 @@ CRITICAL INSTRUCTIONS:
                     story.append(Spacer(1, 6))
                     continue
 
-                # Exercise headers - simple bold format like real exams
                 if any(line.lower().startswith(prefix) for prefix in ['exercise', 'problem', 'question']):
                     story.append(Paragraph(line, exercise_style))
                 else:
-                    # Regular content - simple formatting
                     story.append(Paragraph(line, content_style))
 
             doc.build(story)
+
+            # Save metadata
+            metadata = {
+                'course_code': course_code,
+                'course_name': course_name,
+                'timestamp': timestamp,
+                'format_info': format_info
+            }
+            metadata_path = exam_dir / f"EXAM_{course_code}_{timestamp}_metadata.json"
+            self._save_json(str(metadata_path), metadata)
+
             return pdf_path
 
         except ImportError:
-            print("⚠️ PDF generation requires: pip install reportlab")
+            print("⚠️ Install reportlab: pip install reportlab")
             return None
         except Exception as e:
-            print(f"⚠️ PDF creation failed: {e}")
+            print(f"❌ PDF creation failed: {e}")
             return None
 
     def create_study_plan(self, course_code):

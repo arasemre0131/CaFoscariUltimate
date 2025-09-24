@@ -1,0 +1,14 @@
+{
+  "course_code": "21005",
+  "course_name": "[CT0677-E] TECHNICAL ENGLISH FOR COMPUTER SCIENCE - PRACTICE (CT3) - a.a. 2024-25",
+  "timestamp": "20250924_123132",
+  "format_info": {
+    "exercise_count": 1,
+    "total_points": 30,
+    "time_limit": "2 hours",
+    "question_types": [
+      "compute"
+    ],
+    "instructions": null
+  }
+}

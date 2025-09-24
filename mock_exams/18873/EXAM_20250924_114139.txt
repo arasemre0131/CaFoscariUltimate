@@ -1,0 +1,29 @@
+Ca' Foscari University of Venice
+[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25
+Mock Exam - September 24, 2025
+Time: 2 hours | Total: 30 points
+
+Name: _________________ ID: _________________ 
+============================================================
+
+Here is a mock exam for the [CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) course at Ca' Foscari University for the a.a. 2024-25:
+
+[CT0665] INTRODUCTION TO COMPUTER PROGRAMMING (CT3) - a.a. 2024-25
+FORMAT: 0 exercises, 30 points, 2 hours
+QUESTION TYPES: solve, compute, prove
+
+EXERCISE 1 (10 points)
+Write a C function that takes an array of integers and its size as input, and returns the second-largest element in the array. If the array has less than two elements, return 0.
+
+EXERCISE 2 (10 points)
+Prove that the time complexity of the quicksort algorithm is O(n log n) in the average case, where n is the size of the input array.
+
+EXERCISE 3 (10 points)
+Compute the amount of memory required to store a structure that contains the following fields:
+- an integer
+- a float
+- a character
+- a double
+- a pointer to an integer
+
+Assume the system has a 64-bit architecture and uses standard C data alignment.

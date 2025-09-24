@@ -1,0 +1,63 @@
+CHEAT SHEET - [CT0668-1] COMPUTER ARCHITECTURES-FOUNDATIONS (CT3) - a.a. 2024-25
+Course Code: 18875
+Generated: 2025-09-24 08:41:42
+================================================================================
+
+**EXAM CHEAT SHEET - COMPUTER ARCHITECTURES FOUNDATIONS**
+
+**1. FORMULA QUICK REFERENCE**
+
+| Concept | Formula |
+|---------|---------|
+| Binary to Decimal | $\sum_{i=0}^{n} b_i \cdot 2^i$ |
+| Decimal to Binary | Repeated division by 2 |
+| 2's Complement | $-b_n \cdot 2^n + \sum_{i=0}^{n-1} b_i \cdot 2^i$ |
+| Gate Delay | $t_d = R \cdot C$ |
+| Critical Path Delay | $t_{crit} = \sum_i t_{d,i}$ |
+| Throughput | $\frac{1}{t_{crit}}$ |
+| CPI | $\frac{\text{Total Cycles}}{\text{Total Instructions}}$ |
+| MIPS | $\frac{\text{Total Instructions}}{\text{Total Cycles} \cdot \text{Clock Period}}$ |
+
+**2. CALCULATION SHORTCUTS & TRICKS**
+
+- Binary-Decimal conversion: Group bits, multiply and add
+- Mental 2's complement: Flip bits, add 1
+- Gate delay: Identify dominant R or C, estimate $t_d$
+- Critical path: Trace longest delay chain, sum delays
+- CPI and MIPS: Focus on cache misses, branch prediction
+
+**3. EXAM TACTICS**
+
+- Time management: Allocate time based on marks, tackle easy questions first
+- Question approach: Understand requirements, identify key concepts, show work
+- Partial credit: Clearly indicate steps, justify assumptions, provide explanations
+- Error checking: Verify units, review signs, double-check calculations
+
+**4. COMMON MISTAKES TO AVOID**
+
+- Forgetting sign bit in 2's complement
+- Confusing gate delay and critical path
+- Neglecting cache effects in CPI and MIPS
+- Mixing up time and frequency in performance metrics
+
+**5. QUICK REFERENCE TABLES**
+
+| Property | Value |
+|----------|-------|
+| $\pi$ | 3.14159 |
+| $e$ | 2.71828 |
+| $\log_2 10$ | 3.322 |
+| $\log_e 2$ | 0.693 |
+
+| Sorting Algorithms | Time Complexity |
+|--------------------|-----------------|
+| Bubble Sort | $O(n^2)$ |
+| Merge Sort | $O(n \log n)$ |
+| Quick Sort | $O(n \log n)$ |
+
+| Graph Algorithms | Application |
+|------------------|-------------|
+| Breadth-First Search | Shortest path, connectivity |
+| Depth-First Search | Topological sorting, cycle detection |
+| Dijkstra's Algorithm | Shortest path (weighted graphs) |
+| Kruskal's Algorithm | Minimum Spanning Tree |
