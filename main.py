@@ -31,6 +31,7 @@ class CaFoscariUltimate:
         self.courses = self._load_json("courses_database.json", {})
         self.config = self._load_json("api_keys/config.json", {})
         self.contacts = self._load_default_contacts()
+        self.email_cache = self._load_json("email_cache.json", {})
         self.context_memory = []
         self.setup_apis()
 
@@ -54,7 +55,12 @@ class CaFoscariUltimate:
         except: return False
 
     def _load_default_contacts(self):
-        defaults = {"erdem": "erdem@example.com", "soner": "sonerozen2004@gmail.com"}
+        defaults = {
+            "erdem": "erdem@example.com",
+            "soner": "sonerozen2004@gmail.com",
+            "tolgay": "tlga.yavuz@gmail.com",
+            "tolga": "tlga.yavuz@gmail.com"
+        }
         contacts = self._load_json("contacts.json", {})
         defaults.update(contacts)
         if not contacts:
@@ -75,7 +81,8 @@ class CaFoscariUltimate:
         self.moodle_url = self.config.get("moodle", {}).get("url", "https://moodle.unive.it")
 
         # Gmail API
-        self.gmail_enabled = GMAIL_AVAILABLE and os.path.exists(self.config.get("gmail", {}).get("credentials_file", ""))
+        credentials_path = self.config.get("gmail", {}).get("credentials_file", "api_keys/credentials.json")
+        self.gmail_enabled = GMAIL_AVAILABLE and os.path.exists(credentials_path)
         self.gmail_service = self.setup_gmail_service() if self.gmail_enabled else None
 
     def claude_request(self, messages, system_prompt="You are an expert AI tutor.", max_retries=3):
@@ -99,57 +106,173 @@ class CaFoscariUltimate:
                     },
                     timeout=180
                 )
+
                 if response.status_code == 200:
                     print("✅ AI response ready")
-                    return response.json()["content"][0]["text"]
-                print(f"❌ Error {response.status_code}")
+                    response_data = response.json()
+
+                    # Debug: Print response structure
+                    print(f"🔍 Response keys: {list(response_data.keys())}")
+
+                    # Handle different response formats
+                    if "content" in response_data and response_data["content"]:
+                        if isinstance(response_data["content"], list):
+                            return response_data["content"][0]["text"]
+                        else:
+                            return response_data["content"]
+                    elif "message" in response_data:
+                        return response_data["message"]
+                    else:
+                        print(f"🔍 Full response: {response_data}")
+                        return "❌ Unexpected response format"
+                else:
+                    print(f"❌ Error {response.status_code}: {response.text[:200]}")
+
+            except requests.exceptions.Timeout:
+                print(f"❌ Attempt {attempt+1} timed out")
+            except requests.exceptions.ConnectionError:
+                print(f"❌ Attempt {attempt+1} connection failed")
             except Exception as e:
-                print(f"❌ Attempt {attempt+1} failed: {str(e)[:50]}")
-            if attempt < max_retries-1: time.sleep(3)
-        return None
+                print(f"❌ Attempt {attempt+1} failed: {str(e)[:100]}")
+
+            if attempt < max_retries-1:
+                print(f"⏳ Waiting 3 seconds before retry...")
+                time.sleep(3)
+
+        return "❌ All attempts failed - check API key and connection"
 
     def setup_gmail_service(self):
-        if not GMAIL_AVAILABLE: return None
+        if not GMAIL_AVAILABLE:
+            print("⚠️ Gmail libraries not available")
+            return None
         try:
             SCOPES = ['https://www.googleapis.com/auth/gmail.send', 'https://www.googleapis.com/auth/gmail.readonly']
             creds = None
             token_file = self.config.get("gmail", {}).get("token_file", "api_keys/gmail_token.json")
+            credentials_file = self.config.get("gmail", {}).get("credentials_file", "api_keys/credentials.json")
+
+            print(f"🔍 Checking token file: {token_file}")
+            print(f"🔍 Checking credentials file: {credentials_file}")
 
             if os.path.exists(token_file):
                 with open(token_file, 'rb') as token:
                     creds = pickle.load(token)
+                print("✅ Token file loaded")
 
             if not creds or not creds.valid:
+                print("🔄 Token invalid or expired, refreshing...")
                 if creds and creds.expired and creds.refresh_token:
+                    print("🔄 Refreshing token...")
                     creds.refresh(GoogleRequest())
                 else:
-                    credentials_file = self.config.get("gmail", {}).get("credentials_file", "")
+                    print(f"🔄 Creating new credentials from {credentials_file}")
                     if os.path.exists(credentials_file):
                         flow = InstalledAppFlow.from_client_secrets_file(credentials_file, SCOPES)
                         creds = flow.run_local_server(port=0)
+                    else:
+                        print(f"❌ Credentials file not found: {credentials_file}")
+                        return None
 
                 with open(token_file, 'wb') as token:
                     pickle.dump(creds, token)
+                print("✅ Token saved")
 
-            return build('gmail', 'v1', credentials=creds)
-        except: return None
+            service = build('gmail', 'v1', credentials=creds)
+            print("✅ Gmail service created")
+            return service
+        except Exception as e:
+            print(f"❌ Gmail setup failed: {e}")
+            return None
 
     def send_email(self, to_email, subject, message):
-        if not self.gmail_service: return False
+        if not self.gmail_service:
+            print("❌ Gmail not configured")
+            return False
         try:
             import base64
             from email.mime.text import MIMEText
-            msg = MIMEText(message)
-            msg['to'] = to_email
-            msg['subject'] = subject
-            self.gmail_service.users().messages().send(
-                userId="me", body={'raw': base64.urlsafe_b64encode(msg.as_bytes()).decode()}
+            from email.mime.multipart import MIMEMultipart
+
+            # Create multipart message for better formatting
+            msg = MIMEMultipart()
+            msg['To'] = to_email  # Capital T for Gmail API
+            msg['Subject'] = subject
+            msg['From'] = "me"
+
+            # Add HTML formatting
+            formatted_message = message.replace('\n', '<br>')
+            timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            html_message = f"""
+            <html>
+                <body style="font-family: Arial, sans-serif;">
+                    <div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px;">
+                        <h2 style="color: #2c5aa0;">📧 Ca' Foscari Ultimate System</h2>
+                        <div style="background-color: white; padding: 15px; border-radius: 5px; margin-top: 10px;">
+                            <p style="line-height: 1.6;">{formatted_message}</p>
+                        </div>
+                        <hr style="margin: 20px 0; border: 1px solid #ddd;">
+                        <p style="color: #666; font-size: 12px;">
+                            🎓 Sent from Ca' Foscari Ultimate Study System<br>
+                            📅 {timestamp}
+                        </p>
+                    </div>
+                </body>
+            </html>
+            """
+
+            msg.attach(MIMEText(html_message, 'html'))
+
+            # Send email
+            result = self.gmail_service.users().messages().send(
+                userId="me",
+                body={'raw': base64.urlsafe_b64encode(msg.as_bytes()).decode()}
             ).execute()
+
             print(f"✅ Email sent to {to_email}")
+            print(f"📧 Message ID: {result.get('id', 'Unknown')}")
             return True
+
         except Exception as e:
             print(f"❌ Email failed: {e}")
             return False
+
+    def send_smart_email(self, user_input):
+        """Extract email, content and send intelligently"""
+        import re
+
+        # Extract email and content properly
+        email_match = re.search(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', user_input)
+        if not email_match:
+            print("❌ Email address not found")
+            return False
+
+        to_email = email_match.group(1)
+
+        # Extract the actual message content (after "adresine" and before email)
+        content_pattern = r'adresine\s+(.+?)(?:\s+mail|$)'
+        content_match = re.search(content_pattern, user_input.lower())
+
+        if content_match:
+            message_topic = content_match.group(1).strip()
+        else:
+            message_topic = "genel bilgi"
+
+        # Generate proper email with AI
+        prompt = f"Write a professional email in Turkish about: {message_topic}. Include proper greeting, detailed content, and closing."
+
+        messages = [{"role": "user", "content": prompt}]
+        email_content = self.claude_request(messages)
+
+        if not email_content or "❌" in str(email_content):
+            print("❌ Could not generate email")
+            return False
+
+        subject = f"📧 {message_topic.title()}"
+        print(f"📧 To: {to_email}")
+        print(f"📝 Subject: {subject}")
+        print(f"💬 Content: {str(email_content)[:100]}...")
+
+        return self.send_email(to_email, subject, email_content)
 
     def find_course_directory(self, course_code):
         if course_code not in self.courses: return None
@@ -443,6 +566,82 @@ CRITICAL INSTRUCTIONS:
         print(exam[:800])
         input("\n✨ Press Enter to continue...")
 
+    def generate_mock_exam_with_pdf(self, course_code):
+        """Generate mock exam and return PDF file path (no preview)"""
+        if course_code not in self.courses:
+            return None
+
+        course = self.courses[course_code]
+        print(f"🎯 Generating mock exam for: {course.get('name', course_code)}")
+
+        # Get previous exams and format
+        exam_files = self.download_previous_exams(course_code)
+        if not exam_files:
+            exam_dir = Path(f"previous_exams/{course_code}")
+            if exam_dir.exists():
+                all_files = list(exam_dir.glob("*.pdf"))
+                exclude_years = ['2020', '2021', '2022', '2023']
+                exam_files = [f for f in all_files if not any(year in f.name for year in exclude_years)]
+
+        if exam_files:
+            format_info = self.extract_exam_patterns(exam_files)
+            exam_examples = "\n".join([
+                f"Example from {f.name}:\n{self.extract_pdf_text(f, 2)[:1500]}\n"
+                for f in exam_files[:2]
+            ])
+        else:
+            format_info = {
+                'exercise_count': 5, 'total_points': 30,
+                'time_limit': '2 hours', 'question_types': ['solve', 'compute', 'prove']
+            }
+            exam_examples = ""
+
+        # Get course content
+        cache = self._load_json(f"analysis_cache_{course_code}.json", {})
+        if cache:
+            course_content = cache.get('analysis', '')[:3000]
+        else:
+            course_dir = self.find_course_directory(course_code)
+            if course_dir:
+                pdfs = list(course_dir.rglob("*.pdf"))[:3]
+                course_content = "\n".join([self.extract_pdf_text(pdf, 5)[:2000] for pdf in pdfs])
+            else:
+                course_content = ""
+
+        # Generate exam with AI
+        prompt = f"""Create a Ca' Foscari University mock exam in ENGLISH using EXACT same format as previous exams.
+
+COURSE: {course.get('name', course_code)}
+FORMAT REQUIREMENTS: {format_info['exercise_count']} exercises, {format_info['total_points']} points, {format_info['time_limit']}
+
+PREVIOUS EXAM EXAMPLES (COPY THIS FORMAT EXACTLY):
+{exam_examples[:3000]}
+
+COURSE CONTENT:
+{course_content}
+
+CRITICAL INSTRUCTIONS:
+1. Copy the EXACT structure, layout, and formatting from the examples above
+2. Keep the same headers, footers, instructions, and point distributions
+3. Keep the same exercise numbering and spacing
+4. Only change the actual question content - everything else stays identical
+5. Maintain the same difficulty level and question style
+6. Use the same mathematical notation and symbols as in examples
+7. Write entirely in ENGLISH
+8. Make sure each exercise has the same point value as in the original format"""
+
+        messages = [{"role": "user", "content": prompt}]
+        exam = self.claude_request(messages, "You are a Ca' Foscari professor creating an authentic exam.")
+
+        if not exam:
+            return None
+
+        # Create PDF exam
+        exam_dir = Path(f"mock_exams/{course_code}")
+        exam_dir.mkdir(parents=True, exist_ok=True)
+
+        return self.create_exam_pdf(course_code, course.get('name', course_code), exam, format_info)
+
     def create_exam_pdf(self, course_code, course_name, content, format_info):
         """Create PDF exam - simplified version"""
         try:
@@ -593,7 +792,8 @@ Make it print-ready and exam-optimized."""
         input("\n✨ Press Enter...")
 
     def chat_with_claude(self):
-        print("\n💬 CHAT MODE - Type 'exit' to return")
+        print("\n💬 CLAUDE CHAT - Her şeyi doğrudan Claude'a söyle")
+        print("Örnekler: 'tolgaya mail gönder', 'study plan oluştur', 'matematik hesapla'")
         print("="*60)
 
         while True:
@@ -601,57 +801,441 @@ Make it print-ready and exam-optimized."""
             if user_input.lower() in ['exit', 'quit']: break
             if not user_input: continue
 
-            # Handle special commands
-            if self.handle_email_commands(user_input): continue
-            if self.handle_study_plan_request(user_input): continue
+            # Claude'a tüm sistem fonksiyonlarını tanıt
+            system_prompt = f"""You are Claude, but integrated with a Ca' Foscari study system with FULL ACCESS to all functions.
 
-            # Normal chat
+AVAILABLE COURSES: {', '.join(self.courses.keys())}
+CONTACTS: tolgay/tolga = tlga.yavuz@gmail.com, soner = sonerozen2004@gmail.com, erdem = erdem@example.com
+
+AVAILABLE SYSTEM FUNCTIONS (respond with these exact formats when user requests):
+- Email: "EMAIL_REQUEST: recipient@email.com | subject | message"
+- Study Plan: "STUDY_PLAN: course_code"
+- Mock Exam: "MOCK_EXAM: course_code"
+- Mock Exam + Email: "MOCK_EXAM_EMAIL: course_code | recipient@email.com"
+- PDF Analysis: "PDF_ANALYSIS: course_code"
+- Cheat Sheet: "CHEAT_SHEET: course_code"
+- Code Writing: "CODE_WRITE: filename.ext | code_content"
+- System Status: "SYSTEM_STATUS"
+- Show Courses: "SHOW_COURSES"
+- Show Cached Emails: "SHOW_EMAILS"
+- Moodle Refresh: "MOODLE_REFRESH"
+- Moodle Optimize: "MOODLE_OPTIMIZE"
+
+INSTRUCTIONS:
+1. For Turkish conversations, respond naturally in Turkish
+2. For system requests, use the exact function formats above
+3. Be conversational and helpful like normal Claude
+4. Auto-detect what the user wants and trigger the right function
+
+Examples:
+- "tolgaya merhaba mail at" → EMAIL_REQUEST: tlga.yavuz@gmail.com | Merhaba | ...
+- "21002 için mock exam yap" → MOCK_EXAM: 21002
+- "21002 mock exam sonera gönder" → MOCK_EXAM_EMAIL: 21002 | sonerozen2004@gmail.com
+- "hello.py dosyası oluştur" → CODE_WRITE: hello.py | print("Hello World!")
+- "sistem durumu nedir" → SYSTEM_STATUS"""
+
             messages = [{"role": "user", "content": user_input}]
-            response = self.claude_request(messages)
-            print(f"\n🧠 Claude: {response}")
+            response = self.claude_request(messages, system_prompt)
+
+            # Process system function requests - but also detect direct user requests
+            if response and "EMAIL_REQUEST:" in response:
+                self.process_email_request(response)
+            elif response and "STUDY_PLAN:" in response:
+                self.process_study_request(response)
+            elif response and "MOCK_EXAM_EMAIL:" in response:
+                self.process_mock_exam_email_request(response)
+            elif response and "MOCK_EXAM:" in response:
+                self.process_mock_exam_request(response)
+            elif response and "PDF_ANALYSIS:" in response:
+                self.process_pdf_analysis_request(response)
+            elif response and "CHEAT_SHEET:" in response:
+                self.process_cheat_sheet_request(response)
+            elif response and "CODE_WRITE:" in response:
+                self.process_code_write_request(response)
+            elif response and "SYSTEM_STATUS" in response:
+                self.system_status()
+            elif response and "SHOW_COURSES" in response:
+                self.show_available_courses()
+            elif response and "SHOW_EMAILS" in response:
+                self.show_cached_emails()
+            elif response and "MOODLE_REFRESH" in response:
+                self.refresh_moodle_data()
+            elif response and "MOODLE_OPTIMIZE" in response:
+                self.optimize_moodle_courses()
+            else:
+                # Check if user wants mock exam with email directly
+                if self.detect_mock_exam_email_request(user_input):
+                    self.handle_direct_mock_exam_email(user_input)
+                else:
+                    print(f"\n🧠 Claude: {response}")
+
+    def process_email_request(self, response):
+        try:
+            parts = response.replace("EMAIL_REQUEST:", "").strip().split("|")
+            if len(parts) >= 3:
+                email = parts[0].strip()
+                subject = parts[1].strip()
+                message = parts[2].strip()
+                result = self.send_email(email, subject, message)
+                print(f"📧 Email {'sent' if result else 'failed'} to {email}")
+            else:
+                print("❌ Email format error")
+        except:
+            print("❌ Email processing failed")
+
+    def process_study_request(self, response):
+        try:
+            course_code = response.replace("STUDY_PLAN:", "").strip()
+            if course_code in self.courses:
+                self.create_study_plan(course_code)
+            else:
+                print(f"❌ Course {course_code} not found")
+                self.show_available_courses()
+        except:
+            print("❌ Study plan processing failed")
+
+    def process_mock_exam_request(self, response):
+        try:
+            course_code = response.replace("MOCK_EXAM:", "").strip()
+            if course_code in self.courses:
+                self.generate_mock_exam(course_code)
+            else:
+                print(f"❌ Course {course_code} not found")
+                self.show_available_courses()
+        except:
+            print("❌ Mock exam processing failed")
+
+    def process_pdf_analysis_request(self, response):
+        try:
+            course_code = response.replace("PDF_ANALYSIS:", "").strip()
+            if course_code in self.courses:
+                self.deep_pdf_analysis(course_code)
+            else:
+                print(f"❌ Course {course_code} not found")
+                self.show_available_courses()
+        except:
+            print("❌ PDF analysis processing failed")
+
+    def process_cheat_sheet_request(self, response):
+        try:
+            course_code = response.replace("CHEAT_SHEET:", "").strip()
+            if course_code in self.courses:
+                self.generate_cheat_sheet(course_code)
+            else:
+                print(f"❌ Course {course_code} not found")
+                self.show_available_courses()
+        except:
+            print("❌ Cheat sheet processing failed")
+
+    def process_mock_exam_email_request(self, response):
+        try:
+            # Extract the MOCK_EXAM_EMAIL part only
+            import re
+            mock_exam_match = re.search(r'MOCK_EXAM_EMAIL:\s*([^|]+)\s*\|\s*([^\s]+@[^\s]+)', response)
+
+            if mock_exam_match:
+                course_code = mock_exam_match.group(1).strip()
+                recipient = mock_exam_match.group(2).strip()
+
+                print(f"🔍 Parsed: course={course_code}, email={recipient}")
+
+                if course_code not in self.courses:
+                    print(f"❌ Course {course_code} not found")
+                    self.show_available_courses()
+                    return
+
+                print(f"📝 Creating mock exam for {course_code} and emailing to {recipient}...")
+                pdf_file = self.generate_mock_exam_with_pdf(course_code)
+
+                if pdf_file:
+                    self.send_mock_exam_email(recipient, course_code, pdf_file)
+                else:
+                    print("❌ Failed to create mock exam PDF")
+            else:
+                print("❌ Could not parse MOCK_EXAM_EMAIL format")
+                print(f"🔍 Response: {response[:200]}")
+        except Exception as e:
+            print(f"❌ Mock exam email processing failed: {e}")
+
+    def detect_mock_exam_email_request(self, user_input):
+        """Detect if user wants mock exam sent via email"""
+        import re
+
+        # Look for patterns like "course_code için mock exam email_address gönder"
+        has_mock = any(word in user_input.lower() for word in ['mock exam', 'mock', 'sınav'])
+        has_email = bool(re.search(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', user_input))
+        has_send = any(word in user_input.lower() for word in ['gönder', 'send', 'mail'])
+
+        return has_mock and has_email and has_send
+
+    def handle_direct_mock_exam_email(self, user_input):
+        """Directly parse user input for mock exam email request"""
+        import re
+
+        # Extract email
+        email_match = re.search(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', user_input)
+        if not email_match:
+            print("❌ Email address not found")
+            return
+
+        recipient = email_match.group(0).strip()
+
+        # Extract course code (look for 5-digit codes)
+        course_match = re.search(r'\b(\d{5})\b', user_input)
+        if not course_match:
+            print("❌ Course code not found")
+            return
+
+        course_code = course_match.group(1)
+
+        if course_code not in self.courses:
+            print(f"❌ Course {course_code} not found")
+            self.show_available_courses()
+            return
+
+        print(f"🔍 Direct parse: course={course_code}, email={recipient}")
+        print(f"📝 Creating mock exam for {course_code} and emailing to {recipient}...")
+
+        # Cache email for future use
+        self.cache_email(recipient)
+
+        pdf_file = self.generate_mock_exam_with_pdf(course_code)
+        if pdf_file:
+            self.send_mock_exam_email(recipient, course_code, pdf_file)
+        else:
+            print("❌ Failed to create mock exam PDF")
+
+    def cache_email(self, email):
+        """Cache email address with timestamp"""
+        from datetime import datetime
+
+        if email not in self.email_cache:
+            self.email_cache[email] = {
+                'first_used': datetime.now().isoformat(),
+                'last_used': datetime.now().isoformat(),
+                'usage_count': 1
+            }
+        else:
+            self.email_cache[email]['last_used'] = datetime.now().isoformat()
+            self.email_cache[email]['usage_count'] += 1
+
+        # Save cache
+        self._save_json("email_cache.json", self.email_cache)
+        print(f"💾 Email cached: {email}")
+
+    def get_cached_emails(self):
+        """Get list of cached emails for autocomplete"""
+        return list(self.email_cache.keys())
+
+    def show_cached_emails(self):
+        """Show cached email addresses"""
+        print("\n📧 CACHED EMAIL ADDRESSES:")
+        if not self.email_cache:
+            print("   (No cached emails)")
+            return
+
+        for email, data in self.email_cache.items():
+            count = data.get('usage_count', 1)
+            last_used = data.get('last_used', 'Unknown')[:10]  # Just date part
+            print(f"   📩 {email} - Used {count} times, Last: {last_used}")
+        print(f"\n📊 Total: {len(self.email_cache)} cached emails")
+
+    def process_code_write_request(self, response):
+        """Process code writing request"""
+        try:
+            parts = response.replace("CODE_WRITE:", "").strip().split("|")
+            if len(parts) >= 2:
+                filename = parts[0].strip()
+                code_content = parts[1].strip()
+
+                # Write the code to file
+                try:
+                    with open(filename, 'w', encoding='utf-8') as f:
+                        f.write(code_content)
+                    print(f"✅ Code written to: {filename}")
+                    print(f"📝 Content preview:\n{code_content[:200]}...")
+                except Exception as e:
+                    print(f"❌ Failed to write file: {e}")
+            else:
+                print("❌ Invalid format. Use: filename | code_content")
+        except Exception as e:
+            print(f"❌ Code writing failed: {e}")
+
+    def handle_slash_commands(self, command):
+        """Handle explicit slash commands only"""
+        cmd = command.lower().split()
+
+        if cmd[0] == '/email':
+            if len(cmd) < 3:
+                print("Usage: /email recipient@email.com your message here")
+                return
+            email = cmd[1]
+            message = ' '.join(cmd[2:])
+            self.quick_email(email, message)
+
+        elif cmd[0] == '/study':
+            if len(cmd) < 2:
+                print("Usage: /study [course_code]")
+                self.show_available_courses()
+                return
+            course_code = cmd[1]
+            if course_code in self.courses:
+                self.create_study_plan(course_code)
+            else:
+                print(f"❌ Course {course_code} not found")
+
+        elif cmd[0] == '/help':
+            print("Available commands:")
+            print("  /email email@domain.com message - Send email")
+            print("  /study course_code - Create study plan")
+            print("  /help - Show this help")
+            print("Everything else goes to Claude chat!")
+
+        else:
+            print(f"❌ Unknown command: {cmd[0]}")
+            print("Type '/help' for available commands")
+
+    def quick_email(self, email, message):
+        """Quick email without AI processing"""
+        if '@' not in email:
+            print("❌ Invalid email address")
+            return
+        subject = "📧 Quick Message"
+        self.send_email(email, subject, message)
 
     def handle_email_commands(self, user_input):
+        """Enhanced email handling with AI composition"""
         import re
-        email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-        emails = re.findall(email_pattern, user_input)
 
-        if not emails and not any(word in user_input.lower() for word in ['mail', 'email', 'gönder']):
+        # Check for explicit email pattern first
+        if '@' in user_input or 'adresine' in user_input.lower():
+            print("📧 Email request detected!")
+            return self.send_smart_email(user_input)
+
+        # Check for contact names + mail keywords
+        email_keywords = ['mail', 'email', 'gönder', 'send']
+        has_email_keyword = any(keyword in user_input.lower() for keyword in email_keywords)
+
+        if has_email_keyword:
+            for name in self.contacts.keys():
+                if name.lower() in user_input.lower():
+                    print("📧 Contact-based email detected!")
+                    return self.send_contact_email(user_input, name)
+
+        return False
+
+    def send_contact_email(self, user_input, contact_name):
+        """Send email to contact by name"""
+        to_email = self.contacts[contact_name]
+
+        # Extract message content
+        content = user_input.lower()
+        for keyword in ['mail', 'email', 'gönder', 'send']:
+            content = content.replace(keyword, '')
+        content = content.replace(contact_name.lower(), '').strip()
+
+        if not content:
+            content = "merhaba, nasılsın?"
+
+        prompt = f"Write a friendly email in Turkish: {content}"
+        messages = [{"role": "user", "content": prompt}]
+        email_content = self.claude_request(messages)
+
+        subject = f"📧 {contact_name.title()} için mesaj"
+        print(f"📧 To: {contact_name} ({to_email})")
+        print(f"📝 Subject: {subject}")
+
+        return self.send_email(to_email, subject, email_content)
+
+    def send_mock_exam_email(self, recipient, course_code, pdf_file):
+        """Send mock exam PDF as email attachment"""
+        print(f"🔍 Debug: gmail_service = {self.gmail_service is not None}")
+        print(f"🔍 Debug: gmail_enabled = {self.gmail_enabled}")
+
+        # Use the exact same logic as send_email function
+        if not self.gmail_service:
+            print("❌ Gmail not configured")
             return False
 
-        # Find recipient
-        to_email = emails[0] if emails else None
-        if not to_email:
-            for name, email in self.contacts.items():
-                if name in user_input.lower():
-                    to_email = email
-                    break
+        try:
+            import base64
+            from email.mime.text import MIMEText
+            from email.mime.multipart import MIMEMultipart
+            from email.mime.application import MIMEApplication
 
-        if not to_email:
-            print("❌ No email/contact found")
+            course_name = self.courses[course_code].get('name', course_code)
+            subject = f"Mock Exam - {course_name}"  # Remove emoji from subject
+
+            print(f"📧 Debug: Sending to {recipient}")
+            print(f"📧 Debug: Subject: {subject}")
+
+            # Create message using same pattern as working send_email function
+            msg = MIMEMultipart()
+            msg['to'] = recipient.strip()  # Use lowercase 'to' like working function
+            msg['subject'] = subject
+
+            # Simplified email body without complex HTML
+            simple_body = f"""
+Mock Exam - {course_name}
+
+Course: {course_name}
+Course Code: {course_code}
+
+Please find your mock exam attached as PDF.
+Good luck with your studies!
+
+Generated by Ca' Foscari Ultimate Study System
+{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+            """
+
+            msg.attach(MIMEText(simple_body, 'plain'))
+
+            # Attach PDF
+            if pdf_file and Path(pdf_file).exists():
+                with open(pdf_file, 'rb') as f:
+                    pdf_attachment = MIMEApplication(f.read(), _subtype='pdf')
+                    pdf_attachment.add_header('Content-Disposition', 'attachment', filename=Path(pdf_file).name)
+                    msg.attach(pdf_attachment)
+                print(f"📎 Debug: Attached {Path(pdf_file).name}")
+
+            # Send email using exact same method as working send_email
+            result = self.gmail_service.users().messages().send(
+                userId="me",
+                body={'raw': base64.urlsafe_b64encode(msg.as_bytes()).decode()}
+            ).execute()
+
+            print(f"✅ Mock exam emailed to {recipient}")
+            print(f"📧 Message ID: {result.get('id', 'Unknown')}")
+            print(f"📎 Attachment: {Path(pdf_file).name}")
             return True
 
-        # Extract message
-        message = user_input.split()
-        message = ' '.join([w for w in message if '@' not in w and w.lower() not in ['mail', 'email', 'gönder', 'send']])
-
-        # Send
-        subject = "📧 Message"
-        self.send_email(to_email, subject, message)
-        return True
-
-    def handle_study_plan_request(self, user_input):
-        if not any(w in user_input.lower() for w in ['study plan', 'çalışma planı', 'plan']):
+        except Exception as e:
+            print(f"❌ Mock exam email failed: {e}")
+            print(f"🔍 Debug: Recipient = '{recipient}'")
+            print(f"🔍 Debug: Subject = '{subject}'")
             return False
 
-        for code in self.courses.keys():
-            if code.lower() in user_input.lower():
-                print(f"📚 Creating study plan for {code}...")
-                self.create_study_plan(code)
-                return True
+    def handle_study_plan_request(self, user_input):
+        # Only handle explicit study plan requests
+        if 'study plan' in user_input.lower() or 'çalışma planı' in user_input.lower():
+            for code in self.courses.keys():
+                if code in user_input:
+                    print(f"📚 Creating study plan for {code}...")
+                    self.create_study_plan(code)
+                    return True
 
-        print("📋 Please specify a course code")
-        self.show_available_courses()
-        return True
+            print("📋 Please specify a course code")
+            self.show_available_courses()
+            return True
+
+        # Handle storage location question
+        if any(w in user_input.lower() for w in ['nereye kaydediliyor', 'nereye kayıt', 'where saved']):
+            print("📁 Study plans are saved to: study_plans/[course_code]/PLAN_[timestamp].txt")
+            print("📄 Cheat sheets are saved to: cheat_sheets/CHEAT_[course_code]_[timestamp].txt")
+            print("📋 Mock exams are saved to: mock_exams/[course_code]/EXAM_[course_code]_[timestamp].pdf")
+            return True
+
+        return False
 
     def refresh_moodle_data(self):
         if not self.moodle_token or not self.moodle_url:
@@ -724,7 +1308,18 @@ Make it print-ready and exam-optimized."""
         print(f"📚 Courses: {len(self.courses)}")
         print(f"🧠 Claude: {'✅' if self.claude_api else '❌'}")
         print(f"🌐 Moodle: {'✅' if self.moodle_token else '❌'}")
-        print(f"📧 Gmail: {'✅' if self.gmail_enabled else '❌'}")
+        print(f"📧 Gmail enabled: {'✅' if self.gmail_enabled else '❌'}")
+        print(f"📧 Gmail service: {'✅' if self.gmail_service else '❌'}")
+        print(f"📧 Gmail libs available: {'✅' if GMAIL_AVAILABLE else '❌'}")
+
+        # Check credentials file
+        creds_path = self.config.get("gmail", {}).get("credentials_file", "api_keys/credentials.json")
+        print(f"📧 Credentials file: {'✅' if os.path.exists(creds_path) else '❌'} ({creds_path})")
+
+        # Check token file
+        token_path = self.config.get("gmail", {}).get("token_file", "api_keys/gmail_token.json")
+        print(f"📧 Token file: {'✅' if os.path.exists(token_path) else '❌'} ({token_path})")
+
         input("\n✨ Press Enter...")
 
     def run(self):

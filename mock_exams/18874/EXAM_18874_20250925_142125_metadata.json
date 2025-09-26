@@ -1,0 +1,15 @@
+{
+  "course_code": "18874",
+  "course_name": "[CT0666] DISCRETE STRUCTURES (CT3) - a.a. 2024-25",
+  "timestamp": "20250925_142125",
+  "format_info": {
+    "exercise_count": 5,
+    "total_points": 30,
+    "time_limit": "2 hours",
+    "question_types": [
+      "solve",
+      "compute",
+      "prove"
+    ]
+  }
+}

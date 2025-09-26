@@ -1,0 +1,15 @@
+{
+  "course_code": "18875",
+  "course_name": "[CT0668-1] COMPUTER ARCHITECTURES-FOUNDATIONS (CT3) - a.a. 2024-25",
+  "timestamp": "20250925_221227",
+  "format_info": {
+    "exercise_count": 4,
+    "total_points": 32,
+    "time_limit": "2 hours",
+    "question_types": [
+      "compute",
+      "calculate"
+    ],
+    "instructions": ""
+  }
+}
