@@ -1,0 +1,299 @@
+{% extends "base.html" %}
+
+{% block title %}Initial Setup - Study Assistant{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-white mb-4"><i class="fas fa-cog"></i> Initial Setup</h1>
+        <p class="text-white-50">Configure your API keys and university Moodle to get started</p>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-key"></i> API Configuration</h5>
+            </div>
+            <div class="card-body">
+                <form id="setupForm">
+                    <!-- Claude API -->
+                    <div class="mb-4">
+                        <h6 class="text-primary"><i class="fas fa-robot"></i> Claude API</h6>
+                        <div class="mb-3">
+                            <label for="claudeApiKey" class="form-label">Claude API Key *</label>
+                            <input type="password" class="form-control" id="claudeApiKey" required>
+                            <div class="form-text">Get your API key from <a href="https://console.anthropic.com/" target="_blank">Anthropic Console</a></div>
+                        </div>
+                    </div>
+
+                    <!-- Gmail API -->
+                    <div class="mb-4">
+                        <h6 class="text-success"><i class="fas fa-envelope"></i> Gmail API</h6>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <label class="form-label">Gmail Connection</label>
+                                <span id="gmailStatus" class="badge bg-secondary">Not Connected</span>
+                            </div>
+                            <button type="button" class="btn btn-success" id="connectGmailBtn" onclick="connectGmail()">
+                                <i class="fas fa-link"></i> Connect Gmail Account
+                            </button>
+                            <div class="form-text mt-2">
+                                Click to connect your Gmail account via secure OAuth. This will allow the system to send mock exams and notifications.
+                            </div>
+                            <input type="hidden" id="gmailConnected" value="false">
+                        </div>
+                    </div>
+
+                    <!-- University & Moodle API -->
+                    <div class="mb-4">
+                        <h6 class="text-warning"><i class="fas fa-globe"></i> University & Moodle</h6>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="universityName" class="form-label">University Name *</label>
+                                <input type="text" class="form-control" id="universityName" required placeholder="e.g., University of Bologna, MIT, Stanford University">
+                                <div class="form-text">This will be displayed in the system branding</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="moodleUrl" class="form-label">Moodle URL</label>
+                                <input type="url" class="form-control" id="moodleUrl" placeholder="https://moodle.youruniversity.edu">
+                                <div class="form-text">Your university's Moodle instance URL</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="moodleToken" class="form-label">API Token</label>
+                                <input type="password" class="form-control" id="moodleToken" placeholder="Your Moodle API token">
+                                <div class="form-text">Get from Moodle preferences</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email Settings -->
+                    <div class="mb-4">
+                        <h6 class="text-info"><i class="fas fa-user"></i> Email Settings</h6>
+                        <div class="mb-3">
+                            <label for="defaultEmail" class="form-label">Default Email Address *</label>
+                            <input type="email" class="form-control" id="defaultEmail" required placeholder="your-email@gmail.com">
+                            <div class="form-text">This will be used as the sender email for mock exams and notifications</div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg" id="saveButton">
+                            <i class="fas fa-save"></i> Save Configuration & Start System
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="testAPIs()">
+                            <i class="fas fa-vial"></i> Test APIs
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Test Results -->
+        <div class="card mt-4" id="testResults" style="display: none;">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-check-circle"></i> API Test Results</h6>
+            </div>
+            <div class="card-body">
+                <div id="testOutput"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('setupForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const saveButton = document.getElementById('saveButton');
+    const originalText = saveButton.innerHTML;
+    saveButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+    saveButton.disabled = true;
+
+    try {
+        const formData = {
+            university_name: document.getElementById('universityName').value,
+            claude_api_key: document.getElementById('claudeApiKey').value,
+            gmail_connected: document.getElementById('gmailConnected').value === 'true',
+            moodle_url: document.getElementById('moodleUrl').value,
+            moodle_token: document.getElementById('moodleToken').value,
+            default_email: document.getElementById('defaultEmail').value
+        };
+
+        const response = await fetch('/api/setup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            showAlert('success', 'Configuration saved successfully! Redirecting to dashboard...');
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        } else {
+            showAlert('danger', 'Error: ' + result.error);
+        }
+    } catch (error) {
+        showAlert('danger', 'Connection error: ' + error.message);
+    } finally {
+        saveButton.innerHTML = originalText;
+        saveButton.disabled = false;
+    }
+});
+
+async function testAPIs() {
+    const testResults = document.getElementById('testResults');
+    const testOutput = document.getElementById('testOutput');
+
+    testResults.style.display = 'block';
+    testOutput.innerHTML = '<div class="text-center"><i class="fas fa-spinner fa-spin"></i> Testing APIs...</div>';
+
+    try {
+        const formData = {
+            university_name: document.getElementById('universityName').value,
+            claude_api_key: document.getElementById('claudeApiKey').value,
+            gmail_connected: document.getElementById('gmailConnected').value === 'true',
+            moodle_url: document.getElementById('moodleUrl').value,
+            moodle_token: document.getElementById('moodleToken').value,
+            default_email: document.getElementById('defaultEmail').value
+        };
+
+        const response = await fetch('/api/test-setup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        let output = '<div class="row">';
+
+        // Claude API Test
+        output += `<div class="col-md-4 mb-3">
+            <div class="card ${result.claude ? 'border-success' : 'border-danger'}">
+                <div class="card-body text-center">
+                    <i class="fas fa-robot fa-2x mb-2 ${result.claude ? 'text-success' : 'text-danger'}"></i>
+                    <h6>Claude API</h6>
+                    <span class="badge ${result.claude ? 'bg-success' : 'bg-danger'}">
+                        ${result.claude ? 'Working' : 'Failed'}
+                    </span>
+                </div>
+            </div>
+        </div>`;
+
+        // Gmail API Test
+        output += `<div class="col-md-4 mb-3">
+            <div class="card ${result.gmail ? 'border-success' : 'border-danger'}">
+                <div class="card-body text-center">
+                    <i class="fas fa-envelope fa-2x mb-2 ${result.gmail ? 'text-success' : 'text-danger'}"></i>
+                    <h6>Gmail API</h6>
+                    <span class="badge ${result.gmail ? 'bg-success' : 'bg-danger'}">
+                        ${result.gmail ? 'Connected' : 'Failed'}
+                    </span>
+                </div>
+            </div>
+        </div>`;
+
+        // Moodle API Test
+        output += `<div class="col-md-4 mb-3">
+            <div class="card ${result.moodle ? 'border-success' : 'border-warning'}">
+                <div class="card-body text-center">
+                    <i class="fas fa-globe fa-2x mb-2 ${result.moodle ? 'text-success' : 'text-warning'}"></i>
+                    <h6>Moodle API</h6>
+                    <span class="badge ${result.moodle ? 'bg-success' : 'bg-warning'}">
+                        ${result.moodle ? 'Connected' : 'Optional'}
+                    </span>
+                </div>
+            </div>
+        </div>`;
+
+        output += '</div>';
+
+        if (result.errors && result.errors.length > 0) {
+            output += '<div class="alert alert-warning mt-3"><h6>Issues Found:</h6><ul class="mb-0">';
+            result.errors.forEach(error => {
+                output += `<li>${error}</li>`;
+            });
+            output += '</ul></div>';
+        }
+
+        testOutput.innerHTML = output;
+
+    } catch (error) {
+        testOutput.innerHTML = `<div class="alert alert-danger">Test failed: ${error.message}</div>`;
+    }
+}
+
+function connectGmail() {
+    const btn = document.getElementById('connectGmailBtn');
+    const status = document.getElementById('gmailStatus');
+
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connecting...';
+    btn.disabled = true;
+
+    // Redirect to Gmail OAuth
+    window.location.href = '/auth/gmail';
+}
+
+function updateGmailStatus(connected) {
+    const status = document.getElementById('gmailStatus');
+    const btn = document.getElementById('connectGmailBtn');
+    const hiddenInput = document.getElementById('gmailConnected');
+
+    if (connected) {
+        status.className = 'badge bg-success';
+        status.textContent = 'Connected';
+        btn.innerHTML = '<i class="fas fa-check"></i> Gmail Connected';
+        btn.className = 'btn btn-outline-success';
+        btn.disabled = true;
+        hiddenInput.value = 'true';
+    } else {
+        status.className = 'badge bg-secondary';
+        status.textContent = 'Not Connected';
+        btn.innerHTML = '<i class="fas fa-link"></i> Connect Gmail Account';
+        btn.className = 'btn btn-success';
+        btn.disabled = false;
+        hiddenInput.value = 'false';
+    }
+}
+
+// Check Gmail status on page load
+window.addEventListener('load', function() {
+    fetch('/api/gmail-status')
+        .then(response => response.json())
+        .then(data => {
+            updateGmailStatus(data.connected);
+        })
+        .catch(error => {
+            console.log('Gmail status check failed:', error);
+        });
+});
+
+function showAlert(type, message) {
+    const alert = document.createElement('div');
+    alert.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
+    alert.style.cssText = 'top: 80px; right: 20px; z-index: 1050; min-width: 300px;';
+    alert.innerHTML = `
+        ${message}
+        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\"></button>
+    `;
+    document.body.appendChild(alert);
+
+    setTimeout(() => {
+        if (alert.parentNode) {
+            alert.parentNode.removeChild(alert);
+        }
+    }, 5000);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}PDF Analysis - Ca' Foscari Ultimate{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-white mb-4"><i class="fas fa-chart-line"></i> PDF Analysis</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-search"></i> Analyze Course Materials</h5>
+            </div>
+            <div class="card-body">
+                <form id="analysisForm">
+                    <div class="mb-3">
+                        <label for="courseSelect" class="form-label">Select Course</label>
+                        <select class="form-select" id="courseSelect" required>
+                            <option value="">Choose a course...</option>
+                            {% for code, course in courses.items() %}
+                            <option value="{{ code }}" {% if request.args.get('course') == code %}selected{% endif %}>
+                                {{ code }} - {{ course.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-info btn-lg">
+                            <i class="fas fa-magic"></i> Analyze PDFs
+                        </button>
+                    </div>
+                </form>
+
+                <div id="resultsArea" class="mt-4" style="display: none;">
+                    <hr>
+                    <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+                    <div id="analysisResults" style="display: none;">
+                        <h5><i class="fas fa-chart-bar"></i> Analysis Complete</h5>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <strong>Course:</strong> <span id="analysisCourse"></span><br>
+                                    <strong>PDFs Analyzed:</strong> <span id="pdfCount"></span><br>
+                                    <strong>Generated:</strong> <span id="analysisTime"></span>
+                                </div>
+                                <div id="analysisContent" class="border rounded p-3" style="max-height: 500px; overflow-y: auto; background: #f8f9fa;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-info-circle"></i> What We Analyze</h6>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled small">
+                    <li><i class="fas fa-check text-success"></i> Core concepts</li>
+                    <li><i class="fas fa-check text-success"></i> Key formulas</li>
+                    <li><i class="fas fa-check text-success"></i> Study recommendations</li>
+                    <li><i class="fas fa-check text-success"></i> Exam focus areas</li>
+                    <li><i class="fas fa-check text-success"></i> Important definitions</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-folder"></i> Requirements</h6>
+            </div>
+            <div class="card-body">
+                <p class="small text-muted">
+                    Course PDFs must be located in:<br>
+                    <code>data/courses/[course_code]_[course_name]/</code>
+                </p>
+                <p class="small text-muted">
+                    Analysis results are cached for use in Study Plan generation.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('analysisForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    analyzePDFs();
+});
+
+function analyzePDFs() {
+    const courseCode = document.getElementById('courseSelect').value;
+    if (!courseCode) {
+        showError('Please select a course');
+        return;
+    }
+
+    hideResults();
+    showLoading(true);
+
+    fetch('/api/analyze-pdfs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ course_code: courseCode })
+    })
+    .then(response => response.json())
+    .then(data => {
+        showLoading(false);
+        if (data.error) {
+            showError(data.error);
+        } else {
+            showSuccess(data);
+        }
+    })
+    .catch(error => {
+        showLoading(false);
+        showError('Request failed: ' + error.message);
+    });
+}
+
+function showSuccess(data) {
+    document.getElementById('analysisCourse').textContent = data.course_name;
+    document.getElementById('pdfCount').textContent = data.pdf_count;
+    document.getElementById('analysisTime').textContent = new Date().toLocaleString();
+    document.getElementById('analysisContent').innerHTML = data.analysis.replace(/\n/g, '<br>');
+
+    document.getElementById('resultsArea').style.display = 'block';
+    document.getElementById('analysisResults').style.display = 'block';
+}
+
+function showError(message) {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    document.getElementById('resultsArea').style.display = 'block';
+}
+
+function hideResults() {
+    document.getElementById('resultsArea').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+    document.getElementById('analysisResults').style.display = 'none';
+}
+
+function showLoading(show) {
+    const btn = document.querySelector('#analysisForm button');
+    if (show) {
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Analyzing...';
+        btn.disabled = true;
+    } else {
+        btn.innerHTML = '<i class="fas fa-magic"></i> Analyze PDFs';
+        btn.disabled = false;
+    }
+}
+</script>
+{% endblock %}

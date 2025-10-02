@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+
+{% block title %}AI Chat - {{ university_name or "Study Assistant" }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-white mb-4"><i class="fas fa-robot"></i> AI Chat</h1>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Chat Interface -->
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-comments"></i> Claude Assistant</h5>
+            </div>
+            <div class="card-body p-0">
+                <div id="chatMessages" class="chat-container p-3" style="height: 500px; overflow-y: auto;">
+                    <div class="chat-message chat-ai">
+                        <strong>Claude:</strong> Merhaba! Size nasıl yardımcı olabilirim? Ders analizi, mock exam oluşturma, study plan yapma gibi işlemleri doğal dil ile yapabilirsiniz.
+                        <br><small class="text-muted">Örnek: "Matematik dersi için mock exam oluştur email@gmail.com adresine gönder"</small>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" id="messageInput" class="form-control" placeholder="Mesajınızı yazın..." onkeypress="handleKeyPress(event)">
+                    <button class="btn btn-primary" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-outline-primary btn-sm me-2" onclick="insertExample('matematik için mock exam oluştur')">Mock Exam</button>
+                    <button class="btn btn-outline-primary btn-sm me-2" onclick="insertExample('tolgaya merhaba mail gönder')">Email</button>
+                    <button class="btn btn-outline-primary btn-sm me-2" onclick="insertExample('matematik için study plan oluştur')">Study Plan</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="insertExample('sistem durumu nedir')">Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <!-- Quick Actions -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-bolt"></i> Quick Actions</h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-success btn-sm" onclick="insertExample('hangi derslerim var')">Show Courses</button>
+                    <button class="btn btn-outline-info btn-sm" onclick="insertExample('cache edilmiş emailler')">Show Emails</button>
+                    <button class="btn btn-outline-warning btn-sm" onclick="insertExample('sistem durumu')">System Status</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Courses -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-book"></i> Courses</h6>
+            </div>
+            <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                {% for code, course in courses.items() %}
+                <div class="mb-2">
+                    <button class="btn btn-outline-primary btn-sm w-100 text-start" onclick="insertCourse('{{ code }}')">
+                        <strong>{{ code }}</strong><br>
+                        <small>{{ course.name[:50] }}{% if course.name|length > 50 %}...{% endif %}</small>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Contacts -->
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-address-book"></i> Contacts</h6>
+            </div>
+            <div class="card-body">
+                {% for name, email in contacts.items() %}
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span><strong>{{ name }}</strong></span>
+                    <button class="btn btn-outline-primary btn-sm" onclick="insertContact('{{ name }}')">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let isLoading = false;
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter' && !isLoading) {
+        sendMessage();
+    }
+}
+
+function sendMessage() {
+    if (isLoading) return;
+
+    const input = document.getElementById('messageInput');
+    const message = input.value.trim();
+
+    if (!message) return;
+
+    // Add user message to chat
+    addMessageToChat('user', message);
+    input.value = '';
+
+    // Show loading
+    isLoading = true;
+    addLoadingMessage();
+
+    // Send to API
+    fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({message: message})
+    })
+    .then(response => response.json())
+    .then(data => {
+        removeLoadingMessage();
+        isLoading = false;
+
+        if (data.error) {
+            addMessageToChat('error', 'Hata: ' + data.error);
+        } else {
+            // Handle course selection
+            if (data.type === 'course_selection') {
+                addCourseSelectionToChat(data.response, data.action, data.courses);
+            } else {
+                addMessageToChat('ai', data.response);
+
+                // Handle special actions
+                if (data.action === 'mock_exam_sent') {
+                    showSuccessAlert('Mock exam başarıyla oluşturuldu ve email gönderildi!');
+                }
+            }
+        }
+    })
+    .catch(error => {
+        removeLoadingMessage();
+        isLoading = false;
+        addMessageToChat('error', 'Bağlantı hatası: ' + error.message);
+    });
+}
+
+function addMessageToChat(type, message) {
+    const chatMessages = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+
+    let className = 'chat-message ';
+    let prefix = '';
+
+    switch(type) {
+        case 'user':
+            className += 'chat-user';
+            prefix = 'Sen: ';
+            break;
+        case 'ai':
+            className += 'chat-ai';
+            prefix = 'Claude: ';
+            break;
+        case 'error':
+            className += 'chat-ai bg-danger text-white';
+            prefix = 'Hata: ';
+            break;
+    }
+
+    messageDiv.className = className;
+    messageDiv.innerHTML = `<strong>${prefix}</strong>${message.replace(/\n/g, '<br>')}`;
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function addLoadingMessage() {
+    const chatMessages = document.getElementById('chatMessages');
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loadingMessage';
+    loadingDiv.className = 'chat-message chat-ai';
+    loadingDiv.innerHTML = `
+        <strong>Claude:</strong>
+        <div class="loading-dots">
+            <div></div><div></div><div></div><div></div>
+        </div>
+    `;
+    chatMessages.appendChild(loadingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeLoadingMessage() {
+    const loadingMessage = document.getElementById('loadingMessage');
+    if (loadingMessage) {
+        loadingMessage.remove();
+    }
+}
+
+function insertExample(text) {
+    document.getElementById('messageInput').value = text;
+}
+
+function insertCourse(code) {
+    const input = document.getElementById('messageInput');
+    input.value = `${code} için `;
+    input.focus();
+}
+
+function insertContact(name) {
+    const input = document.getElementById('messageInput');
+    input.value = `${name}ya mail gönder: `;
+    input.focus();
+}
+
+function addCourseSelectionToChat(message, action, courses) {
+    const chatMessages = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'chat-message chat-ai';
+
+    let buttonsHtml = courses.map(course =>
+        `<button class="btn btn-outline-primary btn-sm me-2 mb-2" onclick="selectCourse('${course.code}', '${action}')">
+            ${course.code}<br><small>${course.name.substring(0, 30)}...</small>
+        </button>`
+    ).join('');
+
+    messageDiv.innerHTML = `
+        <strong>Claude:</strong> ${message}<br><br>
+        <div class="mt-2">
+            ${buttonsHtml}
+        </div>
+    `;
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function selectCourse(courseCode, action) {
+    let message = '';
+    switch(action) {
+        case 'mock_exam':
+            message = `${courseCode} için mock exam oluştur`;
+            break;
+        case 'study_plan':
+            message = `${courseCode} için study plan oluştur`;
+            break;
+        case 'pdf_analysis':
+            message = `${courseCode} için PDF analizi yap`;
+            break;
+    }
+
+    document.getElementById('messageInput').value = message;
+    sendMessage();
+}
+
+function showSuccessAlert(message) {
+    const alert = document.createElement('div');
+    alert.className = 'alert alert-success alert-dismissible fade show position-fixed';
+    alert.style.cssText = 'top: 80px; right: 20px; z-index: 1050; min-width: 300px;';
+    alert.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    document.body.appendChild(alert);
+
+    setTimeout(() => {
+        if (alert.parentNode) {
+            alert.parentNode.removeChild(alert);
+        }
+    }, 5000);
+}
+
+// Focus on input when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('messageInput').focus();
+});
+</script>
+{% endblock %}

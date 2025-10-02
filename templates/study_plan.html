@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Study Plan - Ca' Foscari Ultimate{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-white mb-4"><i class="fas fa-calendar-alt"></i> Study Plan Generator</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="fas fa-plus-circle"></i> Create 4-Week Study Plan</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i> <strong>Note:</strong> PDF Analysis must be completed before creating a study plan.
+                </div>
+
+                <form id="studyPlanForm">
+                    <div class="mb-3">
+                        <label for="courseSelect" class="form-label">Select Course</label>
+                        <select class="form-select" id="courseSelect" required>
+                            <option value="">Choose a course...</option>
+                            {% for code, course in courses.items() %}
+                            <option value="{{ code }}" {% if request.args.get('course') == code %}selected{% endif %}>
+                                {{ code }} - {{ course.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-warning btn-lg">
+                            <i class="fas fa-magic"></i> Generate Study Plan
+                        </button>
+                    </div>
+                </form>
+
+                <div id="resultsArea" class="mt-4" style="display: none;">
+                    <hr>
+                    <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
+                    <div id="planResults" style="display: none;">
+                        <h5><i class="fas fa-calendar-check"></i> Study Plan Generated</h5>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <strong>Course:</strong> <span id="planCourse"></span><br>
+                                    <strong>Generated:</strong> <span id="planTime"></span>
+                                </div>
+                                <div id="planContent" class="border rounded p-3" style="max-height: 400px; overflow-y: auto; background: #f8f9fa;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0"><i class="fas fa-list-check"></i> Features</h6>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled small">
+                    <li><i class="fas fa-check text-success"></i> 4-week structured plan</li>
+                    <li><i class="fas fa-check text-success"></i> Daily objectives</li>
+                    <li><i class="fas fa-check text-success"></i> Practice exercises</li>
+                    <li><i class="fas fa-check text-success"></i> Based on PDF analysis</li>
+                    <li><i class="fas fa-check text-success"></i> Saved to files</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('studyPlanForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    createStudyPlan();
+});
+
+function createStudyPlan() {
+    const courseCode = document.getElementById('courseSelect').value;
+    if (!courseCode) {
+        showError('Please select a course');
+        return;
+    }
+
+    hideResults();
+    showLoading(true);
+
+    fetch('/api/create-study-plan', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ course_code: courseCode })
+    })
+    .then(response => response.json())
+    .then(data => {
+        showLoading(false);
+        if (data.error) {
+            showError(data.error);
+        } else {
+            showSuccess(data);
+        }
+    })
+    .catch(error => {
+        showLoading(false);
+        showError('Request failed: ' + error.message);
+    });
+}
+
+function showSuccess(data) {
+    document.getElementById('planCourse').textContent = data.course_name;
+    document.getElementById('planTime').textContent = new Date().toLocaleString();
+    document.getElementById('planContent').innerHTML = data.plan.replace(/\n/g, '<br>');
+
+    document.getElementById('resultsArea').style.display = 'block';
+    document.getElementById('planResults').style.display = 'block';
+}
+
+function showError(message) {
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+    document.getElementById('resultsArea').style.display = 'block';
+}
+
+function hideResults() {
+    document.getElementById('resultsArea').style.display = 'none';
+    document.getElementById('errorMessage').style.display = 'none';
+    document.getElementById('planResults').style.display = 'none';
+}
+
+function showLoading(show) {
+    const btn = document.querySelector('#studyPlanForm button');
+    if (show) {
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Generating...';
+        btn.disabled = true;
+    } else {
+        btn.innerHTML = '<i class="fas fa-magic"></i> Generate Study Plan';
+        btn.disabled = false;
+    }
+}
+</script>
+{% endblock %}

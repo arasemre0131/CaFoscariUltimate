@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# API Keys and Sensitive Data - CRITICAL!
+api_keys/
+system_config.json
+credentials.json
+gmail_token.pickle
+*_key.txt
+*token*.json
+*token*.txt
+*.key
+*.secret
+
+# Personal Data - Do not commit
+config/
+email_cache.json
+contacts.json
+courses_database.json
+courses_database_backup.json
+
+# Generated Files
+mock_exams/
+study_plans/
+data/
+temp/
+uploads/
+
+# Generated Data Files
+moodle_data.json
+gmail_analysis.json
+content_analysis.json
+comprehensive_study_plan.json
+manual_exams.json
+notification_history.json
+notification_config.json
+student_profile.json
+content_analysis_cache.json
+
+# Mock Exams (generated)
+mock_exam_*.json
+answer_key_*.json
+mock_exam_series_*.json
+
+# Backup Folders
+backup_*/
+
+# Downloaded Content
+downloads/
+*.pdf
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+error.log
+
+# Temporary files
+*.tmp
+*.temp

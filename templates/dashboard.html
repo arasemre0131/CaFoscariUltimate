@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - {{ university_name or "Study Assistant" }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-white mb-4"><i class="fas fa-tachometer-alt"></i> Dashboard</h1>
+    </div>
+</div>
+
+<!-- System Status -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-book fa-2x text-primary mb-3"></i>
+                <h5>Courses</h5>
+                <h2 class="text-primary">{{ status.courses }}</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-robot fa-2x mb-3 {{ 'text-success' if status.claude_api else 'text-danger' }}"></i>
+                <h5>Claude API</h5>
+                <span class="status-indicator {{ 'status-ok' if status.claude_api else 'status-error' }}"></span>
+                {{ 'Ready' if status.claude_api else 'Not Ready' }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-envelope fa-2x mb-3 {{ 'text-success' if status.gmail else 'text-danger' }}"></i>
+                <h5>Gmail</h5>
+                <span class="status-indicator {{ 'status-ok' if status.gmail else 'status-error' }}"></span>
+                {{ 'Connected' if status.gmail else 'Disconnected' }}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-globe fa-2x mb-3 {{ 'text-success' if status.moodle else 'text-danger' }}"></i>
+                <h5>Moodle</h5>
+                <span class="status-indicator {{ 'status-ok' if status.moodle else 'status-error' }}"></span>
+                {{ 'Connected' if status.moodle else 'Disconnected' }}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-12">
+        <h3 class="text-white mb-3"><i class="fas fa-bolt"></i> Quick Actions</h3>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card feature-card h-100" onclick="window.location.href='/ai-chat'">
+            <div class="card-body text-center">
+                <i class="fas fa-robot fa-3x text-primary mb-3"></i>
+                <h5>AI Chat</h5>
+                <p class="text-muted">Doğal dil ile sistem kontrolü</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card feature-card h-100" onclick="window.location.href='/mock-exam'">
+            <div class="card-body text-center">
+                <i class="fas fa-file-alt fa-3x text-success mb-3"></i>
+                <h5>Mock Exam</h5>
+                <p class="text-muted">PDF sınav oluştur & email gönder</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card feature-card h-100" onclick="window.location.href='/study-plan'">
+            <div class="card-body text-center">
+                <i class="fas fa-calendar-alt fa-3x text-warning mb-3"></i>
+                <h5>Study Plan</h5>
+                <p class="text-muted">4 haftalık çalışma planı</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card feature-card h-100" onclick="window.location.href='/pdf-analysis'">
+            <div class="card-body text-center">
+                <i class="fas fa-chart-line fa-3x text-info mb-3"></i>
+                <h5>PDF Analysis</h5>
+                <p class="text-muted">Ders materyali analizi</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Courses Grid -->
+<div class="row mb-4">
+    <div class="col-12">
+        <h3 class="text-white mb-3"><i class="fas fa-graduation-cap"></i> Available Courses</h3>
+    </div>
+    {% for code, course in courses.items() %}
+    <div class="col-lg-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h6 class="card-title text-primary">{{ code }}</h6>
+                        <p class="card-text small">{{ course.name }}</p>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="/pdf-analysis?course={{ code }}"><i class="fas fa-chart-line me-2"></i> Analyze</a></li>
+                            <li><a class="dropdown-item" href="/mock-exam?course={{ code }}"><i class="fas fa-file-alt me-2"></i> Mock Exam</a></li>
+                            <li><a class="dropdown-item" href="/study-plan?course={{ code }}"><i class="fas fa-calendar-alt me-2"></i> Study Plan</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Recent Activity -->
+{% if recent_emails %}
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-white mb-3"><i class="fas fa-history"></i> Recent Email Activity</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    {% for email in recent_emails %}
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-envelope text-muted"></i> {{ email }}</span>
+                        <small class="text-muted">Recently used</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Auto-refresh status every 30 seconds
+setInterval(function() {
+    fetch('/api/status')
+        .then(response => response.json())
+        .then(data => {
+            // Update status indicators if needed
+            console.log('Status updated:', data);
+        })
+        .catch(error => console.log('Status update failed:', error));
+}, 30000);
+</script>
+{% endblock %}
