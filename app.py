@@ -5,6 +5,7 @@ import os, json, requests, time, re, uuid
 from datetime import datetime
 from pathlib import Path
 import threading
+from werkzeug.utils import secure_filename
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import Flow
@@ -20,7 +21,7 @@ except ImportError:
     StudyAssistant = None
 
 app = Flask(__name__)
-app.secret_key = 'cafoscari_ultimate_2024'
+app.secret_key = 'study_assistant_ultimate_2024'
 
 # Global system instance
 system = None
@@ -1000,14 +1001,17 @@ def render_course_template(template_name, **kwargs):
 
 def validate_course_code(course_code):
     """Validate course code and return error response if invalid"""
-    error_response = validate_course_code(course_code)
-    if error_response:
-        return error_response
+    if not course_code:
+        return jsonify({'error': 'Course code required'}), 400
+    if not system or course_code not in system.courses:
+        return jsonify({'error': f'Course {course_code} not found'}), 404
     return None
 
 def get_course_name(course_code):
     """Get course name from course code"""
-    return get_course_name(course_code)
+    if system and course_code in system.courses:
+        return system.courses[course_code].get('name', course_code)
+    return course_code
 
 # Gmail OAuth Configuration
 SCOPES = ['https://www.googleapis.com/auth/gmail.send']
@@ -1046,6 +1050,46 @@ def auth_gmail():
     except Exception as e:
         print(f"Gmail OAuth start error: {e}")
         return redirect(url_for('setup') + '?error=gmail_oauth_failed')
+
+@app.route('/api/upload-credentials', methods=['POST'])
+def upload_credentials():
+    """Upload Gmail credentials JSON file"""
+    try:
+        if 'credentials' not in request.files:
+            return jsonify({'error': 'No credentials file uploaded'}), 400
+
+        file = request.files['credentials']
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+
+        if not file.filename.endswith('.json'):
+            return jsonify({'error': 'File must be a JSON file'}), 400
+
+        # Create api_keys directory if it doesn't exist
+        os.makedirs('api_keys', exist_ok=True)
+
+        # Read and validate JSON content
+        try:
+            content = file.read().decode('utf-8')
+            credentials_data = json.loads(content)
+
+            # Basic validation for Google OAuth credentials
+            if 'web' in credentials_data or 'installed' in credentials_data:
+                # Save to api_keys/credentials.json (consistent with get_credentials_path())
+                credentials_path = get_credentials_path()
+                with open(credentials_path, 'w') as f:
+                    f.write(content)
+
+                return jsonify({'success': True, 'message': 'Credentials uploaded successfully'})
+            else:
+                return jsonify({'error': 'Invalid credentials format. Must be Google OAuth credentials.'}), 400
+
+        except json.JSONDecodeError:
+            return jsonify({'error': 'Invalid JSON file'}), 400
+
+    except Exception as e:
+        print(f"Credentials upload error: {e}")
+        return jsonify({'error': 'Upload failed'}), 500
 
 @app.route('/auth/gmail/callback')
 def auth_gmail_callback():
@@ -1096,13 +1140,19 @@ def auth_gmail_callback():
 
 @app.route('/api/gmail-status')
 def api_gmail_status():
-    """Check Gmail connection status"""
+    """Check Gmail connection status and credentials"""
     try:
         token_path = get_token_path()
         credentials_path = get_credentials_path()
 
-        if not token_path.exists() or not credentials_path.exists():
-            return jsonify({'connected': False})
+        # Check if credentials exist (also check root directory for backwards compatibility)
+        credentials_exist = credentials_path.exists() or Path('credentials.json').exists()
+
+        if not token_path.exists() or not credentials_exist:
+            return jsonify({
+                'connected': False,
+                'credentials_exist': credentials_exist
+            })
 
         # Load and validate token
         with open(token_path, 'r') as f:
